@@ -2,6 +2,7 @@ body {
   background-image: url("https://www.stockvault.net/data/2021/05/10/285722/thumb16.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 #Religion {
@@ -34,11 +35,15 @@ body {
 
 .top-button {
   display: block;
-  background-color: #04aa6d;
-  color: white;
+  background-color: #117934;
+  color: rgb(255, 255, 255);
   padding: 20px;
   font-size: 12px;
-  border: none;
+  border: 2px;
+  border-style: outset;
+  border-color: black;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -48,7 +53,9 @@ body {
   grid-template-areas: "left1 left2 left3 main right1 right2 right3";
   grid-gap: 10px;
   padding: 10px;
-  background-color: #000000;
+  background-image: url("https://i.pinimg.com/originals/1b/55/e4/1b55e4bdb4fc6051382e370bf26d5a59.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   justify-items: center;
   align-items: center;
 }
@@ -80,8 +87,8 @@ body {
 /* Dropdown Button */
 .dropbtn {
   display: block;
-  background-color: #04aa6d;
-  color: white;
+  background-color: #15833a;
+  color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 12px;
   border: none;
@@ -90,7 +97,7 @@ body {
 }
 .top-dropbtn {
   display: block;
-  background-color: #04aa6d;
+  background-color: #15833a;
   color: white;
   width: 100%;
   padding: 10px;
@@ -108,7 +115,7 @@ body {
 .top-dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #44bb6c;
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -123,7 +130,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #6ce293;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -131,7 +138,7 @@ body {
 
 /*Top menu button styling*/
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #5ebb7d;
 }
 .top-dropdown-content a:hover {
   background-color: #ddd;
