@@ -1,3 +1,9 @@
+body {
+  background-image: url("https://www.stockvault.net/data/2021/05/10/285722/thumb16.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #Religion {
   grid-area: left1;
 }
@@ -14,7 +20,7 @@
   grid-area: main;
 }
 
-#Character {
+#Races {
   grid-area: right1;
 }
 
@@ -41,8 +47,8 @@
   display: grid;
   grid-template-areas: "left1 left2 left3 main right1 right2 right3";
   grid-gap: 10px;
-  background-color: #000000;
   padding: 10px;
+  background-color: #000000;
   justify-items: center;
   align-items: center;
 }
@@ -168,6 +174,16 @@
   margin: auto;
   width: 50%;
 }
+
+.race-title {
+  font-size: 30px;
+  color: #5a0000;
+}
+.race-header {
+  font-size: 24px;
+  color: #3e8e41;
+}
+/*
 #World-tree {
   padding: 50%;
   position: absolute;
@@ -217,3 +233,4 @@
   top: -60px;
   margin: auto;
 }
+*/

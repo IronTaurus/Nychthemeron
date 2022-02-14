@@ -15,7 +15,7 @@
         <button id="History" class="top-button" onclick="window.location.href='Lore.html';">History</button>
         <button id="Myths" class="top-button" onclick="window.location.href='Lore.html';">Myths</button>
         <a id="Home" onclick="href='index2.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
-        <button id="Character" class="top-button" onclick="window.location.href='Lore.html';">Character</button>
+        <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
         <button id="Classes" class="top-button" onclick="window.location.href='Lore.html';">Classes</button>
         <button id="Rules" class="top-button" onclick="window.location.href='Lore.html';">Rules</button>
     </div>
@@ -24,14 +24,15 @@
         <div class="dropdown">
             <button class="dropbtn" onclick="window.location.href='#';">Athernis</button>
             <div class="dropdown-content">
-                <a href="#athernis-race">Light Elestine</a>
-                <a href="#athernis-race">Dark Elestine</a>
+                <a href="#LightElestine">Light Elestine</a>
+                <a href="#DarkElestine">Dark Elestine</a>
             </div>
         </div>
 
         <div class="dropdown">
             <button class="dropbtn" onclick="window.location.href='Religion.html';">Mihridahl</button>
             <div class="dropdown-content">
+                <a href="#Human">Human</a>
                 <a href="#">Dwarves</a>
                 <a href="#">High Elves</a>
                 <a href="#">Dark Elves</a>
@@ -43,37 +44,104 @@
         <div class="dropdown">
             <button class="dropbtn" onclick="window.location.href='Religion.html';">Naerini</button>
             <div class="dropdown-content">
-                <a href="#">World Tree</a>
-                <a href="#">Returners</a>
-                <a href="#">Eternal Sparks</a>
+                <a href="#Dryad">Dryad</a>
+                <a href="#">Gnomes</a>
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='Religion.html';">Naerini</button>
+            <button class="dropbtn" onclick="window.location.href='Religion.html';">Cha'Rhin</button>
             <div class="dropdown-content">
-                <a href="#">World Tree</a>
-                <a href="#">Returners</a>
-                <a href="#">Eternal Sparks</a>
+                <a href="#">???</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="window.location.href='Religion.html';">Mo'Rhin</button>
+            <div class="dropdown-content">
+                <a href="#">???</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="window.location.href='Religion.html';">Devorna</button>
+            <div class="dropdown-content">
+                <a href="#">???</a>
             </div>
         </div>
     </div>
 
     <div id="athernis-race">
-        <h2>Races of Athernis</h2>
+        <h2 class="race-title">Races of Athernis</h2>
+        <div id="LightElestine">
+            <h4 class="race-header">Light Elestine</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+        <div id="DarkElestine">
+            <h4 class="race-header">Dark Elestine</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
 
-        <h4 class="race-header">Light Elestine</h4>
-        <h5 class="race-sub-header">Background:</h5>
-        <p>Light elestine is what most people would call angels, they live in the realm of gods rather than worship the
-            gods they live among them.</p>
-        <h5 class="race-sub-header">Appearence:</h5>
-        <p>Light Elstine has pale almost white skin and white/blonde hair, their colors vary very little and their eyes
-            have very small irises making their eyes seem almost completely white.</p>
-
-        <h4 class="race-header">Dark Elestine</h4>
-        <h5 class="race-sub-header">Background:</h5>
-        <p>text will be placed here</p>
-        <h5 class="race-sub-header">Appearence:</h5>
-        <p>text will be placed here</p>
+    </div>
+    <div id="mihridahl-race">
+        <h2 class="race-title">Races of Mihridahl</h2>
+        <div id="Human">
+            <h4 class="race-header">Human</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+        <div id="HighElves">
+            <h4 class="race-header">High Elves</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+    </div>
+    <div id="naerini-race">
+        <h2 class="race-title">Races of Naerini</h2>
+        <div id="Human">
+            <h4 class="race-header">Dryad</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+    </div>
+    <div id="charhin-race">
+        <h2 class="race-title">Races of Cha'Rhin</h2>
+        <div id="????">
+            <h4 class="race-header">Dryad</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+    </div>
+    <div id="morhin-race">
+        <h2 class="race-title">Races of Mo'Rhin</h2>
+        <div id="Mermen">
+            <h4 class="race-header">Mermen</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
+    </div>
+    <div id="Devorna-race">
+        <h2 class="race-title">Races of Devorna</h2>
+        <div id="????">
+            <h4 class="race-header">Dark Borns</h4>
+            <h5 class="race-sub-header">Background:</h5>
+            <p>...</p>
+            <h5 class="race-sub-header">Appearence:</h5>
+            <p>...</p>
+        </div>
     </div>
 </body>
 
