@@ -207,8 +207,8 @@ body {
   margin: 50px;
 }
 .card {
-  list-style-type: none;
-  display: inline-table;
+  display: inline-flex;
+  margin: 10px;
 }
 .cardimg:hover {
   transform-origin: center;
@@ -216,7 +216,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.card .tooltiptext {
+.tooltiptext {
   visibility: hidden;
   width: 120px;
   background-color: black;
@@ -227,11 +227,6 @@ body {
 
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
-}
-
-.cardimg:hover .tooltiptext {
-  visibility: visible;
 }
 
 .flipcard_btn {
