@@ -181,14 +181,65 @@ body {
   margin: auto;
   width: 50%;
 }
-
+.race-block {
+  text-align: center;
+  border: 2px;
+  border-style: outset;
+  border-color: #117934;
+  border-radius: 20px;
+  border-width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .race-title {
+  text-align: center;
   font-size: 30px;
   color: #5a0000;
 }
 .race-header {
   font-size: 24px;
   color: #3e8e41;
+}
+
+.cardcontainer {
+  margin: 50px;
+}
+.card {
+  list-style-type: none;
+  display: inline-table;
+}
+.cardimg:hover {
+  transform-origin: center;
+  transform: scale(2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.cardimg:hover .tooltiptext {
+  visibility: visible;
+}
+
+.flipcard_btn {
+  width: 225px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #6ce293;
+  font-size: 24px;
 }
 /*
 #World-tree {
