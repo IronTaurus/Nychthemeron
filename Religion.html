@@ -10,26 +10,14 @@
 </head>
 
 <body>
-    <div id="Top-menu-1" class="top-menu">
-        <div class="top-dropdown">
-            <button class="top-dropbtn" onclick="window.location.href='Lore.html';">World Lore</button>
-            <div class="top-dropdown-content">
-                <a href="Religion.html">Religion</a>
-                <a href="#">History</a>
-                <a href="#">Myths</a>
-            </div>
-        </div>
-
-        <a id="top-button" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
-
-        <div class="top-dropdown">
-            <button class="top-dropbtn" onclick="window.location.href='Classes.html';">Game Mechanics</button>
-            <div class="top-dropdown-content">
-                <a href="#">Character Builder</a>
-                <a href="Classes.html">Classes</a>
-                <a href="#">Rules</a>
-            </div>
-        </div>
+    <div class="Grid-container-top">
+        <button id="Religion" class="top-button" onclick="window.location.href='Lore.html';">Religion</button>
+        <button id="History" class="top-button" onclick="window.location.href='Lore.html';">History</button>
+        <button id="Myths" class="top-button" onclick="window.location.href='Lore.html';">Myths</button>
+        <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+        <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+        <button id="Classes" class="top-button" onclick="window.location.href='Classes.html';">Classes</button>
+        <button id="Rules" class="top-button" onclick="window.location.href='Lore.html';">Rules</button>
     </div>
     <div id="Top-menu-2" class="top-menu">
         <div class="dropdown">
@@ -64,11 +52,23 @@
         </div>
     </div>
 
+    <div class="main-block">
+        <h2 class="block-title">What is a player?</h2>
+        <p>
+            Each creature is born as a part of the world tree, their body is connected to it and they are born and die
+            as part of it. Apart from that there is also a certain connection to the Eternal Gods, the power from the
+            sun and moon from light and darkness. Each creature is connected to them to some degree but players have a
+            strong connection to the Eternal Gods and gain power from them.
+            Now some may have another source as well such as an Immortal God or a pact with a Demon but regardless of
+            that the connection with the Ancient Gods remains to be the majority of their power. Why these people have
+            this power is not known but there is a name for them, the true children of the tree.
+        </p>
 
+    </div>
 
-    <div id="body-text">
-        <h1 id="Religion-Header">Eternal Gods</h1>
-        <p id="Religion-text">
+    <div class="main-block">
+        <h1 class="block-title">Eternal Gods</h1>
+        <p>
             Eternal gods are something whose existence and power is undeniable, they don’t require prayer to enforce
             their power or existence and very rarely answers any. An example of an eternal god is the Soln and Lunre,
             which are the sun and moon in Mihridahl. The eternal gods maintain the reality and natural order, they also
