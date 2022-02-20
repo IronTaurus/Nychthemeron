@@ -1,7 +1,12 @@
 body {
   background-image: url("https://qph.fs.quoracdn.net/main-qimg-8e0f9039ec0d5917a42996858a253e87-lq");
-  background-repeat: repeat-x;
+  background-repeat: repeat;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+#text-block {
+  font-size: 18px;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 #Religion {
@@ -194,9 +199,9 @@ body {
 
 .sub-block {
   text-align: center;
-  background-color: #cef6dd;
-  border: 2px;
-  border-color: #15833a;
+  border: 2px solid;
+  background-color: rgba(204, 245, 209, 0.4);
+  border-color: #7fd39b;
   border-style: ridge;
   border-radius: 10px;
   border-width: 100%;
