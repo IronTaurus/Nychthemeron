@@ -10,108 +10,113 @@
 </head>
 
 <body>
-    <div class="Grid-container-top">
-        <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
-        <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
-        <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
-        <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
-        <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
-        <button id="Classes" class="top-button" onclick="window.location.href='Classes.html';">Classes</button>
-        <button id="Rules" class="top-button" onclick="window.location.href='Rules.html';">Rules</button>
+    <div id="fixed-banner">
+        <div class="Grid-container-top">
+            <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+            <button id="Classes" class="top-button" onclick="window.location.href='Classes.html';">Classes</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='Rules.html';">Rules</button>
+        </div>
+
+        <div id="Top-menu-2" class="top-menu">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Fighter</button>
+                <div class="dropdown-content">
+                    <a href="#">Berserker</a>
+                    <a href="#">Vanguard</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Apprentice</button>
+                <div class="dropdown-content">
+                    <a href="#Human">Human</a>
+                    <a href="#">Sun</a>
+                    <a href="#">War</a>
+                    <a href="#">Death</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Ranger</button>
+                <div class="dropdown-content">
+                    <a href="Ranger-Hunter.html">Hunter</a>
+                    <a href="#">Sharpshooter</a>
+                    <a href="#">Duelist</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Warlock</button>
+                <div class="dropdown-content">
+                    <a href="#">Shadow</a>
+                    <a href="#">Necro</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Wizard</button>
+                <div class="dropdown-content">
+                    <a href="#">Elemental</a>
+                    <a href="#">Chaos</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Druid</button>
+                <div class="dropdown-content">
+                    <a href="#">Forest</a>
+                    <a href="#">Shaper</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="Top-menu-2" class="top-menu">
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Fighter</button>
-            <div class="dropdown-content">
-                <a href="#">Berserker</a>
-                <a href="#">Vanguard</a>
+    <div id="main-block">
+        <div class="cardcontainer">
+            <div id="Card01" class="card">
+                <span class="tooltiptext">Click to flip</span>
+                <img src="Art/Ranger/Hunter/01_sun.png" alt="Sun" width="225" height="300" onclick="changeside(1)"
+                    id="card-changer1" class="cardimg">
             </div>
-        </div>
 
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Apprentice</button>
-            <div class="dropdown-content">
-                <a href="#Human">Human</a>
-                <a href="#">Sun</a>
-                <a href="#">War</a>
-                <a href="#">Death</a>
+            <div id="Card02" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/02_sun.png" alt="Sun" width="225" height="300" onclick="changeside(2)"
+                    id="card-changer2" class="cardimg">
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Ranger</button>
-            <div class="dropdown-content">
-                <a href="Ranger-Hunter.html">Hunter</a>
-                <a href="#">Sharpshooter</a>
-                <a href="#">Duelist</a>
+
+            <div id="Card03" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/03_sun.png" alt="Sun" width="225" height="300" onclick="changeside(3)"
+                    id="card-changer3" class="cardimg">
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Warlock</button>
-            <div class="dropdown-content">
-                <a href="#">Shadow</a>
-                <a href="#">Necro</a>
+
+            <div id="Card04" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/04_sun.png" alt="Sun" width="225" height="300" onclick="changeside(4)"
+                    id="card-changer4" class="cardimg">
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Wizard</button>
-            <div class="dropdown-content">
-                <a href="#">Elemental</a>
-                <a href="#">Chaos</a>
+
+            <div id="Card05" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/05_sun.png" alt="Sun" width="225" height="300" onclick="changeside(5)"
+                    id="card-changer5" class="cardimg">
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="window.location.href='#';">Druid</button>
-            <div class="dropdown-content">
-                <a href="#">Forest</a>
-                <a href="#">Shaper</a>
+
+            <div id="Card06" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/06_sun.png" alt="Sun" width="225" height="300" onclick="changeside(6)"
+                    id="card-changer6" class="cardimg">
+            </div>
+
+            <div id="Card07" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="Art/Ranger/Hunter/07_sun.png" alt="Sun" width="225" height="300" onclick="changeside(7)"
+                    id="card-changer7" class="cardimg">
             </div>
         </div>
     </div>
 
-    <div class="cardcontainer">
-        <div id="Card01" class="card">
-            <span class="tooltiptext">Click to flip</span>
-            <img src="Art/Ranger/Hunter/01_sun.png" alt="Sun" width="225" height="300" onclick="changeside(1)"
-                id="card-changer1" class="cardimg">
-        </div>
-
-        <div id="Card02" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/02_sun.png" alt="Sun" width="225" height="300" onclick="changeside(2)"
-                id="card-changer2" class="cardimg">
-        </div>
-
-        <div id="Card03" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/03_sun.png" alt="Sun" width="225" height="300" onclick="changeside(3)"
-                id="card-changer3" class="cardimg">
-        </div>
-
-        <div id="Card04" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/04_sun.png" alt="Sun" width="225" height="300" onclick="changeside(4)"
-                id="card-changer4" class="cardimg">
-        </div>
-
-        <div id="Card05" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/05_sun.png" alt="Sun" width="225" height="300" onclick="changeside(5)"
-                id="card-changer5" class="cardimg">
-        </div>
-
-        <div id="Card06" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/06_sun.png" alt="Sun" width="225" height="300" onclick="changeside(6)"
-                id="card-changer6" class="cardimg">
-        </div>
-
-        <div id="Card07" class="card">
-            <span class="tooltiptext">Tooltip text</span>
-            <img src="Art/Ranger/Hunter/07_sun.png" alt="Sun" width="225" height="300" onclick="changeside(7)"
-                id="card-changer7" class="cardimg">
-        </div>
-    </div>
 </body>
 <script language="javascript">
     function changeside(cardnr) {
