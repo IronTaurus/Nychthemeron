@@ -167,7 +167,7 @@ body {
   margin: 50px;
 }
 .card {
-  display: inline-flex;
+  display: inline-table;
   margin: 10px;
 }
 .cardimg:hover {
