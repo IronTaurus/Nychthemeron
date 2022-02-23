@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <div class="Grid-container-top">
+            <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+            <button id="Cards" class="top-button" onclick="window.location.href='Cards.html';">Cards</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='Rules.html';">Rules</button>
+        </div>
+        <div id="Top-menu-2" class="top-menu">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Basics</button>
+                <div class="dropdown-content">
+                    <a href="#">Athernis</a>
+                    <a href="#">Mihridahl</a>
+                    <a href="#">Naerini</a>
+                    <a href="#">Cha'Rhin</a>
+                    <a href="#">Mo'Rhin</a>
+                    <a href="#">Devorna</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#battle-system';">Battle System</button>
+                <div class="dropdown-content">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#out-of-combat';">Out of Combat</button>
+                <div class="dropdown-content">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#character-creation';">Character
+                    creation</button>
+                <div class="dropdown-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="main-block">
+        <div class="section">
+
+            <h1 class="block-title" id="Basics">Basics</h1>
+            <div class="sub-block">
+                <div id="text-block">
+                    <p>
+                        Realms Of Etharia is a turn based card roleplaying game, the game is sort of a mix between DnD
+                        and Magic the Gathering. The game does not have any dice making it less luck based while still
+                        retaining some random elements, a calculable randomness so to speak. The way this is that most
+                        random elements come in the form of a deck called Action Cards, these cards determine your
+                        overall damage value as well as your success rate, much like a dice does in DnD but since the
+                        deck has a limited amount of cards you can keep track on how many good or bad cards there are
+                        left in the deck.
+                        The game features a lot of customizability both by multi classing, adding removing Action Cards
+                        in your deck as well as the choice of races.
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="block">
+                <h1 class="block-title" id="battle-system">Battle System</h1>
+                <div class="sub-block">
+                    <div id="text-block">
+                        <p>
+                        </p>
+                    </div>
+
+                    <div id="flex-section">
+                        <div class="sub-section" id="sub-section-border">
+                            <h4 class="block-header">Turns & Rounds</h4>
+                            <div id="text-block">
+                                <p>
+                                    The combat is broken down into rounds and turns, During every round each player will
+                                    take a turn to do their actions. </p>
+                                </p>
+                            </div>
+                            <h4 class="block-header">Initative</h4>
+                            <div id="text-block">
+                                <p id="text-block">
+                                    Each character draws 3 Action Cards and adds any bonuses to determine your starting
+                                    initiative. The initiative is checked at the start of each Battle Round meaning that
+                                    the
+                                    value and turn order can be changed mid combat.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="sub-section">
+                            <img src="https://i.pinimg.com/564x/c5/46/83/c546831a085a05346802d90dbace13e5.jpg"
+                                width="280px" heigh="350px">
+                        </div>
+                    </div>
+                    <div id="flex-section">
+                        <div class="sub-section" id="sub-section-border">
+                            <h4 class="block-header">Armor</h4>
+                            <div id="text-block">
+                                <p>
+                                    Armor will block incoming physical damage up to the value each round. Every new
+                                    round resets the value. The rules of the armor state the following: “Whenever you
+                                    are dealt physical damage, for each point of damage remove an equal number of
+                                    charges and reduce damage taken equal to the number of charges removed this way, the
+                                    charges are reset at the beginning of the next round.</p>
+                                </p>
+                            </div>
+                            <h4 class="block-header">Conditions</h4>
+                            <div id="text-block">
+                                <p id="text-block">
+                                    Conditions is another big part of the battle system, a card is added to your
+                                    character whenever you are inflicted by a condition. Each condition has an effect
+                                    and duration all stated on the card.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="sub-section" id="sub-section-border">
+                            <h4 class="block-header">Physical and Magical damage</h4>
+                            <div id="text-block">
+                                <p>
+                                    An attack can be physical and/or magical, usually this is determined by the nature
+                                    of the attack such as Melee and ranged weapons are physical while spells are
+                                    magical. There are also additional types such as fire, radiant, necrotic damage.
+                                    While usually the type of damage does not matter much and taking 5 points of
+                                    physical damage is the same as 5 points of magic there are some cases where a
+                                    character is resistant to one and not the other. </p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="block">
+                <h1 class="block-title" id="out-of-combat">Out of Combat</h1>
+                <div class="sub-block">
+                    <div id="text-block">
+                        <p>
+                            Each new day resets the player's SP and also turns each card over to its sun side.
+                            Using cards out of combat works the same way as using them in combat however since Recover
+                            normally has no way to restore itself back to its sun side you need to be wary of how you
+                            use your abilities in order to not run dry when a battle starts. </p>
+                        </p>
+                    </div>
+                    <div id="flex-section">
+                        <div class="sub-section">
+                            <img src="https://i.pinimg.com/564x/3a/35/bd/3a35bd586cb67bee520ae4526e669362.jpg"
+                                width="332px" height="621px">
+                        </div>
+                        <div class="sub-section" id="sub-section-border">
+                            <h4 class="block-header">Ability Check</h4>
+                            <div id="text-block">
+                                <p>
+                                    Whenever a player makes an ability check, he or she draws 5 cards from the
+                                    ActionCards
+                                    deck, each card is either a Sun or a Moon, whether the sun or moon card is
+                                    considered a success or fail is based on the current time being night or day.
+                                </p>
+                            </div>
+                            <h4 class="block-header">Spending Points</h4>
+                            <div id="text-block">
+                                <p>
+                                    A player may also spend points based on the respective stat to draw additional
+                                    cards.
+                                    For example if a player makes a perception (Mind) check and has a Mind stat of 3,
+                                    he/she may choose to spend up to 3 points of Mind to draw that many additional cards
+                                    and add it to the 3 other cards to increase the chances of succeeding.
+                                    Spending these points may be done after seeing the first 3 cards and is replenished
+                                    after a long rest.
+                                </p>
+                            </div>
+                            <h4 class="block-header">Difficulty Rating</h4>
+                            <div id="text-block">
+                                <p>
+                                    The DM determines the difficulty of a certain challenge and the player need to draw
+                                    a number of success cards corresponding to that difficulty.
+                                    For example: if the difficulty is 2 then the player needs 2 success amongst the card
+                                    he/she draws.
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="Art/ActionCards.png" width="363" height="302">
+                        </div>
+
+                    </div>
+                    <div id="text-block">
+                        <p>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

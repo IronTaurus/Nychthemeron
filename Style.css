@@ -29,7 +29,7 @@ body {
   grid-area: right1;
 }
 
-#Classes {
+#Cards {
   grid-area: right2;
 }
 
@@ -151,7 +151,7 @@ body {
   border-radius: 30px;
   border-color: #000000;
   border: 2px solid;
-  margin: 20px;
+  margin: 0px;
 }
 
 .sub-section {
@@ -169,8 +169,8 @@ body {
   border-style: ridge;
   border-radius: 10px;
   border-width: 100%;
-  margin-top: 30px;
-  margin-bottom: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .block-title {
