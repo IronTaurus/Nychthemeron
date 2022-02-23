@@ -50,9 +50,9 @@ body {
   color: rgb(255, 255, 255);
   padding: 20px;
   font-size: 12px;
-  border: 2px;
-  border-style: outset;
-  border-color: black;
+  border: 1px;
+  border-style: solid;
+  border-color: #034218;
   border-bottom-left-radius: 30px;
   border-top-right-radius: 30px;
   margin-left: 10px;
@@ -62,6 +62,7 @@ body {
 .Grid-container-top {
   width: 100%;
   display: grid;
+  border: #034218 solid 1px;
   grid-template-areas: "left1 left2 left3 main right1 right2 right3";
   background-image: url("https://i.pinimg.com/originals/1b/55/e4/1b55e4bdb4fc6051382e370bf26d5a59.jpg");
   background-repeat: repeat-x;
@@ -84,7 +85,9 @@ body {
   color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 12px;
-  border: none;
+  border: 1px solid;
+  border-top: none;
+  border-color: #034218;
   margin-left: 5px;
   margin-right: 5px;
 }
