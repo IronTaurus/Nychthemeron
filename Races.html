@@ -61,8 +61,8 @@
         <div class="dropdown">
           <button class="dropbtn">Athernis</button>
           <div class="dropdown-content">
-            <a href="#" onClick="viewElement('LightElestine');">Light Elestine</a>
-            <a href="#" onClick="viewElement(DarkElestine)">Dark Elestine</a>
+            <a onClick="viewElement('LightElestine');">Light Elestine</a>
+            <a onClick="viewElement('DarkElestine');">Dark Elestine</a>
           </div>
         </div>
 
@@ -70,12 +70,11 @@
           <button class="dropbtn">Mihridahl</button>
           <div class="dropdown-content">
             <a onclick="viewElement('Humans');">Humans</a>
-            <a href="#" onclick="viewElement(Dwarves)">Dwarves</a>
-            <a href="#" onclick="viewElement(HighElves)">High Elves</a>
-            <a href="#">Dark Elves</a>
-            <a href="#">Halflings</a>
-            <a href="#">Dalin</a>
-            <a href="#">Orch</a>
+            <a onclick="viewElement('Dwarves');">Dwarves</a>
+            <a onclick="viewElement('HighElves');">High Elves</a>
+            <a onclick="viewElement('DarkElves');">Dark Elves</a>
+            <a onclick="viewElement('Dalin');">Dalin</a>
+            <a onclick="viewElement('Orch');">Orch</a>
           </div>
         </div>
         <div class="dropdown">
@@ -142,12 +141,40 @@
           <p>...</p>
         </div>
         <div class="sub-section" id="sub-section-border">
-          <h4 class="block-header" id="HighElves">High Elves</h4>
+          <h4 class="block-header" id="Dwarves">Dwarves</h4>
           <h5 class="sub-header">Background:</h5>
           <p id="text-block">...</p>
           <h5 class="sub-header">Appearence:</h5>
           <p id="text-block">...</p>
         </div>
+        <div class="sub-section" id="sub-section-border">
+            <h4 class="block-header" id="HighElves">High Elves</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+          </div>
+          <div class="sub-section" id="sub-section-border">
+            <h4 class="block-header" id="DarkElves">Dark Elves</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+          </div>
+          <div class="sub-section" id="sub-section-border">
+            <h4 class="block-header" id="Dalin">Dalin</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+          </div>
+          <div class="sub-section" id="sub-section-border">
+            <h4 class="block-header" id="Orch">Orch</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+          </div>
       </div>
       <div id="naerini-race" class="section">
         <h2 class="block-title">Races of Naerini</h2>
@@ -194,7 +221,7 @@
     <script>
         function viewElement(scrollTo) {
           console.log(scrollTo);
-          document.getElementById('Humans').scrollIntoView({
+          document.getElementById(scrollTo).scrollIntoView({
     behavior: 'auto',
     block: 'center',
     inline: 'center'
