@@ -233,13 +233,10 @@ body {
   position: absolute;
   border: #034218 solid 1px;
   border-radius: 10px;
-  background-color: #a4e9bb;
+  background-color: #d7f1e0;
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
-.trait-box {
-  position: relative;
 }
 .trait-box:hover {
   cursor: default;
