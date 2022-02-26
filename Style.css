@@ -4,7 +4,7 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 #text-block {
-  font-size: 18px;
+  font-size: 20px;
   margin-left: 60px;
   margin-right: 60px;
 }
@@ -50,7 +50,8 @@ body {
   background-color: #117934;
   color: rgb(255, 255, 255);
   padding: 20px;
-  font-size: 12px;
+  font-size: 24px;
+  font-family: Gabriola;
   border: 1px;
   border-style: solid;
   border-color: #034218;
