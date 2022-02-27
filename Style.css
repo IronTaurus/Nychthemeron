@@ -4,7 +4,7 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 #text-block {
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 60px;
   margin-right: 60px;
 }
@@ -49,7 +49,7 @@ body {
   display: block;
   background-color: #117934;
   color: rgb(255, 255, 255);
-  padding: 20px;
+  padding: 5px 15px 5px 15px;
   font-size: 24px;
   font-family: Gabriola;
   border: 1px;
@@ -59,6 +59,10 @@ body {
   border-top-right-radius: 30px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.top-button:hover {
+  background-color: #39a03c;
+  box-shadow: 0 5px 15px #77ff7ed0;
 }
 
 .Grid-container-top {
@@ -110,13 +114,13 @@ body {
 }
 /*Top menu button styling*/
 .dropdown-content a:hover {
-  background-color: #5ebb7d;
+  background-color: #4ebd52;
 }
 .dropdown:hover .dropdown-content {
   display: block;
 }
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #4ebd52;
   cursor: pointer;
 }
 /* Links inside the dropdown */
@@ -178,12 +182,13 @@ body {
 }
 
 .block-title {
+  text-shadow: 0px 0px 1px #000000;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   color: #5a0000;
 }
 .block-header {
-  font-size: 24px;
+  font-size: 28px;
   color: #3e8e41;
 }
 
