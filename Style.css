@@ -215,16 +215,20 @@ body {
 
 #trait-list {
   display: flex;
+  flex-wrap: wrap;
+  width: auto;
   justify-content: center;
-  margin: 40px 5px 20px 5px;
 }
+.trait-box{
+  margin: 1%
+}
+
 #positive-trait {
   border: 1px solid #034218;
   border-radius: 10px;
   background-color: rgb(41, 175, 75);
   font-size: 18px;
   padding: 5px;
-  margin: 0px 5px 10px 5px;
 }
 #negative-trait {
   border: 1px solid #420303;
@@ -232,7 +236,6 @@ body {
   background-color: rgb(206, 48, 48);
   font-size: 18px;
   padding: 5px;
-  margin: 0px 5px 10px 5px;
 }
 .trait-pop-content {
   display: none;
