@@ -198,11 +198,17 @@ body {
   font-size: 40px;
   color: #5a0000;
 }
+
 .block-header {
-  font-size: 28px;
+  margin: 20px 0px 0px 0px;
+  font-size: 35px;
   color: #3e8e41;
 }
-
+.sub-title {
+  margin: 0%;
+  font-size: 22px;
+  color: #68a56a;
+}
 .cardcontainer {
   margin: 50px;
 }
@@ -230,8 +236,8 @@ body {
   width: auto;
   justify-content: center;
 }
-.trait-box{
-  margin: 1%
+.trait-box {
+  margin: 1%;
 }
 
 #positive-trait {
