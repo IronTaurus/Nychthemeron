@@ -8,6 +8,17 @@ body {
   margin-left: 60px;
   margin-right: 60px;
 }
+#flavour-text{
+  background: rgba(163, 106, 40, 0.432);
+  border: solid 2px black;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px #000000a2;
+  padding: 8px;
+  max-width: 400px;
+  font-style: italic;
+  font-size: 14px;
+  margin: 10px;
+}
 
 #Religion {
   grid-area: left1;
@@ -47,7 +58,7 @@ body {
 .top-button {
   cursor: pointer;
   display: block;
-  background-color: #117934;
+  background-color: #158359;
   color: rgb(255, 255, 255);
   padding: 5px 15px 5px 15px;
   font-size: 24px;
@@ -61,8 +72,8 @@ body {
   margin-right: 10px;
 }
 .top-button:hover {
-  background-color: #39a03c;
-  box-shadow: 0 5px 15px #77ff7ed0;
+  background-color: #28a374;
+  box-shadow: 0 5px 15px #77ffcbd0;
 }
 
 .Grid-container-top {
