@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="cc_style.css" />
+    <title>Form</title>
+</head>
+
+<body>
+    <form id="cForm">
+        <div class="CardClass">
+            <input type="radio" class="classTypes" id="classFighter" name="cClassF" value="Fighter">
+              <label for="classFighter">Fighter</label>
+              <input type="radio" class="classTypes" id="classCleric" name="cClasC" value="Cleric">
+              <label for="classCleric">Cleric</label>
+              <input type="radio" class="classTypes" id="classRanger" name="cClasR" value="Ranger">
+              <label for="classRanger">Ranger</label>
+        </div>
+
+        <div class="Sun">
+            <fieldset>
+                <legend>Sun side</legend>
+                <label for="csTitle">Card title:</label><br>
+                <input type="text" id="csTitle" name="csTitle" value="Fireball"><br>
+                <input type="checkbox" class="csTypes" id="csType1" name="csType1" value="Standard ">
+                <label for="csType1">Standard</label>
+                <input type="checkbox" class="csTypes" id="csType2" name="csType2" value="Movement ">
+                <label for="csType2">Movement</label><br>
+                <input type="checkbox" class="csTypes" id="csType3" name="csType3" value="Reaction">
+                <label for="csType3">Reaction</label>
+                <input type="checkbox" class="csTypes" id="csType4" name="csType4" value="Passive ">
+                <label for="csType4">Passive</label><br>
+                <label for="csCost">Spirit Cost:</label>
+                <input type="text" style="width: 40px;" id="csCost" name="csCost" value="0"><br>
+                <label for="csRule">Card rule text:</label><br>
+                <textarea id="csRule" name="csRule" rows="6"
+                    cols="30">Target creature is dealt 5 {ac} + {b} fire damage...</textarea><br>
+                <label for="csFlavor">Flavor text</label><br>
+                <textarea id="csFlavor" name="csFlavor" rows="6"
+                    cols="30">Magus Magmaton was the founder of the fire guild and the creator of the fireball spell...</textarea><br>
+            </fieldset>
+        </div>
+
+        <div class="Moon">
+            <fieldset>
+                <legend>Moon side</legend>
+                <label for="cmTitle">Card title:</label><br>
+                <input type="text" id="cmTitle" name="cmTitle" value="Frostbolt"><br>
+                <input type="checkbox" id="cmType1" name="cmType1" value="Standard">
+                <label for="cmType1">Standard</label>
+                <input type="checkbox" id="cmType2" name="cmType2" value="Movement">
+                <label for="cmType2">Movement</label><br>
+                <input type="checkbox" id="cmType3" name="cmType3" value="Reaction">
+                <label for="cmType3">Reaction</label>
+                <input type="checkbox" id="cmType4" name="cmType4" value="Passive">
+                <label for="cmType4">Passive</label><br>
+                <label for="cmCost">Spirit Cost:</label>
+                <input type="text" style="width: 40px;" id="cmCost" name="cmCost" value="0"><br>
+                <label for="cmRule">Card rule text:</label><br>
+                <textarea id="cmRule" name="cmRule" rows="6"
+                    cols="30">Target creature is dealt 6 cold damage...</textarea><br>
+                <label for="cmFlavor">Flavor text</label><br>
+                <textarea id="cmFlavor" name="cmFlavor" rows="6"
+                    cols="30">Frosty Icehaven was the founder of the ice guild and the creator of the frostbolt spell...</textarea>
+            </fieldset>
+        </div>
+    </form>
+    <div id="CardGeneration_box">
+        <canvas id="canvasResult" width="533px" height="748px" style="border: 1px solid #000;;"></canvas>
+        <h1 id="CardGen_Title">Title</h1>
+        <h2 id="CardGen_Types">Checkbox</h2>
+        <h4 id="CardGen_Rules">Rules be written here!</h4>
+        <h3 id="CardGen_Class">Class</h3>
+    </div>
+    <button onclick="drawCanvas()">Click me</button>
+
+
+    <script src="cc_script.js"></script>
+</body>
+
+</html>
