@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.CardClass {
+  border: 2px solid rgb(0, 0, 0);
+  padding: 15px;
+}
+
+.Sun,
+.Moon {
+  border: 2px solid rgb(0, 189, 25);
+  width: auto;
+  padding: 15px;
+  float: left;
+}
+
+.Bottom {
+  border: 2px solid rgb(255, 0, 0);
+  width: 100%;
+  padding: 15px;
+}
+#CardGeneration_box {
+  max-width: 533px;
+  max-height: 748px;
+}
