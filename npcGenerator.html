@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random NPC</title>
+</head>
+
+<body>
+
+    <div>
+        <!-- <form id="Options">
+            <input type="radio" class="nameOrigin" id="originAvena" value="Avena">
+            <label for="originAvena">Avena</label>
+            <input type="radio" class="nameOrigin" id="originAvena" value="Heln">
+            <label for="originAvena">Heln</label>
+            <input type="radio" class="nameOrigin" id="originAvena" value="Legaria">
+            <label for="originAvena">Legaria</label>
+        </form> -->
+        <button onclick="getName()">Get random name</button>
+        <h1 id="npcName">Name</h1>
+        <h2 id="height">Height: </h2>
+        <h3 id="appearenceNotable"></h3>
+        <h1 id="appearenceClothes"></h1>
+
+    </div>
+</body>
+<script>
+    var avena_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
+    var avena_male_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
+    var appearenceNotable = ['scar on left cheek', 'scar on right cheek', 'scar on chin', 'scar on the forehead', 'scar over left eye', 'scar over right eye', 'a blind left eye ', 'a blind right eye ', 'a muscular body', 'thin body', 'large built', 'tattoo on left shoulder', 'tattoo on right shoulder', 'tattoo on the back', 'tattoo on neck', 'tattoo on chest', 'tattoo on left leg', 'tattoo on right leg']
+    var appearenceClothesMaleTop = ['red linen shirt', 'white linen shirt', 'gray linen shirt', 'pink linen shirt', 'one sleeved shirt', 'bare chest', 'wrapped in bandages', 'torn linen shirt']
+    var appearenceClothesMaleBottom = ['green baggy pants', 'brown baggy pants', 'black leather pants', 'leather shorts', 'torn linen pants']
+    function getName() {
+        // if (getElementById("originAvena").checked) {
+        //     var nameList = avena_male_fNamn;
+        // }
+        var humanHeight = Math.floor(Math.random() * 40) + 150;
+        var randomNr = Math.floor(Math.random() * 3) + 1;
+        var notableList = [];
+        // var str = "He had a distinct appearence with ";
+        document.getElementById("appearenceNotable").innerHTML = "Notable features: ";
+        for (let i = 0; i <= randomNr; i++) {
+            var selectedNotable = appearenceNotable[Math.floor(Math.random() * appearenceNotable.length)]
+            if (notableList.find(x => x == selectedNotable) == true) {
+                i = -1
+            }
+            else { notableList.push(selectedNotable) }
+        };
+        notableList.forEach((element, index) => {
+            if (index == notableList.length - 1) { document.getElementById("appearenceNotable").innerHTML += ' and ' }
+            else if (notableList.indexOf(element) != 0) { document.getElementById("appearenceNotable").innerHTML += ', ' }
+            document.getElementById("appearenceNotable").innerHTML += element
+        });
+
+
+        document.getElementById("npcName").innerHTML = avena_male_fNamn[Math.floor(Math.random() * avena_male_fNamn.length)] + ' ' + avena_male_eNamn[Math.floor(Math.random() * avena_male_eNamn.length)];
+        document.getElementById("height").innerHTML = humanHeight + "cm";
+        // document.getElementById("appearenceNotable").innerHTML =
+        // document.getElementById(appearenceClothes).innerHTML = 
+    }
+</script>
+
+</html>
