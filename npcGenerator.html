@@ -11,6 +11,13 @@
 <body>
 
     <div>
+        <label for="origin-select">Sex:</label>
+        <select name="pets" id="origin-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
         <!-- <form id="Options">
             <input type="radio" class="nameOrigin" id="originAvena" value="Avena">
             <label for="originAvena">Avena</label>
@@ -28,12 +35,37 @@
     </div>
 </body>
 <script>
-    var avena_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
-    var avena_male_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
+
+    class Human {
+        constructor(name, features, clothes, origin) {
+            this.name = name;
+            this.features = features;
+            this.clothes = clothes;
+            this.origin = origin;
+        }
+
+
+    }
+
+    var avena_human_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
+    var avena_human_male_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
     var appearenceNotable = ['scar on left cheek', 'scar on right cheek', 'scar on chin', 'scar on the forehead', 'scar over left eye', 'scar over right eye', 'a blind left eye ', 'a blind right eye ', 'a muscular body', 'thin body', 'large built', 'tattoo on left shoulder', 'tattoo on right shoulder', 'tattoo on the back', 'tattoo on neck', 'tattoo on chest', 'tattoo on left leg', 'tattoo on right leg']
+    var listOfNames = [];
+    listOfNames.push(avena_human_male_fNamn);
+    listOfNames.push(avena_human_male_eNamn);
+
     var appearenceClothesMaleTop = ['red linen shirt', 'white linen shirt', 'gray linen shirt', 'pink linen shirt', 'one sleeved shirt', 'bare chest', 'wrapped in bandages', 'torn linen shirt']
     var appearenceClothesMaleBottom = ['green baggy pants', 'brown baggy pants', 'black leather pants', 'leather shorts', 'torn linen pants']
+
+    function filterItems(arr, query) {
+        return arr.filter(function (el) {
+            return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        })
+    }
+
     function getName() {
+        var selectedValue = getElementById('origin-select').value
+        filterItems(listOfNames, selectedValue);
         // if (getElementById("originAvena").checked) {
         //     var nameList = avena_male_fNamn;
         // }
