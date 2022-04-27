@@ -29,6 +29,12 @@
             <option value="">--Please choose an option--</option>
             <option value="Avena">Avena</option>
         </select>
+        <label for="job-select">Class:</label>
+        <select name="job" id="job-select">
+            <option value="random">Random</option>
+            <option value="commoner">Commoner</option>
+            <option value="noble">Noble</option>
+        </select>
         <!-- <form id="Options">
             <input type="radio" class="nameOrigin" id="originAvena" value="Avena">
             <label for="originAvena">Avena</label>
@@ -39,7 +45,9 @@
         </form> -->
         <button onclick="generateNpc()">Get random name</button>
         <h1 id="npcName">Name</h1>
+        <h2 id="job">Class </h2>
         <h2 id="height">Height: </h2>
+        <h2 id="age"></h2>
         <h3 id="appearenceNotable"></h3>
         <h3 id="appearenceClothes"></h3>
         <h3 id="appearanceHair"></h3>
@@ -47,9 +55,38 @@
     </div>
 </body>
 <script>
-
+    // class Limb{
+    //     constructor(feature){
+    //         this.feature = feature;
+    //     }        
+    // }
+    // class Part{
+    //     constructor(feature){
+    //         this.feature = feature;
+    //     }        
+    // }
+    // class Head{
+    //     constructor(feature){
+    //         this.feature = feature;
+    //     }        
+    // }
+    // class Clothes{
+    //     construction(upper, lower, set){
+    //         this.upper = upper;
+    //         this.lower = lower;
+    //         this.set = set;
+    //     }       
+    // }
+    // class Armor{
+    //     construction(upper, lower, set){
+    //         this.upper = upper;
+    //         this.lower = lower;
+    //         this.set = set;
+    //     } 
+    // }
     class Npc {
-        constructor(sex, race, name, features, clothes, height, size, origin, hair) {
+        constructor(sex, race, age, job, name, features, clothes, height, size, origin, hair) {
+            this.job = job;
             this.sex = sex;
             this.race = race;
             this.name = name;
@@ -62,33 +99,48 @@
         }
     }
     //#region Human
-    var avena_human_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
-    var avena_human_male_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
+    var avena_human_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Eric', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
+    var avena_human_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
+    var avena_human_female_fNamn = ['Ashley', 'Ally', 'Allison', 'Alina', 'Alice', 'Amber', 'Anne', 'Alexandra', 'Berith', 'Bridget', 'Brittany', 'Bella', 'Belle', 'Brienne', 'Camille', 'Caroline', 'Carol', 'Doris', 'Dartha', 'Doris', 'Danielle', 'Danie', 'Diana', 'Erica', 'Emelie', 'Emma', 'Evelyn', 'Eve', 'Evelina', 'Erina', 'Elaine', 'Ester', 'Elina', 'Elin', 'Fiona', 'Falin', 'Fredrica', 'Gwen', 'Gweneth', 'Gina', 'Goldine', 'Gabrielle', 'Geena', 'Hariette', 'Hana', 'Helen', 'Helena', 'Irena', 'Irma', 'Irianna', 'Iona', 'Imogen', 'Julianne', 
+    'Julia', 'Juliette', 'Jane', 'Josephyn', 'Joline', 'Kalista', 'Karina', 'Karin', 'Kamille', 'Laura', 'Lisa', 'Margret', 'Maria', 'Mina', 'Nina', 'Neria', 'Noelle', 'Olivia', 'Ophelia']
     //#endregion Human
     //#region Orc
     var orcFeatures = ['a large left tusk almost double the size of the other, reaching up to his cheek', 'his left tusk broken', 'a large bone ring in his nose with orcish engravings']
 
     //#endregion Orc
-    var appearenceBody = [' has a muscular body', ' has a thin meager body', ' has a large built body', ' is young and slender']
+    var appearenceBody = [' has a muscular body', ' has a thin meager body', ' has a large body', ' has a slender body']
     var appearenceMarkings = ['a tattoo on the left shoulder', 'a tattoo on the right shoulder', 'a tattoo on the back', 'a tattoo on the neck', 'a tattoo on the chest', 'a tattoo on the left leg', 'a tattoo on the right leg', 'red stripes painted over the upper body']
-    var appearenceScars = ['a large scar covering most of his left face', 'a large scar covering most of his right face', 'a visible scar over his left eye', 'a clear visible scar over his right eye', 'claw marks from hairline down to the eyebrows', 'a jagged scar on the chin',
+    var appearenceScars = ['a large scar covering most of the left face', 'a large scar covering most of the right face', 'a visible scar over the left eye', 'a clear visible scar over the right eye', 'claw marks from hairline down to the eyebrows', 'a jagged scar on the chin',
         'a large scar on the left shoulder', 'a large scar on the right shoulder', 'left side of lips torn with a nasty scar revealing the upper teeth', 'a cut off nose', 'a cut off left ear', 'a cut off right ear',
-        'a missing thumb on left hand', 'a missing thumb on his right hand', 'both ring and littlefinger missing from the left hand', 'both ring and littlefinger missing from the right hand', 'a left hand missing', 'a right hand missing']
+        'a missing thumb on the left hand', 'a missing thumb on the right hand', 'both ring and littlefinger missing from the left hand', 'both ring and littlefinger missing from the right hand', 'a left hand missing', 'a right hand missing']
     var appearenceClothesMaleTop = ['a red linen shirt', 'a white linen shirt', 'a gray linen shirt', 'a pink linen shirt', 'a black one sleeved shirt', 'a bare chest', 'the body wrapped in bandages', 'a torn linen shirt']
     var appearenceClothesMaleBottom = ['green baggy pants', 'brown baggy pants', 'black leather pants', 'leather shorts', 'torn linen pants']
+    
+    const clothesFemale = ['medium length dress', 'long dress', 'robe']
+    const clothesArmourTop = ['leather vest', 'chain vest', 'chain mail', 'studded leather armor', 'chest plate', 'bandages']
+    const clothesFabricNoble = ['silken', 'velvet', 'tafeta', 'damask']
+    const clothesFabricCommoner = ['linen', 'wool', 'leather', 'hemp']
+    const clothesCommonerTop = ['shirt', 'tunic', 'sleeveless shirt', 'poncho']
+    const clothesCommonerBot = ['tight pants', 'baggy pants', 'pirate pants', 'long skirt', 'knee high pants']
+    const clothesNobleColor = ['bright red','orange', 'yellow', 'snow white', 'deep blue', 'purple', 'dark gren', 'green', 'bright green', 'sky blue']
+    const clothesCommonerColor = ['red', 'gray', 'ivory white', 'vanilla', 'brown']
+
+
     var appearanceHairStyle1 = ['long wavy hair', 'long curly hair', 'long straight hair', 'long bushy hair', 'shoulder long wavy hair', 'shoulder long wavy hair', 'shoulder long curly hair', 'shoulder long straight hair', 'shoulder long bushy hair', 'shoulder long uncombed hair'
         , 'short wavy hair', 'short wavy hair', 'short curly hair', 'short straight hair', 'short bushy hair', 'short uncombed hair']
-    var appearanceHairStyle2 = ['with a single large braid', 'with several thin braids', 'split into two braids', 'tied in a knot on the back of the head', 'combed to the side', 'combed into a backslick', 'tied in a knot on top of the head',
-        'uncombed and wild', 'tied in a tail on the back of the head', 'with a single thin braid hanging on the left side', 'with a single thin braid hanging on the right side']
+    var appearanceHairStyle2 = ['with a single large braid', 'with several thin braids', 'split into two braids', 'tied in a knot on the back of the head', 'combed to the side', 'combed to the back', 'tied in a knot on top of the head',
+        'uncombed and wild', 'tied in a tail on the back of the head', 'with a single thin braid hanging on the left', 'with a single thin braid hanging on the right']
     var appearanceHairColor = ['black', 'dark brown', 'light brown', 'dark red', 'red', 'strawberry blonde', 'blonde', 'jet black', 'gray', 'white']
 
     function generateNpc() {
         var race = document.getElementById("race-select").value;
         var sex = document.getElementById("sex-select").value;
         var origin = document.getElementById("origin-select").value;
-        var clothes = getClothes(race, sex);
+        const job = getJob();
+        var clothes = getClothes(race, sex, job);
         var hairStyle = getHair(race);
         var body = getBody(race);
+        
         var features = getFeatures(race);
         var hairText = getSex(sex).pronoun1 + " has " + hairStyle.hairColor + " " + hairStyle.hairStyle1 + " " + hairStyle.hairStyle2 + "."
         const hair = hairText.charAt(0).toUpperCase() + hairText.slice(1);
@@ -109,8 +161,10 @@
         newNpc.clothes = clothes;
         newNpc.hair = hair;
         newNpc.height = body.height;
+        newNpc.age = body.age;
         newNpc.size = body.size;
         newNpc.origin = origin;
+        newNpc.job = job;
 
         console.log(newNpc.race);
         console.log(newNpc.sex);
@@ -121,29 +175,50 @@
         document.getElementById("appearenceNotable").innerHTML = newNpc.features;
         document.getElementById("npcName").innerHTML = newNpc.name.fNamn + " " + newNpc.name.eNamn;
         document.getElementById("height").innerHTML = newNpc.height + "cm";
+        document.getElementById("age").innerHTML = newNpc.age + " years old.";
         document.getElementById("appearanceHair").innerHTML = newNpc.hair;
+        document.getElementById("job").innerHTML = newNpc.job;
         //document.getElementById("appearenceNotable").innerHTML =
-        document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes.botClothes + " with " + newNpc.clothes.topClothes + ".";
+        document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes + ".";
     }
-    function getClothes(race, sex) {
-        if (race == 'human') {
-            if (sex == 'male') {
-
-                var topClothes = appearenceClothesMaleTop[Math.floor(Math.random() * appearenceClothesMaleTop.length)];
-                var botClothes = appearenceClothesMaleBottom[Math.floor(Math.random() * appearenceClothesMaleBottom.length)];
-
-            }
-            else if (sex == 'female') {
-                var topClothes = appearenceClothesMaleTop[Math.floor(Math.random() * appearenceClothesMaleTop.length)];
-                var botClothes = appearenceClothesMaleBottom[Math.floor(Math.random() * appearenceClothesMaleBottom.length)];
-            }
-
-        }
-        else if (race == 'orc') {
-            var topClothes = appearenceClothesMaleTop[Math.floor(Math.random() * appearenceClothesMaleTop.length)];
-            var botClothes = appearenceClothesMaleBottom[Math.floor(Math.random() * appearenceClothesMaleBottom.length)];
-        }
-        return { topClothes, botClothes };
+    function getClothes(race, sex, job) {
+        var clothesList = [];
+        switch(job){
+            case 'commoner':
+                        if(Math.random() < 0.5 && sex == 'female'){
+                            var clothesType =  clothesFemale[Math.floor(Math.random() * clothesFemale.length)];
+                            var fabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
+                            var color = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
+                            var clothes = color + " " +  clothesType + " made of " + fabric;
+                        }
+                        else {
+                            var clothesTop = clothesCommonerTop[Math.floor(Math.random() * clothesCommonerTop.length)];
+                            var clothesBot = clothesCommonerBot[Math.floor(Math.random() * clothesCommonerBot.length)];
+                            var topFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
+                            var botFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
+                            var topColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
+                            var botColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " +  clothesTop;                        } 
+                return clothes;
+            case 'noble':
+                        if(Math.random() < 0.3 && sex == 'female'){
+                            var clothesType =  clothesFemale[Math.floor(Math.random() * clothesFemale.length)];
+                            var fabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
+                            var color = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
+                            var clothes = color + " " +  clothesType + " made of " + fabric;
+                        }
+                        else {
+                            var clothesTop = clothesCommonerTop[Math.floor(Math.random() * clothesCommonerTop.length)];
+                            var clothesBot = clothesCommonerBot[Math.floor(Math.random() * clothesCommonerBot.length)];
+                            var topFabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
+                            var botFabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
+                            var topColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
+                            var botColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " +  clothesTop;
+                        }                       
+                    return clothes;
+                break;
+        }      
     }
     function getFeatures(race) {
         var feature = [];
@@ -168,26 +243,28 @@
         if (race == 'orc') {
             var height = Math.floor(Math.random() * (300 - 190)) + 190;
             var size = 'large'
-            var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]
+            var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]            
+            var age = Math.floor(Math.random() * (90 - 20)) + 20;
 
         }
         else if (race == 'human') {
             var height = Math.floor(Math.random() * (190 - 150)) + 150;
             var size = 'medium'
             var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]
+            var age = Math.floor(Math.random() * (80 - 17)) + 17;
         }
-        return { height, size, build };
+        return { height, size, build, age };
     }
     function getName(race, sex, origin) {
         if (race == 'human') {
             if (origin == 'Avena') {
                 if (sex == 'male') {
                     var fNamn = avena_human_male_fNamn[Math.floor(Math.random() * avena_human_male_fNamn.length)]
-                    var eNamn = avena_human_male_eNamn[Math.floor(Math.random() * avena_human_male_eNamn.length)]
+                    var eNamn = avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
                 }
                 else if (sex == 'female') {
-                    var fNamn = 'test';
-                    var eNamn = 'female'
+                    var fNamn = avena_human_female_fNamn[Math.floor(Math.random() * avena_human_female_fNamn.length)]
+                    var eNamn = avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
                 }
             }
 
@@ -231,15 +308,21 @@
             var hairStyle2 = appearanceHairStyle2[Math.floor(Math.random() * appearanceHairStyle2.length)];
             hairColor = appearanceHairColor[Math.floor(Math.random() * appearanceHairColor.length)];
         }
-        else if (race == orc) {
+        else if (race == 'orc') {
             var hairStyle1 = appearanceHairStyle1[Math.floor(Math.random() * appearanceHairStyle1.length)];
             var hairStyle2 = appearanceHairStyle2[Math.floor(Math.random() * appearanceHairStyle2.length)];
             hairColor = appearanceHairColor[Math.floor(Math.random() * appearanceHairColor.length)];
         }
         return { hairStyle1, hairStyle2, hairColor };
     }
-
-
+    function getJob(){
+        if(document.getElementById("job-select").value == "random"){
+            var jobList = ['commoner', 'noble']
+            var job = jobList[Math.floor(Math.random() * jobList.length)]
+            return job;
+        }
+        else return document.getElementById("job-select").value;
+    }
 
 </script>
 
