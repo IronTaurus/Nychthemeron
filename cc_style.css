@@ -43,7 +43,7 @@ body{
   width: 100%;
   padding: 15px;
 }
-#capture {
+.capture {
   display: flex;
   max-width: 533px;
   max-height: 748px;

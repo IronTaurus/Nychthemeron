@@ -39,6 +39,10 @@
                     <option class="subType" id="ranger" value="Arcane archer" style="display: none;">Arcane archer
                     </option>
                     <option class="subType" id="ranger" value="Duelist" style="display: none;">Duelist</option>
+                    <option class="subType" id="apprentice" value="Sun" style="display: none;">Sun</option>
+                    <option class="subType" id="apprentice" value="Moon" style="display: none;">Moon</option>
+                    <option class="subType" id="apprentice" value="Death" style="display: none;">Death</option>
+
                 </select>
 
                 <label for="classTier">Choose tier:</label>
@@ -56,8 +60,6 @@
                 </select>
             </div>
         </div>
-
-
 
         <form id="cForm">
             <div class="Sun">
@@ -84,12 +86,15 @@
                     <label for="csRangeText">Range:</label>
                     <input type="text" style="width: 40px;" id="csRangeText" name="csRangeText" value="0"><br>
 
-                    <label for="csRangeType1">Melee:</label>
+
                     <input type="radio" class="csRangeTypes" id="csRangeTypeMelee" name="csRangeType" value="Melee">
-                    <label for="csRangeType2">Ranged:</label>
+                    <label for="csRangeType1">Melee:</label>
+
                     <input type="radio" class="csRangeTypes" id="csRangeTypeRanged" name="csRangeType" value="Ranged">
-                    <label for="csRangeType3">Magic:</label>
+                    <label for="csRangeType2">Ranged:</label>
+
                     <input type="radio" class="csRangeTypes" id="csRangeTypeMagic" name="csRangeType" value="Magic">
+                    <label for="csRangeType3">Magic:</label>
                     <div class="upload">
                         <input type="file" accept="image/*" name="image" id="sunFile" onchange="loadFile(event)">
                     </div>
@@ -125,7 +130,7 @@
         </form>
     </div>
 
-    <div id="capture">
+    <div class="capture" id="sunCapture">
         <img id="cardFrame" src="Art/sunFrame_card.png" height="748px" width="533px">
         <img id="cardRuleBg" src="Art/ruleTextBG_Sun.png" width="533px">
         <img id="cardArtBg" src="" width="533px">
@@ -157,11 +162,11 @@
                 <h3 id="CardGen_Class">Class</h3>
             </div>
         </div>
-
     </div>
+
     <div>
         <button onclick="generateCard()">Click me</button>
-        <button onclick="draw2canvas()">Click me2</button>
+        <button id="download" onclick="draw2canvas()">Click me2</button>
     </div>
 
     <script src="html2canvas.min.js"></script>
