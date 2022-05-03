@@ -1,6 +1,6 @@
     const sunCardTypes = document.querySelectorAll(".csTypes");
     const classType = document.querySelectorAll(".classTypes");
-    const captureElement = document.querySelector("#capture");
+    const captureElement = document.querySelector("#sunCapture");
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
     
@@ -37,24 +37,59 @@
         });
     }
     function selectClass_Apprentice(){
-
+        const $select = document.querySelector('#classSubtypes');
+        $select.value = 'Subtypes'
+        document.querySelectorAll(".subType").forEach((element, index) => {
+            var display = element.style.display;  
+            if(display != "none"){element.style.display = "none";}        
+        });
+        document.querySelectorAll("#apprentice").forEach((element, index) => {
+            if (element) {
+                var display = element.style.display;        
+                if (display == "none") {
+                    element.style.display = "block";
+                }
+            }
+        });
     }
     function selectClass_Warlock(){
-
+        const $select = document.querySelector('#classSubtypes');
+        $select.value = 'Subtypes'
+        document.querySelectorAll(".subType").forEach((element, index) => {
+            var display = element.style.display;  
+            if(display != "none"){element.style.display = "none";}        
+        });
+        document.querySelectorAll("#warlock").forEach((element, index) => {
+            if (element) {
+                var display = element.style.display;        
+                if (display == "none") {
+                    element.style.display = "block";
+                }
+            }
+        });
     }
-
+    var hiddenElement = document.createElement('a');
     let sunType;
-  
+    console.log(captureElement);
     function draw2canvas(){
         html2canvas(captureElement, {
             scale: 3,
-            // width: 533,
-            // height: 748,
-            // dpi: 500,
         }).then(canvas => {
-            document.body.appendChild(canvas)
+            canvas.toBlob(function(blob) {
+                window.saveAs(blob, 'my_image.jpg');
+              });
+            // document.body.appendChild(canvas)
+            // var dataURL = canvas.toDataURL('image/jpeg', );
+            // console.log(dataURL);
+            // hiddenElement.href = dataURL;
+            // hiddenElement.target = '_blank';
+            // hiddenElement.download = this.state.settings.exportFilename +'.png' || 'export.csv';
+            // hiddenElement.click();
         });
     }
+
+    
+    
 
     var loadFile = function(event) {
         var image = document.getElementById('cardArtBg');
@@ -80,9 +115,11 @@
         const mapObj = 
         {
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
-            '{b}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />"
+            '{b}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
+            '{and}': "<br><img src='Art/and.png' height='16' width='340'/> <br>",
+            '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>"
         };
-        let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}/gi, function(matched){
+        let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
             return mapObj[matched];});
 
         //Adds the class type to the card.
@@ -132,7 +169,11 @@
         document.getElementById("CardGen_Title").innerHTML = sunTitle;
         document.getElementById("CardGen_Types").innerHTML = sunType;
         document.getElementById("CardGen_Rules").innerHTML = sunRuleReplaced;
-        document.getElementById("rangeText_Sun").innerHTML = "+" + csRange;
+        if(csRange > 0){
+            var sunRange = "+" + csRange;
+        }
+        else{var sunRange = ""}
+        document.getElementById("rangeText_Sun").innerHTML = sunRange;
         document.getElementById("flavourText_sun").innerHTML = document.getElementById("csFlavor").value;
         
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
