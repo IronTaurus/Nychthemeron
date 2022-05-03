@@ -1,6 +1,8 @@
     const sunCardTypes = document.querySelectorAll(".csTypes");
+    const moonCardTypes = document.querySelectorAll(".cmTypes");
     const classType = document.querySelectorAll(".classTypes");
-    const captureElement = document.querySelector("#sunCapture");
+    const captureElementSun = document.querySelector("#sunCapture");
+    const captureElementMoon = document.querySelector("#moonCapture");
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
     
@@ -68,31 +70,29 @@
             }
         });
     }
-    var hiddenElement = document.createElement('a');
-    let sunType;
-    console.log(captureElement);
+
+    
+    console.log(captureElementSun);
     function draw2canvas(){
-        html2canvas(captureElement, {
+        html2canvas(captureElementSun, {
+            scale: 3,
+            background :'#FFFFFF',
+        }).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+        html2canvas(captureElementMoon, {
             scale: 3,
         }).then(canvas => {
-            canvas.toBlob(function(blob) {
-                window.saveAs(blob, 'my_image.jpg');
-              });
-            // document.body.appendChild(canvas)
-            // var dataURL = canvas.toDataURL('image/jpeg', );
-            // console.log(dataURL);
-            // hiddenElement.href = dataURL;
-            // hiddenElement.target = '_blank';
-            // hiddenElement.download = this.state.settings.exportFilename +'.png' || 'export.csv';
-            // hiddenElement.click();
+            document.body.appendChild(canvas)
         });
     }
 
-    
-    
-
-    var loadFile = function(event) {
-        var image = document.getElementById('cardArtBg');
+    var loadSunFile = function(event) {
+        var image = document.getElementById('cardArtBg_sun');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadMoonFile = function(event) {
+        var image = document.getElementById('cardArtBg_moon');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
 
@@ -102,14 +102,26 @@
         const sunRuleText = document.querySelector("#csRule").value;   
         const csCost =  document.getElementById("csCost").value;    
         const csRange = document.getElementById("csRangeText").value;
+        const moonRuleText = document.querySelector("#cmRule").value;   
+        const cmCost =  document.getElementById("cmCost").value;    
+        const cmRange = document.getElementById("cmRangeText").value;
         if(document.getElementById("csRangeTypeMelee").checked == true){
-            document.getElementById("rangeArt_Sun").src = "Art/meleeRange.png"
+            document.getElementById("rangeArt_sun").src = "Art/meleeRange.png"
         }
         if(document.getElementById("csRangeTypeRanged").checked == true){
-            document.getElementById("rangeArt_Sun").src = "Art/bowRange.png"
+            document.getElementById("rangeArt_sun").src = "Art/bowRange.png"
         }
         if(document.getElementById("csRangeTypeMagic").checked == true){
-            document.getElementById("rangeArt_Sun").src = "Art/magicRange.png"
+            document.getElementById("rangeArt_sun").src = "Art/magicRange.png"
+        }
+        if(document.getElementById("cmRangeTypeMelee").checked == true){
+            document.getElementById("rangeArt_moon").src = "Art/meleeRange.png"
+        }
+        if(document.getElementById("cmRangeTypeRanged").checked == true){
+            document.getElementById("rangeArt_moon").src = "Art/bowRange.png"
+        }
+        if(document.getElementById("cmRangeTypeMagic").checked == true){
+            document.getElementById("rangeArt_moon").src = "Art/magicRange.png"
         }
 
         const mapObj = 
@@ -121,6 +133,8 @@
         };
         let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
             return mapObj[matched];});
+        let moonRuleReplaced = moonRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
+            return mapObj[matched];});    
 
         //Adds the class type to the card.
         var baseClass = "";
@@ -134,15 +148,27 @@
         }
 
         //Adds all the checked card types to a single string.
+        let sunType;
         const sunCheckedCardTypes = [];
         sunType = "";
         console.log(sunType);
-
-        sunCardTypes.forEach((element, index)=>{
+        sunCardTypes.forEach((element)=>{
             if (element.checked)
             {
                 console.log(element.value);
                 sunCheckedCardTypes.push(element.value);
+            }   
+        })
+
+        let moonType;
+        const moonCheckedCardTypes = [];
+        sunType = "";
+        console.log(moonType);
+        sunCardTypes.forEach((element)=>{
+            if (element.checked)
+            {
+                console.log(element.value);
+                moonCheckedCardTypes.push(element.value);
             }   
         })
 
@@ -159,24 +185,51 @@
             }
         })
 
+        moonCheckedCardTypes.forEach((element, index)=>{
+            if(index > 0)
+            {        
+                moonType += " / " + element;
+                console.log(moonType);
+            }
+            else 
+            {
+                moonType = element;
+                console.log(moonType);
+            }
+        })
+
         
 
         //Rewrites text in Tester
         const sunTitle = document.querySelector("#csTitle").value;
-        const moonTitle = document.querySelector("#cmTitle").value;
-        document.getElementById("spiritText").innerHTML = csCost;
+        document.getElementById("spiritText_sun").innerHTML = csCost;
         console.log(document.querySelector("#csType1").checked);
-        document.getElementById("CardGen_Title").innerHTML = sunTitle;
-        document.getElementById("CardGen_Types").innerHTML = sunType;
-        document.getElementById("CardGen_Rules").innerHTML = sunRuleReplaced;
+        document.getElementById("CardGen_Title_sun").innerHTML = sunTitle;
+        document.getElementById("CardGen_Types_sun").innerHTML = sunType;
+        document.getElementById("CardGen_Rules_sun").innerHTML = sunRuleReplaced;
         if(csRange > 0){
             var sunRange = "+" + csRange;
         }
         else{var sunRange = ""}
-        document.getElementById("rangeText_Sun").innerHTML = sunRange;
+        document.getElementById("rangeText_sun").innerHTML = sunRange;
         document.getElementById("flavourText_sun").innerHTML = document.getElementById("csFlavor").value;
-        
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
         var selectedTier = tierDropdown.options[tierDropdown.selectedIndex].value;
-        document.getElementById("CardGen_Class").innerHTML = baseClass + " - " + selectedSubclass + " " + selectedTier; 
+        document.getElementById("CardGen_Class_sun").innerHTML = baseClass + " - " + selectedSubclass + " " + selectedTier; 
+
+        const moonTitle = document.querySelector("#cmTitle").value;
+        document.getElementById("spiritText_moon").innerHTML = cmCost;
+        console.log(document.querySelector("#cmType1").checked);
+        document.getElementById("CardGen_Title_moon").innerHTML = moonTitle;
+        document.getElementById("CardGen_Types_moon").innerHTML = moonType;
+        document.getElementById("CardGen_Rules_moon").innerHTML = moonRuleReplaced;
+        if(cmRange > 0){
+            var moonRange = "+" + cmRange;
+        }
+        else{var moonRange = ""}
+        document.getElementById("rangeText_moon").innerHTML = moonRange;
+        document.getElementById("flavourText_moon").innerHTML = document.getElementById("cmFlavor").value;
+        var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
+        var selectedTier = tierDropdown.options[tierDropdown.selectedIndex].value;
+        document.getElementById("CardGen_Class_moon").innerHTML = baseClass + " - " + selectedSubclass + " " + selectedTier; 
     }

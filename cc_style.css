@@ -56,16 +56,16 @@ body{
   display: inline;
   
 }
-#cardFrame{
+.cardFrame{
   z-index: 0;
 }
-#cardArtBg{
+.cardArtBg{
   position: absolute;
   width: 533px;
   margin-bottom: 0;
   z-index: -2;
 }
-#cardRuleBg{
+.cardRuleBg{
   z-index: -1;
   position: absolute;
   bottom: 60;
@@ -83,6 +83,9 @@ body{
   height: 40%;
   position: relative;
 }
+#previews{
+  display: flex;
+}
 #spiritCost{
   display: flex;
   position:absolute;
@@ -91,7 +94,7 @@ body{
   margin-right: 60px;
   margin-bottom: 10px;
 }
-#spiritText{
+.spiritText{
   margin: 0%;
   margin-right: 4px;
 }
@@ -127,22 +130,22 @@ body{
   text-align: center;
   align-items: center;
 }
-#CardGen_Title{
+.CardGen_Title{
   margin: 0%;
   margin-top: 30px;
   height: 33%;
 }
-#CardGen_Types{
+.CardGen_Types{
   margin: 0%;
   margin-top: 5px;
   height: 33%;
 }
-#CardGen_Class{
+.CardGen_Class{
   margin: 0%;
   padding-top: 10px;
 
 }
-#CardGen_Rules{
+.CardGen_Rules{
   text-align: center;
   margin-bottom: 0%;
   margin-top: 10px;

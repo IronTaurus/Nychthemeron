@@ -85,18 +85,14 @@
                         cols="30">Magus Magmaton was the founder of the fire guild and the creator of the fireball spell...</textarea><br>
                     <label for="csRangeText">Range:</label>
                     <input type="text" style="width: 40px;" id="csRangeText" name="csRangeText" value="0"><br>
-
-
                     <input type="radio" class="csRangeTypes" id="csRangeTypeMelee" name="csRangeType" value="Melee">
                     <label for="csRangeType1">Melee:</label>
-
                     <input type="radio" class="csRangeTypes" id="csRangeTypeRanged" name="csRangeType" value="Ranged">
                     <label for="csRangeType2">Ranged:</label>
-
                     <input type="radio" class="csRangeTypes" id="csRangeTypeMagic" name="csRangeType" value="Magic">
                     <label for="csRangeType3">Magic:</label>
                     <div class="upload">
-                        <input type="file" accept="image/*" name="image" id="sunFile" onchange="loadFile(event)">
+                        <input type="file" accept="image/*" name="image" id="sunFile" onchange="loadSunFile(event)">
                     </div>
                 </fieldset>
             </div>
@@ -122,47 +118,91 @@
                     <label for="cmFlavor">Flavor text</label><br>
                     <textarea id="cmFlavor" name="cmFlavor" rows="6"
                         cols="30">Frosty Icehaven was the founder of the ice guild and the creator of the frostbolt spell...</textarea>
+                    <label for="cmRangeText">Range:</label>
+                    <input type="text" style="width: 40px;" id="cmRangeText" name="cmRangeText" value="0"><br>
+                    <input type="radio" class="csRangeTypes" id="cmRangeTypeMelee" name="cmRangeType" value="Melee">
+                    <label for="cmRangeType1">Melee:</label>
+                    <input type="radio" class="csRangeTypes" id="cmRangeTypeRanged" name="cmRangeType" value="Ranged">
+                    <label for="cmRangeType2">Ranged:</label>
+                    <input type="radio" class="csRangeTypes" id="cmRangeTypeMagic" name="cmRangeType" value="Magic">
+                    <label for="cmRangeType3">Magic:</label>
                     <div class="upload">
-                        <input type="file" accept="image/*" name="image" id="moonFile" onchange="loadFile(event)">
+                        <input type="file" accept="image/*" name="image" id="moonFile" onchange="loadMoonFile(event)">
                     </div>
                 </fieldset>
             </div>
         </form>
     </div>
-
-    <div class="capture" id="sunCapture">
-        <img id="cardFrame" src="Art/sunFrame_card.png" height="748px" width="533px">
-        <img id="cardRuleBg" src="Art/ruleTextBG_Sun.png" width="533px">
-        <img id="cardArtBg" src="" width="533px">
-        <div id="cardElements">
-            <div id="topCard">
-                <h1 id="CardGen_Title">Title</h1>
-                <h4 id="CardGen_Types">Checkbox</h4>
-            </div>
-            <div id="midCard">
-                <div id="spiritCost">
-                    <h3 id="spiritText">X</h3>
-                    <img id="spiritArt" src="Art/SpiritCost.png" height="20px" width="20px">
-
+    <div id="previews">
+        <div class="capture" id="sunCapture">
+            <img class="cardFrame" id="cardFrame_sun" src="Art/sunFrame_card.png" height="748px" width="533px">
+            <img class="cardRuleBg" id="cardRuleBg_sun" src="Art/ruleTextBG_Sun.png" width="533px">
+            <img class="cardArtBg" id="cardArtBg_sun" src="" width="531px">
+            <div id="cardElements">
+                <div id="topCard">
+                    <h1 class="CardGen_Title" id="CardGen_Title_sun">Title</h1>
+                    <h4 class="CardGen_Types" id="CardGen_Types_sun">Checkbox</h4>
                 </div>
-            </div>
-            <div id="botCard">
-                <div id="ruleBox">
-                    <h4 id="CardGen_Rules">Rules be written here!</h4>
-                    <div id="abilityRange">
-                        <img id="rangeArt_Sun" src="Art/magicRange.png" height="40px" width="40px">
-                        <h3 id="rangeText_Sun">+X</h3>
+                <div id="midCard">
+                    <div id="spiritCost">
+                        <h3 class="spiritText" id="spiritText_sun">X</h3>
+                        <img id="spiritArt_sun" src="Art/SpiritCost.png" height="20px" width="20px">
+
                     </div>
                 </div>
+                <div id="botCard">
+                    <div id="ruleBox">
+                        <h4 class="CardGen_Rules" id="CardGen_Rules_sun">Rules be written here!</h4>
+                        <div id="abilityRange">
+                            <img id="rangeArt_sun" src="Art/magicRange.png" height="40px" width="40px">
+                            <h3 id="rangeText_sun">+X</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="flavourBox">
+                    <h5 class="flavourText" id="flavourText_sun">Flavour text...</h5>
+                </div>
+                <div id="bottomLine">
+                    <h3 class="CardGen_Class" id="CardGen_Class_sun">Class</h3>
+                </div>
             </div>
-            <div id="flavourBox">
-                <h5 id="flavourText_sun" class="flavourText">Flavour text...</h5>
-            </div>
-            <div id="bottomLine">
-                <h3 id="CardGen_Class">Class</h3>
+        </div>
+
+        <div class="capture" id="moonCapture">
+            <img class="cardFrame" id="cardFrame_moon" src="Art/moonFrame_card.png" height="748px" width="533px">
+            <img class="cardRuleBg" id="cardRuleBg_moon" src="Art/ruleTextBG_Moon.png" width="533px">
+            <img class="cardArtBg" id="cardArtBg_moon" src="" width="553px">
+            <div id="cardElements">
+                <div id="topCard">
+                    <h1 class="CardGen_Title" id="CardGen_Title_moon">Title</h1>
+                    <h4 class="CardGen_Types" id="CardGen_Types_moon">Checkbox</h4>
+                </div>
+                <div id="midCard">
+                    <div id="spiritCost">
+                        <h3 class="spiritText" id="spiritText_moon">X</h3>
+                        <img id="spiritArt_sun" src="Art/SpiritCost.png" height="20px" width="20px">
+
+                    </div>
+                </div>
+                <div id="botCard">
+                    <div id="ruleBox">
+                        <h4 class="CardGen_Rules" id="CardGen_Rules_moon">Rules be written here!</h4>
+                        <div id="abilityRange">
+                            <img id="rangeArt_moon" src="Art/magicRange.png" height="40px" width="40px">
+                            <h3 id="rangeText_moon">+X</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="flavourBox">
+                    <h5 class="flavourText" id="flavourText_moon">Flavour text...</h5>
+                </div>
+                <div id="bottomLine">
+                    <h3 class="CardGen_Class" id="CardGen_Class_moon">Class</h3>
+                </div>
             </div>
         </div>
     </div>
+
 
     <div>
         <button onclick="generateCard()">Click me</button>
