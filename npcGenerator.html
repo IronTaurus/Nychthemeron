@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div>
         <label for="sex-select">Sex:</label>
         <select name="sex" id="sex-select">
@@ -45,7 +44,7 @@
         </form> -->
         <button onclick="generateNpc()">Get random name</button>
         <h1 id="npcName">Name</h1>
-        <!-- <h1 id="nameConstruct">Name2</h1> -->
+        <h1 id="nameConstruct">Name2</h1>
         <h2 id="job">Class </h2>
         <h2 id="height">Height: </h2>
         <h2 id="age"></h2>
@@ -106,9 +105,9 @@
         'Julia', 'Juliette', 'Jane', 'Josephyn', 'Joline', 'Kalista', 'Karina', 'Karin', 'Kamille', 'Laura', 'Lisa', 'Margret', 'Maria', 'Mina', 'Nina', 'Neria', 'Noelle', 'Olivia', 'Ophelia']
     //#endregion Human
     //#region Orc
-    // var nameContruct1 = ['Sa', 'Su', 'Se', 'Si', 'So', 'Ka', 'Ki', 'Ku', 'Ke', 'Ko', 'Ma', 'Mi', 'Mu', 'Mo', 'Na', 'Ni', 'No'];
-    // var nameContruct2 = ['r', 'k', 'a', 'o', 'or', 'la', 'va'];
-    // var nameContruct3 = ['ah', 'oh', 'ana', 'ene', 'ick', 'ri', 're', 'in'];
+    var nameContruct1 = ['Sa', 'Su', 'Se', 'Si', 'So', 'Ka', 'Ki', 'Ku', 'Ke', 'Ko', 'Ma', 'Mi', 'Mu', 'Mo', 'Na', 'Ni', 'No'];
+    var nameContruct2 = ['r', 'k', 'a', 'o', 'or', 'la', 'va'];
+    var nameContruct3 = ['ah', 'oh', 'ana', 'ene', 'ick', 'ri', 're', 'in'];
 
     var orcFeatures = ['a large left tusk almost double the size of the other, reaching up to his cheek', 'his left tusk broken', 'a large bone ring in his nose with orcish engravings']
 
@@ -145,7 +144,7 @@
         const job = getJob();
         var clothes = getClothes(race, sex, job);
         var hairStyle = getHair(race);
-        var body = getBody(race);
+        var body = getBody(race, sex);
 
         var features = getFeatures(race);
         var hairText = getSex(sex).pronoun1 + " has " + hairStyle.hairColor + " " + hairStyle.hairStyle1 + " " + hairStyle.hairStyle2 + "."
@@ -158,7 +157,6 @@
             featureText += element
         });
         const featureText2 = featureText.charAt(0).toUpperCase() + featureText.slice(1) + '.';
-
         let newNpc = new Npc();
         newNpc.sex = getSex(sex);
         newNpc.race = race;
@@ -186,13 +184,13 @@
         document.getElementById("job").innerHTML = newNpc.job;
         //document.getElementById("appearenceNotable").innerHTML =
         document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes + ".";
-        // nameCon1 = nameContruct1[Math.floor(Math.random() * nameContruct1.length)];
-        // if (Math.random() < 0.5) {
-        //     nameCon2 = nameContruct2[Math.floor(Math.random() * nameContruct2.length)];
-        // }
-        // else (nameCon2 = "")
-        // nameCon3 = nameContruct3[Math.floor(Math.random() * nameContruct3.length)];
-        // document.getElementById("nameConstruct").innerHTML = nameCon1 + nameCon2 + nameCon3;
+        nameCon1 = nameContruct1[Math.floor(Math.random() * nameContruct1.length)];
+        if (Math.random() < 0.5) {
+            nameCon2 = nameContruct2[Math.floor(Math.random() * nameContruct2.length)];
+        }
+        else (nameCon2 = "")
+        nameCon3 = nameContruct3[Math.floor(Math.random() * nameContruct3.length)];
+        document.getElementById("nameConstruct").innerHTML = nameCon1 + nameCon2 + nameCon3;
 
     }
     function getClothes(race, sex, job) {
@@ -254,7 +252,7 @@
 
         return feature;
     }
-    function getBody(race) {
+    function getBody(race, sex) {
         if (race == 'orc') {
             var height = Math.floor(Math.random() * (300 - 190)) + 190;
             var size = 'large'
@@ -263,7 +261,13 @@
 
         }
         else if (race == 'human') {
-            var height = Math.floor(Math.random() * (190 - 150)) + 150;
+            if (sex == 'male') {
+                var height = Math.floor(Math.random() * (190 - 160)) + 160;
+
+            }
+            if (sex == 'female') {
+                var height = Math.floor(Math.random() * (180 - 150)) + 150;
+            }
             var size = 'medium'
             var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]
             var age = Math.floor(Math.random() * (80 - 17)) + 17;

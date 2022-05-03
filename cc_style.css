@@ -1,26 +1,152 @@
 * {
   box-sizing: border-box;
 }
-
-.CardClass {
+body{
+  background-color: darkgray;
+  display: inline;
+}
+#cardDesigner{
+  width: fit-content;
+}
+#cForm{
+  display: flex;
+  width: 50%;
+}
+.upload{
+  margin-top: 8px;
+}
+#chooseClass{
+  width:auto;
   border: 2px solid rgb(0, 0, 0);
+  background-color: antiquewhite;
   padding: 15px;
+}
+.CardClass {
+  display: flex;
 }
 
 .Sun,
 .Moon {
-  border: 2px solid rgb(0, 189, 25);
+  border: 2px solid rgb(0, 95, 13);
+  background-color: rgb(255, 255, 255);
+  border-radius: 4%;
   width: auto;
   padding: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
   float: left;
 }
 
 .Bottom {
+  
   border: 2px solid rgb(255, 0, 0);
   width: 100%;
   padding: 15px;
 }
-#CardGeneration_box {
+#capture {
+  display: flex;
   max-width: 533px;
   max-height: 748px;
+  margin: 0px;
 }
+#cardElements{
+  position: absolute;
+  width: 533px;
+  height: 748px;
+  display: inline;
+  
+}
+#cardFrame{
+  z-index: 0;
+}
+#cardArtBg{
+  position: absolute;
+  width: 533px;
+  margin-bottom: 0;
+  z-index: -2;
+}
+#cardRuleBg{
+  z-index: -1;
+  position: absolute;
+  bottom: 60;
+}
+/* .cardElement{
+  width: auto;
+} */
+#topCard{
+  z-index: 99;
+  text-align:center;
+  height: 10%;
+  width: auto;
+}
+#midCard{
+  height: 40%;
+  position: relative;
+}
+#spiritCost{
+  display: flex;
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 60px;
+  margin-bottom: 10px;
+}
+#spiritText{
+  margin: 0%;
+  margin-right: 4px;
+}
+#botCard{
+  position: relative;
+  height: 28%;
+  width: auto;
+}
+#abilityRange{
+  position:absolute;
+  display:flex;
+  height:40px;
+  bottom: 0;
+  left: 0;
+  margin: 5px;
+  margin-left: 40px;
+}
+#flavourBox{
+  position: relative;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  height: 8%;
+}
+.flavourText{
+  margin: 0%;
+  padding: 8px;
+  font-style: italic;
+}
+#bottomLine{
+  position: relative;
+  height: 5%;
+  text-align: center;
+  align-items: center;
+}
+#CardGen_Title{
+  margin: 0%;
+  margin-top: 30px;
+  height: 33%;
+}
+#CardGen_Types{
+  margin: 0%;
+  margin-top: 5px;
+  height: 33%;
+}
+#CardGen_Class{
+  margin: 0%;
+  padding-top: 10px;
+
+}
+#CardGen_Rules{
+  text-align: center;
+  margin-bottom: 0%;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
