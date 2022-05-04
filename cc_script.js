@@ -193,9 +193,9 @@
 
         let moonType;
         const moonCheckedCardTypes = [];
-        sunType = "";
+        moonType = "";
         console.log(moonType);
-        sunCardTypes.forEach((element)=>{
+        moonCardTypes.forEach((element)=>{
             if (element.checked)
             {
                 console.log(element.value);
