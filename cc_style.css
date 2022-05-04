@@ -8,12 +8,21 @@ body{
 #cardDesigner{
   width: fit-content;
 }
-#cForm{
+.cForm{
   display: flex;
-  width: 50%;
+  height: fit-content;
 }
 .upload{
   margin-top: 8px;
+}
+#download{
+  margin: 0%;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  height: 40px;
+  width: 140px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
 }
 #chooseClass{
   width:auto;
@@ -151,5 +160,12 @@ body{
   margin-top: 10px;
   margin-left: 40px;
   margin-right: 40px;
+}
+.RangeTypes{
+  margin-left: 10px;
+  margin-right: 0%;
+}
+#button{
+  padding: 5px;
 }
 

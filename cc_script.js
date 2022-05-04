@@ -70,6 +70,38 @@
             }
         });
     }
+    function selectClass_Druid(){
+        const $select = document.querySelector('#classSubtypes');
+        $select.value = 'Subtypes'
+        document.querySelectorAll(".subType").forEach((element, index) => {
+            var display = element.style.display;  
+            if(display != "none"){element.style.display = "none";}        
+        });
+        document.querySelectorAll("#druid").forEach((element, index) => {
+            if (element) {
+                var display = element.style.display;        
+                if (display == "none") {
+                    element.style.display = "block";
+                }
+            }
+        });
+    }
+    function selectClass_Wizard(){
+        const $select = document.querySelector('#classSubtypes');
+        $select.value = 'Subtypes'
+        document.querySelectorAll(".subType").forEach((element, index) => {
+            var display = element.style.display;  
+            if(display != "none"){element.style.display = "none";}        
+        });
+        document.querySelectorAll("#wizard").forEach((element, index) => {
+            if (element) {
+                var display = element.style.display;        
+                if (display == "none") {
+                    element.style.display = "block";
+                }
+            }
+        });
+    }
 
     
     console.log(captureElementSun);
@@ -98,7 +130,6 @@
 
     function generateCard()
     {
-        //Replace all instances of keywords with a image.     
         const sunRuleText = document.querySelector("#csRule").value;   
         const csCost =  document.getElementById("csCost").value;    
         const csRange = document.getElementById("csRangeText").value;
@@ -123,7 +154,7 @@
         if(document.getElementById("cmRangeTypeMagic").checked == true){
             document.getElementById("rangeArt_moon").src = "Art/magicRange.png"
         }
-
+        //Replace all instances of keywords with a image.            
         const mapObj = 
         {
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
