@@ -159,11 +159,10 @@
         {
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
             '{b}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
-            '{and}': "<br><img src='Art/and.png' height='16' width='340'/> <br>",
+            '{and}': "<br><img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
             '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>"
         };
-        let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
-            return mapObj[matched];});
+        let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, matched => mapObj[matched]);
         let moonRuleReplaced = moonRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
             return mapObj[matched];});    
 
