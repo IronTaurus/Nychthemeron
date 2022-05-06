@@ -13,23 +13,26 @@
         <div id="chooseClass">
             <div class="CardClass" onchange="generateCard()">
                 <input type="radio" class="classTypes" id="classFighter" name="cardClasses" value="Fighter"
-                    onclick="selectClass_Fighter()">
+                    onclick="selectClass('#fighter')">
                 <label for="classFighter">Fighter</label><br>
                 <input type="radio" class="classTypes" id="classRanger" name="cardClasses" value="Ranger"
-                    onclick="selectClass_Ranger()">
+                    onclick="selectClass('#ranger')">
                 <label for="classRanger">Ranger</label><br>
                 <input type="radio" class="classTypes" id="classApprentice" name="cardClasses" value="Apprentice"
-                    onclick="selectClass_Apprentice()">
+                    onclick="selectClass('#apprentice')">
                 <label for="classApprentice">Apprentice</label>
                 <input type="radio" class="classTypes" id="classWarlock" name="cardClasses" value="Warlock"
-                    onclick="selectClass_Warlock()">
+                    onclick="selectClass('#warlock')">
                 <label for="classWarlock">Warlock</label>
                 <input type="radio" class="classTypes" id="classDruid" name="cardClasses" value="Druid"
-                    onclick="selectClass_Druid()">
+                    onclick="selectClass('#druid')">
                 <label for="classDruid">Druid</label>
                 <input type="radio" class="classTypes" id="classWizard" name="cardClasses" value="Wizard"
-                    onclick="selectClass_Wizard()">
+                    onclick="selectClass('#wizard')">
                 <label for="classWizard">Wizard</label>
+                <input type="radio" class="classTypes" id="classBard" name="cardClasses" value="Bard"
+                    onclick="selectClass('#bard')">
+                <label for="classBard">Bard</label>
             </div>
             <div id="classTypeTier">
                 <label for="classSubtypes">Choose a subtype:</label>
@@ -58,6 +61,10 @@
                     </option>
                     <option class="subType" id="wizard" value="Shaper" style="display: none;">Shaper</option>
                     <option class="subType" id="wizard" value="Chrono" style="display: none;">Chrono</option>
+                    <option class="subType" id="bard" value="Instrumental" style="display: none;">Instrumental
+                    </option>
+                    <option class="subType" id="bard" value="Wardance" style="display: none;">Wardance</option>
+                    <option class="subType" id="bard" value="Banshee" style="display: none;">Banshee</option>
 
                 </select>
 
@@ -117,7 +124,7 @@
                 </div>
             </form>
             <div class="capture" id="sunCapture">
-                <img class="cardFrame" id="cardFrame_sun" src="Art/sunFrame_card.png" height="748px" width="533px">
+                <img class="cardFrame" id="cardFrame_sun" src="Art/sunFrame_card3.png" height="748px" width="533px">
                 <img class="cardRuleBg" id="cardRuleBg_sun" src="Art/ruleTextBG_Sun.png" width="533px">
                 <img class="cardArtBg" id="cardArtBg_sun" src="" width="531px">
                 <div id="cardElements">
@@ -146,6 +153,7 @@
                     </div>
                     <div id="bottomLine">
                         <h3 class="CardGen_Class" id="CardGen_Class_sun">Class</h3>
+                        <h3 class="CardGen_SubClass" id="CardGen_SubClass_sun">Class</h3>
                     </div>
                 </div>
             </div>
@@ -216,6 +224,7 @@
                     </div>
                     <div id="bottomLine">
                         <h3 class="CardGen_Class" id="CardGen_Class_moon">Class</h3>
+                        <h3 class="CardGen_SubClass" id="CardGen_SubClass_moon">Subclass</h3>
                     </div>
                 </div>
             </div>

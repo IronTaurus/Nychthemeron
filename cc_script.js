@@ -6,14 +6,14 @@
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
     
-    function selectClass_Fighter(){
+    function selectClass(selectedClass){
         const $select = document.querySelector('#classSubtypes');
         $select.value = 'Subtypes'
         document.querySelectorAll(".subType").forEach((element, index) => {
             var display = element.style.display;  
             if(display != "none"){element.style.display = "none";}    
         });
-        document.querySelectorAll("#fighter").forEach((element, index) => {
+        document.querySelectorAll(selectedClass).forEach((element, index) => {
             if (element) {
                 var display = element.style.display;        
                 if (display == "none") {
@@ -22,87 +22,6 @@
             }
         });          
     }
-    function selectClass_Ranger(){
-        const $select = document.querySelector('#classSubtypes');
-        $select.value = 'Subtypes'
-        document.querySelectorAll(".subType").forEach((element, index) => {
-            var display = element.style.display;  
-            if(display != "none"){element.style.display = "none";}        
-        });
-        document.querySelectorAll("#ranger").forEach((element, index) => {
-            if (element) {
-                var display = element.style.display;        
-                if (display == "none") {
-                    element.style.display = "block";
-                }
-            }
-        });
-    }
-    function selectClass_Apprentice(){
-        const $select = document.querySelector('#classSubtypes');
-        $select.value = 'Subtypes'
-        document.querySelectorAll(".subType").forEach((element, index) => {
-            var display = element.style.display;  
-            if(display != "none"){element.style.display = "none";}        
-        });
-        document.querySelectorAll("#apprentice").forEach((element, index) => {
-            if (element) {
-                var display = element.style.display;        
-                if (display == "none") {
-                    element.style.display = "block";
-                }
-            }
-        });
-    }
-    function selectClass_Warlock(){
-        const $select = document.querySelector('#classSubtypes');
-        $select.value = 'Subtypes'
-        document.querySelectorAll(".subType").forEach((element, index) => {
-            var display = element.style.display;  
-            if(display != "none"){element.style.display = "none";}        
-        });
-        document.querySelectorAll("#warlock").forEach((element, index) => {
-            if (element) {
-                var display = element.style.display;        
-                if (display == "none") {
-                    element.style.display = "block";
-                }
-            }
-        });
-    }
-    function selectClass_Druid(){
-        const $select = document.querySelector('#classSubtypes');
-        $select.value = 'Subtypes'
-        document.querySelectorAll(".subType").forEach((element, index) => {
-            var display = element.style.display;  
-            if(display != "none"){element.style.display = "none";}        
-        });
-        document.querySelectorAll("#druid").forEach((element, index) => {
-            if (element) {
-                var display = element.style.display;        
-                if (display == "none") {
-                    element.style.display = "block";
-                }
-            }
-        });
-    }
-    function selectClass_Wizard(){
-        const $select = document.querySelector('#classSubtypes');
-        $select.value = 'Subtypes'
-        document.querySelectorAll(".subType").forEach((element, index) => {
-            var display = element.style.display;  
-            if(display != "none"){element.style.display = "none";}        
-        });
-        document.querySelectorAll("#wizard").forEach((element, index) => {
-            if (element) {
-                var display = element.style.display;        
-                if (display == "none") {
-                    element.style.display = "block";
-                }
-            }
-        });
-    }
-
     
     console.log(captureElementSun);
     function draw2canvas(){
@@ -160,11 +79,10 @@
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
             '{b}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
             '{and}': "<br><img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
-            '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>"
+            '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>",
         };
         let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, matched => mapObj[matched]);
-        let moonRuleReplaced = moonRuleText.replace(/{ac}|{b}|{and}|{or}/gi, function(matched){
-            return mapObj[matched];});    
+        let moonRuleReplaced = moonRuleText.replace(/{ac}|{b}|{and}|{or}/gi, matched => mapObj[matched]);
 
         //Adds the class type to the card.
         var baseClass = "";
@@ -245,7 +163,8 @@
         document.getElementById("flavourText_sun").innerHTML = document.getElementById("csFlavor").value;
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
         var selectedTier = tierDropdown.options[tierDropdown.selectedIndex].value;
-        document.getElementById("CardGen_Class_sun").innerHTML = baseClass + " - " + selectedSubclass + " " + selectedTier; 
+        document.getElementById("CardGen_Class_sun").innerHTML = baseClass;
+        document.getElementById("CardGen_SubClass_sun").innerHTML = selectedSubclass + " " + selectedTier;
 
         const moonTitle = document.querySelector("#cmTitle").value;
         document.getElementById("spiritText_moon").innerHTML = cmCost;
@@ -261,5 +180,6 @@
         document.getElementById("flavourText_moon").innerHTML = document.getElementById("cmFlavor").value;
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
         var selectedTier = tierDropdown.options[tierDropdown.selectedIndex].value;
-        document.getElementById("CardGen_Class_moon").innerHTML = baseClass + " - " + selectedSubclass + " " + selectedTier; 
+        document.getElementById("CardGen_Class_moon").innerHTML = baseClass; 
+        document.getElementById("CardGen_SubClass_moon").innerHTML = selectedSubclass + " " + selectedTier; 
     }

@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: Cambria;
+  font-weight:normal;
 }
 body{
   background-color: darkgray;
@@ -134,15 +136,19 @@ body{
   font-style: italic;
 }
 #bottomLine{
-  position: relative;
+  /* position: relative; */
   height: 5%;
-  text-align: center;
-  align-items: center;
+  justify-content:space-between;
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .CardGen_Title{
   margin: 0%;
   margin-top: 30px;
   height: 33%;
+  font-style: normal;
+  font-weight:normal;
 }
 .CardGen_Types{
   margin: 0%;
@@ -151,8 +157,15 @@ body{
 }
 .CardGen_Class{
   margin: 0%;
-  padding-top: 10px;
-
+  padding-top: 8px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.CardGen_SubClass{
+  margin: 0%;
+  padding-top: 8px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .CardGen_Rules{
   text-align: center;
