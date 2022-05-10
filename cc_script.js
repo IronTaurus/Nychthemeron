@@ -55,34 +55,40 @@
         const moonRuleText = document.querySelector("#cmRule").value;   
         const cmCost =  document.getElementById("cmCost").value;    
         const cmRange = document.getElementById("cmRangeText").value;
-        if(document.getElementById("csRangeTypeMelee").checked == true){
-            document.getElementById("rangeArt_sun").src = "Art/meleeRange.png"
-        }
-        if(document.getElementById("csRangeTypeRanged").checked == true){
-            document.getElementById("rangeArt_sun").src = "Art/bowRange.png"
-        }
-        if(document.getElementById("csRangeTypeMagic").checked == true){
-            document.getElementById("rangeArt_sun").src = "Art/magicRange.png"
-        }
-        if(document.getElementById("cmRangeTypeMelee").checked == true){
-            document.getElementById("rangeArt_moon").src = "Art/meleeRange.png"
-        }
-        if(document.getElementById("cmRangeTypeRanged").checked == true){
-            document.getElementById("rangeArt_moon").src = "Art/bowRange.png"
-        }
-        if(document.getElementById("cmRangeTypeMagic").checked == true){
-            document.getElementById("rangeArt_moon").src = "Art/magicRange.png"
-        }
+        var rangeTypes = document.querySelectorAll(".RangeTypes")
+        rangeTypes.forEach((element, index)=>{
+            if(element.checked == true){
+                if(element.name == "csRangeType"){
+                    // document.getElementById('rangeArt_sun').classList.toggle('hidden', false)
+                    if(element.value == "None"){
+                        document.getElementById("rangeArt_sun").style.display = "none";
+                    }
+                    else{
+                        document.getElementById("rangeArt_sun").style.display = "block";
+                        document.getElementById("rangeArt_sun").src = "Art/range" + element.value + ".png"
+                    }                   
+                }
+                if(element.name == "cmRangeType"){
+                    if(element.value == "None"){
+                        document.getElementById("rangeArt_moon").style.display = "none";
+                    }
+                    else{
+                        document.getElementById("rangeArt_moon").style.display = "block";
+                        document.getElementById("rangeArt_moon").src = "Art/range" + element.value + ".png"
+                    }                 
+                }             
+            }          
+        })
         //Replace all instances of keywords with a image.            
         const mapObj = 
         {
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
-            '{b}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
+            '{w}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
             '{and}': "<br><img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
             '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>",
         };
-        let sunRuleReplaced = sunRuleText.replace(/{ac}|{b}|{and}|{or}/gi, matched => mapObj[matched]);
-        let moonRuleReplaced = moonRuleText.replace(/{ac}|{b}|{and}|{or}/gi, matched => mapObj[matched]);
+        let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}/gi, matched => mapObj[matched]);
+        let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}/gi, matched => mapObj[matched]);
 
         //Adds the class type to the card.
         var baseClass = "";

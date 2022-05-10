@@ -92,7 +92,7 @@
                     <fieldset>
                         <legend>Sun side</legend>
                         <label for="csTitle">Card title:</label><br>
-                        <input type="text" id="csTitle" name="csTitle" value="Fireball"><br>
+                        <input type="text" id="csTitle" name="csTitle" value="Avatar of the sun"><br>
                         <input type="checkbox" class="csTypes" id="csType1" name="csType1" value="Standard ">
                         <label for="csType1">Standard</label>
                         <input type="checkbox" class="csTypes" id="csType2" name="csType2" value="Movement ">
@@ -105,10 +105,11 @@
                         <input type="text" style="width: 40px;" id="csCost" name="csCost" value="0"><br>
                         <label for="csRule">Card rule text:</label><br>
                         <textarea id="csRule" name="csRule" rows="6"
-                            cols="30">Target creature is dealt 5 {ac} + {b} fire damage...</textarea><br>
+                            cols="30">Damage you deal is {b}fire{b.} damage in addition to any other type. <br>Any fire damage dealt by you is increased by {b}1{b.}.<br>
+Any light source is 1 value higher within 3 squares of you. <br><br>
+If the {b}moon's blessing{b.} is active, flip this card.<br>{i}(Moon's blessing is active while the majority of cards amongst the party is moon face up.){i.}</textarea><br>
                         <label for="csFlavor">Flavor text</label><br>
-                        <textarea id="csFlavor" name="csFlavor" rows="6"
-                            cols="30">Magus Magmaton was the founder of the fire guild and the creator of the fireball spell...</textarea><br>
+                        <textarea id="csFlavor" name="csFlavor" rows="6" cols="30"></textarea><br>
                         <label for="csRangeText">Range:</label>
                         <input type="text" style="width: 40px;" id="csRangeText" name="csRangeText" value="0"><br>
                         <input type="radio" class="RangeTypes" id="csRangeTypeMelee" name="csRangeType" value="Melee">
@@ -117,6 +118,10 @@
                         <label for="csRangeTypeRanged">Ranged</label>
                         <input type="radio" class="RangeTypes" id="csRangeTypeMagic" name="csRangeType" value="Magic">
                         <label for="csRangeTypeMagic">Magic</label>
+                        <input type="radio" class="RangeTypes" id="csRangeTypeTouch" name="csRangeType" value="Touch">
+                        <label for="csRangeTypeMagic">Touch</label>
+                        <input type="radio" class="RangeTypes" id="csRangeTypeNone" name="csRangeType" value="None">
+                        <label for="csRangeTypeMagic">None</label>
                         <div class="upload">
                             <input type="file" accept="image/*" name="image" id="sunFile" onchange="loadSunFile(event)">
                         </div>
@@ -126,24 +131,24 @@
             <div class="capture" id="sunCapture">
                 <img class="cardFrame" id="cardFrame_sun" src="Art/sunFrame_card3.png" height="748px" width="533px">
                 <img class="cardRuleBg" id="cardRuleBg_sun" src="Art/ruleTextBG_Sun.png" width="533px">
-                <img class="cardArtBg" id="cardArtBg_sun" src="" width="531px">
+                <img class="cardArtBg" id="cardArtBg_sun" src="Art/sunAvatar.jpg" width="531px">
                 <div id="cardElements">
                     <div id="topCard">
-                        <h1 class="CardGen_Title" id="CardGen_Title_sun">Title</h1>
-                        <h4 class="CardGen_Types" id="CardGen_Types_sun">Checkbox</h4>
+                        <h1 class="CardGen_Title" id="CardGen_Title_sun">Avatar of the sun</h1>
+                        <div class="CardGen_Types" id="CardGen_Types_sun">Passive</div>
                     </div>
                     <div id="midCard">
                         <div id="spiritCost">
-                            <h3 class="spiritText" id="spiritText_sun">X</h3>
+                            <h3 class="spiritText" id="spiritText_sun">6</h3>
                             <img id="spiritArt_sun" src="Art/SpiritCost.png" height="20px" width="20px">
 
                         </div>
                     </div>
                     <div id="botCard">
                         <div id="ruleBox">
-                            <h4 class="CardGen_Rules" id="CardGen_Rules_sun">Rules be written here!</h4>
+                            <div class="CardGen_Rules" id="CardGen_Rules_sun">Rules be written here!</div>
                             <div id="abilityRange">
-                                <img id="rangeArt_sun" src="Art/magicRange.png" height="40px" width="40px">
+                                <img id="rangeArt_sun" src="Art/rangeMagic.png" height="40px" width="40px">
                                 <h3 id="rangeText_sun">+X</h3>
                             </div>
                         </div>
@@ -162,7 +167,7 @@
                     <fieldset>
                         <legend>Moon side</legend>
                         <label for="cmTitle">Card title:</label><br>
-                        <input type="text" id="cmTitle" name="cmTitle" value="Frostbolt"><br>
+                        <input type="text" id="cmTitle" name="cmTitle" value="Ending eclipse"><br>
                         <input type="checkbox" class="cmTypes" id="cmType1" name="cmType1" value="Standard">
                         <label for="cmType1">Standard</label>
                         <input type="checkbox" class="cmTypes" id="cmType2" name="cmType2" value="Movement">
@@ -172,13 +177,13 @@
                         <input type="checkbox" class="cmTypes" id="cmType4" name="cmType4" value="Passive">
                         <label for="cmType4">Passive</label><br>
                         <label for="cmCost">Spirit Cost:</label>
-                        <input type="text" style="width: 40px;" id="cmCost" name="cmCost" value="0"><br>
+                        <input type="text" style="width: 40px;" id="cmCost" name="cmCost" value="6"><br>
                         <label for="cmRule">Card rule text:</label><br>
-                        <textarea id="cmRule" name="cmRule" rows="6"
-                            cols="30">Target creature is dealt 6 cold damage...</textarea><br>
+                        <textarea id="cmRule" name="cmRule" rows="6" cols="30">Deal 2{ac} +2 <b>fire</b> damage to each creature within <b>3</b> squares of you. <br><br>
+You may activate this only while the <b>sun's blessing</b> is active. <br>
+<i>(Sun's blessing is active while the majority of cards amongst the party is sun face up.)</i></textarea><br>
                         <label for="cmFlavor">Flavor text</label><br>
-                        <textarea id="cmFlavor" name="cmFlavor" rows="6"
-                            cols="30">Frosty Icehaven was the founder of the ice guild and the creator of the frostbolt spell...</textarea><br>
+                        <textarea id="cmFlavor" name="cmFlavor" rows="6" cols="30"></textarea><br>
                         <label for="cmRangeText">Range</label>
                         <input type="text" style="width: 40px;" id="cmRangeText" name="cmRangeText" value="0"><br>
                         <input type="radio" class="RangeTypes" id="cmRangeTypeMelee" name="cmRangeType" value="Melee">
@@ -187,6 +192,10 @@
                         <label for="cmRangeTypeRanged">Ranged</label>
                         <input type="radio" class="RangeTypes" id="cmRangeTypeMagic" name="cmRangeType" value="Magic">
                         <label for="cmRangeTypeMagic">Magic:</label>
+                        <input type="radio" class="RangeTypes" id="cmRangeTypeTouch" name="cmRangeType" value="Touch">
+                        <label for="csRangeTypeMagic">Touch</label>
+                        <input type="radio" class="RangeTypes" id="cmRangeTypeNone" name="cmRangeType" value="None">
+                        <label for="csRangeTypeMagic">None</label>
                         <div class="upload">
                             <input type="file" accept="image/*" name="image" id="moonFile"
                                 onchange="loadMoonFile(event)">
@@ -197,7 +206,7 @@
             <div class="capture" id="moonCapture">
                 <img class="cardFrame" id="cardFrame_moon" src="Art/moonFrame_card.png" height="748px" width="533px">
                 <img class="cardRuleBg" id="cardRuleBg_moon" src="Art/ruleTextBG_Moon.png" width="533px">
-                <img class="cardArtBg" id="cardArtBg_moon" src="" width="553px">
+                <img class="cardArtBg" id="cardArtBg_moon" src="Art/Endingeclipse.jpg" width="553px">
                 <div id="cardElements">
                     <div id="topCard">
                         <h1 class="CardGen_Title" id="CardGen_Title_moon">Title</h1>
@@ -214,7 +223,7 @@
                         <div id="ruleBox">
                             <h4 class="CardGen_Rules" id="CardGen_Rules_moon">Rules be written here!</h4>
                             <div id="abilityRange">
-                                <img id="rangeArt_moon" src="Art/magicRange.png" height="40px" width="40px">
+                                <img id="rangeArt_moon" src="Art/rangeMagic.png" height="40px" width="40px">
                                 <h3 id="rangeText_moon">+X</h3>
                             </div>
                         </div>

@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: Cambria;
-  font-weight:normal;
 }
 body{
   background-color: darkgray;
@@ -173,6 +172,12 @@ body{
   margin-top: 10px;
   margin-left: 40px;
   margin-right: 40px;
+}
+.boldText{
+  font-weight: bold;
+}
+.italicText{
+  font-style: italic;
 }
 .RangeTypes{
   margin-left: 10px;
