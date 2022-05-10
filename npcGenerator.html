@@ -107,7 +107,7 @@
     //#region Orc
     var nameContruct1 = ['Sa', 'Su', 'Se', 'Si', 'So', 'Ka', 'Ki', 'Ku', 'Ke', 'Ko', 'Ma', 'Mi', 'Mu', 'Mo', 'Na', 'Ni', 'No'];
     var nameContruct2 = ['r', 'k', 'a', 'o', 'or', 'la', 'va'];
-    var nameContruct3 = ['ah', 'oh', 'ana', 'ene', 'ick', 'ri', 're', 'in'];
+    var nameContruct3 = ['ah', 'oh', 'ana', 'ene', 'ick', 'ri', 're', 'in', 'va', 'vich', 'en', 'on'];
 
     var orcFeatures = ['a large left tusk almost double the size of the other, reaching up to his cheek', 'his left tusk broken', 'a large bone ring in his nose with orcish engravings']
 
@@ -125,7 +125,11 @@
     const clothesFabricNoble = ['silken', 'velvet', 'tafeta', 'damask']
     const clothesFabricCommoner = ['linen', 'wool', 'leather', 'hemp']
     const clothesCommonerTop = ['shirt', 'tunic', 'sleeveless shirt', 'poncho']
-    const clothesCommonerBot = ['tight pants', 'baggy pants', 'pirate pants', 'long skirt', 'knee high pants']
+    const clothesCommonerBotType = ['short', 'long', 'worn', 'pirate', 'baggy', 'tight', 'thin', 'knee long', 'one legged', 'torn']
+    const clothesCommonerBot = ['pants', 'skirt']
+    const clothesCommonerBotSuffix = ['bandage wrappings on left leg', 'bandage wrappings on right leg']
+    const clothesCommonerFootSocksPrefix = ['knee high', 'short']
+    const clothesCommonerFootSocks = ['socks', 'wrappings']
     const clothesNobleColor = ['bright red', 'orange', 'yellow', 'snow white', 'deep blue', 'purple', 'dark gren', 'green', 'bright green', 'sky blue']
     const clothesCommonerColor = ['red', 'gray', 'ivory white', 'vanilla', 'brown']
     const clothesArmourTop = []
@@ -206,11 +210,36 @@
                 else {
                     var clothesTop = clothesCommonerTop[Math.floor(Math.random() * clothesCommonerTop.length)];
                     var clothesBot = clothesCommonerBot[Math.floor(Math.random() * clothesCommonerBot.length)];
+                        var sockType = clothesCommonerFootSocks[Math.floor(Math.random() * clothesCommonerFootSocks.length)];
+                        var sockPrefix = clothesCommonerFootSocksPrefix[Math.floor(Math.random() * clothesCommonerFootSocksPrefix.length)];
+                        var fabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
+                        var color = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
+                        var socks = " with " + sockPrefix + " " + color + " " + fabric + " " + sockType;
                     var topFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
                     var botFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
                     var topColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
                     var botColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
+                    var legSuffix = clothesCommonerBotSuffix[Math.floor(Math.random() * clothesCommonerBotSuffix.length)];
+                    if(Math.random() < 0.5){
+                        if(Math.random() < 0.5){
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + socks + " and " + legSuffix;
+
+                        }
+                        else{
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + socks;
+
+                        }
+
+                    }
+                    else{
+                        if(Math.random() < 0.5){
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + legSuffix;
+
+                        }
+                        else{
+                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
+                        }
+                    }
                 }
                 return clothes;
             case 'noble':
@@ -227,7 +256,18 @@
                     var botFabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
                     var topColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
                     var botColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
-                    var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
+                    var sockType = clothesCommonerFootSocks[Math.floor(Math.random() * clothesCommonerFootSocks.length)];
+                        var sockPrefix = clothesCommonerFootSocksPrefix[Math.floor(Math.random() * clothesCommonerFootSocksPrefix.length)];
+                        var fabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricCommoner.length)];
+                        var color = clothesNobleColor[Math.floor(Math.random() * clothesCommonerColor.length)];
+                        var socks = " with " + sockPrefix + " " + color + " " + fabric + " " + sockType;
+                    if(Math.random() < 0.6){
+                        var clothes = botColor + " " + clothesBot + " made of " + botFabric + " and " + socks + " with a " + topColor + " " + topFabric + " " + clothesTop;
+
+                    }
+                    else{
+                        var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
+                    }
                 }
                 return clothes;
                 break;
@@ -270,7 +310,15 @@
             }
             var size = 'medium'
             var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]
-            var age = Math.floor(Math.random() * (80 - 17)) + 17;
+            if(Math.random() < 0.7){
+                if(Math.random() < 0.65){
+                    var age = Math.floor(Math.random() * (35 - 17)) + 17;
+                }
+                else{var age = Math.floor(Math.random() * (59 - 34)) + 34;}
+                
+            }
+            else{var age = Math.floor(Math.random() * (80 - 60)) + 60;}
+            
         }
         return { height, size, build, age };
     }
