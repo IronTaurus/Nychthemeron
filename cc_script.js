@@ -24,14 +24,15 @@
     }
     
     console.log(captureElementSun);
-    function draw2canvas(){
+    function draw2canvas(el){
         html2canvas(captureElementSun, {
             scale: 3,
             background :'#FFFFFF',
             useCORS: true,
         }).then(canvas => {
-            canvas.id = "h2canvas";
+            canvas.id = "h2CanvasSun";
             document.body.appendChild(canvas);
+            download_img(el)
 
         });
     }
@@ -45,9 +46,9 @@
         //}
     download_img = function (el) {
         console.log(h2canvas);
-        var image = document.getElementById("h2canvas").toDataURL("image/jpg");
+        var image = document.getElementById("h2CanvasSun").toDataURL("image/jpg");
         el.href = image;
-        const canvasElement = document.getElementById("h2canvas");
+        const canvasElement = document.getElementById("h2CanvasSun");
         canvasElement.remove();
     };
 
