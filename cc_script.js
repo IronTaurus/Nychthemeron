@@ -24,7 +24,7 @@
     }
     
     console.log(captureElementSun);
-    function draw2canvas(el){
+    function draw2canvas(){
         html2canvas(captureElementSun, {
             scale: 3,
             background :'#FFFFFF',
@@ -33,8 +33,9 @@
             canvas.id = "h2CanvasSun";
             document.body.appendChild(canvas);       
         });
-        console.log(h2canvas);
+            console.log(h2canvas);
             var image = document.getElementById("h2CanvasSun").toDataURL("image/jpg");
+            const el = document.getElementById("download");
             el.href = image;
             const canvasElement = document.getElementById("h2CanvasSun");
             canvasElement.remove();
