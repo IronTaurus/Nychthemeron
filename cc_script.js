@@ -24,21 +24,24 @@
     }
     
     console.log(captureElementSun);
+    function downloadGeneration(){
+        draw2canvas();
+        download_img();
+    }
     function draw2canvas(){
         html2canvas(captureElementSun, {
             scale: 3,
             background :'#FFFFFF',
             useCORS: true,
         }).then(canvas => {
-            canvas.id = "h2CanvasSun";
+            canvas.id = "h2Canvas";
             document.body.appendChild(canvas);       
         });
-            console.log(h2canvas);
-            var image = document.getElementById("h2CanvasSun").toDataURL("image/jpg");
-            const el = document.getElementById("download");
-            el.href = image;
-            const canvasElement = document.getElementById("h2CanvasSun");
-            canvasElement.remove();
+            // var link = document.createElement('a');
+            // link.download = 'filename.png';
+            // link.href = document.getElementById('h2Canvas').toDataURL()
+            // link.click();
+            // document.body.removeChild(canvasElement);  
     }
         // html2canvas(captureElementMoon, {
         //     scale: 3,
@@ -48,12 +51,17 @@
         //     // document.body.appendChild(canvas)
         // });
         //}
-    download_img = function (el) {
-        console.log(h2canvas);
-        var image = document.getElementById("h2CanvasSun").toDataURL("image/jpg");
-        el.href = image;
-        const canvasElement = document.getElementById("h2CanvasSun");
-        canvasElement.remove();
+        function download_img() {
+            var link = document.createElement('a');
+            link.download = 'filename.png';
+            link.href = document.getElementById('h2Canvas').toDataURL()
+            link.click();
+            document.body.removeChild(canvasElement);  
+            // var canvasElement = document.getElementById("h2Canvas");
+            // console.log(canvasElement);
+            // var image = canvasElement.toDataURL("image/jpg");
+            // document.getElementById("myImg").href = image;
+            // document.body.removeChild(canvasElement);
     };
 
     var loadSunFile = function(event) {

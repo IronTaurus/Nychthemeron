@@ -84,13 +84,14 @@
                     <option class="classTier" value="X">10</option>
                 </select>
             </div>
-            <!-- <div id="button">
-                <button id="download" onclick="draw2canvas()">Generate Card!</button>
-
-            </div> -->
+            <div id="button">
+                <button class="download" onclick="downloadGeneration()">Generate!</button>
+            </div>
             <div>
-                <a id="download" download="myImage.jpg" href="" onclick="draw2canvas();">Download to
-                    myImage.jpg</a>
+                <a class="download" download="myImage.jpg" href="none1" onclick="download_img(this);">Download!</a>
+            </div>
+            <div>
+                <a class="download" id="myImg" download="myImage.jpg" href="none1" onclick="downloadGeneration(this);">Generate & Download!</a>
             </div>
             <div>
 

@@ -16,7 +16,7 @@ body{
 .upload{
   margin-top: 8px;
 }
-#download{
+.download{
   border: 2px solid black;
   margin: 0%;
   font-size: 16px;
