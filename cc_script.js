@@ -47,6 +47,8 @@
         console.log(h2canvas);
         var image = document.getElementById("h2canvas").toDataURL("image/jpg");
         el.href = image;
+        const canvasElement = document.getElementById("h2canvas");
+        canvasElement.remove();
     };
 
     var loadSunFile = function(event) {
