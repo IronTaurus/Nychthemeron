@@ -5,6 +5,7 @@
     const captureElementMoon = document.querySelector("#moonCapture");
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
+    var baseClass = "";
     
     function selectClass(selectedClass){
         const $select = document.querySelector('#classSubtypes');
@@ -22,12 +23,15 @@
             }
         });          
     }
-    
+
     console.log(captureElementSun);
-    function downloadGeneration(){
-        draw2canvas();
-        download_img();
+        function downloadGeneration(){
+        draw2canvas().then(
+            f => {download_img();}
+        );
+        
     }
+
     function draw2canvas(){
         html2canvas(captureElementSun, {
             scale: 3,
@@ -35,33 +39,26 @@
             useCORS: true,
         }).then(canvas => {
             canvas.id = "h2Canvas";
-            document.body.appendChild(canvas);       
+            document.body.appendChild(canvas);
+            download_img();       
         });
-            // var link = document.createElement('a');
-            // link.download = 'filename.png';
-            // link.href = document.getElementById('h2Canvas').toDataURL()
-            // link.click();
-            // document.body.removeChild(canvasElement);  
     }
         // html2canvas(captureElementMoon, {
         //     scale: 3,
-        // }).then(canvas => {
-        //     var image = canvas.toDataURL("image/jpg");
-        //     el.href = image;
-        //     // document.body.appendChild(canvas)
-        // });
-        //}
+        //     }).then(canvas => {
+        //         var image = canvas.toDataURL("image/jpg");
+        //         el.href = image;
+        //         document.body.appendChild(canvas)
+        //     });
+        // }
         function download_img() {
             var link = document.createElement('a');
-            link.download = 'filename.png';
+            var name = document.getElementById("csTitle").value.replace(/\s+/g, '');
+            link.download = baseClass + "_" + name + ".png";
             link.href = document.getElementById('h2Canvas').toDataURL()
             link.click();
+            var canvasElement = document.getElementById("h2Canvas");
             document.body.removeChild(canvasElement);  
-            // var canvasElement = document.getElementById("h2Canvas");
-            // console.log(canvasElement);
-            // var image = canvasElement.toDataURL("image/jpg");
-            // document.getElementById("myImg").href = image;
-            // document.body.removeChild(canvasElement);
     };
 
     var loadSunFile = function(event) {
@@ -117,7 +114,7 @@
         let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}/gi, matched => mapObj[matched]);
 
         //Adds the class type to the card.
-        var baseClass = "";
+        
         for (let index = 0 ; index < classType.length; index++) {
             const element = classType[index];
             if (element.checked)
