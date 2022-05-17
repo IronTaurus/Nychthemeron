@@ -28,15 +28,26 @@
         html2canvas(captureElementSun, {
             scale: 3,
             background :'#FFFFFF',
+            useCORS: true,
         }).then(canvas => {
-            document.body.appendChild(canvas)
-        });
-        html2canvas(captureElementMoon, {
-            scale: 3,
-        }).then(canvas => {
-            document.body.appendChild(canvas)
+            canvas.id = "h2canvas";
+            document.body.appendChild(canvas);
+
         });
     }
+        // html2canvas(captureElementMoon, {
+        //     scale: 3,
+        // }).then(canvas => {
+        //     var image = canvas.toDataURL("image/jpg");
+        //     el.href = image;
+        //     // document.body.appendChild(canvas)
+        // });
+        //}
+    download_img = function (el) {
+        console.log(h2canvas);
+        var image = document.getElementById("h2canvas").toDataURL("image/jpg");
+        el.href = image;
+    };
 
     var loadSunFile = function(event) {
         var image = document.getElementById('cardArtBg_sun');
