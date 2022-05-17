@@ -62,12 +62,31 @@
 
     <script>
         class Character {
-            constructor(cName, cRace, cClass, cFeatures, cAttributes) {
+            constructor(cName, cRace, cClass, cFeatures, cAttributes, cBackround, cArt, cNotes) {
                 this.cName = character_Name;
-                this.cRace = character_Race;
-                this.cClass = character_Class;
+                this.cRace = Character_Race;
+                this.cClass = Character_Class;
                 this.cFeatures = character_Features;
                 this.cAttributes = character_Attributes;
+                this.cBackround = character_Background;
+                this.cArt = character_Art;
+                this.cNotes = character_Notes;
+            }
+        }
+        class Character_Race {
+            constructor(name, traits, behaviour, appearence, background) {
+                this.name = race_Name;
+                this.traits = race_Traits;
+                this.behaviour = race_Behaviour;
+                this.appearence = race_Appearence;
+                this.background = race_Background;
+            }
+        }
+        class Character_Class {
+            constructor(type, subType, cards) {
+                this.type = class_Type;
+                this.subType = class_SubType;
+                this.cards = class_Cards;
             }
         }
     </script>

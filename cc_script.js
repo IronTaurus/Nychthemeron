@@ -32,7 +32,12 @@
         }).then(canvas => {
             canvas.id = "h2CanvasSun";
             document.body.appendChild(canvas);
-            download_img(el)
+            
+            console.log(h2canvas);
+            var image = document.getElementById("h2CanvasSun").toDataURL("image/jpg");
+            el.href = image;
+            const canvasElement = document.getElementById("h2CanvasSun");
+            canvasElement.remove();
 
         });
     }
