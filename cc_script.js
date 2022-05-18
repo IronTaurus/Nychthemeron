@@ -24,16 +24,10 @@
         });          
     }
 
-    console.log(captureElementSun);
-        function downloadGeneration(){
-        draw2canvas().then(
-            f => {download_img();}
-        );
-        
-    }
+    console.log(captureElementSun);      
 
     function draw2canvas(){
-        html2canvas(captureElementSun, {
+        html2canvas(captureElementMoon, {
             scale: 3,
             background :'#FFFFFF',
             useCORS: true,
