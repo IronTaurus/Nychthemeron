@@ -27,33 +27,37 @@
     console.log(captureElementSun);      
 
     function draw2canvas(){
+        var cTitleSun = document.getElementById("csTitle").value.replace(/\s+/g, '');
+        html2canvas(captureElementSun, {
+            scale: 3,
+            background :'#FFFFFF',
+            useCORS: true,
+        }).then(canvas => {
+            canvas.id = "h2CanvasSun";
+            document.body.appendChild(canvas);
+            download_img(canvas.id, "Sun", cTitleSun);       
+        });
+        var cTitleMoon = document.getElementById("cmTitle").value.replace(/\s+/g, '');
         html2canvas(captureElementMoon, {
             scale: 3,
             background :'#FFFFFF',
             useCORS: true,
         }).then(canvas => {
-            canvas.id = "h2Canvas";
+            canvas.id = "h2CanvasMoon";
             document.body.appendChild(canvas);
-            download_img();       
+            download_img(canvas.id, "Moon", cTitleMoon); 
         });
+        
     }
-        // html2canvas(captureElementMoon, {
-        //     scale: 3,
-        //     }).then(canvas => {
-        //         var image = canvas.toDataURL("image/jpg");
-        //         el.href = image;
-        //         document.body.appendChild(canvas)
-        //     });
-        // }
-        function download_img() {
+        
+        function download_img(canvasId, face, title) {
             var link = document.createElement('a');
-            var name = document.getElementById("csTitle").value.replace(/\s+/g, '');
-            link.download = baseClass + "_" + name + ".png";
-            link.href = document.getElementById('h2Canvas').toDataURL()
+            link.download = face + "_" +baseClass + "_" + title + ".png";
+            link.href = document.getElementById(canvasId).toDataURL()
             link.click();
-            var canvasElement = document.getElementById("h2Canvas");
+            var canvasElement = document.getElementById(canvasId);
             document.body.removeChild(canvasElement);  
-    };
+        };
 
     var loadSunFile = function(event) {
         var image = document.getElementById('cardArtBg_sun');
@@ -179,7 +183,7 @@
         document.getElementById("CardGen_Types_sun").innerHTML = sunType;
         document.getElementById("CardGen_Rules_sun").innerHTML = sunRuleReplaced;
         if(csRange > 0){
-            var sunRange = "+" + csRange;
+            var sunRange = csRange;
         }
         else{var sunRange = ""}
         document.getElementById("rangeText_sun").innerHTML = sunRange;
@@ -196,7 +200,7 @@
         document.getElementById("CardGen_Types_moon").innerHTML = moonType;
         document.getElementById("CardGen_Rules_moon").innerHTML = moonRuleReplaced;
         if(cmRange > 0){
-            var moonRange = "+" + cmRange;
+            var moonRange = cmRange;
         }
         else{var moonRange = ""}
         document.getElementById("rangeText_moon").innerHTML = moonRange;
