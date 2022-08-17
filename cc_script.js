@@ -105,11 +105,15 @@
         {
             '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
             '{w}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
-            '{and}': "<br><img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
-            '{or}': "<br><img src='Art/or.png' height='16' width='340'/> <br>",
+            '{and}': "<img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
+            '{or}': "<img src='Art/or.png' height='16' width='340' style='margin-top: 8px'/> <br>",
+            '{-}': "<img src='Art/break.png' height='16' width='340'/> <br>",
+            '{one}': "<img src='Art/break_first.png' height='16' width='340'/> <br>",
+            '{two}': "<img src='Art/break_second.png' height='16' width='340'/> <br>",
+            '{three}': "<img src='Art/break_third.png' height='16' width='340'/> <br>",
         };
-        let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}/gi, matched => mapObj[matched]);
-        let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}/gi, matched => mapObj[matched]);
+        let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}/gi, matched => mapObj[matched]);
+        let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}/gi, matched => mapObj[matched]);
 
         //Adds the class type to the card.
         

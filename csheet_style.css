@@ -1,0 +1,97 @@
+body{
+    background-color: rgb(111, 105, 103);
+}
+
+.cBlock{
+    display: flex;
+}
+
+.fAbility{
+    display: block;
+    padding: 4px 4px 4px 4px;
+}
+.fList{
+    background-color: blanchedalmond;
+    border: solid black 2px;
+    border-radius: 4px;
+    padding: 4px;
+}
+h4{
+    margin: 0%;
+}
+.mStats{
+    display: flex;
+}
+.mAbility{
+    margin: 0px 4px 0px 4px;
+}
+.pBlock{
+    background-color: blanchedalmond;
+    /* margin: 20px 0px 20px 0px; */
+    padding: 10px;
+    
+}
+#pEnd{
+    /* margin: 20px 25px 20px 0px; */
+    border-radius: 0 20px 20px 0;
+    padding: 10px;
+}
+.pTitleTxt{
+    font-size: 16px;
+    font-weight: 600;
+}
+#pArt{
+    background-color: blanchedalmond;
+    border-radius: 4px 0px 0px 4px;
+    padding: 4px;
+}
+.pValueTxt{
+    background-color: blanchedalmond;
+    border: none;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 16px;
+    max-width: 350px;
+}
+.pElement{
+    display: flex;
+}
+#pDescriptionTxt{
+    margin-top: 8px;
+}
+.cCols{
+    display: block;
+}
+.cFeatures{
+    display: flex;
+}
+.cTitleTxt{
+    border: 2px solid rgb(224, 202, 0);
+    background-color: rgb(243, 238, 0);
+    border-radius: 30% 30% 0% 0%;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 8px;
+    padding: 3px;
+}
+.cValueTxt{
+    border: 2px solid rgb(255, 162, 0);
+    background-color: rgb(255, 179, 0);
+    border-radius: 0% 0% 30% 30%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.aTitleTxt{
+    background-color: blanchedalmond;
+    border: none;
+    font-weight: 600;
+    text-decoration: underline;
+    max-width: 134px;
+}
+.aDescTxt{
+    background-color: blanchedalmond;
+    border: none;
+    min-width: 136px;
+    max-width: 136px;
+}
