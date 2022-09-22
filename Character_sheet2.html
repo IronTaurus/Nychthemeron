@@ -10,6 +10,17 @@
 </head>
 
 <body>
+    <div class="Grid-container-top">
+        <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
+        <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
+        <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
+        <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+        <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+        <button id="Cards" class="top-button" onclick="window.location.href='Game.html';">Game</button>
+        <button id="Rules" class="top-button" onclick="window.location.href='Tools.html';">Tools</button>
+    </div>
+
+
     <div class="cSheet">
 
         <div class="cBlock" id="cProfile">
@@ -19,7 +30,10 @@
                     <label for="pNameTxt" id="pTitleTxt">Name:</label><br>
                     <input type="text" class="pValueTxt" id="pNameTxt" name="pValueTxt" value="Elaine Galadria"><br>
                 </div>
-
+                <div class="pElement">
+                    <label for="pRaceTxt" id="pTitleTxt">Class:</label><br>
+                    <input type="text" class="pValueTxt" id="pRaceTxt" name="cValueTxt" value="Human"><br>
+                </div>
                 <div class="pElement">
                     <label for="pClassTxt" id="pTitleTxt">Class:</label><br>
                     <input type="text" class="pValueTxt" id="pClassTxt" name="cValueTxt"
@@ -118,46 +132,63 @@
             <div class="mEquippments">
 
             </div>
+            <div id="button">
+                <button class="Save" onclick="saveCharacter()">Save!</button>
+            </div>
+            <div>
+                <p id="testText"> hejhej hej</p>
+            </div>
         </div>
     </div>
     </div>
+
+
 
     </div>
     </div>
     <script>
         class Character {
             constructor(cName, cRace, cClass, cFeatures, cAttributes, cBackround, cArt, cNotes) {
-                this.cName = character_Name;
-                this.cRace = character_Race;
-                this.cClass = character_Class;
-                this.cFeatures = character_Features;
-                this.cAttributes = character_Attributes;
-                this.cBackround = character_Background;
-                this.cArt = character_Art;
-                this.cNotes = character_Notes;
+                this.character_Name = cName;
+                this.character_Race = cRace;
+                this.character_Class = cClass;
+                this.character_Features = cFeatures;
+                this.character_Attributes = cAttributes;
+                this.character_Background = cBackround;
+                this.character_Art = cArt;
+                this.character_Notes = cNotes;
             }
         }
         class Character_Race {
             constructor(name, traits, behaviour, appearence, background) {
-                this.name = race_Name;
-                this.traits = race_Traits;
-                this.behaviour = race_Behaviour;
-                this.appearence = race_Appearence;
-                this.background = race_Background;
+                this.race_Name = name;
+                this.race_Traits = traits;
+                this.race_Behaviour = behaviour;
+                this.race_Appearence = appearence;
+                this.race_Background = background;
             }
         }
         class Character_Class {
             constructor(type, subType, cards) {
-                this.type = class_Type;
-                this.subType = class_SubType;
-                this.cards = class_Cards;
+                this.class_Type = type;
+                this.class_SubType = subType;
+                this.class_Cards = cards;
             }
         }
         class Character_Feature {
             constructor(name, desc) {
-                this.name = featureName;
-                this.desc = featureDesc
+                this.featureName = name;
+                this.featureDesc = desc;
             }
+        }
+
+        function saveCharacter() {
+            var txtName = document.getElementById("pNameTxt").textContent;
+            var txtRace = document.getElementById("pRaceTxt").textContent;
+            var txtClass = document.getElementById("pClassTxt").textContent;
+
+            let myCharacter = new Character(txtName, txtRace, txtClass);
+            document.getElementById("testText").textContent = txtName
         }
     </script>
     </script>
