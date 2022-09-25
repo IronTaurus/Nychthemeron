@@ -64,36 +64,34 @@
                 <div class="mStats">
                     <div class="mAbility" id="mAgility">
                         <div class="sValue">
-                            <div class="cTitleTxt">Agility</div>
-                            <div class="cValueTxt">1</div>
-
+                            <div class="cTitleTxt" id="sTitleTxt">Agility</div>
+                            <div class="cValueTxt" id="sValueTxt">1</div>
                         </div>
                     </div>
                     <div class="mAbility" id="mBody">
                         <div class="sValue">
-
+                            <div class="cTitleTxt" id="sTitleTxt">Body</div>
+                            <div class="cValueTxt" id="sValueTxt">2</div>
                         </div>
-                        <div class="cTitleTxt">Body</div>
-                        <div class="cValueTxt">2</div>
                     </div>
                     <div class="mAbility" id="mMind">
                         <div class="sValue">
-                            <div class="cTitleTxt">Mind</div>
-                            <div class="cValueTxt">3</div>
+                            <div class="cTitleTxt" id="sTitleTxt">Mind</div>
+                            <div class="cValueTxt" id="sValueTxt">3</div>
                         </div>
 
                     </div>
                     <div class="mAbility" id="mMystic">
                         <div class="sValue">
-                            <div class="cTitleTxt">Mystic</div>
-                            <div class="cValueTxt">4</div>
+                            <div class="cTitleTxt" id="sTitleTxt">Mystic</div>
+                            <div class="cValueTxt" id="sValueTxt">4</div>
                         </div>
 
                     </div>
                     <div class="mAbility" id="mPresence">
                         <div class="sValue">
-                            <div class="cTitleTxt">Presence</div>
-                            <div class="cValueTxt">5</div>
+                            <div class="cTitleTxt" id="sTitleTxt">Presence</div>
+                            <div class="cValueTxt" id="sValueTxt">5</div>
                         </div>
 
                     </div>
@@ -106,22 +104,24 @@
             <div class="clFeatures">
                 <div class="fList">
                     <h4>Class features</h4>
-                    <div class="fAbility">
-                        <div><input type="text" class="aTitleTxt" value="Moonlight armour"></div>
-                        <div><textarea class="aDescTxt" rows="6"
+                    <div class="cFeature" id="fAbility">
+                        <div><input type="text" class="aTitleTxt" id="aTitleTxt" value="Moonlight armour"></div>
+                        <div><textarea class="aDescTxt" id="aDescTxt" rows="6"
                                 cols="40">During the night or when moon's blessing is active your temporary armour can block magical damage.</textarea>
                         </div>
                     </div>
-                    <div class="fAbility">
-                        <div class="aTitleTxt">Skillful</div>
-                        <div class="aDescTxt">You gain an additional 5 feature points of any chosen attribute.</div>
+                    <div class="cFeature" id="fAbility">
+                        <div><input type="text" class="aTitleTxt" id="aTitleTxt" value="Skillful"></div>
+                        <div><textarea class="aDescTxt" id="aDescTxt" rows="6"
+                                cols="40">You gain an additional 5 feature points of any chosen attribute.</textarea>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="rFeatures">
                 <div class="fList">
                     <h4>Racial features</h4>
-                    <div class="fAbility">
+                    <div class="rFeature" id="fAbility">
                         <div><input type="text" class="aTitleTxt" value="Well adapted"></div>
                         <div><textarea class="aDescTxt" rows="6"
                                 cols="40">Gain 2 attribute points of your choice.</textarea>
@@ -134,6 +134,9 @@
             </div>
             <div id="button">
                 <button class="Save" onclick="saveCharacter()">Save!</button>
+            </div>
+            <div id="button">
+                <button class="Save" onclick="loadCharacter()">Load!</button>
             </div>
             <div>
                 <p id="testText"> hejhej hej</p>
@@ -148,11 +151,12 @@
     </div>
     <script>
         class Character {
-            constructor(cName, cRace, cClass, cFeatures, cAttributes, cBackround, cArt, cNotes) {
+            constructor(cName, cRace, cClass, cFeatures = [], rFeatures = [], cAttributes = [], cBackround, cArt, cNotes) {
                 this.character_Name = cName;
                 this.character_Race = cRace;
                 this.character_Class = cClass;
-                this.character_Features = cFeatures;
+                this.character_ClassFeatures = cFeatures;
+                this.character_RaceFeatures = rFeatures;
                 this.character_Attributes = cAttributes;
                 this.character_Background = cBackround;
                 this.character_Art = cArt;
@@ -181,14 +185,67 @@
                 this.featureDesc = desc;
             }
         }
+        class Character_Attribute {
+            constructor(aName, aValue) {
+                this.featureName = aName;
+                this.featureDesc = aValue;
+            }
+        }
+
+        let myCharacter = new Character("Name", "Race", "Class", []);
+        setCharacter(myCharacter);
+
+        function setCharacter(myCharacter) {
+            var txtName = document.getElementById("pNameTxt").value;
+            var txtRace = document.getElementById("pRaceTxt").value;
+            var txtClass = document.getElementById("pClassTxt").value;
+            const rFeatures = [];
+            const cFeatures = [];
+            const cAttributes = [];
+
+            const classFeatures = document.querySelectorAll(".cFeature");
+            classFeatures.forEach(element => {
+                const featureName = element.querySelector('#aTitleTxt').value;
+                const featureDesc = element.querySelector('#aDescTxt').value;
+                let newClassFeature = new Character_Feature(featureName, featureDesc);
+                cFeatures.push(newClassFeature);
+            });
+
+            const raceFeatures = document.querySelectorAll(".rFeature");
+            raceFeatures.forEach(element => {
+                const featureName = element.querySelector('#aTitleTxt').value;
+                const featureDesc = element.querySelector('#aDescTxt').value;
+                let newClassFeature = new Character_Feature(featureName, featureDesc);
+                rFeatures.push(newClassFeature);
+            });
+
+            const characterAttributes = document.querySelectorAll(".sValue");
+            characterAttributes.forEach(element => {
+                const attributeName = element.querySelector('#sTitleTxt').value;
+                const attributeValue = element.querySelector('#sValueTxt').value;
+                let newAttribute = new Character_Attribute(attributeName, attributeValue);
+                cAttributes.push(newAttribute);
+            });
+
+            myCharacter.character_Name = txtName;
+            myCharacter.character_Race = txtRace;
+            myCharacter.character_Class = txtClass;
+            myCharacter.character_RaceFeatures = rFeatures;
+            myCharacter.character_ClassFeatures = cFeatures;
+            myCharacter.character_Attributes = cAttributes;
+
+        }
 
         function saveCharacter() {
-            var txtName = document.getElementById("pNameTxt").textContent;
-            var txtRace = document.getElementById("pRaceTxt").textContent;
-            var txtClass = document.getElementById("pClassTxt").textContent;
+            setCharacter(myCharacter);
+            document.getElementById("testText").textContent = myCharacter.character_Name;
+            myCharacter.character_Features.forEach(element => {
+                document.getElementById("testText").textContent += element.featureName + " " + element.featureDesc;
+            });
+        }
 
-            let myCharacter = new Character(txtName, txtRace, txtClass);
-            document.getElementById("testText").textContent = txtName
+        function loadCharacter() {
+            document.getElementById("pNameTxt").value = myCharacter.character_Name;
         }
     </script>
     </script>

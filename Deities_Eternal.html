@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <div class="Grid-container-top">
+            <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+            <button id="Cards" class="top-button" onclick="window.location.href='Game.html';">Game</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='Tools.html';">Tools</button>
+        </div>
+        <div id="Top-menu-2" class="top-menu">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Eternal Gods</button>
+                <div class="dropdown-content">
+                    <a href="#">Athernis</a>
+                    <a href="#">Mihridahl</a>
+                    <a href="#">Naerini</a>
+                    <a href="#">Cha'Rhin</a>
+                    <a href="#">Mo'Rhin</a>
+                    <a href="#">Devorna</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Immortal Gods</button>
+                <div class="dropdown-content">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Mortal Gods</button>
+                <div class="dropdown-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="main-block">
+        <div class="section">
+
+            <h1 class="block-title" id="Athernis">Athernis</h1>
+            <div class="sub-block">
+                <div id="flex-section">
+                    <div class="sub-section" id="sub-section-border">
+                        <h4 class="block-header">Minarith</h3>
+                            <div id="text-block">
+                                <p>
+                                    Minarith is in its physical form a source of energy giving light and life to the
+                                    realm of Athernis, in its Astral form they are portrayed
+                                    as a being with three arms one much longer than the other two with four fingers,
+                                    they have one normal sized right eye and four smaller
+                                    left eyes aligned vertically down their cheek. Minarith has a feminim appearence and
+                                    thus is often refered to as a she, anyone claimed to
+                                    have seen Minarith have describe them as a half beutiful radiating light and half
+                                    grotesque instilling fear to those how lay their eyes on them.
+                                </p><br>
+
+                                <p>
+                                    Another thing described about Minarith is that they are often seen in the act of
+                                    forming something, using their three hands to shape
+                                </p>
+
+                            </div>
+                    </div>
+                    <div class="sub-section">
+                        <img src="https://i.pinimg.com/564x/f6/0d/59/f60d59b835bed291b0142c3a4267b106.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewElement(scrollTo) {
+            console.log(scrollTo);
+            document.getElementById(scrollTo).scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            });
+        }
+    </script>
+</body>
+
+</html>
