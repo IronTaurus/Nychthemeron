@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="cFeatures" id="cFeatures">
-            <div class="clFeatures">
+            <div class="clFeatures" id="clFeatures">
                 <div class="fList">
                     <h4>Class features</h4>
                     <div class="cFeature" id="fAbility">
@@ -116,9 +116,11 @@
                                 cols="40">You gain an additional 5 feature points of any chosen attribute.</textarea>
                         </div>
                     </div>
+                    <div onclick="newClFeature('class')">+</div>
                 </div>
+
             </div>
-            <div class="rFeatures">
+            <div class="rFeatures" id="rFeatures">
                 <div class="fList">
                     <h4>Racial features</h4>
                     <div class="rFeature" id="fAbility">
@@ -211,13 +213,13 @@
                 cFeatures.push(newClassFeature);
             });
 
-            const raceFeatures = document.querySelectorAll(".rFeature");
-            raceFeatures.forEach(element => {
-                const featureName = element.querySelector('#aTitleTxt').value;
-                const featureDesc = element.querySelector('#aDescTxt').value;
-                let newClassFeature = new Character_Feature(featureName, featureDesc);
-                rFeatures.push(newClassFeature);
-            });
+            // const raceFeatures = document.querySelectorAll(".rFeature");
+            // raceFeatures.forEach(element => {
+            //     const featureName = element.querySelector('#aTitleTxt').value;
+            //     const featureDesc = element.querySelector('#aDescTxt').value;
+            //     let newClassFeature = new Character_Feature(featureName, featureDesc);
+            //     rFeatures.push(newClassFeature);
+            // });
 
             const characterAttributes = document.querySelectorAll(".sValue");
             characterAttributes.forEach(element => {
@@ -239,14 +241,72 @@
         function saveCharacter() {
             setCharacter(myCharacter);
             document.getElementById("testText").textContent = myCharacter.character_Name;
-            myCharacter.character_Features.forEach(element => {
+            myCharacter.character_ClassFeatures.forEach(element => {
                 document.getElementById("testText").textContent += element.featureName + " " + element.featureDesc;
             });
         }
 
         function loadCharacter() {
+            var myNode = document.getElementById("clFeatures");
+            myNode.removeChild(myNode.firstElementChild);
+            var newNode = document.createElement("div");
+            newNode.setAttribute("class", "fList");
+            newNode.setAttribute("id", "fList_class");
+            myNode.appendChild(newNode);
+            const title = document.createElement("h4");
+            newNode.appendChild(title);
+            const titleTxt = document.createTextNode("Class Features");
+            title.appendChild(titleTxt);
+
+
+            myCharacter.character_ClassFeatures.forEach(element => {
+
+
+                const newFeature = document.createElement("div");
+                newFeature.setAttribute("id", "fAbility")
+                newFeature.setAttribute("class", "cFeature")
+                newNode.appendChild(newFeature);
+                const featureTitle = document.createElement("input");
+                featureTitle.setAttribute("type", "text");
+                featureTitle.setAttribute("class", "aTitleTxt");
+                featureTitle.setAttribute("id", "aTitleTxt");
+                featureTitle.setAttribute("value", element.featureName);
+                newFeature.appendChild(featureTitle);
+
+                const featureDesc = document.createElement("textarea");
+                featureDesc.setAttribute("class", "aDescTxt");
+                featureDesc.setAttribute("id", "aDescTxt");
+                featureDesc.setAttribute("rows", "6");
+                featureDesc.setAttribute("cols", "40");
+                newFeature.appendChild(featureDesc);
+                const descText = document.createTextNode(element.featureDesc);
+                featureDesc.appendChild(descText);
+            });
+
             document.getElementById("pNameTxt").value = myCharacter.character_Name;
         }
+        function newClFeature(type) {
+            var newNode = document.getElementById("fList_" + type);
+            const newFeature = document.createElement("div");
+            newFeature.setAttribute("id", "newClassFeature");
+            newNode.appendChild(newFeature);
+            const featureTitle = document.createElement("input");
+            featureTitle.setAttribute("type", "text");
+            featureTitle.setAttribute("class", "aTitleTxt");
+            featureTitle.setAttribute("id", "aTitleTxt");
+            featureTitle.setAttribute("value", "Name...");
+            document.getElementById(newFeature).appendChild(featureTitle);
+
+            const featureDesc = document.createElement("textarea");
+            featureDesc.setAttribute("class", "aDescTxt");
+            featureDesc.setAttribute("id", descID);
+            featureDesc.setAttribute("rows", "6");
+            featureDesc.setAttribute("cols", "40");
+            document.getElementById(featureName).appendChild(featureDesc);
+            const descText = document.createTextNode("Text here...");
+            document.getElementById(featureDesc).appendChild(descText);
+        }
+
     </script>
     </script>
 </body>
