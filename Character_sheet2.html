@@ -285,27 +285,27 @@
 
             document.getElementById("pNameTxt").value = myCharacter.character_Name;
         }
-        function newClFeature(type) {
-            var newNode = document.getElementById("fList_" + type);
-            const newFeature = document.createElement("div");
-            newFeature.setAttribute("id", "newClassFeature");
-            newNode.appendChild(newFeature);
-            const featureTitle = document.createElement("input");
-            featureTitle.setAttribute("type", "text");
-            featureTitle.setAttribute("class", "aTitleTxt");
-            featureTitle.setAttribute("id", "aTitleTxt");
-            featureTitle.setAttribute("value", "Name...");
-            document.getElementById(newFeature).appendChild(featureTitle);
+        // function newClFeature(type) {
+        //     var newNode = document.getElementById("fList_" + type);
+        //     const newFeature = document.createElement("div");
+        //     newFeature.setAttribute("id", "newClassFeature");
+        //     newNode.appendChild(newFeature);
+        //     const featureTitle = document.createElement("input");
+        //     featureTitle.setAttribute("type", "text");
+        //     featureTitle.setAttribute("class", "aTitleTxt");
+        //     featureTitle.setAttribute("id", "aTitleTxt");
+        //     featureTitle.setAttribute("value", "Name...");
+        //     document.getElementById(newFeature).appendChild(featureTitle);
 
-            const featureDesc = document.createElement("textarea");
-            featureDesc.setAttribute("class", "aDescTxt");
-            featureDesc.setAttribute("id", descID);
-            featureDesc.setAttribute("rows", "6");
-            featureDesc.setAttribute("cols", "40");
-            document.getElementById(featureName).appendChild(featureDesc);
-            const descText = document.createTextNode("Text here...");
-            document.getElementById(featureDesc).appendChild(descText);
-        }
+        //     const featureDesc = document.createElement("textarea");
+        //     featureDesc.setAttribute("class", "aDescTxt");
+        //     featureDesc.setAttribute("id", descID);
+        //     featureDesc.setAttribute("rows", "6");
+        //     featureDesc.setAttribute("cols", "40");
+        //     document.getElementById(featureName).appendChild(featureDesc);
+        //     const descText = document.createTextNode("Text here...");
+        //     document.getElementById(featureDesc).appendChild(descText);
+        // }
 
     </script>
     </script>
