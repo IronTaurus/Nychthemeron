@@ -111,9 +111,10 @@
             '{one}': "<img src='Art/break_first.png' height='16' width='340'/> <br>",
             '{two}': "<img src='Art/break_second.png' height='16' width='340'/> <br>",
             '{three}': "<img src='Art/break_third.png' height='16' width='340'/> <br>",
+            '{melody}': "<img src='Art/LingeringMelody.png' height='16' width='340'/> <br>",
         };
-        let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}/gi, matched => mapObj[matched]);
-        let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}/gi, matched => mapObj[matched]);
+        let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}|{melody}/gi, matched => mapObj[matched]);
+        let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}|{melody}/gi, matched => mapObj[matched]);
 
         //Adds the class type to the card.
         
