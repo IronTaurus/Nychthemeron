@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <div class="Grid-container-top">
+            <button id="Religion" class="top-button" onclick="window.location.href='Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src="Art\Home.png" alt="home" width="100" height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='Races.html';">Races</button>
+            <button id="Cards" class="top-button" onclick="window.location.href='Game.html';">Game</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='Tools.html';">Tools</button>
+
+
+        </div>
+        <div>
+            <button id="Draw" class="cardDraw" onclick="DrawCard()" title="Draw Card">Draw Card!</button>
+        </div>
+        <div>
+            <button id="Reshuffle" class="cardDraw" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
+        </div>
+        
+        <div id="CycleCard" class="top-menu">
+            <div id="Card" class="card">
+                <img src="Art/Cycle_CritS.jpg" alt="Cycle Card" width="230" height="340"
+                    id="cardArt">
+            </div>            
+
+        </div>
+        <div id="value">Card Value</div>
+        <div id="face">Card face</div>
+    </div>
+</body>
+<script>
+    var CycleDeck = []
+
+    function DrawCard() {
+        myCard = new Card();
+        randomNr = Math.floor(Math.random()* CycleDeck.length)
+        myCard = CycleDeck[randomNr]
+        document.getElementById("cardArt").src = myCard.path;
+        document.getElementById("value").textContent = CycleDeck.length;
+        document.getElementById("face").textContent = myCard.face
+        CycleDeck.splice(randomNr, 1);
+        console.log(CycleDeck.length)
+    }          
+
+    function Reshuffle(){
+        CycleDeck = [...CycleDeckModel];
+    }
+
+    class Card{
+        constructor(face, value, path){
+            this.face = face;
+            this.value = value;
+            this.path = path;
+        }
+        
+    }
+
+    const CycleDeckModel = [];
+    for (let i = 0; i < 8; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if(res == 0){
+            newCard.face = "Sun";
+            newCard.path = "./Art/CycleSun+1.jpg"
+        }
+        else{
+            newCard.face = "Moon";
+            newCard.path = "./Art/CycleMoon+1.jpg"
+        }
+        newCard.value = "+1"
+        CycleDeckModel.push(newCard);
+    }
+
+    for (let i = 0; i < 5; i++){
+        newCard = new Card();
+        var res = i % 2;
+        if(res == 0){
+            newCard.face = "Sun";
+            newCard.path = "/Art/CycleSun+2.jpg"
+        }
+        else{
+            newCard.face = "Moon";
+            newCard.path = "/Art/CycleMoon+2.jpg"
+        }
+        newCard.value = "+2"
+        CycleDeckModel.push(newCard);
+    }
+
+    for (let i = 0; i < 5; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if(res == 0){
+            newCard.face = "Sun";
+            newCard.path = "/Art/CycleSun+3.jpg"
+        }
+        else{
+            newCard.face = "Moon";
+            newCard.path = "/Art/CycleMoon+3.jpg"
+        }
+        newCard.value = "+3"
+        CycleDeckModel.push(newCard);
+    }
+    for (let i = 0; i < 3; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if(res == 0){
+            newCard.face = "Moon";
+            newCard.path = "/Art/CycleMoon0.jpg"
+        }
+        else{
+            newCard.face = "Sun";
+            newCard.path = "/Art/CycleSun0.jpg"
+        }
+        newCard.value = "-1"
+        CycleDeckModel.push(newCard);
+    }
+    for (let i = 0; i < 2; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if(res == 0){
+            newCard.face = "Sun";
+            newCard.path = "/Art/CycleSun-1.jpg"
+        }
+        else{
+            newCard.face = "Moon";
+            newCard.path = "/Art/CycleMoon-1.jpg"
+        }
+        newCard.value = "-1"
+        CycleDeckModel.push(newCard);
+    }
+    CritSCard = new Card();
+    CritSCard.face = "Split";
+    CritSCard.value = "Critical Success"
+    CritSCard.path = "/Art/Cycle_CritS.jpg"
+
+    CritFCard = new Card();
+    CritFCard.face = "Split";
+    CritFCard.value = "Critical Failure"
+    CritFCard.path = "/Art/Cycle_CritF.jpg"
+    CycleDeck = [...CycleDeckModel];
+</script>
+</html>
