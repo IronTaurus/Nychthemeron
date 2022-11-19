@@ -53,11 +53,12 @@
         randomNr = Math.floor(Math.random() * CycleDeck.length)
         myCard = CycleDeck[randomNr]
         document.getElementById("cardArt").src = myCard.path;
-        document.getElementById("value").textContent = CycleDeck.length;
+
         document.getElementById("face").textContent = myCard.face
         DiscardDeck.push(myCard)
         CycleDeck.splice(randomNr, 1);
         console.log(CycleDeck.length)
+        document.getElementById("value").textContent = CycleDeck.length;
     }
 
     function Shuffle3() {
