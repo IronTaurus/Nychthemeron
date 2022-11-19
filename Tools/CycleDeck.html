@@ -29,7 +29,7 @@
         </div>
         <div id="CycleCard" style=" margin:auto; width: 50%; display:flex;">
             <div id="Card" class="card" style="margin: auto;">
-                <img src="\Art\ActionCards\Cycle_CritS.jpg" alt="Cycle Card" width="230" height="320" id="cardArt">
+                <img src="\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt">
             </div>
 
         </div>
@@ -68,15 +68,20 @@
             randomNr = Math.floor(Math.random() * DiscardDeck.length)
             myCard = DiscardDeck[randomNr]
             document.getElementById("value").textContent = CycleDeck.length;
-            CycleDeck.push(myCard)
-            DiscardDeck.splice(randomNr, 1);
-            console.log(DiscardDeck.length)
+            document.getElementById("cardArt").src = "/Art/ActionCards/Cycle_BackSide.png";
+            if (CycleDeck.length < 24) {
+                CycleDeck.push(myCard)
+                DiscardDeck.splice(randomNr, 1);
+                console.log(DiscardDeck.length)
+            }
+
         }
 
     }
 
     function Reshuffle() {
         CycleDeck = [...CycleDeckModel];
+        document.getElementById("cardArt").src = "/Art/ActionCards/Cycle_BackSide.png";
         DiscardDeck.length = 0;
         document.getElementById("value").textContent = CycleDeck.length;
     }
