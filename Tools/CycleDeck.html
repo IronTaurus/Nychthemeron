@@ -12,13 +12,14 @@
 <body>
     <div id="fixed-banner">
         <div class="Grid-container-top">
-            <button id="Religion" class="top-button" onclick="window.location.href='/Religion.html';">Religion</button>
-            <button id="History" class="top-button" onclick="window.location.href='/History.html';">History</button>
-            <button id="Myths" class="top-button" onclick="window.location.href='/Myths.html';">Myths</button>
-            <a id="Home" onclick="href='index.html';"><img src="\Art\Home.png" alt="/home" width="100" height="100"></a>
-            <button id="Races" class="top-button" onclick="window.location.href='/Races.html';">Races</button>
-            <button id="Cards" class="top-button" onclick="window.location.href='/Game.html';">Game</button>
-            <button id="Rules" class="top-button" onclick="window.location.href='/Tools.html';">Tools</button>
+            <button id="Religion" class="top-button" onclick="window.location.href='./Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='./History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='./Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src=".\Art\Home.png" alt="/home" width="100"
+                    height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='./Races.html';">Races</button>
+            <button id="Cards" class="top-button" onclick="window.location.href='./Game.html';">Game</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='./Tools.html';">Tools</button>
 
 
         </div>
@@ -35,7 +36,7 @@
 
         <div id="CycleCard" style=" margin:auto; width: 50%; display:flex;">
             <div id="Card" class="card" style="margin: auto;">
-                <img src="\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt">
+                <img src="..\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt">
             </div>
 
         </div>
@@ -50,7 +51,7 @@
     </div>
 </body>
 <script>
-    var imgPath = "/Art/ActionCards/"
+    var imgPath = "../Art/ActionCards/"
     var CycleDeck = []
     var DiscardDeck = []
 
@@ -79,7 +80,7 @@
             randomNr = Math.floor(Math.random() * DiscardDeck.length)
             myCard = DiscardDeck[randomNr]
 
-            document.getElementById("cardArt").src = "/Art/ActionCards/Cycle_BackSide.png";
+            document.getElementById("cardArt").src = "../Art/ActionCards/Cycle_BackSide.png";
             console.log("Discarddeck: " + DiscardDeck.length)
             if (CycleDeck.length < 24) {
                 CycleDeck.push(myCard)
