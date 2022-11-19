@@ -23,10 +23,16 @@
 
         </div>
         <div class="sub-section" id="sub-section-border">
-            <button id="Draw" class="cardDraw" onclick="DrawCard()" title="Draw Card">Draw Card!</button>
-            <button id="Reshuffle" class="reShuffle" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
-            <button id="Reshuffle" class="shuffleCard" onclick="Shuffle3()" title="Reshuffle">Reshuffle 3 Cards</button>
+            <button id="Draw" class="cardDraw" onclick="DrawCard()" title="Draw Card">Draw
+                Card!</button>
+            <div style="margin-top: 5px;">
+                <button id="Reshuffle" class="reShuffle" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
+                <button id="Reshuffle" class="shuffleCard" onclick="Shuffle3()" title="Reshuffle">Reshuffle 3
+                    Cards</button>
+            </div>
+
         </div>
+
         <div id="CycleCard" style=" margin:auto; width: 50%; display:flex;">
             <div id="Card" class="card" style="margin: auto;">
                 <img src="\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt">
@@ -49,34 +55,39 @@
     var DiscardDeck = []
 
     function DrawCard() {
-        myCard = new Card();
-        randomNr = Math.floor(Math.random() * CycleDeck.length)
-        myCard = CycleDeck[randomNr]
-        document.getElementById("cardArt").src = myCard.path;
+        console.log("CycleDeck Size:" + CycleDeck.length)
+        if (CycleDeck.length > 0) {
+            myCard = new Card();
+            randomNr = Math.floor(Math.random() * CycleDeck.length)
+            myCard = CycleDeck[randomNr]
+            document.getElementById("cardArt").src = myCard.path;
 
-        document.getElementById("face").textContent = myCard.face
-        DiscardDeck.push(myCard)
-        CycleDeck.splice(randomNr, 1);
-        console.log(CycleDeck.length)
-        document.getElementById("value").textContent = CycleDeck.length;
+            document.getElementById("face").textContent = myCard.face
+            DiscardDeck.push(myCard)
+            CycleDeck.splice(randomNr, 1);
+            console.log(CycleDeck.length)
+            document.getElementById("value").textContent = CycleDeck.length;
+        }
+
     }
 
     function Shuffle3() {
         console.log(DiscardDeck.length)
+        console.log("CycleDeck Size: " + CycleDeck.length);
         for (let index = 0; index < 3; index++) {
-
             myCard = new Card();
             randomNr = Math.floor(Math.random() * DiscardDeck.length)
             myCard = DiscardDeck[randomNr]
-            document.getElementById("value").textContent = CycleDeck.length;
+
             document.getElementById("cardArt").src = "/Art/ActionCards/Cycle_BackSide.png";
+            console.log("Discarddeck: " + DiscardDeck.length)
             if (CycleDeck.length < 24) {
                 CycleDeck.push(myCard)
                 DiscardDeck.splice(randomNr, 1);
-                console.log(DiscardDeck.length)
+                console.log("Discarddeck: " + DiscardDeck.length)
             }
-
         }
+        document.getElementById("value").textContent = CycleDeck.length;
 
     }
 
@@ -97,6 +108,8 @@
     }
 
     const CycleDeckModel = [];
+    console.log("CycleDeck Size: " + CycleDeck.length);
+    console.log("CycleDeckModel Size: " + CycleDeckModel.length);
     for (let i = 0; i < 8; i++) {
         newCard = new Card();
         var res = i % 2;
@@ -111,6 +124,7 @@
         newCard.value = "+1"
         CycleDeckModel.push(newCard);
     }
+    console.log("CycleDeckModel Size: " + CycleDeckModel.length);
 
     for (let i = 0; i < 5; i++) {
         newCard = new Card();
@@ -126,6 +140,7 @@
         newCard.value = "+2"
         CycleDeckModel.push(newCard);
     }
+    console.log("CycleDeckModel Size: " + CycleDeckModel.length);
 
     for (let i = 0; i < 4; i++) {
         newCard = new Card();
@@ -181,6 +196,8 @@
     CritFCard.path = imgPath + "Cycle_CritF.jpg"
     CycleDeckModel.push(CritFCard);
     CycleDeck = [...CycleDeckModel];
+    console.log("CycleDeck Size: " + CycleDeck.length);
+    console.log("CycleDeckModel Size: " + CycleDeckModel.length);
 </script>
 
 </html>
