@@ -86,7 +86,7 @@
                     }
                     else{
                         document.getElementById("rangeArt_sun").style.display = "block";
-                        document.getElementById("rangeArt_sun").src = "Art/range" + element.value + ".png"
+                        document.getElementById("rangeArt_sun").src = "/Art/range" + element.value + ".png"
                     }                   
                 }
                 if(element.name == "cmRangeType"){
@@ -95,7 +95,7 @@
                     }
                     else{
                         document.getElementById("rangeArt_moon").style.display = "block";
-                        document.getElementById("rangeArt_moon").src = "Art/range" + element.value + ".png"
+                        document.getElementById("rangeArt_moon").src = "/Art/range" + element.value + ".png"
                     }                 
                 }             
             }          
@@ -103,15 +103,15 @@
         //Replace all instances of keywords with a image.            
         const mapObj = 
         {
-            '{ac}': "<img src='Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
-            '{w}': "<img src='Art/BaseDmg.png' height = '22' width = '17' />",
-            '{and}': "<img src='Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
-            '{or}': "<img src='Art/or.png' height='16' width='340' style='margin-top: 8px'/> <br>",
-            '{-}': "<img src='Art/break.png' height='16' width='340'/> <br>",
-            '{one}': "<img src='Art/break_first.png' height='16' width='340'/> <br>",
-            '{two}': "<img src='Art/break_second.png' height='16' width='340'/> <br>",
-            '{three}': "<img src='Art/break_third.png' height='16' width='340'/> <br>",
-            '{melody}': "<img src='Art/LingeringMelody.png' height='16' width='340'/> <br>",
+            '{ac}': "<img src='/Art/Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
+            '{w}': "<img src='/Art/BaseDmg.png' height = '22' width = '17' />",
+            '{and}': "<img src='/Art/and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
+            '{or}': "<img src='/Art/or.png' height='16' width='340' style='margin-top: 8px'/> <br>",
+            '{-}': "<img src='/Art/break.png' height='16' width='340'/> <br>",
+            '{one}': "<img src='/Art/break_first.png' height='16' width='340'/> <br>",
+            '{two}': "<img src='/Art/break_second.png' height='16' width='340'/> <br>",
+            '{three}': "<img src='/Art/break_third.png' height='16' width='340'/> <br>",
+            '{melody}': "<img src='/Art/LingeringMelody.png' height='16' width='340'/> <br>",
         };
         let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}|{melody}/gi, matched => mapObj[matched]);
         let moonRuleReplaced = moonRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}|{melody}/gi, matched => mapObj[matched]);

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <div class="Grid-container-top">
+            <button id="Religion" class="top-button" onclick="window.location.href='/Religion.html';">Religion</button>
+            <button id="History" class="top-button" onclick="window.location.href='/History.html';">History</button>
+            <button id="Myths" class="top-button" onclick="window.location.href='/Myths.html';">Myths</button>
+            <a id="Home" onclick="href='index.html';"><img src="\Art\Home.png" alt="/home" width="100" height="100"></a>
+            <button id="Races" class="top-button" onclick="window.location.href='/Races.html';">Races</button>
+            <button id="Cards" class="top-button" onclick="window.location.href='/Game.html';">Game</button>
+            <button id="Rules" class="top-button" onclick="window.location.href='/Tools.html';">Tools</button>
+
+
+        </div>
+        <div class="sub-section" id="sub-section-border">
+            <button id="Draw" class="cardDraw" onclick="DrawCard()" title="Draw Card">Draw Card!</button>
+            <button id="Reshuffle" class="reShuffle" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
+            <button id="Reshuffle" class="shuffleCard" onclick="Shuffle3()" title="Reshuffle">Reshuffle 3 Cards</button>
+        </div>
+        <div id="CycleCard" style=" margin:auto; width: 50%; display:flex;">
+            <div id="Card" class="card" style="margin: auto;">
+                <img src="\Art\ActionCards\Cycle_CritS.jpg" alt="Cycle Card" width="230" height="320" id="cardArt">
+            </div>
+
+        </div>
+        <div class="sub-section" id="sub-section-border">
+            <h5>Remainer of Deck:</h5>
+            <h4 id="value"></h4>
+        </div>
+
+
+        <div id="value">Card Value</div>
+        <div id="face">Card face</div>
+    </div>
+</body>
+<script>
+    var imgPath = "/Art/ActionCards/"
+    var CycleDeck = []
+    var DiscardDeck = []
+
+    function DrawCard() {
+        myCard = new Card();
+        randomNr = Math.floor(Math.random() * CycleDeck.length)
+        myCard = CycleDeck[randomNr]
+        document.getElementById("cardArt").src = myCard.path;
+        document.getElementById("value").textContent = CycleDeck.length;
+        document.getElementById("face").textContent = myCard.face
+        DiscardDeck.push(myCard)
+        CycleDeck.splice(randomNr, 1);
+        console.log(CycleDeck.length)
+    }
+
+    function Shuffle3() {
+        console.log(DiscardDeck.length)
+        for (let index = 0; index < 3; index++) {
+
+            myCard = new Card();
+            randomNr = Math.floor(Math.random() * DiscardDeck.length)
+            myCard = DiscardDeck[randomNr]
+            document.getElementById("value").textContent = CycleDeck.length;
+            CycleDeck.push(myCard)
+            DiscardDeck.splice(randomNr, 1);
+            console.log(DiscardDeck.length)
+        }
+
+    }
+
+    function Reshuffle() {
+        CycleDeck = [...CycleDeckModel];
+        DiscardDeck.length = 0;
+        document.getElementById("value").textContent = CycleDeck.length;
+    }
+
+    class Card {
+        constructor(face, value, path) {
+            this.face = face;
+            this.value = value;
+            this.path = path;
+        }
+
+    }
+
+    const CycleDeckModel = [];
+    for (let i = 0; i < 8; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if (res == 0) {
+            newCard.face = "Sun";
+            newCard.path = imgPath + "CycleSun+1.jpg"
+        }
+        else {
+            newCard.face = "Moon";
+            newCard.path = imgPath + "CycleMoon+1.jpg"
+        }
+        newCard.value = "+1"
+        CycleDeckModel.push(newCard);
+    }
+
+    for (let i = 0; i < 5; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if (res == 0) {
+            newCard.face = "Sun";
+            newCard.path = imgPath + "CycleSun+2.jpg"
+        }
+        else {
+            newCard.face = "Moon";
+            newCard.path = imgPath + "CycleMoon+2.jpg"
+        }
+        newCard.value = "+2"
+        CycleDeckModel.push(newCard);
+    }
+
+    for (let i = 0; i < 4; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if (res == 0) {
+            newCard.face = "Sun";
+            newCard.path = imgPath + "CycleSun+3.jpg"
+        }
+        else {
+            newCard.face = "Moon";
+            newCard.path = imgPath + "CycleMoon+3.jpg"
+        }
+        newCard.value = "+3"
+        CycleDeckModel.push(newCard);
+    }
+    for (let i = 0; i < 3; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if (res == 0) {
+            newCard.face = "Moon";
+            newCard.path = imgPath + "CycleMoon0.jpg"
+        }
+        else {
+            newCard.face = "Sun";
+            newCard.path = imgPath + "CycleSun0.jpg"
+        }
+        newCard.value = "-1"
+        CycleDeckModel.push(newCard);
+    }
+    for (let i = 0; i < 2; i++) {
+        newCard = new Card();
+        var res = i % 2;
+        if (res == 0) {
+            newCard.face = "Sun";
+            newCard.path = imgPath + "CycleSun-1.jpg"
+        }
+        else {
+            newCard.face = "Moon";
+            newCard.path = imgPath + "CycleMoon-1.jpg"
+        }
+        newCard.value = "-1"
+        CycleDeckModel.push(newCard);
+    }
+    CritSCard = new Card();
+    CritSCard.face = "Split";
+    CritSCard.value = "Critical Success"
+    CritSCard.path = imgPath + "Cycle_CritS.jpg"
+    CycleDeckModel.push(CritSCard);
+
+    CritFCard = new Card();
+    CritFCard.face = "Split";
+    CritFCard.value = "Critical Failure"
+    CritFCard.path = imgPath + "Cycle_CritF.jpg"
+    CycleDeckModel.push(CritFCard);
+    CycleDeck = [...CycleDeckModel];
+</script>
+
+</html>
