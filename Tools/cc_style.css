@@ -36,6 +36,7 @@ body{
   display: flex;
 }
 
+
 .Sun,
 .Moon {
   border: 2px solid rgb(0, 95, 13);
@@ -144,11 +145,14 @@ body{
   padding-right: 40px;
 }
 .CardGen_Title{
-  margin: 0%;
+  margin: auto;
   margin-top: 30px;
   height: 33%;
+  max-width: 250px;
+  max-height: 60px;
   font-style: normal;
   font-weight:normal;
+  font-size-adjust: 0.74;
 }
 .CardGen_Types{
   margin: 0%;
