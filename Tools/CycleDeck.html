@@ -129,19 +129,16 @@
     function GetResult() {
         var res = 0;
         newResult = new Result;
+        newResult.value = 0
         newResult.color = 'gray';
         historyArr.forEach(Card => {
-            console.log("Crit:" + Card.crit)
-
             if (Card.crit == 2) {
-                console.log("Crit S:" + Card.crit)
                 newResult.color = 'green';
             }
             else if (Card.crit == 1) {
-                console.log("Crit F:" + Card.crit)
                 newResult.color = 'red';
             }
-            newResult.value = + Card.value
+            newResult.value += Card.value;
             console.log(Card.value);
         });
         document.getElementById("result").textContent = newResult.value;
