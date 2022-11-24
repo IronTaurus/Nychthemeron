@@ -132,11 +132,13 @@
         newResult.value = 0
         newResult.color = 'gray';
         historyArr.forEach(Card => {
-            if (Card.crit == 2) {
-                newResult.color = 'green';
-            }
-            else if (Card.crit == 1) {
-                newResult.color = 'red';
+            if (newResult.color == 'gray') {
+                if (Card.crit == 2) {
+                    newResult.color = 'green';
+                }
+                else if (Card.crit == 1) {
+                    newResult.color = 'red';
+                }
             }
             newResult.value += Card.value;
             console.log(Card.value);
