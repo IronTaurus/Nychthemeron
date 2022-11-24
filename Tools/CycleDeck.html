@@ -24,9 +24,12 @@
 
 
         </div>
-        <div class="sub-section" id="sub-section-border">
-            <button id="Draw" class="cardDraw" onclick="DrawCard()" title="Draw Card">Draw
+        <div class="sub-section" id="sub-section-border" style="width: 50%; margin: auto;">
+            <input type="text" class="cardNr" id="CardNr" value="1" style="width: 30px;">
+            <button id=" Draw" class="cardDraw" onclick="DrawCard(getElementById('CardNr').value)"
+                title="Draw Card">Draw
                 Card!</button>
+
             <div style="margin-top: 5px;">
                 <button id="Reshuffle" class="reShuffle" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
                 <button id="Reshuffle" class="shuffleCard" onclick="Shuffle3()" title="Reshuffle">Reshuffle 3
@@ -35,45 +38,121 @@
 
         </div>
 
-        <div id="CycleCard" style=" margin:auto; width: 50%; display:flex;">
+        <div id="CycleCard" style=" margin:auto; width: 50%; display:flex; position: relative;">
+            <div style="width: 100%; margin: 10px; left: 0px; display: flex; flex-wrap: wrap;" id="atkHistory">
+
+
+            </div>
             <div id="Card" class="card" style="margin: auto;">
-                <img src="..\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt">
+                <img src="..\Art\ActionCards\Cycle_BackSide.png" alt="Cycle Card" width="230" height="320" id="cardArt"
+                    onclick="DrawCard(1)">
+            </div>
+            <div style="width: 100%; margin: 10px; right: 0px;">
+                <h3 style="color:gray" id="cardHistory"></h3>
             </div>
 
         </div>
-        <div class="sub-section" id="sub-section-border">
-            <h5>Remainer of Deck:</h5>
-            <h4 id="value"></h4>
+        <div class="sub-section" id="sub-section-border" style="width: 50%; margin: auto;">
+            <div style="display: inline-flex;">
+                <div style="padding-left: 10px; padding-right: 10px;">
+                    <h4>Remainer of Deck:</h4>
+                    <h3 id="value"></h3>
+                </div>
+                <div style="padding-left: 10px; padding-right: 10px;">
+                    <h4>Results:</h4>
+                    <h3 id="result"></h3>
+                </div>
+            </div>
+
+
         </div>
 
+    </div>
 
-        <div id="value">Card Value</div>
-        <div id="face">Card face</div>
+
+    <div id="value">Card Value</div>
+    <div id="face">Card face</div>
     </div>
 </body>
 <script>
     var imgPath = "../Art/ActionCards/"
     var CycleDeck = []
     var DiscardDeck = []
+    var historyArr = []
+    var atkHistoryArr = []
 
-    function DrawCard() {
-        console.log("CycleDeck Size:" + CycleDeck.length)
-        if (CycleDeck.length > 0) {
-            myCard = new Card();
-            randomNr = Math.floor(Math.random() * CycleDeck.length)
-            myCard = CycleDeck[randomNr]
-            document.getElementById("cardArt").src = myCard.path;
+    function DrawCard(nrOfCards) {
+        historyArr.length = 0;
+        if (nrOfCards != 0) {
+            if (CycleDeck.length != 0) {
+                console.log("CycleDeck Size:" + CycleDeck.length)
+                for (let index = 0; index < nrOfCards; index++) {
+                    if (CycleDeck.length > 0) {
+                        myCard = new Card();
+                        randomNr = Math.floor(Math.random() * CycleDeck.length)
+                        myCard = CycleDeck[randomNr]
+                        document.getElementById("cardArt").src = myCard.path;
 
-            document.getElementById("face").textContent = myCard.face
-            DiscardDeck.push(myCard)
-            CycleDeck.splice(randomNr, 1);
-            console.log(CycleDeck.length)
-            document.getElementById("value").textContent = CycleDeck.length;
+                        document.getElementById("face").textContent = myCard.face
+                        DiscardDeck.push(myCard)
+                        CycleDeck.splice(randomNr, 1);
+                        console.log(CycleDeck.length)
+                        document.getElementById("value").textContent = CycleDeck.length;
+                        historyArr.push(myCard);
+                    }
+                }
+                GetResult();
+                UpdateHistory();
+            }
+
+
         }
+
+
+
+    }
+
+    function UpdateHistory() {
+        document.getElementById("cardHistory").textContent = "";
+        document.getElementById("atkHistory").textContent = "";
+        historyArr.forEach(Card => {
+            document.getElementById("cardHistory").textContent += " [" + Card.face + " " + Card.value + "] ";
+        });
+        atkHistoryArr.forEach(Attack => {
+            var txtElement = document.createElement("h3")
+            txtElement.style.color = Attack.color;
+            var text = document.createTextNode("\xa0[" + Attack.value + "]\xa0");
+            txtElement.appendChild(text);
+            document.getElementById("atkHistory").appendChild(txtElement);
+        });
+    }
+    function GetResult() {
+        var res = 0;
+        newResult = new Result;
+        newResult.color = 'gray';
+        historyArr.forEach(Card => {
+            console.log("Crit:" + Card.crit)
+
+            if (Card.crit == 2) {
+                console.log("Crit S:" + Card.crit)
+                newResult.color = 'green';
+            }
+            else if (Card.crit == 1) {
+                console.log("Crit F:" + Card.crit)
+                newResult.color = 'red';
+            }
+            newResult.value = + Card.value
+            console.log(Card.value);
+        });
+        document.getElementById("result").textContent = newResult.value;
+        console.log(newResult.value);
+        atkHistoryArr.push(newResult);
 
     }
 
     function Shuffle3() {
+        atkHistoryArr.splice(0, atkHistoryArr.length - 3);
+        UpdateHistory();
         console.log(DiscardDeck.length)
         console.log("CycleDeck Size: " + CycleDeck.length);
         for (let index = 0; index < 3; index++) {
@@ -81,7 +160,7 @@
             randomNr = Math.floor(Math.random() * DiscardDeck.length)
             myCard = DiscardDeck[randomNr]
 
-            document.getElementById("cardArt").src = "../Art/ActionCards/Cycle_BackSide.png";
+            document.getElementById("cardArt").src = imgPath + "Cycle_BackSide.png";
             console.log("Discarddeck: " + DiscardDeck.length)
             if (CycleDeck.length < 24) {
                 CycleDeck.push(myCard)
@@ -91,22 +170,32 @@
         }
         document.getElementById("value").textContent = CycleDeck.length;
 
+
     }
 
     function Reshuffle() {
+        atkHistoryArr.splice(0, atkHistoryArr.length - 3);
+        UpdateHistory();
         CycleDeck = [...CycleDeckModel];
-        document.getElementById("cardArt").src = "../Art/ActionCards/Cycle_BackSide.png";
+        document.getElementById("cardArt").src = imgPath + "Cycle_BackSide.png";
         DiscardDeck.length = 0;
         document.getElementById("value").textContent = CycleDeck.length;
     }
 
     class Card {
-        constructor(face, value, path) {
+        constructor(face, value, path, crit) {
             this.face = face;
             this.value = value;
             this.path = path;
+            this.crit = crit;
         }
 
+    }
+    class Result {
+        constructor(value, color) {
+            this.value = value;
+            this.color = color;
+        }
     }
 
     const CycleDeckModel = [];
@@ -118,12 +207,14 @@
         if (res == 0) {
             newCard.face = "Sun";
             newCard.path = imgPath + "CycleSun+1.jpg"
+            newCard.crit = 0
         }
         else {
             newCard.face = "Moon";
             newCard.path = imgPath + "CycleMoon+1.jpg"
+            newCard.crit = 0
         }
-        newCard.value = "+1"
+        newCard.value = +1
         CycleDeckModel.push(newCard);
     }
     console.log("CycleDeckModel Size: " + CycleDeckModel.length);
@@ -134,12 +225,14 @@
         if (res == 0) {
             newCard.face = "Sun";
             newCard.path = imgPath + "CycleSun+2.jpg"
+            newCard.crit = 0
         }
         else {
             newCard.face = "Moon";
             newCard.path = imgPath + "CycleMoon+2.jpg"
+            newCard.crit = 0
         }
-        newCard.value = "+2"
+        newCard.value = +2
         CycleDeckModel.push(newCard);
     }
     console.log("CycleDeckModel Size: " + CycleDeckModel.length);
@@ -150,12 +243,14 @@
         if (res == 0) {
             newCard.face = "Sun";
             newCard.path = imgPath + "CycleSun+3.jpg"
+            newCard.crit = 0
         }
         else {
             newCard.face = "Moon";
             newCard.path = imgPath + "CycleMoon+3.jpg"
+            newCard.crit = 0
         }
-        newCard.value = "+3"
+        newCard.value = +3
         CycleDeckModel.push(newCard);
     }
     for (let i = 0; i < 3; i++) {
@@ -164,12 +259,14 @@
         if (res == 0) {
             newCard.face = "Moon";
             newCard.path = imgPath + "CycleMoon0.jpg"
+            newCard.crit = 0
         }
         else {
             newCard.face = "Sun";
             newCard.path = imgPath + "CycleSun0.jpg"
+            newCard.crit = 0
         }
-        newCard.value = "-1"
+        newCard.value = -1
         CycleDeckModel.push(newCard);
     }
     for (let i = 0; i < 2; i++) {
@@ -178,24 +275,28 @@
         if (res == 0) {
             newCard.face = "Sun";
             newCard.path = imgPath + "CycleSun-1.jpg"
+            newCard.crit = 0
         }
         else {
             newCard.face = "Moon";
             newCard.path = imgPath + "CycleMoon-1.jpg"
+            newCard.crit = 0
         }
-        newCard.value = "-1"
+        newCard.value = -1
         CycleDeckModel.push(newCard);
     }
     CritSCard = new Card();
-    CritSCard.face = "Split";
-    CritSCard.value = "Critical Success"
+    CritSCard.face = "Critical Success";
+    CritSCard.value = 0
     CritSCard.path = imgPath + "Cycle_CritS.jpg"
+    CritSCard.crit = 2
     CycleDeckModel.push(CritSCard);
 
     CritFCard = new Card();
-    CritFCard.face = "Split";
-    CritFCard.value = "Critical Failure"
+    CritFCard.face = "Critical Fail";
+    CritFCard.value = 0
     CritFCard.path = imgPath + "Cycle_CritF.jpg"
+    CritFCard.crit = 1
     CycleDeckModel.push(CritFCard);
     CycleDeck = [...CycleDeckModel];
     console.log("CycleDeck Size: " + CycleDeck.length);
