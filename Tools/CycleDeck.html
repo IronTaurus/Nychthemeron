@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="fixed-banner">
+    <div id="fixed-banner" style="z-index: 99;">
         <div class="Grid-container-top">
             <button id="Religion" class="top-button"
                 onclick="window.location.href='../Religion.html';">Religion</button>
@@ -21,11 +21,12 @@
             <button id="Races" class="top-button" onclick="window.location.href='../Races.html';">Races</button>
             <button id="Cards" class="top-button" onclick="window.location.href='../Game.html';">Game</button>
             <button id="Rules" class="top-button" onclick="window.location.href='../Tools.html';">Tools</button>
-
-
         </div>
+    </div>
+
+    <div id="main-block">
         <div class="sub-section" id="sub-section-border"
-            style="width: 50%; margin: auto; padding-top: 12px; padding-bottom: 12px;">
+            style="width: 50%; margin: auto; padding-top: 5px; padding-bottom: 5px;">
             <input type="text" class="cardNr" id="CardNr" value="1" style="width: 30px;">
             <button id=" Draw" class="cardDraw" onclick="DrawCard(getElementById('CardNr').value)"
                 title="Draw Card">Draw
@@ -39,8 +40,9 @@
 
         </div>
 
-        <div id="CycleCard" style=" margin:auto; width: 50%; display:flex; position: relative;">
-            <div style="width: 100%; margin: 10px; left: 0px; display: flex; flex-wrap: wrap;" id="atkHistory">
+        <div id="CycleCard" style=" margin:auto; width: 50%; display:flex; position: relative; z-index: 1;">
+            <div style="width: 100%; margin: 10px; left: 0px; display: flex; flex-wrap: wrap; max-height: 320px; overflow: hidden;"
+                id="atkHistory">
 
 
             </div>
@@ -67,8 +69,9 @@
 
 
         </div>
-
     </div>
+
+
 
 
     <div id="value">Card Value</div>
