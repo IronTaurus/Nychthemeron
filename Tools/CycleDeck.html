@@ -11,7 +11,9 @@
 
 <body>
     <div id="fixed-banner" style="z-index: 99;">
+        <script src="../TopMenu.js"></script>
     </div>
+
     <div id="main-block">
         <div class="sub-section" id="sub-section-border"
             style="width: 50%; margin: auto; padding-top: 5px; padding-bottom: 5px;">
@@ -64,9 +66,32 @@
 
     <div id="value">Card Value</div>
     <div id="face">Card face</div>
-    </div>
+
+
+
 </body>
+
 <script>
+    document.getElementById("pageWindow").innerHTML = '<object type="text/html" data="CardCreator.html" ></object>';
+
+    // function loadHTML(id, filename){
+    //     let xhttp;
+    //     let element = document.getElementById(id);
+    //     let file = filename;
+    //     if (file){
+    //         xhttp = new XMLHttpRequest();
+    //         xhttp.onreadystatechange = function(){
+    //             if (this.readyState == 4){
+    //                 if(this.status == 200) {element.innerHTML = this.responseText;}
+    //                 if(this.status == 404) {element.innerHTML = "<h1>Page not found</h1>";}
+    //             }
+    //         }
+    //     }
+    //     xhttp.open("GET", 'templates/'+file, true);
+    //     xhttp.send();
+
+    // }
+
     var imgPath = "../Art/ActionCards/"
     var CycleDeck = []
     var DiscardDeck = []
@@ -292,6 +317,8 @@
     CycleDeck = [...CycleDeckModel];
     console.log("CycleDeck Size: " + CycleDeck.length);
     console.log("CycleDeckModel Size: " + CycleDeckModel.length);
+
+
 </script>
 
 </html>
