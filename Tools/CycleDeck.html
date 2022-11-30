@@ -72,7 +72,7 @@
 </body>
 
 <script>
-    document.getElementById("pageWindow").innerHTML = '<object type="text/html" data="CardCreator.html" ></object>';
+    // document.getElementById("pageWindow").innerHTML = '<object type="text/html" data="CardCreator.html" ></object>';
 
     // function loadHTML(id, filename){
     //     let xhttp;
@@ -152,9 +152,11 @@
             if (newResult.color == 'gray') {
                 if (Card.crit == 2) {
                     newResult.color = 'green';
+                    document.getElementById("cardArt").src = imgPath + "Cycle_CritS.jpg";
                 }
                 else if (Card.crit == 1) {
                     newResult.color = 'red';
+                    document.getElementById("cardArt").src = imgPath + "Cycle_CritF.jpg";
                 }
             }
             newResult.value += Card.value;
