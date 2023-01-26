@@ -6,7 +6,8 @@
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
     var baseClass = "";
-    var imgPath = "../Art/"
+    var imgPath = "/Art/"
+    
     
     function selectClass(selectedClass){
         const $select = document.querySelector('#classSubtypes');
@@ -87,7 +88,8 @@
                     }
                     else{
                         document.getElementById("rangeArt_sun").style.display = "block";
-                        document.getElementById("rangeArt_sun").src = "range" + element.value + ".png"
+                        document.getElementById("rangeArt_sun").src = imgPath + "range" + element.value + ".png"
+
                     }                   
                 }
                 if(element.name == "cmRangeType"){

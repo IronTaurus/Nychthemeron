@@ -14,7 +14,7 @@
         <script src="../TopMenu.js"></script>
     </div>
 
-    <div id="cardDesigner">
+    <div id="cardDesigner" style="margin-top: 75px;">
         <div id="chooseClass">
             <div class="CardClass" onchange="generateCard()">
                 <input type="radio" class="classTypes" id="classFighter" name="cardClasses" value="Fighter"
@@ -23,6 +23,9 @@
                 <input type="radio" class="classTypes" id="classRanger" name="cardClasses" value="Ranger"
                     onclick="selectClass('#ranger')">
                 <label for="classRanger">Ranger</label><br>
+                <input type="radio" class="classTypes" id="classRouge" name="cardClasses" value="Rouge"
+                    onclick="selectClass('#rouge')">
+                <label for="classRouge">Rouge</label><br>
                 <input type="radio" class="classTypes" id="classApprentice" name="cardClasses" value="Apprentice"
                     onclick="selectClass('#apprentice')">
                 <label for="classApprentice">Apprentice</label>
@@ -45,6 +48,8 @@
                     <option id="baseSelection" value="Subtypes" style="display: none;">Subtypes</option>
                     <option class="subType" id="fighter" value="Berserker" style="display: none;">Berserker</option>
                     <option class="subType" id="ranger" value="Hunter" style="display: none;">Hunter</option>
+                    <option class="subType" id="rouge" value="Shadow Dancer" style="display: none;">Shadow Dancer
+                    </option>
                     </option>
                     <option class="subType" id="ranger" value="Duelist" style="display: none;">Duelist</option>
                     <option class="subType" id="apprentice" value="Sun" style="display: none;">Sun</option>
@@ -52,8 +57,7 @@
                     <option class="subType" id="warlock" value="Phantom Lord" style="display: none;">Phantom Lord
                     </option>
                     </option>
-                    <option class="subType" id="bard" value="Instrumental" style="display: none;">Instrumental
-                    </option>
+                    <option class="subType" id="bard" value="Instrumental" style="display: none;">Instrumental</option>
 
 
                 </select>
@@ -237,7 +241,7 @@ You may activate this only while the <b>sun's blessing</b> is active. <br>
         </div>
     </div>
 
-    <script src="html2canvas.min.js"></script>
+    <script src="../html2canvas.min.js"></script>
     <script src="./cc_script.js"></script>
 </body>
 
