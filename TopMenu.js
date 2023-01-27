@@ -26,7 +26,7 @@
     //Home Button
     mButton_Home = document.createElement('a');
     mButton_Home.setAttribute('id', 'Home');
-    mButton_Home.onclick = function () { window.location.href = '/Index.html' }
+    mButton_Home.onclick = function () { window.location.href = '../index.html' }
     mDiv.appendChild(mButton_Home);
     mHomeArt = document.createElement('img');
     mHomeArt.setAttribute('src', '../Art/Home.png');
