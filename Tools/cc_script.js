@@ -6,7 +6,7 @@
     var classDropdown = document.getElementById("classSubtypes");
     var tierDropdown = document.getElementById("classTierSelect");
     var baseClass = "";
-    var imgPath = "/Art/"
+    var imgPath = "../Art/"
     
     
     function selectClass(selectedClass){
@@ -187,7 +187,27 @@
         const sunTitle = document.querySelector("#csTitle").value;
         document.getElementById("spiritText_sun").innerHTML = csCost;
         console.log(document.querySelector("#csType1").checked);
-        document.getElementById("CardGen_Title_sun").innerHTML = sunTitle;
+        var title = document.getElementById("CardGen_Title_sun")
+        title.innerHTML = sunTitle;
+        var textSize;
+        
+         if(fitstTime){
+            textSize = 30;
+            firstTime = false;
+         }
+        title.innerHTML.fontSize = textSize + "px";
+        var charLimit = 12;
+
+        console.log("Txt: " +  title.innerHTML.length + " " + charLimit);
+            if( title.innerHTML.length > charLimit){
+                console.log("Size: " + textSize + " " + charLimit);
+                console.log("Txt: " +  title.innerHTML.length);
+                document.getElementById("CardGen_Title_sun").style.fontSize = (textSize - 4) +"px";
+                textSize = (textSize - 4);
+                charLimit = (charLimit +3);
+                console.log("Size: " + textSize + " " + charLimit);
+            };
+        
         document.getElementById("CardGen_Types_sun").innerHTML = sunType;
         document.getElementById("CardGen_Rules_sun").innerHTML = sunRuleReplaced;
         if(csRange > 0){
