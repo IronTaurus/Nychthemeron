@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <script src="./TopMenu.js"></script>
+
+        <div id="Top-menu-2" class="top-menu">
+            <div class="dropdown">
+                <button class="dropbtn">Mihridahl</button>
+                <div class="dropdown-content">
+                    <a onclick="viewElement('Vorgamol');">Vorgamol</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">
+                    Naerini
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Dryad</a>
+                    <a href="#">Gnomes</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">
+                    Cha'Rhin
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">???</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">
+                    Mo'Rhin
+                </button>
+                <div class="dropdown-content">
+                    <a onclick="viewElement('Scaled');">Scaled</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">
+                    Devorna
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">???</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-block">
+        <div id="athernis-race" class="section">
+            <h2 class="block-title">Races of Athernis</h2>
+            <!-- #region Light Elestine -->
+            <div id="flex-section">
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="LightElestine">Light Elestine</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">The Elestine are a race that are what people call angels, they are a bewinged
+                        race living among the gods but not necessarily as their subjects. They have a strong mind and
+                        are
+                        in full control of their own thoughts. Among the Elestine there are two types, the Light
+                        Elestine who live in the bright parts of Athernis and the Dark Elestine who live in the dark
+                        parts. While they are the same their differences make them seem like two different races. </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">If the Elestine is a light Elestine their skin are usually very pale and feels
+                        almost powdery like, their eyes
+                        have almost
+                        nonexistent pupils while still having an iris. The iris can be
+                        different
+                        colors from almost all spectrums but more commonly they are silver or blue. They often have long
+                        sharp nails and large wings that enable them to fly. </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">The Elestine have sensitive skin and they normally do not
+                        like to be touched by others. The feathers in their wings are filled with Arcane energies
+                        which
+                        allows them to fly. While they do maneuver using their wings they can normally be seen
+                        hovering
+                        only by stretching them out and do not like landing as their bare feet would then touch the
+                        hard
+                        surface of the ground. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 160cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 300 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Light Sight</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Add <strong>1 AC</strong> to any <strong>perception</strong> check and you are able
+                                    to see details up
+                                    to 60m away
+                                    during <strong>Daylight</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Mental Fortress</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1</strong> to <strong>Mind</strong>.<br> You are <strong>immune</strong>
+                                    to
+                                    any spells
+                                    attacking your mind.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Physical Defense</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 1</strong> to <strong>Body</strong>.<br> Physical attacks deal
+                                    <strong>2</strong> additional
+                                    damage to you.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Dark Vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 2 Dark vision</strong>. <br>Your
+                                    <strong>base range</strong> of vision is <strong>5</strong> meter in low
+                                    light.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/e1/34/e9/e134e9d7125ce180fdbdf69680fc3a50.jpg" width="188px"
+                        height="284px">
+                </div>
+            </div>
+            <!-- #endregion -->
+            <!-- #region Dark Elestine -->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/a4/2c/58/a42c58209257fbdfb928f713cab211f9.jpg" width="180px"
+                        height="311px">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="DarkElestine">Dark Elestine</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">The Elestine are a race that are what people call angels, they are a bewinged
+                        race living among the gods but not necessarily as their subjects. They have a strong mind and
+                        are
+                        in full control of their own thoughts. Among the Elestine there are two types, the Light
+                        Elestine who live in the bright parts of Athernis and the Dark Elestine who live in the dark
+                        parts. While they are the same their differences make them seem like two different races.</p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">If the Elestine is a dark Elestine their skin is usually gray or various dark
+                        hues and feels almost powdery like, their eyes have pupils covering the whole eye allowing you
+                        to see the white only when they
+                        look around. They often have long sharp nails and large wings that enable them to fly. </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">The Elestine have sensitive skin and they normally do
+                        not
+                        like to be touched by others. The feathers in their wings are filled with Arcane energies which
+                        allows them to fly. While they do maneuver using their wings they can normally be seen hovering
+                        only by stretching them out and do not like landing as their bare feet would then touch the hard
+                        surface of the ground. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 160cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 300 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Dark Sight</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Add <strong>1 AC</strong> to any <strong>perception</strong> check and you are able
+                                    to see details up
+                                    to 60m away
+                                    during <strong>Night darkness</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Mental Fortress</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1</strong> to <strong>Mind</strong>.<br> You are <strong>immune</strong>
+                                    to
+                                    any spells
+                                    attacking your mind.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Physical Defense</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 1</strong> to <strong>Body</strong>.<br> Physical attacks deal
+                                    <strong>2</strong> additional
+                                    damage to you.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Light Vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 2 Light vision</strong>. <br>Your
+                                    <strong>base range</strong> of vision is <strong>5</strong> meter in bright
+                                    light.
+                                </p>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion -->
+
+
+        </div>
+        <div id="mihridahl-race" class="section">
+            <h2 class="block-title">Races of Mihridahl</h2>
+            <div class="sub-section" id="sub-section-border">
+                <h4 class="block-header" id="Humans">Human</h4>
+                <h5 class="sub-header">Background:</h5>
+                <p>...</p>
+                <h5 class="race-sub-header">Appearence:</h5>
+                <p>...</p>
+            </div>
+            <!-- #region Middlemen-->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/5b/d9/ac/5bd9ac37aa8c7008fad555ffeb1d9a57.jpg" width="354"
+                        height="230">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="Dalin">Halflings</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">......
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">Fussy eyebrows, thick hair</p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">.....
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 150cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 80 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Feature</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Short Legs</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Middlekin does not have the same size that a Tallmen do.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- #endregion Dalin-->
+            <!-- #region High Elves -->
+            <div id="flex-section">
+
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="HighElves">High Elves</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">High Elves are a branch from the Fey Elves that built settlements near humans and
+                        learned to coexist with them. Building cities they started to adapt to their surroundings and
+                        became
+                        what they are today.</p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">High Elves are known for their sharp ears, much shorter than the others of their
+                        kin
+                        but still long compared to humans.
+                        They often have golden blonde or silver white hair, there are cases where a high elf has other
+                        colors but the most known high elf would have blonde hair and long hair that they are very proud
+                        of.
+                        The skin colors are often pale, and since they always take care of their beauty they often have
+                        long
+                        nails and a face untouched by battle.
+                        High elf dress often in light clothes such as silk in bright colors, they love anything that
+                        glimmers so crystals, gold and silver are often worn as jewelry. Heavy metals on the other hand,
+                        such as iron gives the high elves a chilling sensation that makes them feel uneasy and weak.
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">Not at all as secluded as their relatives, high elves cherish their beauty and
+                        are
+                        not shy to show it for anyone who wishes to adore it. The high elves, unlike the others of their
+                        kin, does not shy away from the other races; instead you can often find them mingling with other
+                        races even though they often consider them a race of lesser status and beauty. They have a
+                        strong
+                        affection to beauty and light, often working in high positions and/or crafting of gold, jewelry
+                        and
+                        silk. Because of their long life span they are known for being expert craftsmen.
+                    </p>
+                    <p id="text-block">
+                        A typical house of a High elf is that of a bright wooden house with plenty of carved or painted
+                        decorations, the house would have many large windows to let as
+                        much sunlight
+                        in as
+                        possible with silken drapes to cover them if needed. A typical high elf does not enjoy living in
+                        cold environments and in harsh sleeping conditions.
+                    </p>
+                    <p id="text-block">
+                        Elves perceive time differently than other races, this is mainly due to their long life
+                        span. Similar to how some people won’t notice or rather forget when they do some
+                        everyday chores an elf will feel the same about the years that pass. This can result in
+                        elves being very selective about what they remember and it is not uncommon for them to
+                        not remember names of people they don’t find worthy of remembering. Through their
+                        meditation they can handle their memories and can remember things they have forgotten
+                        with this method.
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 180cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 800 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Memory Meditation</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Meditate for at least 1 hour to regain lost knowledge.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Elvish Knowledge</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    An elf learns the first hundred years all about their culture and history. Any
+                                    information relating to their family tree is known to them.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Stunning Beauty</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 2</strong> to <strong>Presence</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Keen Eyes</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1 AC</strong> whenever you check for <strong>Perception</strong> during
+                                    <strong>Daylight</strong>.<br>
+                                    Farsight is <strong>50%</strong> better rounded up during <strong>Daylight</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Iron Weakness</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Feel sick and a chilling sensation whenever directly touching iron.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Dark Vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 1 Dark vision</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Picky Sleeper</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Need twize as much sleep for same benefit when sleeping in <strong>Harsh
+                                        conditions</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/6e/cf/36/6ecf3642165ab39ea99134937a53f22c.jpg" width="188"
+                        height="277">
+                </div>
+            </div>
+            <!-- #endregion -->
+            <!-- #region Dark Elves-->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/474x/17/ee/71/17ee712195d569c5b59c2ed6377707a7.jpg" width="197"
+                        height="288">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="DarkElves">Dark Elves</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">Dark elves are a branch of Fey Elves that adapted to live in the cold and dark
+                        caves
+                        of Mihridahl, they hate the humans and others of their kin who made peace with them.
+                        They created large cities underground and have a strong hierarchy structure to their society
+                        where
+                        the powerful live as kings while the commoner live almost like slaves.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">The appearance can differ between a noble Dark Elf or a commoner, a commoner
+                        often
+                        has pale or grayish skin with white, gray or sometimes even jet black hair. Their ears are long
+                        but
+                        you often see commoners with damaged ears.
+                        Noble Dark Elves can have skin black as night, they often decorate their body with small
+                        crystals
+                        making it glitter in the darkness. Their ears are long and their body rarely has even a scratch
+                        on
+                        it.
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">...
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 170cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 900 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Memory Meditation</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Meditate for at least 1 hour to regain lost knowledge.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Elvish Knowledge</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    An elf learns the first hundred years all about their culture and history. Any
+                                    information relating to their family tree is known to them.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Grace & Beauty</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1</strong> to <strong>Presence</strong>. <br>
+                                    <strong>+ 1</strong> to <strong>Agility</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Keen Eyes</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1 AC</strong> whenever you check for <strong>Perception</strong> during
+                                    <strong>Night light</strong>.<br>
+                                    Farsight is <strong>50%</strong> better rounded up during <strong>Night
+                                        light</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Iron Weakness</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Feel sick and a chilling sensation whenever directly touching iron.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Light Vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>- 1 Light vision</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Hard Sleeper</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Have hard times sleeping whenever the is a <strong>Light Source</strong> nearby.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion -->
+            <!-- #region Wood Elves -->
+            <div id="flex-section">
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="WoodElves">Wood Elves</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">Wood elves are a branch of Fey elves that have settled in the forests of
+                        Mihridahl, they have adapted to the forest and have created a strong bond with it. Amongst these
+                        elves are a tradition to travel to visit other tribes as a way to exchange history and culture.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">Probably the closest to their origin as fey elves out of all the elves, very
+                        adaptable they can shift colors of their skin or hair according to the nature around them. This
+                        often takes years or months of time but happens gradually so some changes may be seen after only
+                        a few days.
+                        Their hair is often in the colors of leaves and grass ranging from green to orange. And when
+                        growing old they tend to get almost bronze like hair and much more gray or brown in color. They
+                        have long pointy ears.
+
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">A wood elf feels the most comfortable when near nature. Their deep connection to
+                        the forest makes them almost a part of it and can often feel if anything is wrong with it. To
+                        get this bound they must live in the forest for a long time. This also causes them to be a bit
+                        overprotective towards the forest. They are often wary of other races and dislike any trespass
+                        in their forest. Despite this, Wood Elves are very reasonable and help people in need regardless
+                        of their race as long as their forest is protected.
+                        Wood elves live as one with nature. Not only do their appearance change according to the nature
+                        around them they can also prolong their lifespan by binding their life to a single tree in which
+                        they live as long as that tree.
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 170cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 1200 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Memory Meditation</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Meditate for at least 1 hour to regain lost knowledge.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Elvish Knowledge</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    An elf learns the first hundred years all about their culture and history. Any
+                                    information relating to their family tree is known to them.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ One with nature</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Bound with a single tree by synching with it for 4 hours through touch. Your age is
+                                    limited to the lifespan of the tree.
+                                    The tree and bound will grow stronger by time.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Beautiful mind</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1</strong> to <strong>Presence</strong>.<br>
+                                    <strong>+ 1</strong> to <strong>Mind</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Dark vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <strong>+ 1</strong>perception during
+                                    <strong>Daylight</strong>.<br>
+                                    <strong>+ 1</strong>perception during
+                                    <strong>Dark light</strong>.<br>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Iron Weakness</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Feel sick and a chilling sensation whenever directly touching iron.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Slow Vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    You take longer to adapt to quick changes between light and dark.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/474x/fb/03/60/fb036023858d7dd001c538f8c612c83e.jpg" width="234"
+                        height="288">
+                </div>
+            </div>
+            <!-- #endregion Wood Elves-->
+            <!-- #region Darklings -->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/ff/3c/3c/ff3c3c95973fa9c09ece47dc6e4d3407.jpg" width="247"
+                        height="350">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="Darklings">Darklings</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">A Darkling or Half demon are the descendants of the unlikely spawn of a demon and
+                        another race. Although many can look much like a normal person they often have some twisted
+                        nature from their demon blood and there are several places such as Heln that reject and
+                        sometimes even hunt down those that are found out to be Darklings. There are many Darklings
+                        however and some regions have learned to live with them and try to accept them as any other race
+                        even if they get frowned upon from time to time.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">A Darkling could have features similar to that of a typical demon and any other
+                        race. Because demons use husk created from fallen souls as their bodies, a Darkling can have
+                        many different features from other races. For example: an elf with a demon heritage could have
+                        the ears and skin/hair colors of an elf, the horns of a demon and the feathers and wings from
+                        a Elestine from whom the demon husk had its form. Thus the demon's only recognisable feature
+                        would be their twisted features and the horns they can often grow from anywhere on the body.
+
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">A Darkling has the vision of a normal human but
+                        they have very keen senses that are heightened when their sight is removed such as during night
+                        however during a bright day the Darklings can often feel drowsy.
+                        They can scent other creatures in their surroundings and can even tell the difference between
+                        races by scent alone. A darkling with a strong bloodline towards their heritage feels a slight
+                        hunger that seems to never go away. Normally the Darkling with this trait learns to live with
+                        this hunger and suppress it, others try to still it by any means necessary. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 170cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 1200 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Dark senses</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    +3 to Perception whenever you are unable to see.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Demonic tastes</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    You can consume the essence in Devorna to regain SP.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>- Shared ancestry</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    You gain one feature from your other half of ancestry.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Endless hunger</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    You feel hungry at all times.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Drowsy in light</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    During daylight you become tired faster.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region Mountain Dwarves -->
+            <div id="flex-section">
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="MtDwarves">Mountain Dwarves</h4>
+                    <h5 class="sub-title">(Fjelka Dvergner)</h5>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">Mountain dwarves or Fjelka Dvergner are one of the branches of dwarves that
+                        exists in
+                        Mihridahl, the Mountain dwarves are the more common dwarf you think of when speaking about
+                        dwarves. They reside in caves near mountains and build large cities inside them. They don’t
+                        socialize with others as much as Hill dwarves but they don’t shy away as much as Cave dwarves.
+                        They are known for their expert iron smithing.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">Mountain dwarves are generally very short but muscular. They have generally slow
+                        growth rate on their hair and beard so they tend to keep it as long as they can, you can often
+                        tell how old a dwarf is based on the length of his/her hair or beard. The hair is a lot thicker
+                        and tougher than a humans and also does not easily burn so even if accidents happen near the
+                        fire their hair is not always the first thing to burn.
+                        Mountain dwarves have various skin colors ranging from pale brown to darker warmer colors. Their
+                        hair can be seen in various natural colors often brown or blonde but also almost as dark as
+                        black.
+
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">Mountain Dwarves often live in large mountains in which they hollowed out to
+                        build large dwarven cities. They are mainly miners and thus have a very keen eye to different
+                        ores they can see. They generally dislike having elves meddling with their creations, sometimes
+                        due to the conflict many years ago but mainly because of their disagreement of who is the better
+                        craftsman. They often include iron in their crafts such as decorative rings of iron in the
+                        handle to ward away elves from touching it. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 140cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 400 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Dim sight</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    +1 to Perception in dim light.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Tough skin</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    -placeholder text-
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Short legs</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Your movement is reduced by 1.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/63/19/60/631960dd118555bfd1b6a8508b6c63df.jpg" width="282"
+                        height="365">
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region Hill Dwarves -->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/ff/f2/a0/fff2a052bbbe70b2704458901efffbf8.jpg" width="270"
+                        height="270">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="HillDwarves">Hill Dwarves</h4>
+                    <h5 class="sub-title">(Vinujra Dvergner)</h5>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">The Hill dwarves or Vinujra Dvergner are the more joyous of the dwarves, they are
+                        known to be excellent bards, brewers and wood/stone craftermen. Less sturdy and muscular than
+                        others of their kin but still much so compared to many other races. They are known for their
+                        decorative wood craftsmanship.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">Hill dwarves often have curly hair with bright colors ranging from red, light
+                        brown to blonde. Their skin color often is quite bright with a little yellow hue included. They
+                        often dress in bright colors of nature such as green, brown, red and yellow. A typical house for
+                        a hill dwarf is made out of wood and has decorative carvings and wooden sculptures.
+
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">Hill dwarves are much more social than other of its kin, they can often share
+                        their mead with strangers and are very talkative a bit too much according to some. While they
+                        are friendly they do not like when people damage or waste their handiwork and there is a verse
+                        in a song speaking of Hill dwarves that goes: “A friendlier being I’ve never met, so warm and
+                        bright. But do not test their temper o dear friend cause their wrath I tell you, you cannot
+                        fight”. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 140cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 400 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Social</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    +2 to Presence when talking to friendly creatures.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Wood knowledge</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    -placeholder text-
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Short legs</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Your movement is reduced by 1.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region Cave Dwarves -->
+
+            <div id="flex-section">
+
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="CaveDwarves">Cave Dwarves</h4>
+                    <h5 class="sub-title">(Svilkeryg Dvergner)</h5>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">Cave dwarves are a branch of dwarves that live in deep caves, their skin is a lot
+                        more rough and can have a rocklike texture making it a great camouflage in the caves.
+                        Cave dwarves are known for their excellent smithing of trinkets using rare metals and stones
+                        they can find in deep caves.
+
+
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">Their hair is often black, gray or white, the skin pale and sometimes gray like a
+                        stone. Among their kin they are known to be the most muscular and broad; whether it is because
+                        of their harsh lifestyle down the deep caves or part of their evolution is unknown.
+
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">Cave dwarves are known to be less talkative than other of their kin, while they
+                        don't necessarily dislike others they are known to have a bad impression of other races because
+                        of how they look and how they communicate with others. Cave dwarves have a bad history with the
+                        Dark Elves as their tunnels crossed paths that caused a war between them.
+                        fight”. </p>
+                    <p id="text-block"><strong>Average Height:</strong> 140cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 400 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ dark vison</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    +2 to perception during dark light.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Gem knowledge</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    -placeholder text-
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="negative-trait"><strong>- Short legs</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Your movement is reduced by 1.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/94/d1/e6/94d1e6e4235015d4e32e056d3e9a6f9a.jpg" width="206"
+                        height="292">
+                </div>
+
+            </div>
+            <!-- #endregion Cave Dwarves -->
+            <!-- #region Forest Orcs-->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/a7/8b/f5/a78bf54629a079969b4d42beede1b22f.jpg" width="207"
+                        height="288">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="forest-orcs">Forest Orcs</h4>
+                    <h5 class="sub-title">(Morkka Orkkas)</h5>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">
+                        Although the name is forest orcs it is a general term to describe the many orc tribes living in
+                        the forests and hills.
+                        They are a violent race in Mihridahl but this does not mean they can't negotiate with other
+                        races however this is more
+                        likely only if they can’t resolve it by force. Throughout history forest orcs have been in war
+                        with at least one race
+                        at any point in time which has caused them to be called a war loving race. There are numerous
+                        tribes in Mihridahl and
+                        while most have built villages and fortresses other tribes live like nomads pillaging places as
+                        they wander the lands.
+                        A typical forest orc shaman uses drums and ceremonial dances to cast their magic.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">
+                        A forest orc is well known for their muscular large body towering up to 3 meters tall with
+                        tusks.
+                        A forest orc can have different skin and hair color but because they are so territorial a single
+                        tribe often only consists of a single color of skin. This is mainly because they tend to kill
+                        off any
+                        offspring with different colored skin. The reason for it can be traced back to ancient time when
+                        an orcs survival was depended on its ability to hide and blend in with the environment,
+                        in order to have a higher survival rate of the tribe they would favor the skin color that would
+                        work as camouflage in the respective environment the tribe live in and kill their offspring born
+                        with a odd colored skin.
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">
+                        A forest orc tribe usually don’t become large and this is mainly because of their habit of
+                        fighting each other mostly for the role as a chieftain.
+                        can happen if the previous chieftain is dead or if someone feels strong enough to take the
+                        current chieftain down.
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 300cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 80 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Orcish strength</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Start with an additional 2 points of strength.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Dusk vision</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    +1 perception during dim light.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- #endregion Forest Orcs-->
+            <!-- #region Mountain Orcs-->
+            <div id="flex-section">
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="mountain-orcs">Mountain Orcs</h4>
+                    <h5 class="sub-title">(Throkk Orkkas)</h5>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">
+                        Mountain Orcs are less usual than forest orcs and the reason is that they live mostly high up in
+                        the mountains and do not encounter many of the other races too much.
+                        Among the races that do encounter the mountain orcs are the dwarves that under many occasions
+                        fought the orcs.
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">
+                        A mountain orc has a large upper frame with strong arms and back, but overall their body is
+                        skinnier and less muscular than others of their kin.
+                        A mountain orc can usually have gray or bronze skin color with dark hair but as a custom a
+                        single tribe often only consists of a single color of skin.
+                        This is mainly because they tend to kill off any offspring with different colored skin.
+                    </p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">
+                        If a mountain orc tribe becomes too large the food they can gather from the mountain may not be
+                        enough for the whole tribe causing the whole tribe to wander down
+                        the mountain range to pillage and hunt food. This often causes problems for any village or city
+                        near the mountain side and can cause week-long sieges with the tribe in question.
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 270cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 80 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Athlete</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Start with an additional 1 point of strength and 1 point of agility.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>+ Child of the mountain</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Start with the feature Climber.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/d9/98/8b/d9988bbfac791478376618287459b78f.jpg" width="276"
+                        height="468">
+                </div>
+
+            </div>
+            <!-- #endregion Mountain orcs-->
+            <!-- #region Dalin-->
+            <div id="flex-section">
+                <div class="sub-section">
+                    <img src="https://i.pinimg.com/564x/1e/11/23/1e11239d64190065508e902a7bc82f91.jpg" width="270"
+                        height="400">
+                </div>
+                <div class="sub-section" id="sub-section-border">
+                    <h4 class="block-header" id="Dalin">Dalin</h4>
+                    <h3 class="sub-header">Background:</h3>
+                    <p id="text-block">
+
+                        A strange type of people much feared by other races maybe because of the fact that they can look
+                        identical
+                        to them and they kill newborns to replace them with their own, the child is then fed the blood
+                        of the
+                        newborn to take its appearance.
+                        The Dalins are a fairly young race compared to many others. Their creator ”the god of shadows”'
+                        made
+                        them
+                        after his own image walking in the form of others.
+                        A Dalin female will die within a year after having conceived twins. The shadow god would visit
+                        them to
+                        claim
+                        their life and bring their spirit through the shadows back to his domain. The shadow god
+                        collects his
+                        childrens souls and their memories rather than having them return to the world tree.<br><br>
+
+                        Dalins can ‘assimilate’ blood from other creatures to take their shape. This ability is not
+                        always
+                        perfect
+                        and often young Dalins would only be able to take some aspects of the creature and not the whole
+                        form.
+                        For
+                        example shaping their hands into paws, arms into wings, etc.
+                        Dalins can also seem like they have thoughts elsewhere and not always focused. This is often due
+                        to
+                        their
+                        ‘calling’ as when they are near forests they can feel the presence of something familiar and
+                        feel
+                        something
+                        calling to them
+                        A Dalin child will grow up with strange whispers in their dreams, calling to them. Later they
+                        feel the
+                        urge
+                        to find something, like if they are pulled to venture towards a place they have heard about in
+                        their
+                        dreams.
+                        What happens when they find this place is not spoken of but it is something each Dalin searches
+                        for and
+                        will
+                        never feel complete unless they have found it.
+
+
+                    </p>
+                    <h3 class="sub-header">Appearence:</h3>
+                    <p id="text-block">A Dalin are born with grey almost transparent skin with pitch black eyes. They
+                        have no gender but would instead become the gender of the child they mimic. As an adult when a
+                        Dalin has full grasp of their powers they can willingly change their gender but it is a
+                        difficult process. A Dalin can otherwise have almost any appearance but often take the shape of
+                        the race and person they first mimicked.</p>
+                    <h3 class="sub-header">Behaviour:</h3>
+                    <p id="text-block">
+                        Dalins are created to become strong and thus they in all biological aspects “fall in love” in a
+                        person that would be best for the survival of their children. What triggers this is up to the GM
+                        but a Dalin can never fall in love with a person who has a genetic disease or any other
+                        inherited weakness instead would feel a natural repulsion for such people.
+                    </p>
+                    <p id="text-block"><strong>Average Height:</strong> 130cm</p>
+                    <p id="text-block"><strong>Average Age:</strong> 220 years</p>
+                    <div id="trait-list">
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Shapeshifter</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    <b>Dalins</b> have the ability to change their shape at will. You gain
+                                    <b>Shift points</b> that
+                                    can be used to transform parts of your body to a certain form based on what you have
+                                    <b>assimilated</b>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="trait-box">
+                            <a id="positive-trait"><strong>Genetic Attraction</strong></a>
+                            <div class="trait-pop-content">
+                                <p>
+                                    Dalins, in all biological aspects,
+                                    can only “fall in love” in a person that would be beneficial for
+                                    their heritage.
+                                    A Dalin can never fall in love with a person who has a genetic disease or
+                                    any other type of inherited weaknesses, instead they would feel a natural repulsion
+                                    for such
+                                    people.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- #endregion Dalin-->
+        </div>
+    </div>
+
+    <div id="naerini-race" class="section">
+        <h2 class="block-title">Races of Naerini</h2>
+        <div id="Dryad" class="sub-section" id="sub-section-border">
+            <h4 class="block-header">Dryad</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+        </div>
+    </div>
+    <div id="charhin-race" class="section">
+        <h2 class="block-title">Races of Cha'Rhin</h2>
+        <div id="????" class="sub-section" id="sub-section-border">
+            <h4 class="block-header">????</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+        </div>
+    </div>
+    <div id="morhin-race" class="section">
+        <h2 class="block-title">Races of Mo'Rhin</h2>
+        <div class="sub-section" id="sub-section-border">
+            <h4 class="block-header" id="Scaled">Scaled</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+        </div>
+    </div>
+    <div id="Devorna-race" class="section">
+        <h2 class="block-title">Races of Devorna</h2>
+        <div id="Darkin" class="sub-section" id="sub-section-border">
+            <h4 class="block-header">Darkin</h4>
+            <h5 class="sub-header">Background:</h5>
+            <p id="text-block">...</p>
+            <h5 class="sub-header">Appearence:</h5>
+            <p id="text-block">...</p>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function viewElement(scrollTo) {
+            console.log(scrollTo);
+            document.getElementById(scrollTo).scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            });
+        }
+    </script>
+</body>
+
+</html>
