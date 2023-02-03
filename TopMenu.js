@@ -29,7 +29,7 @@
     mButton_Home.onclick = function () { window.location.href = '../Etharia_Wikiindex.html' }
     mDiv.appendChild(mButton_Home);
     mHomeArt = document.createElement('img');
-    mHomeArt.setAttribute('src', '../Etharia_WikiArt/Home.png');
+    mHomeArt.setAttribute('src', '../Etharia_Wiki/Art/Home.png');
     mHomeArt.setAttribute('height', 100)
     mHomeArt.setAttribute('width', 100);
     mButton_Home.appendChild(mHomeArt);
