@@ -7,6 +7,7 @@
     var tierDropdown = document.getElementById("classTierSelect");
     var baseClass = "";
     var imgPath = "../Art/"
+
     
     
     function selectClass(selectedClass){
@@ -184,6 +185,7 @@
         
 
         //Rewrites text in Tester
+        var firstTime = true;
         const sunTitle = document.querySelector("#csTitle").value;
         document.getElementById("spiritText_sun").innerHTML = csCost;
         console.log(document.querySelector("#csType1").checked);
@@ -191,7 +193,7 @@
         title.innerHTML = sunTitle;
         var textSize;
         
-         if(fitstTime){
+         if(firstTime){
             textSize = 30;
             firstTime = false;
          }
