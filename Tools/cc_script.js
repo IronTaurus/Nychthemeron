@@ -107,7 +107,7 @@
         //Replace all instances of keywords with a image.            
         const mapObj = 
         {
-            '{ac}': "<img src='"+ imgPath +"Symbol_AC.png' height = '20px' width = '15px' margin= '0%'/>",
+            '{ac}': "<img src='"+ imgPath +"Symbol_AC.png' height = '22px' width = '16px' margin= '0%'/>",
             '{w}': "<img src='"+ imgPath +"BaseDmg.png' height = '22' width = '17' />",
             '{and}': "<img src='"+ imgPath +"and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
             '{or}': "<img src='"+ imgPath +"or.png' height='16' width='340' style='margin-top: 8px'/> <br>",
