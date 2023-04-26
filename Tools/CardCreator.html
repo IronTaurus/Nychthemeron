@@ -23,9 +23,9 @@
                 <input type="radio" class="classTypes" id="classRanger" name="cardClasses" value="Ranger"
                     onclick="selectClass('#ranger')">
                 <label for="classRanger">Ranger</label><br>
-                <input type="radio" class="classTypes" id="classRouge" name="cardClasses" value="Rouge"
-                    onclick="selectClass('#rouge')">
-                <label for="classRouge">Rouge</label><br>
+                <input type="radio" class="classTypes" id="classRogue" name="cardClasses" value="Rogue"
+                    onclick="selectClass('#rogue')">
+                <label for="classRouge">Rogue</label><br>
                 <input type="radio" class="classTypes" id="classApprentice" name="cardClasses" value="Apprentice"
                     onclick="selectClass('#apprentice')">
                 <label for="classApprentice">Apprentice</label>
@@ -47,15 +47,16 @@
                 <select name="classSubtypes" id="classSubtypes" onchange="generateCard()">
                     <option id="baseSelection" value="Subtypes" style="display: none;">Subtypes</option>
                     <option class="subType" id="fighter" value="Berserker" style="display: none;">Berserker</option>
+                    <option class="subType" id="fighter" value="Vanguard" style="display: none;">Vanguard</option>
                     <option class="subType" id="ranger" value="Hunter" style="display: none;">Hunter</option>
-                    <option class="subType" id="rouge" value="Shadow Dancer" style="display: none;">Shadow Dancer
+                    <option class="subType" id="rogue" value="Shadow Dancer" style="display: none;">Shadow Dancer
                     </option>
-                    </option>
+                    <option class="subType" id="rogue" value="Hex Assassin" style="display: none;">Hex Assassin</option>
                     <option class="subType" id="ranger" value="Duelist" style="display: none;">Duelist</option>
                     <option class="subType" id="apprentice" value="Sun" style="display: none;">Sun</option>
+                    <option class="subType" id="apprentice" value="Truth" style="display: none;">Truth</option>
                     <option class="subType" id="warlock" value="Deathknight" style="display: none;">Deathknight</option>
                     <option class="subType" id="warlock" value="Phantom Lord" style="display: none;">Phantom Lord
-                    </option>
                     </option>
                     <option class="subType" id="bard" value="Instrumental" style="display: none;">Instrumental</option>
 
@@ -99,7 +100,9 @@
                         <input type="checkbox" class="csTypes" id="csType4" name="csType4" value="Passive ">
                         <label for="csType4">Passive</label><br>
                         <input type="checkbox" class="csTypes" id="csType5" name="csType5" value="Condition ">
-                        <label for="csType5">Condition</label><br>
+                        <label for="csType5">Condition</label>
+                        <input type="checkbox" class="csTypes" id="csType6" name="csType6" value="Off-combat ">
+                        <label for="csType6">Off-combat</label><br>
                         <label for="csCost">Spirit Cost:</label>
                         <input type="text" style="width: 40px;" id="csCost" name="csCost" value="0"><br>
                         <label for="csRule">Card rule text:</label><br>
@@ -176,7 +179,9 @@ If the <b>moon's blessing</b> is active you may flip this card.<br><i>(Moon's bl
                         <input type="checkbox" class="cmTypes" id="cmType4" name="cmType4" value="Passive">
                         <label for="cmType4">Passive</label><br>
                         <input type="checkbox" class="cmTypes" id="cmType5" name="cmType5" value="Condition ">
-                        <label for="cmType5">Condition</label><br>
+                        <label for="cmType5">Condition</label>
+                        <input type="checkbox" class="cmTypes" id="cmType6" name="cmType6" value="Off-combat ">
+                        <label for="cmType6">Off-combat</label><br>
                         <label for="cmCost">Spirit Cost:</label>
                         <input type="text" style="width: 40px;" id="cmCost" name="cmCost" value="6"><br>
                         <label for="cmRule">Card rule text:</label><br>
