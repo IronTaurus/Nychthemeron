@@ -57,9 +57,72 @@
 </body>
 
 <script>
-    import assert from 'assert';
-    import { parse } from 'csv-parse';
+    // import assert from 'assert';
+    // import { parse } from 'csv-parse';
     const npcNames = [];
+
+    class Part {
+        constructor(wound, features) {
+            this.wound = wound;
+            this.features = features;
+        }
+    }
+
+    class Leg {
+        constructor(foot, knee, thigh) {
+            this.foot = new Part();
+            this.knee = new Part();
+            this.thigh = new Part();
+        }
+    }
+    class Arm {
+        constructor(hand, forearm, upperarm) {
+            this.hand = new Part();
+            this.forearm = new Part();
+            this.upperarm = new Part();
+        }
+    }
+    class Head {
+        constructor(leftEye, rightEye, leftEar, rightEar, nose, hair, teeth, lips, cheek, brow, forehead, chin) {
+            this.leftEye = leftEye;
+            this.rightEye = rightEye;
+            this.leftEar = leftEar;
+            this.rightEar = rightEar;
+            this.nose = nose;
+            this.hair = hair;
+            this.teeth = teeth;
+            this.lips = lips;
+            this.cheek = cheek;
+            this.brow = brow;
+            this.forehead = forehead;
+            this.chin = chin;
+        }
+    }
+
+    class Character {
+        constructor(head, leftArm, rightArm, leftLeg, rightLeg) {
+            this.head = Head;
+            this.leftArm = Part;
+            this.rightArm = Part;
+            this.leftLeg = Part;
+            this.rightLeg = Part;
+        }
+    }
+    class Risk {
+        constructor(head, arm, leg, type) {
+            this.head = head;
+            this.arm = arm;
+            this.leg = leg;
+            this.type = type;
+        }
+    }
+
+    class Job {
+        constructor(title, risk) {
+            this.title = title;
+            this.risk = new Risk();
+        }
+    }
 
     class NpcName {
         constructor(name, gender, race, origin) {
@@ -71,22 +134,22 @@
 
     }
 
-    const fs = require("fs");
-    const { parse } = require("csv-parse");
-    fs.createReadStream("./NpcNames.csv");
+    // const fs = require("fs");
+    // const { parse } = require("csv-parse");
+    // fs.createReadStream("./NpcNames.csv");
 
-    fs.createReadStream("./NpcNames.csv")
-        .pipe(parse({ delimiter: ",", from_line: 2 }))
-        .on("data", function (row) {
-            new NpcName(row)
-            console.log(row);
-        })
-        .on("error", function (error) {
-            console.log(error.message);
-        })
-        .on("end", function () {
-            console.log("finished");
-        });
+    // fs.createReadStream("./NpcNames.csv")
+    //     .pipe(parse({ delimiter: ",", from_line: 2 }))
+    //     .on("data", function (row) {
+    //         new NpcName(row)
+    //         console.log(row);
+    //     })
+    //     .on("error", function (error) {
+    //         console.log(error.message);
+    //     })
+    //     .on("end", function () {
+    //         console.log("finished");
+    //     });
 
     class Npc {
         constructor(sex, race, age, job, name, features, clothes, height, size, origin, hair) {
@@ -146,6 +209,34 @@
     var appearanceHairColor = ['black', 'dark brown', 'light brown', 'dark red', 'red', 'strawberry blonde', 'blonde', 'jet black', 'gray', 'white']
 
     function generateNpc() {
+
+        let newCharacter = createBody(getJob());
+
+        if (newCharacter.leftArm == null) {
+            console.log("Left arm is missing!");
+        }
+        else {
+            console.log(newCharacter.leftArm.wound)
+        }
+        if (newCharacter.rightArm == null) {
+            console.log("Right arm is missing!");
+        }
+        else {
+            console.log(newCharacter.rightArm.wound)
+        }
+        if (newCharacter.leftLeg == null) {
+            console.log("Left leg is missing!");
+        }
+        else {
+            console.log("Has a left leg!")
+        }
+        if (newCharacter.rightLeg == null) {
+            console.log("Right leg is missing!");
+        }
+        else {
+            console.log("Has a right leg!")
+        }
+
         var race = document.getElementById("race-select").value;
         var sex = document.getElementById("sex-select").value;
         var origin = document.getElementById("origin-select").value;
@@ -387,14 +478,104 @@
         return { hairStyle1, hairStyle2, hairColor };
     }
     function getJob() {
-        if (document.getElementById("job-select").value == "random") {
-            var jobList = ['commoner', 'noble']
-            var job = jobList[Math.floor(Math.random() * jobList.length)]
-            return job;
-        }
-        else return document.getElementById("job-select").value;
+
+        const jobs = [];
+        const commoner = new Job();
+        commoner.title = "Commoner";
+        const commonerRisk = new Risk();
+        commonerRisk.type = ["bruise", "blister"];
+        commonerRisk.arm = 0.15;
+        commonerRisk.leg = 0.1;
+        commonerRisk.head = 0.1;
+        commoner.risk = commonerRisk;
+        jobs.push(commoner);
+
+        const soldier = new Job();
+        soldier.title = "Soldier";
+        const soldierRisk = new Risk();
+        soldierRisk.type = ["bruise", "scar"]
+        soldierRisk.arm = 0.25;
+        soldierRisk.leg = 0.1;
+        soldierRisk.head = 0.1;
+        soldier.risk = soldierRisk;
+        jobs.push(soldier);
+
+        var job = jobs[Math.floor(Math.random() * jobs.length)]
+        return job;
+
+        // if (document.getElementById("job-select").value == "random") {         
+        // }
     }
 
+    function createBody(job) {
+
+        let character = new Character();
+        character.leftArm.name = "left arm";
+        character.rightArm.name = "right arm";
+        let head = new Head();
+        let thisRisk = new Risk();
+        thisRisk = job.risk;
+        console.log(job.title);
+        console.log(job.risk.arm);
+        console.log(job.risk.arm);
+        character.Head = head;
+
+
+        //Has right arm?
+        if (Math.random() < job.risk.arm) {
+            character.rightArm = null;
+        }
+        else {
+            character.rightArm = createFeature("right arm", job, job.risk.arm);
+        }
+
+        //Has left arm?
+        if (Math.random() < job.risk.arm) {
+            character.leftArm = null;
+        }
+        else {
+            character.leftArm = createFeature("left arm", job, job.risk.arm);
+        }
+
+        //Has right leg?
+        if (Math.random() < job.risk.leg) {
+            character.rightLeg = null;
+        }
+        //Has left lrg?
+        if (Math.random() < job.risk.leg) {
+            character.leftLeg = null;
+        }
+
+
+        return character;
+    }
+
+    function createFeature(name, job, riskValue) {
+        const degree = ["large", "small", "barely noticable"]
+        var amount = []
+        let part = new Part();
+
+        if (Math.random() < (riskValue * 2)) {
+            var dmgType = job.risk.type[Math.floor(Math.random() * job.risk.type.length)]
+            var dmgDegree = degree[Math.floor(Math.random() * degree.length)]
+            if (dmgType == "scar") {
+                amount = ["a", "several", "plenty of", "numerous of"]
+            }
+            else if (dmgType == "bruise" || "blister") {
+                amount = ["several", "plenty of", "numerous of", "it is covered with"]
+            }
+            var dmgAmount = amount[Math.floor(Math.random() * amount.length)]
+            if (dmgAmount != "a") {
+                dmgType = dmgType + "s";
+            }
+            part.wound = "On the " + name + " you can see " + dmgAmount + " " + dmgDegree + " " + dmgType + "."
+        }
+        else {
+            part.wound = "Normal looking " + name + ".";
+        }
+
+        return part;
+    }
 </script>
 
 </html>
