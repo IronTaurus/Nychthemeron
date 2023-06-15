@@ -16,7 +16,7 @@
             <option value="">--Please choose an option--</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="Other">Other</option>
+            <option value="other">Other</option>
         </select>
         <label for="race-select">Race:</label>
         <select name="race" id="race-select">
@@ -28,6 +28,13 @@
         <select name="origin" id="origin-select">
             <option value="">--Please choose an option--</option>
             <option value="Avena">Avena</option>
+        </select>
+        <label for="status-select">Status:</label>
+        <select name="status" id="status-select">
+            <option value="random">Random</option>
+            <option value="commoner">Commoner</option>
+            <option value="wealthy">Wealthy</option>
+            <option value="noble">Noble</option>
         </select>
         <label for="job-select">Class:</label>
         <select name="job" id="job-select">
@@ -61,51 +68,73 @@
     // import { parse } from 'csv-parse';
     const npcNames = [];
 
-    class Part {
-        constructor(wound, features) {
-            this.wound = wound;
-            this.features = features;
-        }
+    // class Part {
+    //     constructor(wound, feature) {
+    //         this.wound = wound,
+    //             this.feature = feature
+    //     }
+    // }
+
+    const npcFetch = {
+        body: (options) => { return (getBody(options)); },
+        sex: (options) => { return (getSex()); },
+        origin: (options) => { return (getOrigin()); },
+        name: (options) => { return (getName(options)); },
     }
 
-    class Leg {
-        constructor(foot, knee, thigh) {
-            this.foot = new Part();
-            this.knee = new Part();
-            this.thigh = new Part();
-        }
-    }
-    class Arm {
-        constructor(hand, forearm, upperarm) {
-            this.hand = new Part();
-            this.forearm = new Part();
-            this.upperarm = new Part();
-        }
-    }
-    class Head {
-        constructor(leftEye, rightEye, leftEar, rightEar, nose, hair, teeth, lips, cheek, brow, forehead, chin) {
-            this.leftEye = leftEye;
-            this.rightEye = rightEye;
-            this.leftEar = leftEar;
-            this.rightEar = rightEar;
-            this.nose = nose;
-            this.hair = hair;
-            this.teeth = teeth;
-            this.lips = lips;
-            this.cheek = cheek;
-            this.brow = brow;
-            this.forehead = forehead;
-            this.chin = chin;
-        }
+    const Part = {
+        wound: "",
+        feature: ""
     }
 
-    class Character {
-        constructor(head, leftArm, rightArm, leftLeg, rightLeg) {
+    const Leg = {
+        foot: Part,
+        knee: Part,
+        thigh: Part
+    }
+
+    const Arm = {
+        hand: Part,
+        foreArm: Part,
+        upperArm: Part
+    }
+
+    const Head = {
+        leftEye: Part,
+        rightEye: Part,
+        leftEar: Part,
+        rightEar: Part,
+        nose: Part,
+        hair: "",
+        teeth: "",
+        lips: "",
+        cheek: Part,
+        brow: "",
+        forehead: Part,
+        chin: Part
+    }
+
+    const Sex = {
+        name: "",
+        pronoun1: "",
+        pronoun2: "",
+        pronoun_own: ""
+    }
+
+
+    class Body {
+        constructor(type, head, leftArm, rightArm, leftLeg, rightLeg, height, weigth, age) {
+            this.type = Type;
             this.head = Head;
-            this.leftArm = Part;
-            this.rightArm = Part;
-            this.leftLeg = Part;
-            this.rightLeg = Part;
+            this.leftArm = Arm;
+            this.rightArm = Arm;
+            this.leftLeg = Leg;
+            this.rightLeg = Leg;
+            this.height = height;
+            this.weight = weight;
+            this.age = age;
+
+
         }
     }
     class Risk {
@@ -134,35 +163,16 @@
 
     }
 
-    // const fs = require("fs");
-    // const { parse } = require("csv-parse");
-    // fs.createReadStream("./NpcNames.csv");
-
-    // fs.createReadStream("./NpcNames.csv")
-    //     .pipe(parse({ delimiter: ",", from_line: 2 }))
-    //     .on("data", function (row) {
-    //         new NpcName(row)
-    //         console.log(row);
-    //     })
-    //     .on("error", function (error) {
-    //         console.log(error.message);
-    //     })
-    //     .on("end", function () {
-    //         console.log("finished");
-    //     });
-
     class Npc {
-        constructor(sex, race, age, job, name, features, clothes, height, size, origin, hair) {
-            this.job = job;
-            this.sex = sex;
-            this.race = race;
+        constructor(job, status, name, clothes, origin, body, sex, race) {
+            this.job = Job;
+            this.status = status;
             this.name = name;
-            this.features = features;
             this.clothes = clothes;
-            this.height = height;
-            this.size = size;
             this.origin = origin;
-            this.hair = hair;
+            this.body = new Body();
+            this.sex = Sex;
+            this.race = race;
         }
     }
     //#region Human
@@ -187,19 +197,6 @@
     var appearenceClothesMaleTop = ['a red linen shirt', 'a white linen shirt', 'a gray linen shirt', 'a pink linen shirt', 'a black one sleeved shirt', 'a bare chest', 'the body wrapped in bandages', 'a torn linen shirt']
     var appearenceClothesMaleBottom = ['green baggy pants', 'brown baggy pants', 'black leather pants', 'leather shorts', 'torn linen pants']
 
-    const clothesFemale = ['medium length dress', 'long dress', 'robe']
-    const clothesArmourType = ['leather', 'chain', 'plated', 'studded leather']
-    const clothesFabricNoble = ['silken', 'velvet', 'tafeta', 'damask']
-    const clothesFabricCommoner = ['linen', 'wool', 'leather', 'hemp']
-    const clothesCommonerTop = ['shirt', 'tunic', 'sleeveless shirt', 'poncho']
-    const clothesCommonerBotType = ['short', 'long', 'worn', 'pirate', 'baggy', 'tight', 'thin', 'knee long', 'one legged', 'torn']
-    const clothesCommonerBot = ['pants', 'skirt']
-    const clothesCommonerBotSuffix = ['bandage wrappings on left leg', 'bandage wrappings on right leg']
-    const clothesCommonerFootSocksPrefix = ['knee high', 'short']
-    const clothesCommonerFootSocks = ['socks', 'wrappings']
-    const clothesNobleColor = ['bright red', 'orange', 'yellow', 'snow white', 'deep blue', 'purple', 'dark gren', 'green', 'bright green', 'sky blue']
-    const clothesCommonerColor = ['red', 'gray', 'ivory white', 'vanilla', 'brown']
-    const clothesArmourTop = []
 
 
     var appearanceHairStyle1 = ['long wavy hair', 'long curly hair', 'long straight hair', 'long bushy hair', 'shoulder long wavy hair', 'shoulder long wavy hair', 'shoulder long curly hair', 'shoulder long straight hair', 'shoulder long bushy hair'
@@ -208,81 +205,82 @@
         'uncombed and wild', 'tied in a tail on the back of the head', 'with a single thin braid hanging on the left', 'with a single thin braid hanging on the right']
     var appearanceHairColor = ['black', 'dark brown', 'light brown', 'dark red', 'red', 'strawberry blonde', 'blonde', 'jet black', 'gray', 'white']
 
-    function generateNpc() {
-
-        let newCharacter = createBody(getJob());
-
-        if (newCharacter.leftArm == null) {
-            console.log("Left arm is missing!");
-        }
-        else {
-            console.log(newCharacter.leftArm.wound)
-        }
-        if (newCharacter.rightArm == null) {
-            console.log("Right arm is missing!");
-        }
-        else {
-            console.log(newCharacter.rightArm.wound)
-        }
-        if (newCharacter.leftLeg == null) {
-            console.log("Left leg is missing!");
-        }
-        else {
-            console.log("Has a left leg!")
-        }
-        if (newCharacter.rightLeg == null) {
-            console.log("Right leg is missing!");
-        }
-        else {
-            console.log("Has a right leg!")
+    const clothesSentence = (body) => {
+        const c = body.clothes
+        let addExtra = c.extra ? ` with ${c.extra}.` : ".";
+        return `${body.sex.pronoun1} has a  ${c.topDescription} ${c.topColor} ${c.topType} made out of ${c.topFabric} with a ${c.botDescription} ${c.botColor} ${c.botFabric} ${c.botType}${addExtra}`
+    }
+    const bodySentence = (body) => {
+        let bodyWounds = "";
+        numberOf = 0;
+        if (Object.keys.length != 0) {
+            Object.keys(body.bodyParts).forEach(key => {
+                let inclusion = numberOf ? ` and` : " with";
+                let o = body.bodyParts[key]
+                bodyWounds += `${inclusion} ${o.amount} ${o.appearence} ${o.wound} ${o.cover} the ${o.position}`
+                numberOf++;
+            });
         }
 
-        var race = document.getElementById("race-select").value;
-        var sex = document.getElementById("sex-select").value;
-        var origin = document.getElementById("origin-select").value;
-        const job = getJob();
-        var clothes = getClothes(race, sex, job);
-        var hairStyle = getHair(race);
-        var body = getBody(race, sex);
-
-        var features = getFeatures(race);
-        var hairText = getSex(sex).pronoun1 + " has " + hairStyle.hairColor + " " + hairStyle.hairStyle1 + " " + hairStyle.hairStyle2 + "."
-        const hair = hairText.charAt(0).toUpperCase() + hairText.slice(1);
-        var featureText = getSex(sex).pronoun1 + body.build;
-        if (features.length) { featureText += " with " }
-        features.forEach((element, index) => {
-            if (index == features.length - 1 && features.length > 1) { featureText += ' and ' }
-            else if (features.indexOf(element) != 0) { featureText += ', ' }
-            featureText += element
+        headWounds = "";
+        numberOf = 0;
+        Object.keys(body.head).forEach(key => {
+            let inclusion = numberOf ? ` and` : `, ${body.sex.pronoun_own} face has`;
+            let o = body.head[key]
+            let cExist = o.color ? ` ${o.color} ` : ` `
+            let fExist = o.feature ? ` ${o.feature} ` : ` `
+            headWounds += `${inclusion} ${o.amount}${cExist}${o.appearence}${fExist}${o.cover} the ${o.position}`
+            numberOf++;
         });
-        const featureText2 = featureText.charAt(0).toUpperCase() + featureText.slice(1) + '.';
-        let newNpc = new Npc();
-        newNpc.sex = getSex(sex);
-        newNpc.race = race;
-        newNpc.name = getName(race, sex, origin);
-        newNpc.features = featureText2;
-        newNpc.clothes = clothes;
-        newNpc.hair = hair;
-        newNpc.height = body.height;
-        newNpc.age = body.age;
-        newNpc.size = body.size;
-        newNpc.origin = origin;
-        newNpc.job = job;
+        return `${body.sex.pronoun1} has ${body.type} body${bodyWounds}${headWounds}.`
+    }
+    function generateNpc() {
+        const constans = {
+            sex: document.getElementById("sex-select").value,
+            job: getJob(),
+            status: "commoner",
+            race: document.getElementById("race-select").value,
+            origin: document.getElementById("origin-select").value,
+            status: document.getElementById("status-select").value
+        }
 
-        console.log(newNpc.race);
-        console.log(newNpc.sex);
-        console.log(body.size);
-        console.log(body.height);
-        console.log(newNpc.features);
+        const sentenceConstructor = {
+            Clothes: (options) => clothesSentence(options),
+            Body: (options) => bodySentence(options),
+        }
+        let newCharacter = createBody({ ...constans });
+        console.log(newCharacter);
 
-        document.getElementById("appearenceNotable").innerHTML = newNpc.features;
-        document.getElementById("npcName").innerHTML = newNpc.name.fNamn + " " + newNpc.name.eNamn;
-        document.getElementById("height").innerHTML = newNpc.height + "cm";
-        document.getElementById("age").innerHTML = newNpc.age + " years old.";
-        document.getElementById("appearanceHair").innerHTML = newNpc.hair;
-        document.getElementById("job").innerHTML = newNpc.job;
+        const text = sentenceConstructor["Body"](newCharacter);
+        console.log(text);
+
+        console.log("sex is:" + constans.sex)
+        const fullName = npcFetch["name"]({ ...constans });
+
+        document.getElementById("npcName").innerHTML = `${fullName.fNamn} ${fullName.eNamn}`;
+        document.getElementById("appearenceNotable").innerHTML = `${text}`;
+        const clothesText = sentenceConstructor["Clothes"](newCharacter);
+        document.getElementById("appearenceClothes").innerHTML = clothesText;
+        // console.log(text);
+
+        // let newNpc = {
+        //     sex: npcFetch.get("sex", { ...constans }),
+        //     status: constans.status,
+        //     body: npcFetch.get("body", { ...constans }),
+        //     job: npcFetch.get("job", { ...constans }),
+        //     race: constans.race,
+        //     origin: constans.origin,
+        //     name: get("name", { ...constans }),
+        // };
+
+        // document.getElementById("appearenceNotable").innerHTML = newNpc.features;
+        // document.getElementById("npcName").innerHTML = newNpc.name.fNamn + " " + newNpc.name.eNamn;
+        // document.getElementById("height").innerHTML = newNpc.height + "cm";
+        // document.getElementById("age").innerHTML = newNpc.age + " years old.";
+        // document.getElementById("appearanceHair").innerHTML = newNpc.hair;
+        // document.getElementById("job").innerHTML = newNpc.job;
         //document.getElementById("appearenceNotable").innerHTML =
-        document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes + ".";
+        // document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes + ".";
         nameCon1 = nameContruct1[Math.floor(Math.random() * nameContruct1.length)];
         if (Math.random() < 0.5) {
             nameCon2 = nameContruct2[Math.floor(Math.random() * nameContruct2.length)];
@@ -292,80 +290,65 @@
         document.getElementById("nameConstruct").innerHTML = nameCon1 + nameCon2 + nameCon3;
 
     }
-    function getClothes(race, sex, job) {
+    function getClothes(status) {
+        //#region  ClothesArray
+        const ClothesFullType = {
+            female: ['medium length dress', 'long dress', 'robe'],
+        }
+        const ClothesTopDescription = {
+            commoner: ['short', 'long', 'thin', 'worn', 'torn'],
+            wealthy: ['long', 'thin', 'tight', 'slick', 'layered'],
+            noble: ['long', 'thin', 'tight', 'slick', 'layered', 'beautiful', 'shiny']
+        }
+        const ClothesBotDescription = {
+            commoner: ['short', 'long', 'worn', 'tight', 'thin', 'knee long', 'torn'],
+            wealthy: ['long', 'tight', 'thin', 'knee long', 'beautiful', 'layered'],
+            noble: ['long', 'tight', 'thin', 'beautiful', 'layered'],
+        }
+        const ClothesTopTypes = {
+            commoner: ['shirt', 'tunic', 'sleeveless shirt', 'vest', "one-sleeved shirt", 'poncho'],
+            wealthy: ['shirt', 'tunic', 'sleeveless shirt', 'blazer'],
+            noble: ['shirt', 'tunic', 'sleeveless shirt'],
+        }
+        const ClothesBotTypes = {
+            commoner: ['skirt', 'pants', 'shorts'],
+            wealthy: ['skirt', 'pants', 'shorts'],
+            noble: ['skirt', 'pants', 'shorts'],
+        }
+
+        const ClothesFabric = {
+            commoner: ['linen', 'wool', 'leather', 'hemp'],
+            wealthy: ['linen', 'velvet', 'silk'],
+            noble: ['silk', 'velvet', 'tafeta', 'damask'],
+        }
+        const ClothesColor = {
+            commoner: ['red', 'gray', 'ivory white', 'vanilla', 'brown'],
+            wealthy: ['bright red', 'orange', 'yellow', 'snow white', 'deep blue', 'dark green', 'bright green', 'blue'],
+            noble: ['bright red', 'orange', 'yellow', 'snow white', 'deep blue', 'purple', 'dark green', 'green', 'bright green', 'sky blue'],
+        }
+        const ArmorType = {
+            commoner: ['leather', 'studded leather', 'chain vest', 'padded'],
+            wealthy: ['chain mail', 'iron chest', 'padded', 'chain vest'],
+            noble: ['chain mail', 'full plate', 'iron chest', 'scale']
+        }
+        const ArmorColor = {
+            commoner: ['worn', 'dark', 'dirty', 'dull'],
+            wealthy: ['silver', 'black', 'green', 'shiny', 'dulled silver'],
+            noble: ['golden', 'shiny', 'jeweled', 'silver', 'pitch black', 'pearl white', 'green']
+        }
+        //#endregion ClothesArray
         var clothesList = [];
-        switch (job) {
-            case 'commoner':
-                if (Math.random() < 0.5 && sex == 'female') {
-                    var clothesType = clothesFemale[Math.floor(Math.random() * clothesFemale.length)];
-                    var fabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
-                    var color = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var clothes = color + " " + clothesType + " made of " + fabric;
-                }
-                else {
-                    var clothesTop = clothesCommonerTop[Math.floor(Math.random() * clothesCommonerTop.length)];
-                    var clothesBot = clothesCommonerBot[Math.floor(Math.random() * clothesCommonerBot.length)];
-                    var sockType = clothesCommonerFootSocks[Math.floor(Math.random() * clothesCommonerFootSocks.length)];
-                    var sockPrefix = clothesCommonerFootSocksPrefix[Math.floor(Math.random() * clothesCommonerFootSocksPrefix.length)];
-                    var fabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
-                    var color = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var socks = " with " + sockPrefix + " " + color + " " + fabric + " " + sockType;
-                    var topFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
-                    var botFabric = clothesFabricCommoner[Math.floor(Math.random() * clothesFabricCommoner.length)];
-                    var topColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var botColor = clothesCommonerColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var legSuffix = clothesCommonerBotSuffix[Math.floor(Math.random() * clothesCommonerBotSuffix.length)];
-                    if (Math.random() < 0.5) {
-                        if (Math.random() < 0.5) {
-                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + socks + " and " + legSuffix;
-
-                        }
-                        else {
-                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + socks;
-
-                        }
-
-                    }
-                    else {
-                        if (Math.random() < 0.5) {
-                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop + " and " + legSuffix;
-
-                        }
-                        else {
-                            var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
-                        }
-                    }
-                }
-                return clothes;
-            case 'noble':
-                if (Math.random() < 0.3 && sex == 'female') {
-                    var clothesType = clothesFemale[Math.floor(Math.random() * clothesFemale.length)];
-                    var fabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
-                    var color = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
-                    var clothes = color + " " + clothesType + " made of " + fabric;
-                }
-                else {
-                    var clothesTop = clothesCommonerTop[Math.floor(Math.random() * clothesCommonerTop.length)];
-                    var clothesBot = clothesCommonerBot[Math.floor(Math.random() * clothesCommonerBot.length)];
-                    var topFabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
-                    var botFabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricNoble.length)];
-                    var topColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
-                    var botColor = clothesNobleColor[Math.floor(Math.random() * clothesNobleColor.length)];
-                    var sockType = clothesCommonerFootSocks[Math.floor(Math.random() * clothesCommonerFootSocks.length)];
-                    var sockPrefix = clothesCommonerFootSocksPrefix[Math.floor(Math.random() * clothesCommonerFootSocksPrefix.length)];
-                    var fabric = clothesFabricNoble[Math.floor(Math.random() * clothesFabricCommoner.length)];
-                    var color = clothesNobleColor[Math.floor(Math.random() * clothesCommonerColor.length)];
-                    var socks = " with " + sockPrefix + " " + color + " " + fabric + " " + sockType;
-                    if (Math.random() < 0.6) {
-                        var clothes = botColor + " " + clothesBot + " made of " + botFabric + " and " + socks + " with a " + topColor + " " + topFabric + " " + clothesTop;
-
-                    }
-                    else {
-                        var clothes = botColor + " " + clothesBot + " made of " + botFabric + " with a " + topColor + " " + topFabric + " " + clothesTop;
-                    }
-                }
-                return clothes;
-                break;
+        console.log(JSON.stringify(status));
+        return {
+            topFabric: ClothesFabric[status][Math.floor(Math.random() * ClothesFabric[status].length)],
+            topDescription: ClothesTopDescription[status][Math.floor(Math.random() * ClothesTopDescription[status].length)],
+            topType: ClothesTopTypes[status][Math.floor(Math.random() * ClothesTopTypes[status].length)],
+            topColor: ClothesColor[status][Math.floor(Math.random() * ClothesColor[status].length)],
+            botFabric: ClothesFabric[status][Math.floor(Math.random() * ClothesFabric[status].length)],
+            botDescription: ClothesBotDescription[status][Math.floor(Math.random() * ClothesBotDescription[status].length)],
+            botType: ClothesBotTypes[status][Math.floor(Math.random() * ClothesBotTypes[status].length)],
+            botColor: ClothesColor[status][Math.floor(Math.random() * ClothesColor[status].length)],
+            extra: "",
         }
     }
     function getFeatures(race) {
@@ -387,20 +370,19 @@
 
         return feature;
     }
-    function getBody(race, sex) {
-        if (race == 'orc') {
+    function getBody(options) {
+        if (options.race == 'orc') {
             var height = Math.floor(Math.random() * (300 - 190)) + 190;
             var size = 'large'
             var build = appearenceBody[Math.floor(Math.random() * appearenceBody.length)]
             var age = Math.floor(Math.random() * (90 - 20)) + 20;
 
         }
-        else if (race == 'human') {
-            if (sex == 'male') {
+        else if (options.race == 'human') {
+            if (options.sex == 'male') {
                 var height = Math.floor(Math.random() * (190 - 160)) + 160;
-
             }
-            if (sex == 'female') {
+            if (options.sex == 'female') {
                 var height = Math.floor(Math.random() * (180 - 150)) + 150;
             }
             var size = 'medium'
@@ -417,52 +399,79 @@
         }
         return { height, size, build, age };
     }
-    function getName(race, sex, origin) {
-        if (race == 'human') {
-            if (origin == 'Avena') {
-                if (sex == 'male') {
-                    var fNamn = avena_human_male_fNamn[Math.floor(Math.random() * avena_human_male_fNamn.length)]
-                    var eNamn = avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
-                }
-                else if (sex == 'female') {
-                    var fNamn = avena_human_female_fNamn[Math.floor(Math.random() * avena_human_female_fNamn.length)]
-                    var eNamn = avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
-                }
-            }
+    function getName(options) {
 
-        }
-        else if (race == 'orc') {
-            if (sex == 'male') {
-                // var fNamn = avena_human_male_fNamn[Math.floor(Math.random() * avena_human_male_fNamn.length)]
-                // var eNamn = avena_human_male_eNamn[Math.floor(Math.random() * avena_human_male_eNamn.length)]
-                var fNamn = 'test';
-                var eNamn = 'orc male'
-            }
-            else if (sex == 'female') {
-                var fNamn = 'test';
-                var eNamn = 'orc female'
+        var avena_human_male_fNamn = ['Patrick', 'Emmet', 'Darwin', 'Irwin', 'Charles', 'Martin', 'Rodrick', 'Victor', 'Aldrich', 'Ansley', 'Barden', 'Blake', 'Booth', 'Bradley', 'Brent', 'Buck', 'Cameron', 'Carter', 'Cliff', 'Colt', 'Dane', 'Crieg', 'Devon', 'Dunstan', 'Dwight', 'Eric', 'Elden', 'Eldon', 'Floyd', 'Garrick', 'Harman', 'Hazel', 'Keyton', 'Landon', 'Leland', 'Nash', 'Morven', 'Oak', 'Nyle', 'Olin', 'Osmond', 'Oswald', 'Payton', 'Pierson', 'Peter', 'Ramsey', 'Robert', 'Rodney', 'Shaw', 'Slade', 'Stan', 'Stanley', 'Thane', 'Thorne']
+        var avena_human_eNamn = ['Ashton', 'Ashdown', 'Ageworth', 'Baker', 'Bogwold', 'Brine', 'Blackfoot', 'Bagger', 'Clayman', 'Cluefinder', 'Coldwin', 'Colton', 'Caulder', 'Caldwell', 'Dawn', 'Droglor', 'Dulma', 'Dawnsquire', 'Dunst', 'Dustwyn', 'Duvall', 'Dove', 'Drover', 'Emmerson', 'Eldwyn', 'Elwin', 'Elmire', 'Eckerman', 'Everstone', 'East', 'Evens', 'Flinch', 'Fallwyn', 'Hill', 'Hammerton', 'Huxley', 'Himley', 'Lordell', 'Lorwyn', 'Lala', 'Logwin', 'Logger', 'Lonell', 'Lannis', 'North', 'Norwyn', 'Noland', 'Nogrief', 'Nostor', 'Malwyn', 'Mire', 'Mosswyn', 'Miller', 'Mithrin', 'Malos', 'Moon', 'Preston', 'Pierce', 'Poole', 'Rand', 'Relwyn', 'Sorrow', 'Sawmill', 'Saige', 'Timmer', 'Thorwin', 'Talmer']
+        var avena_human_female_fNamn = ['Ashley', 'Ally', 'Allison', 'Alina', 'Alice', 'Amber', 'Anne', 'Alexandra', 'Berith', 'Bridget', 'Brittany', 'Bella', 'Belle', 'Brienne', 'Camille', 'Caroline', 'Carol', 'Doris', 'Dartha', 'Doris', 'Danielle', 'Danie', 'Diana', 'Erica', 'Emelie', 'Emma', 'Evelyn', 'Eve', 'Evelina', 'Erina', 'Elaine', 'Ester', 'Elina', 'Elin', 'Fiona', 'Falin', 'Fredrica', 'Gwen', 'Gweneth', 'Gina', 'Goldine', 'Gabrielle', 'Geena', 'Hariette', 'Hana', 'Helen', 'Helena', 'Irena', 'Irma', 'Irianna', 'Iona', 'Imogen', 'Julianne', 'Julia', 'Juliette', 'Jane', 'Josephyn', 'Joline', 'Kalista', 'Karina', 'Karin', 'Kamille', 'Laura', 'Lisa', 'Margret', 'Maria', 'Mina', 'Nina', 'Neria', 'Noelle', 'Olivia', 'Ophelia']
 
-            }
+        const races = {
+            human: (sex) => {
+                const names = {
+                    female: {
+                        fNamn: avena_human_female_fNamn[Math.floor(Math.random() * avena_human_female_fNamn.length)],
+                        eNamn: avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
+                    },
+                    male: {
+                        fNamn: avena_human_male_fNamn[Math.floor(Math.random() * avena_human_male_fNamn.length)],
+                        eNamn: avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
+                    },
+                    other: {
+                        fNamn: avena_human_female_fNamn[Math.floor(Math.random() * avena_human_female_fNamn.length)],
+                        eNamn: avena_human_eNamn[Math.floor(Math.random() * avena_human_eNamn.length)]
+                    },
+                }
+                const fNamn = names[sex].fNamn;
+                const eNamn = names[sex].eNamn;
+                return { fNamn, eNamn };
+            },
+            orc: (sex) => (
+                {
+                    female: {
+                        fNamn: 'orc',
+                        eNamn: 'female'
+                    },
+                    male: {
+                        fNamn: 'orc',
+                        eNamn: 'male',
+                    },
+                    other: {
+                        fNamn: 'orc',
+                        eNamn: 'other'
+                    },
+                }),
         }
-        return { fNamn, eNamn };
+        console.log("Sex is still:" + JSON.stringify(options))
+        const r = races[options.race](options.sex);
+        console.log("name is:" + JSON.stringify(r))
+        return r;
     }
-    function getSex(sex) {
-        if (sex == 'female') {
-            var pronoun1 = "she"
-            var pronoun2 = "her"
-            var owning = "hers"
+    function getSex(options) {
+        if (options == 'female') {
+            return {
+                title: "female",
+                pronoun1: "she",
+                pronoun2: "her",
+                pronoun_own: "her"
+            }
+
         }
-        else if (sex == 'male') {
-            var pronoun1 = "he"
-            var pronoun2 = "him"
-            var owning = "his"
+        else if (options == 'male') {
+            return {
+                title: "male",
+                pronoun1: "he",
+                pronoun2: "him",
+                pronoun_own: "his"
+            }
         }
-        else if (sex == 'other') {
-            var pronoun1 = "they"
-            var pronoun2 = "them"
-            var owning = "theirs"
+        else {
+            return {
+                title: "other",
+                pronoun1: "they",
+                pronoun2: "them",
+                pronoun_own: "their"
+            }
         }
-        return { pronoun1, pronoun2, owning }
     }
     function getHair(race) {
         if (race == 'human') {
@@ -478,103 +487,412 @@
         return { hairStyle1, hairStyle2, hairColor };
     }
     function getJob() {
+        const commoner = {
+            title: "commoner",
+            bodyTypes: ['an average', 'a muscular', 'a meager', 'a thin'],
+            woundHead: 0.22,
+            woundArm: 0.35,
+            woundLeg: 0.12,
+            woundTypes: ["bruise", "blister"],
+            skinConditionRisk: 0.15,
+            skinConditionType: ["has a rash", "is dry and cracked", "is red", "has red dots"],
+            featureChance: 0.5,
+            featuresHead: 0.2,
+            featuresArm: 0.4,
+            featuresLeg: 0.4,
+            tattoo: {
+                type: ["painted"],
+                color: ["pale", "dark", "red", "gray", "white"],
+                singular: {
+                    appearence: ["circle", "sickle", "tilted scale", "symbol", "word", "name", "sword", "crescent moon", "bow and arrow", "two tailed mouse", "number", "talon", "leaf"],
+                    amount: ["a"]
+                },
+                plural: {
 
-        const jobs = [];
-        const commoner = new Job();
-        commoner.title = "Commoner";
-        const commonerRisk = new Risk();
-        commonerRisk.type = ["bruise", "blister"];
-        commonerRisk.arm = 0.15;
-        commonerRisk.leg = 0.1;
-        commonerRisk.head = 0.1;
-        commoner.risk = commonerRisk;
-        jobs.push(commoner);
+                    appearence: ["two parallel circles", "several symbols", "a number of words", "several names", "three arrows"],
+                    amount: []
+                },
+                cover: ["on"],
+            },
+            engraving: {
+                type: ["engraved", "branded"],
+                color: [],
+                singular: {
+                    appearence: ["circle", "sickle", "tilted scale", "symbol", "word", "name", "sword", "crescent moon", "bow and arrow", "two tailed mouse", "number", "talon", "leaf"],
+                    amount: ["a"],
+                },
+                plural: {
+                    appearence: ["two parallel circles", "several symbols", "a number of words", "several names", "three arrows"],
+                    amount: [],
+                },
+                cover: ["on"],
+            },
+            piercing: {
+                type: [],
+                color: ["steel", "iron"],
+                appearence: ["ring", "piercing", "bar"],
+                cover: ["in"],
+                amount: ["a"],
+            },
+            special: {
+                type: ["symbol"],
+                color: ["red", "black", "white"],
+                appearence: ["round", "big", "diamond shaped", "small"],
+                cover: ["on"],
+                amount: ["a"],
+            },
+            wound: {
+                type: ["bruise", "blister", "scar"],
+                color: [],
+                cover: ["on", "near"],
+                appearence: ["gnarly", "faint", "old", "fresh", "large", "small", "big"],
+            }
+        };
+        const soldier = {
+            title: "soldier",
+            bodyTypes: ['an average', 'a large', 'a muscular', 'a fit'],
+            woundHead: 0.35,
+            woundArm: 0.45,
+            woundLeg: 0.18,
+            woundTypes: ["bruise", "scar"],
+            skinConditionRisk: 0.08,
+            skinConditionType: ["is grey and has a stone like texture", "is dry and cracked", "is red"],
+            featureChance: 0.7,
+            featuresHead: 0.3,
+            featuresArm: 0.5,
+            featuresLeg: 0.2,
+            tattoo: {
+                type: ["tattooed", "painted"],
+                color: ["red", "black", "silver", "white"],
+                singular: {
+                    appearence: ["flame", "crecent moon", "tilted scale", "symbols", "word", "name", "sword", "hawk", "full moon", "bow and arrow", "two headed snake", "two tailed mouse", "two headed mouse"],
+                    amount: ["a"]
+                },
+                plural: {
 
-        const soldier = new Job();
-        soldier.title = "Soldier";
-        const soldierRisk = new Risk();
-        soldierRisk.type = ["bruise", "scar"]
-        soldierRisk.arm = 0.25;
-        soldierRisk.leg = 0.1;
-        soldierRisk.head = 0.1;
-        soldier.risk = soldierRisk;
-        jobs.push(soldier);
+                    appearence: ["flames", "symbols", "words", "names", "two crossed swords", "two crossed axes", "three arrows", "three entangled snakes"],
+                    amount: []
+                },
+                cover: ["on"],
+            },
+            engraving: {
+                type: ["engraved", "branded"],
+                color: [],
+                singular: {
+                    appearence: ["flame", "crecent moon", "tilted scale", "symbols", "word", "name", "sword", "hawk", "full moon", "bow and arrow", "two headed snake", "two tailed mouse", "two headed mouse"],
+                    amount: ["a"],
+                },
+                plural: {
+                    appearence: ["flames", "symbols", "words", "names", "two crossed swords", "two crossed axes", "three arrows", "three entangled snakes"],
+                    amount: [],
+                },
+                cover: ["on"],
+            },
+            piercing: {
+                type: [],
+                color: ["silver", "iron"],
+                appearence: ["ring", "piercing", "bar"],
+                cover: ["in"],
+                amount: ["a"],
+            },
+            special: {
+                type: ["symbol"],
+                color: ["red", "blue", "black", "yellow"],
+                appearence: ["round", "big", "diamond shaped", "small"],
+                cover: ["on"],
+                amount: ["a"],
+            },
+            wound: {
+                type: ["bruise", "scar"],
+                color: [],
+                cover: ["on", "near"],
+                appearence: ["gnarly", "faint", "old", "fresh", "large", "small", "big"],
+            }
 
+        };
+        const noble = {
+            title: "noble",
+            bodyTypes: ['an average', 'a large', 'a slender', 'a fit'],
+            woundHead: 0.13,
+            woundArm: 0.2,
+            woundLeg: 0.1,
+            skinConditionRisk: 0.03,
+            skinConditionType: ["is slightly blueish", "is almost white", "is red"],
+            featureChance: 0.4,
+            featuresHead: 0.3,
+            featuresArm: 0.4,
+            featuresLeg: 0.3,
+            tattoo: {
+                type: ["tattooed", "painted"],
+                color: ["crimson red", "black", "golden", "silver", "white"],
+                singular: {
+                    appearence: ["tree", "crecent moon", "tilted scale", "symbol", "word", "name", "griffon", "dragon", "full moon", "bird"],
+                    amount: ["a"]
+                },
+                plural: {
+                    appearence: ["branches and leaves", "tilted scale", "symbols", "words", "names", "dragons", "stars", "birds", "clouds"],
+                    amount: []
+                },
+                cover: ["on"],
+            },
+            engraving: {
+                type: ["engraved"],
+                color: [],
+                singular: {
+                    appearence: ["tree", "crecent moon", "tilted scale", "symbol", "word", "name", "griffon", "dragon", "full moon", "bird"],
+                    amount: ["a"],
+                },
+                plural: {
+                    appearence: ["branches and leaves", "symbols", "words", "names", "dragons", "stars", "birds"],
+                    amount: [],
+                },
+                cover: ["on"],
+            },
+            piercing: {
+                type: [],
+                color: ["gold", "silver", "iron"],
+                appearence: ["ring", "piercing", "bar"],
+                cover: ["in"],
+                amount: ["a"],
+            },
+            special: {
+                type: ["jewel", "trinket"],
+                color: ["red", "blue", "black", "yellow"],
+                appearence: ["round", "big", "diamond shaped", "small"],
+                cover: ["on"],
+                amount: ["a"],
+            },
+            wound: {
+                type: ["bruise", "scar"],
+                color: [],
+                cover: ["on", "near"],
+                appearence: ["faint", "old", "fresh", "small", "big"],
+            }
+        };
+        const jobs = [commoner, soldier, noble];
         var job = jobs[Math.floor(Math.random() * jobs.length)]
         return job;
-
-        // if (document.getElementById("job-select").value == "random") {         
-        // }
+    }
+    function createBody(options) {
+        const newBodyParts = createBodyWound(options.job);
+        const Body = {
+            sex: getSex(options.sex),
+            job: options.job.title,
+            type: options.job.bodyTypes[Math.floor(Math.random() * options.job.bodyTypes.length)],
+            skinCondition: "",
+            skinColor: "",
+            bodyParts: createBodyWound(options.job),
+            head: createFacialWound(options.job),
+            clothes: getClothes(options.status),
+        }
+        return Body;
     }
 
-    function createBody(job) {
 
-        let character = new Character();
-        character.leftArm.name = "left arm";
-        character.rightArm.name = "right arm";
-        let head = new Head();
-        let thisRisk = new Risk();
-        thisRisk = job.risk;
-        console.log(job.title);
-        console.log(job.risk.arm);
-        console.log(job.risk.arm);
-        character.Head = head;
+    function createFacialWound(job) {
+        const headPos = ["leftEye", "rightEye", "leftCheek", "rightCheek", "chin", "forehead", "hairline", "upperLip", "lowerLip"]
+        headWoundCover = ["covering", "over", "across", "near"]
 
 
-        //Has right arm?
-        if (Math.random() < job.risk.arm) {
-            character.rightArm = null;
+        const facialPositions = {
+            leftEye: {
+                displayName: "left eye",
+                wounds: [job.wound],
+                features: []
+            },
+            rightEye: {
+                displayName: "right eye",
+                wounds: [job.wound],
+                features: []
+            },
+            leftEyebrow: {
+                displayName: "left eyebrow",
+                wounds: [job.wound],
+                features: [job.piercing]
+            },
+            rightEyebrow: {
+                displayName: "right eyebrow",
+                wounds: [job.wound],
+                features: [job.piercing]
+            },
+            leftCheek: {
+                displayName: "left cheek",
+                wounds: [job.wound],
+                features: [job.tattoo,
+                job.engraving]
+            },
+            rightCheek: {
+                displayName: "right cheek",
+                wounds: [job.wound],
+                features: [job.tattoo, job.engraving]
+            },
+            leftEar: {
+                displayName: "left ear",
+                features: [job.piercing]
+            },
+            rightEar: {
+                displayName: "right ear",
+                features: [job.piercing]
+            },
+            chin: {
+                displayName: "chin",
+                wounds: [job.wound],
+                features: []
+            },
+            forehead: {
+                displayName: "forehead",
+                wounds: [job.wound],
+                features: [job.tattoo, job.special, job.engraving]
+            },
+            hairline: {
+                displayName: "hair line",
+                wounds: [job.wound],
+                features: []
+            },
+            upperLip: {
+                displayName: "upper lip",
+                wounds: [job.wound],
+                features: [job.piercing]
+            },
+            lowerLip: {
+                displayName: "lower lip",
+                wounds: [job.wound],
+                features: [job.piercing]
+            },
         }
-        else {
-            character.rightArm = createFeature("right arm", job, job.risk.arm);
+
+        let Head = {};
+        let numberOf = 1;
+        while (numberOf < 9) {
+
+            if (Math.random() < (job.woundHead / numberOf)) {
+                const p = headPos[Math.floor(Math.random() * headPos.length)]
+                const pos = facialPositions[p];
+                if (pos.wounds != null) {
+                    const w = pos.wounds[Math.floor(Math.random() * pos.wounds.length)];
+                    const wound = w.type[Math.floor(Math.random() * w.type.length)]
+                    const c = w.color[[Math.floor(Math.random() * w.color.length)]];
+                    const color = c ?? "";
+
+                    if (wound == "scar") {
+                        amount = ["a", "several", "a few", "numerous of"]
+                    }
+                    else if (wound == "bruise" || "blister") {
+                        amount = ["several", "plenty of", "numerous of", "a few"]
+                    }
+                    var amountTxt = amount[Math.floor(Math.random() * amount.length)]
+                    let featureTypeTxt = wound;
+                    if (amountTxt != "a") {
+                        featureTypeTxt += "s";
+                    }
+                    Head[p] = {
+                        position: pos.displayName,
+                        color: color,
+                        appearence: w.appearence[Math.floor(Math.random() * w.appearence.length)],
+                        cover: w.cover[Math.floor(Math.random() * w.cover.length)],
+                        feature: featureTypeTxt,
+                        amount: amountTxt,
+                    };
+
+                    numberOf++;
+                    headPos.splice(p, 1);
+                }
+
+
+            }
+            else { break; }
+
         }
 
-        //Has left arm?
-        if (Math.random() < job.risk.arm) {
-            character.leftArm = null;
-        }
-        else {
-            character.leftArm = createFeature("left arm", job, job.risk.arm);
-        }
+        numberOf = 1;
+        while (numberOf < 9) {
+            if (Math.random() < (job.featureChance / numberOf)) {
+                const p = headPos[Math.floor(Math.random() * headPos.length)]
+                const pos = facialPositions[p];
+                if (pos.features.length > 0) {
+                    const f = pos.features[Math.floor(Math.random() * pos.features.length)];
+                    console.log("Pos is:" + JSON.stringify(pos));
+                    const feature = f.type ? f.type[Math.floor(Math.random() * f.type.length)] : "";
+                    console.log("Type is:" + feature);
+                    let appearenceList = [];
+                    let amount = "";
+                    if (feature == "engraved" || feature == "tattooed" || feature == "painted" || feature == "branded") {
+                        const r = Math.random() < 0.50;
+                        appearenceList = r ? f.singular.appearence[Math.floor(Math.random() * f.singular.appearence.length)] : f.plural.appearence[Math.floor(Math.random() * f.plural.appearence.length)];
+                        amount = r ? f.singular.amount[Math.floor(Math.random() * f.singular.amount.length)] : f.plural.amount[Math.floor(Math.random() * f.plural.amount.length)];
+                    }
+                    else {
+                        appearenceList = f.appearence[Math.floor(Math.random() * f.appearence.length)];
+                        amount = f.amount[Math.floor(Math.random() * f.amount.length)];
+                    }
 
-        //Has right leg?
-        if (Math.random() < job.risk.leg) {
-            character.rightLeg = null;
-        }
-        //Has left lrg?
-        if (Math.random() < job.risk.leg) {
-            character.leftLeg = null;
-        }
+                    const c = f.color[[Math.floor(Math.random() * f.color.length)]];
+                    const color = c ? c : "";
 
-
-        return character;
+                    Head[p] = {
+                        position: pos.displayName,
+                        color: color,
+                        appearence: appearenceList,
+                        cover: f.cover[Math.floor(Math.random() * f.cover.length)],
+                        feature: feature,
+                        amount: amount,
+                    };
+                    numberOf++;
+                    headPos.splice(p, 1);
+                }
+            }
+            else { break; }
+        }
+        return Head;
     }
 
-    function createFeature(name, job, riskValue) {
-        const degree = ["large", "small", "barely noticable"]
-        var amount = []
-        let part = new Part();
+    function createBodyWound(job) {
 
-        if (Math.random() < (riskValue * 2)) {
-            var dmgType = job.risk.type[Math.floor(Math.random() * job.risk.type.length)]
-            var dmgDegree = degree[Math.floor(Math.random() * degree.length)]
-            if (dmgType == "scar") {
-                amount = ["a", "several", "plenty of", "numerous of"]
-            }
-            else if (dmgType == "bruise" || "blister") {
-                amount = ["several", "plenty of", "numerous of", "it is covered with"]
-            }
-            var dmgAmount = amount[Math.floor(Math.random() * amount.length)]
-            if (dmgAmount != "a") {
-                dmgType = dmgType + "s";
-            }
-            part.wound = "On the " + name + " you can see " + dmgAmount + " " + dmgDegree + " " + dmgType + "."
-        }
-        else {
-            part.wound = "Normal looking " + name + ".";
-        }
+        const parts = [
+            leftArm = { position: "left arm", woundPos: "woundArm" },
+            rightArm = { position: "right arm", woundPos: "woundArm" },
+            leftLeg = { position: "left leg", woundPos: "woundLeg" },
+            rightLeg = { position: "right leg", woundPos: "woundLeg" },
+        ]
 
-        return part;
+        let bodyParts = {};
+        const woundAppearence = ["large", "small", "barely noticable"]
+        const woundPositions = ["hand", "arm", "shoulder"]
+        const woundCover = ["covering parts of", "completely covering", "on the side of", "on the top of", "covering most of", "near", "under", "over"]
+        wound = 1;
+        let numberOf = 1;
+        while (wound) {
+            const p = parts[Math.floor(Math.random() * parts.length)]
+            const bodyType = p.woundPos
+            if (Math.random() < (job[bodyType] / numberOf)) {
+                const woundType = job.wound.type[Math.floor(Math.random() * job.wound.type.length)];
+                if (woundType == "scar") {
+                    amount = ["a", "several", "a few", "numerous of"]
+                }
+                else if (woundType == "bruise" || "blister") {
+                    amount = ["several", "plenty of", "numerous of"]
+                }
+                var dmgAmount = amount[Math.floor(Math.random() * amount.length)]
+                if (dmgAmount != "a") {
+                    woundTypeTxt = woundType + "s";
+                }
+                else {
+                    woundTypeTxt = woundType;
+                }
+
+                bodyParts[p.position] = {
+                    position: p.position,
+                    appearence: woundAppearence[Math.floor(Math.random() * woundAppearence.length)],
+                    wound: woundTypeTxt,
+                    cover: woundCover[Math.floor(Math.random() * woundCover.length)],
+                    amount: dmgAmount,
+
+                }
+                numberOf++;
+            }
+            else { wound = null }
+        }
+        return bodyParts;
     }
 </script>
 
