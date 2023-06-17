@@ -30,4 +30,6 @@ function Resize(slider){
     console.log("height:" + profileArt.height);
     console.log("width:" + profileArt.width);
     profileArt.src = profileArt.src;
+
+    
 }
