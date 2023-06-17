@@ -26,7 +26,7 @@
     //Home Button
     mButton_Home = document.createElement('a');
     mButton_Home.setAttribute('id', 'Home');
-    mButton_Home.onclick = function () { window.location.href = '../index.html' }
+    mButton_Home.onclick = function () { window.location.href = '../Etharia_Wiki/index.html' }
     mDiv.appendChild(mButton_Home);
     mHomeArt = document.createElement('img');
     mHomeArt.setAttribute('src', './Art/Home.png');
@@ -37,7 +37,7 @@
     mButton_Races = document.createElement('button');
     mButton_Races.setAttribute('id', 'Races');
     mButton_Races.setAttribute('class', 'top-button');
-    mButton_Races.onclick = function () { window.location.href = '../Races/Races.html' }
+    mButton_Races.onclick = function () { window.location.href = '../Etharia_Wiki/Races/Races.html' }
     mButton_Races.textContent = "Races";
     mDiv.appendChild(mButton_Races);
     //Game
