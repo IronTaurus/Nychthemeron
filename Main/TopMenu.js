@@ -20,7 +20,7 @@
     mButton_Myths = document.createElement('button');
     mButton_Myths.setAttribute('id', 'Myths');
     mButton_Myths.setAttribute('class', 'top-button');
-    mButton_Myths.onclick = function () { window.location.href = '../Myths/Myths.html' }
+    mButton_Myths.onclick = function () { window.location.href = './Myths/Myths.html' }
     mButton_Myths.textContent = "Myths";
     mDiv.appendChild(mButton_Myths);
     //Home Button
