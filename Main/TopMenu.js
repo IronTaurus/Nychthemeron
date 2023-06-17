@@ -6,7 +6,7 @@
     mButton_Religion = document.createElement('button');
     mButton_Religion.setAttribute('id', 'Religion');
     mButton_Religion.setAttribute('class', 'top-button');
-    mButton_Religion.onclick = function () { window.location.href = '../Etharia_Wiki/Religion/Religion.html' }
+    mButton_Religion.onclick = function () { window.location.href = '.../Etharia_Wiki/Religion/Religion.html' }
     mButton_Religion.textContent = "Religion";
     mDiv.appendChild(mButton_Religion);
     //History Button
@@ -20,7 +20,7 @@
     mButton_Myths = document.createElement('button');
     mButton_Myths.setAttribute('id', 'Myths');
     mButton_Myths.setAttribute('class', 'top-button');
-    mButton_Myths.onclick = function () { window.location.href = './Myths/Myths.html' }
+    mButton_Myths.onclick = function () { window.location.href = '../Myths/Myths.html' }
     mButton_Myths.textContent = "Myths";
     mDiv.appendChild(mButton_Myths);
     //Home Button
