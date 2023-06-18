@@ -25,11 +25,12 @@ console.log(parentUrl);
     mButton_Myths.setAttribute('id', 'Myths');
     mButton_Myths.setAttribute('class', 'top-button');
     mButton_Myths.onclick = function () { window.location.href = `${parentUrl}/Myths/Myths.html`}
+    mButton_Myths.textContent = "Myths";
     mDiv.appendChild(mButton_Myths);
     //Home Button
     mButton_Home = document.createElement('a');
     mButton_Home.setAttribute('id', 'Home');
-    mButton_Home.onclick = function () { window.location.href = `${parentUrl}/index.html` }
+    mButton_Home.onclick = function () { window.location.href = `${parentUrl}/index.html`}
     mDiv.appendChild(mButton_Home);
     mHomeArt = document.createElement('img');
     mHomeArt.setAttribute('src', './Art/Home.png');
@@ -40,7 +41,7 @@ console.log(parentUrl);
     mButton_Races = document.createElement('button');
     mButton_Races.setAttribute('id', 'Races');
     mButton_Races.setAttribute('class', 'top-button');
-    mButton_Races.onclick = function () { window.location.href = `${parentUrl}Races/Races.html` }
+    mButton_Races.onclick = function () { window.location.href = `${parentUrl}/Races/Races.html` }
     mButton_Races.textContent = "Races";
     mDiv.appendChild(mButton_Races);
     //Game
