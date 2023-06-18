@@ -33,7 +33,7 @@ console.log(parentUrl);
     mButton_Home.onclick = function () { window.location.href = `${parentUrl}/index.html`}
     mDiv.appendChild(mButton_Home);
     mHomeArt = document.createElement('img');
-    mHomeArt.setAttribute('src', './Art/Home.png');
+    mHomeArt.setAttribute('src', `${parentUrl}/Art/Home.png`);
     mHomeArt.setAttribute('height', 100)
     mHomeArt.setAttribute('width', 100);
     mButton_Home.appendChild(mHomeArt);
