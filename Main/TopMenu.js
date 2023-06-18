@@ -1,4 +1,8 @@
 
+var parentUrl = window.location.origin+"/Etharia_Wiki";
+console.log(parentUrl);
+
+    
     var mDiv = document.createElement('div');
     mDiv.setAttribute('class', 'Grid-container-top');
     document.getElementById("fixed-banner").appendChild(mDiv);
@@ -6,14 +10,14 @@
     mButton_Religion = document.createElement('button');
     mButton_Religion.setAttribute('id', 'Religion');
     mButton_Religion.setAttribute('class', 'top-button');
-    mButton_Religion.onclick = function () { window.location.href = '.../Etharia_Wiki/Religion/Religion.html' }
+    mButton_Religion.onclick = function () { window.location.href = `${parentUrl}/Religion/Religion.html` }
     mButton_Religion.textContent = "Religion";
     mDiv.appendChild(mButton_Religion);
     //History Button
     mButton_History = document.createElement('button');
     mButton_History.setAttribute('id', 'History');
     mButton_History.setAttribute('class', 'top-button');
-    mButton_History.onclick = function () { window.location.href = '../History/History.html' }
+    mButton_History.onclick = function () { window.location.href = `${parentUrl}/History/History.html` }
     mButton_History.textContent = "History";
     mDiv.appendChild(mButton_History);
     //Myths Button
