@@ -15,10 +15,8 @@
         <script src="../Main/TopMenu.js"></script>
     </div>
 
-    <div id="options">
 
-    </div>
-    <div class="CharacterSheet">
+    <div class="CharacterSheet" id="CharacterSheet">
         <input type="range" id="resizeSlider" min="1" max="10" value="5" onchange="Resize(this.value)">
         <img id="CharacterSheetBg" src="../Art/CharacterSheet.png">
         <div id="artFrame">
@@ -88,8 +86,13 @@
             <textarea id="infoTxtFeatures" rows="20">Write features here...
             </textarea>
         </div>
-    </div> -
+    </div>
+    <div id="button">
+        <button class="download" onclick="draw2canvas()">Download!</button>
+    </div>
+    <script src="./html2canvas.min.js"></script>
     <script src="./sheet_script.js"></script>
+
 </body>
 
 </html>
