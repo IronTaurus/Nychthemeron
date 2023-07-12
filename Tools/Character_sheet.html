@@ -14,82 +14,92 @@
     <div id="fixed-banner" style="z-index: 99;">
         <script src="../Main/TopMenu.js"></script>
     </div>
+    <div id="MainDiv">
+        <div id="SheetDiv">
+            <input type="range" id="resizeSlider" min="1" max="10" value="5" onchange="Resize(this.value)">
+            <div class="CharacterSheet" id="CharacterSheet">
+                <img id="CharacterSheetBg" src="../Art/CharacterSheet.png">
+                <div id="artFrame">
+                    <img id="ProfileArt" src="https://i.pinimg.com/564x/44/3e/82/443e82246c141e456be0d3b6808109a8.jpg">
+                </div>
 
 
-    <div class="CharacterSheet" id="CharacterSheet">
-        <input type="range" id="resizeSlider" min="1" max="10" value="5" onchange="Resize(this.value)">
-        <img id="CharacterSheetBg" src="../Art/CharacterSheet.png">
-        <div id="artFrame">
-            <img id="ProfileArt" src="https://i.pinimg.com/564x/44/3e/82/443e82246c141e456be0d3b6808109a8.jpg">
-        </div>
+                <div id="info_Person">
+                    <input type="text" class="infoPTxt" id="p_Name" name="pName" value="Elaine">
+                    <input type="text" class="infoPTxt" id="p_Race" name="pRace" value="Human">
+                    <input type="text" class="infoPTxt" id="p_Class" name="pClass" value="Fighter">
+                    <input type="text" class="infoPTxt" id="p_Deity" name="pDeity" value="Tellos">
+                    <div style="display: flex;">
+                        <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8"
+                            style="max-width: 2em;">
+                        <input type="text" class="infoPTxt" id="p_FP" name="pFP" value="0"
+                            style="margin-left: 7.5em; max-width: 2em;">
+                    </div>
 
-
-        <div id="info_Person">
-            <input type="text" class="infoPTxt" id="p_Name" name="pName" value="Elaine">
-            <input type="text" class="infoPTxt" id="p_Race" name="pRace" value="Human">
-            <input type="text" class="infoPTxt" id="p_Class" name="pClass" value="Fighter">
-            <input type="text" class="infoPTxt" id="p_Deity" name="pDeity" value="Tellos">
-            <div style="display: flex;">
-                <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8" style="max-width: 2em;">
-                <input type="text" class="infoPTxt" id="p_FP" name="pFP" value="0"
-                    style="margin-left: 7.5em; max-width: 2em;">
+                </div>
+                <div id="info_Attributes">
+                    <input type="text" class="infoATxt" id="a_Body" name="aBody" value="0">
+                    <input type="text" class="infoATxt" id="a_Agility" name="aAgility" value="4">
+                    <input type="text" class="infoATxt" id="a_Mind" name="aMind" value="1">
+                    <input type="text" class="infoATxt" id="a_Mystic" name="aMystic" value="5">
+                    <input type="text" class="infoATxt" id="a_Presence" name="aPresence" value="6">
+                </div>
+                <div id="info_Base">
+                    <div class="info_HpDiv">
+                        <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="40">
+                        <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="40">
+                        <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0">
+                    </div>
+                    <div class="info_BaseDiv">
+                        <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="8">
+                        <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0">
+                    </div>
+                    <div class="info_BaseDiv">
+                        <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30">
+                        <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30">
+                    </div>
+                </div>
+                <div id="info_Language">
+                    <input type="text" class="infoLTxt" id="language_1" name="language1" value="Common">
+                    <input type="text" class="infoLTxt" id="language_2" name="language2" value="Elvish">
+                    <input type="text" class="infoLTxt" id="language_3" name="language3" value="">
+                    <input type="text" class="infoLTxt" id="language_4" name="language4" value="">
+                </div>
+                <div id="info_Equip">
+                    <div class="info_EquipDiv">
+                        <input type="text" class="infoETxt" id="e_Wep1" name="eWep1" value="Long sword">
+                        <input type="text" class="infoETxt" id="e_Wep2" name="eWep2" value="Dagger">
+                        <input type="text" class="infoETxt" id="e_Wep3" name="eWep3" value="Short bow">
+                    </div>
+                    <div class="info_EquipDiv">
+                        <input type="text" class="infoETxt" id="e_Arm1" name="eArm1" value="Chain mail">
+                        <input type="text" class="infoETxt" id="e_Arm2" name="eArm2" value="Helmet">
+                        <input type="text" class="infoETxt" id="e_Arm3" name="eArm3" value="Gauntlet of Tellos">
+                    </div>
+                </div>
+                <div id="info_Items">
+                    <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...
+                    </textarea>
+                    <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...
+                    </textarea>
+                </div>
+                <div id="info_Features">
+                    <textarea class="infoTxtFeatures" id="info_Feats" rows="20">Write features here...
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <div id="OptionsDiv">
+            <div id="button">
+                <button id="download" class="Buttons" onclick="draw2canvas()">Download character</button>
+                <button id="upload" class="Buttons" onclick="uploadImg()">Upload portrait</button>
             </div>
 
-        </div>
-        <div id="info_Attributes">
-            <input type="text" class="infoATxt" id="a_Body" name="aBody" value="0">
-            <input type="text" class="infoATxt" id="a_Agility" name="aAgility" value="4">
-            <input type="text" class="infoATxt" id="a_Mind" name="aMind" value="1">
-            <input type="text" class="infoATxt" id="a_Mystic" name="aMystic" value="5">
-            <input type="text" class="infoATxt" id="a_Presence" name="aPresence" value="6">
-        </div>
-        <div id="info_Base">
-            <div class="info_HpDiv">
-                <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="40">
-                <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="40">
-                <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0">
-            </div>
-            <div class="info_BaseDiv">
-                <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="8">
-                <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0">
-            </div>
-            <div class="info_BaseDiv">
-                <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30">
-                <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30">
-            </div>
-        </div>
-        <div id="info_Language">
-            <input type="text" class="infoLTxt" id="language_1" name="language1" value="Common">
-            <input type="text" class="infoLTxt" id="language_2" name="language2" value="Elvish">
-            <input type="text" class="infoLTxt" id="language_3" name="language3" value="">
-            <input type="text" class="infoLTxt" id="language_4" name="language4" value="">
-        </div>
-        <div id="info_Equip">
-            <div class="info_EquipDiv">
-                <input type="text" class="infoETxt" id="e_Wep1" name="eWep1" value="Long sword">
-                <input type="text" class="infoETxt" id="e_Wep2" name="eWep2" value="Dagger">
-                <input type="text" class="infoETxt" id="e_Wep3" name="eWep3" value="Short bow">
-            </div>
-            <div class="info_EquipDiv">
-                <input type="text" class="infoETxt" id="e_Arm1" name="eArm1" value="Chain mail">
-                <input type="text" class="infoETxt" id="e_Arm2" name="eArm2" value="Helmet">
-                <input type="text" class="infoETxt" id="e_Arm3" name="eArm3" value="Gauntlet of Tellos">
-            </div>
-        </div>
-        <div id="info_Items">
-            <textarea id="infoTxtItems" rows="20">Write items here...
-            </textarea>
-            <textarea id="infoTxtItems" rows="20">Write items here...
-            </textarea>
-        </div>
-        <div id="info_Features">
-            <textarea id="infoTxtFeatures" rows="20">Write features here...
-            </textarea>
         </div>
     </div>
-    <div id="button">
-        <button class="download" onclick="draw2canvas()">Download!</button>
-    </div>
+
+
+
     <script src="./html2canvas.min.js"></script>
     <script src="./sheet_script.js"></script>
 
