@@ -28,6 +28,11 @@ function download_img(canvasId, fileName) {
     document.body.removeChild(canvasElement);  
 };
 
+var loadFile = function(event) {
+    var image = document.getElementById('cardArtBg_moon');
+    image.src = URL.createObjectURL(event.target.files[0]);
+};
+
 function SaveJson(){
     const p_name = document.getElementById("p_Name").value;
     const p_race = document.getElementById("p_Race").value;
