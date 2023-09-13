@@ -83,16 +83,27 @@
                     <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...
                     </textarea>
                 </div>
+                <button id="addFeature" onclick="createFeature()">add</button>
                 <div id="info_Features">
-                    <textarea class="infoTxtFeatures" id="info_Feats" rows="20">Write features here...
-                    </textarea>
+
                 </div>
             </div>
         </div>
         <div id="OptionsDiv">
             <div id="button">
                 <button id="download" class="Buttons" onclick="draw2canvas()">Download character</button>
-                <button id="upload" class="Buttons" onclick="loadFile()">Upload portrait</button>
+                <div class="upload">
+                    <div>
+                        Load Character
+                        <input type="file" accept="text/*" name="json" id="jsonFile" onchange="LoadJsonFile(event)">
+                    </div>
+                    <div>
+                        Load Portrait
+                        <input type="file" accept="image/*" name="image" id="imageFile" onchange="LoadFile(event)">
+                    </div>
+
+
+                </div>
             </div>
 
         </div>
@@ -102,6 +113,8 @@
 
     <script src="./html2canvas.min.js"></script>
     <script src="./sheet_script.js"></script>
+
+
 
 </body>
 

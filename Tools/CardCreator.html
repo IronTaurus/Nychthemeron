@@ -17,6 +17,12 @@
     <div id="cardDesigner" style="margin-top: 75px;">
         <div id="chooseClass">
             <div class="CardClass" onchange="generateCard()">
+                <input type="radio" class="classTypes" id="classCondition" name="cardClasses" value="Condition"
+                    onclick="selectClass('#condition')">
+                <label for="classCondition">Condition</label><br>
+                <input type="radio" class="classTypes" id="classBasic" name="cardClasses" value="Basic"
+                    onclick="selectClass('#basic')">
+                <label for="classBasic">Basic</label><br>
                 <input type="radio" class="classTypes" id="classFighter" name="cardClasses" value="Fighter"
                     onclick="selectClass('#fighter')">
                 <label for="classFighter">Fighter</label><br>
@@ -46,6 +52,11 @@
                 <label for="classSubtypes">Choose a subtype:</label>
                 <select name="classSubtypes" id="classSubtypes" onchange="generateCard()">
                     <option id="baseSelection" value="Subtypes" style="display: none;">Subtypes</option>
+                    <option class="subType" id="condition" value="Infliction" style="display: none;">Infliction</option>
+                    <option class="subType" id="condition" value="Boon" style="display: none;">Boon</option>
+                    <option class="subType" id="basic" value="Melee" style="display: none;">Melee</option>
+                    <option class="subType" id="basic" value="Ranged" style="display: none;">Ranged</option>
+                    <option class="subType" id="basic" value="" style="display: none;">None</option>
                     <option class="subType" id="fighter" value="Berserker" style="display: none;">Berserker</option>
                     <option class="subType" id="fighter" value="Vanguard" style="display: none;">Vanguard</option>
                     <option class="subType" id="ranger" value="Hunter" style="display: none;">Hunter</option>
@@ -65,6 +76,7 @@
 
                 <label for="classTier">Choose tier:</label>
                 <select name="classTier" id="classTierSelect" onchange="generateCard()">
+                    <option class="classTier" value="">0</option>
                     <option class="classTier" value="I">1</option>
                     <option class="classTier" value="II">2</option>
                     <option class="classTier" value="III">3</option>

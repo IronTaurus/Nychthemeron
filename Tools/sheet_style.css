@@ -49,15 +49,15 @@ margin-left: 8.1%;
 #artFrame{
   position: absolute;
   z-index: -99;
-  margin-left: 1.5%;
+  margin-left: 1.2%;
   margin-top: 1%;
-  /* padding-left: 1.5%;
-  padding-top: 7%; */
+  padding-left: 1%;
+  padding-top: 1%;
   display: flex;
-  width: 18em;
-  height: 21em;
-  overflow: hidden;
-  /* width: 17em; */
+  height: 29em;
+
+  /* overflow: hidden; */
+  width: 23em;
   align-items: center;
 }
 #ProfileArt{
@@ -65,7 +65,7 @@ margin-left: 8.1%;
   margin-right: auto;
   width: auto;
   /* width: 18em; */
-  height: 21em;
+  height: auto;
   object-fit: cover;
 }
 
@@ -205,21 +205,63 @@ width: 50%;
   left: 69.4%;
   position: absolute;
   z-index: 98;
-  display: flex;
 align-items: center;
-width: 50%;
 }
 .infoTxtFeatures{
+  text-align: left;
   resize: none;
-  margin: 1%;
-  width: 23em;
-  height: 54em;
+  margin-left: 5%;
+  width: 20em;
   font-size: 1.2em;
   background: none;
   border: 0em;
 }
+
+.f_name{
+  font-weight: bold;
+  font-style: italic;
+  color: #3F3019;
+  resize: none;
+  width: 10em;
+  font-size: 1.3em;
+  background: none;
+  border: 0em;
+}
+.f_txtArea{
+  text-align: left;
+  resize: none;
+  margin-left: 5%;
+  width: 20em;
+  font-size: 1.2em;
+  background: none;
+  border: 0em;
+  /* display: none; */
+}
+.feature{
+  padding-top: 0.8em;
+  padding-left: 0.5em;
+}
+#addFeature{
+  top: 5%;
+  left: 68%;
+  margin-left: 2%;
+  font-size: medium;
+  font-weight: bold;
+  background:none;
+  border: 0.4em;
+  position: absolute;
+}
 #CharacterSheetBg{
   z-index: 0;
+}
+#f_title{
+  display: flex;
+}
+.f_button{
+  font-size: 1.3em;
+  font-weight: bold;
+  background: none;
+  border: 0em;
 }
 #button{
   padding: 5px;
