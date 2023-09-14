@@ -14,7 +14,7 @@ body{
 #OptionsDiv{
   margin-left: 1%;
   display: block;
-  width: 10em;
+  width: 12em;
   background-color: bisque;
   border-radius: 5px;
   height: fit-content;
@@ -42,6 +42,7 @@ margin-left: 8.1%;
 #CharacterSheetBg{
   /* width: 1754px;
   height: 1240px; */
+  align-items: center;
   z-index: 90;
   width: 100em;
   height: 75em;
@@ -222,7 +223,7 @@ align-items: center;
   font-style: italic;
   color: #3F3019;
   resize: none;
-  width: 10em;
+  width: 18em;
   font-size: 1.3em;
   background: none;
   border: 0em;

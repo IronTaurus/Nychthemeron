@@ -31,6 +31,14 @@ function download_img(canvasId, fileName) {
     downloadFile(jsonCharacter, fileName + ".txt", 'text/plain');
 };
 
+function downloadFile_OnClick(){
+    const characterName = document.getElementById("p_Name").value.replace(/\s+/g, '');
+    const className = document.getElementById("p_Class").value.replace(/\s+/g, '');
+    const fileName =  characterName + "_" + className;
+    var jsonCharacter = StringifyCharacter();
+    downloadFile(jsonCharacter, fileName + ".txt", 'text/plain');
+}
+
 
 function downloadFile(content, fileName, contentType) {
     var a = document.createElement("a");
@@ -42,7 +50,10 @@ function downloadFile(content, fileName, contentType) {
 
 function LoadFile(event) {
     var image = document.getElementById('ProfileArt');
-    image.src = URL.createObjectURL(event.target.files[0]);
+    //Local file
+    // image.src = URL.createObjectURL(event.target.files[0]);
+    //online url
+    image.src = document.getElementById("imageUrl").value;
 };
 
 function LoadJsonFile(){
@@ -83,6 +94,7 @@ function createFeature(){
     var featureList = document.getElementById("info_Features");
     var feature = document.createElement('div');
     feature.setAttribute('class', 'feature');
+    feature.setAttribute('id',  'feature' + elementNr);
     var title = document.createElement('div');
     title.setAttribute('id', 'f_title');
 
@@ -94,9 +106,19 @@ function createFeature(){
     var btn = document.createElement('button');
     btn.setAttribute('class', 'f_button');
     btn.setAttribute('id', 'f' + elementNr + '_btn');
-    btn.innerHTML = '+';
+    btn.innerHTML = '-';
     btn.onclick = function(){
         showText(elementNr);
+      return false;
+    };
+    var btnRemove = document.createElement('button');
+    btnRemove.setAttribute('class', 'f_button');
+    btnRemove.setAttribute('id', 'btn_remove');
+    btnRemove.innerHTML = 'X';
+    btnRemove.onclick = function(){
+        var removableElement = document.getElementById("feature"+elementNr);
+        featureList.removeChild(removableElement);
+        fNr--;
       return false;
     };
     var txt = document.createElement('input');
@@ -106,6 +128,7 @@ function createFeature(){
     txt.value = "Title";        
     title.appendChild(btn);
     title.appendChild(txt);
+    title.appendChild(btnRemove);
     feature.appendChild(title);
     feature.appendChild(txtArea);
     featureList.appendChild(feature);
@@ -139,7 +162,12 @@ function LoadCharacterInfo(character){
     document.getElementById("e_Arm1").value = character.infoArmor.arm1;
     document.getElementById("e_Arm2").value = character.infoArmor.arm2;
     document.getElementById("e_Arm3").value = character.infoArmor.arm3;
+    document.getElementById('ProfileArt').src = character.art;
 
+    document.getElementById('language_1').value = character.language.i_language1;
+    document.getElementById('language_2').value = character.language.i_language2;
+    document.getElementById('language_3').value = character.language.i_language3;
+    document.getElementById('language_4').value = character.language.i_language4;
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
     fNr = 0;
@@ -148,6 +176,7 @@ function LoadCharacterInfo(character){
         const elementNr = fNr;
         console.log("element: " + elementNr)
         var feature = document.createElement('div');
+        feature.setAttribute('id',  'feature' + elementNr);
         feature.setAttribute('class', 'feature');
         var title = document.createElement('div');
         title.setAttribute('id', 'f' + elementNr + '_title');
@@ -163,15 +192,25 @@ function LoadCharacterInfo(character){
             showText(elementNr);
           return false;
         };
+        var btnRemove = document.createElement('button');
+        btnRemove.setAttribute('class', 'f_button');
+        btnRemove.setAttribute('id', 'btn_remove');
+        btnRemove.innerHTML = 'X';
+        btnRemove.onclick = function(){
+            var removableElement = document.getElementById("feature"+elementNr);
+            featureList.removeChild(removableElement);
+            fNr--;
+            return false;
+        };
         var txtArea = document.createElement('textarea');
         var t = document.createTextNode(element.text);
         txtArea.appendChild(t);
         txtArea.setAttribute('id', 'f' + elementNr + '_text');
         txtArea.setAttribute('class', 'f_txtArea');
 
-
         title.appendChild(btn);
         title.appendChild(txt);
+        title.appendChild(btnRemove);
         feature.appendChild(title);
         feature.appendChild(txtArea);
         featureList.appendChild(feature);
@@ -210,6 +249,13 @@ function StringifyCharacter(){
     const e_arm1 = document.getElementById("e_Arm1").value;
     const e_arm2 = document.getElementById("e_Arm2").value;
     const e_arm3 = document.getElementById("e_Arm3").value;
+
+    const art = document.getElementById('ProfileArt').src
+
+    const i_language1 = document.getElementById('language_1').value;
+    const i_language2 = document.getElementById('language_2').value;
+    const i_language3 = document.getElementById('language_3').value;
+    const i_language4 = document.getElementById('language_4').value;
     // const feats = document.getElementById("info_Feats").value;
     // const feats = document.getElementsByClassName("feature");
     if(fNr > 0){
@@ -238,6 +284,8 @@ function StringifyCharacter(){
         infoEquip: "",
         infoBag: {bag1, bag2},
         infoFeatures: features,
+        art: art,
+        language: {i_language1, i_language2, i_language3, i_language4}
     }
     console.log(updatedCharacter);
     return JSON.stringify(updatedCharacter);
