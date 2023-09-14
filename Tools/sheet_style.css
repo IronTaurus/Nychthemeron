@@ -229,8 +229,11 @@ align-items: center;
   border: 0em;
 }
 .f_txtArea{
-  text-align: left;
   resize: none;
+  overflow: hidden;
+  min-height: 50px;
+  max-height: 200px;
+  text-align: left;
   margin-left: 5%;
   width: 20em;
   font-size: 1.2em;
@@ -241,6 +244,7 @@ align-items: center;
 .feature{
   padding-top: 0.8em;
   padding-left: 0.5em;
+  height: fit-content;
 }
 #addFeature{
   top: 5%;

@@ -20,6 +20,12 @@ function draw2canvas(){
         download_img(canvas.id, fileName);       
     });
 }
+
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight) + "px";
+  }
+
 function download_img(canvasId, fileName) {
     var link = document.createElement('a');
     link.download = fileName + ".png";
@@ -103,6 +109,9 @@ function createFeature(){
     txtArea.appendChild(t);
     txtArea.setAttribute('id', 'f' + elementNr + '_text');
     txtArea.setAttribute('class', 'f_txtArea');
+    txtArea.oninput= function(){
+        auto_grow(this);
+    }
     var btn = document.createElement('button');
     btn.setAttribute('class', 'f_button');
     btn.setAttribute('id', 'f' + elementNr + '_btn');
@@ -207,13 +216,17 @@ function LoadCharacterInfo(character){
         txtArea.appendChild(t);
         txtArea.setAttribute('id', 'f' + elementNr + '_text');
         txtArea.setAttribute('class', 'f_txtArea');
-
+        txtArea.oninput= function(){
+            auto_grow(this);
+        }
         title.appendChild(btn);
         title.appendChild(txt);
         title.appendChild(btnRemove);
         feature.appendChild(title);
         feature.appendChild(txtArea);
         featureList.appendChild(feature);
+
+        auto_grow(txtArea);
     });
     document.getElementById("info_Bag1").value = character.infoBag.bag1;
     document.getElementById("info_Bag2").value = character.infoBag.bag2;
