@@ -5,17 +5,6 @@ const artWidth = profileArt.width;
 const characterSheet = document.querySelector("#CharacterSheet");
 var fNr = 0;
 
-// let character = {
-//     infoPerson: {name: "", race: "", class: "", deity: "", level: "", fp: ""},
-//     infoAttribute: {body: "", agility: "", mind: "", mystic: "", presence: ""},
-//     infoBase: {hpMax: "", hpCurr: "", hpTemp: "", armMax: "", armTemp: "", spMax: "", spCurr: ""},
-//     infoWeapon: {wep1: "", wep2: "", wep3: ""},
-//     infoArmor: {arm1: "", arm2: "", arm3: ""},
-//     infoEquip: "",
-//     infoBag: "",
-//     infoFeatures: "",
-// }
-
 function draw2canvas(){
     console.log("Test draw2canvas complete")
     const characterName = document.getElementById("p_Name").value.replace(/\s+/g, '');
@@ -30,8 +19,6 @@ function draw2canvas(){
         document.body.appendChild(canvas);
         download_img(canvas.id, fileName);       
     });
-
-
 }
 function download_img(canvasId, fileName) {
     var link = document.createElement('a');
@@ -92,6 +79,7 @@ function LoadJsonFile(){
 }
 function createFeature(){
     fNr++;
+    const elementNr = fNr;
     var featureList = document.getElementById("info_Features");
     var feature = document.createElement('div');
     feature.setAttribute('class', 'feature');
@@ -101,20 +89,20 @@ function createFeature(){
     var txtArea = document.createElement('textarea');
     var t = document.createTextNode("Write here...");
     txtArea.appendChild(t);
-    txtArea.setAttribute('id', 'f' + fNr + '_text');
+    txtArea.setAttribute('id', 'f' + elementNr + '_text');
     txtArea.setAttribute('class', 'f_txtArea');
     var btn = document.createElement('button');
     btn.setAttribute('class', 'f_button');
-    btn.setAttribute('id', 'f' + fNr + '_btn');
+    btn.setAttribute('id', 'f' + elementNr + '_btn');
     btn.innerHTML = '+';
     btn.onclick = function(){
-        showText(fNr);
+        showText(elementNr);
       return false;
     };
     var txt = document.createElement('input');
     txt.setAttribute("type", "text");
     txt.setAttribute('class', 'f_name');
-    txt.setAttribute('id', 'f_name');
+    txt.setAttribute('id', 'f' + elementNr + '_name');
     txt.value = "Title";        
     title.appendChild(btn);
     title.appendChild(txt);
@@ -152,34 +140,41 @@ function LoadCharacterInfo(character){
     document.getElementById("e_Arm2").value = character.infoArmor.arm2;
     document.getElementById("e_Arm3").value = character.infoArmor.arm3;
 
-    document.getElementById("info_Feats").value = character.infoFeatures;
+    var featureList = document.getElementById("info_Features");
+    featureList.replaceChildren([]);
+    fNr = 0;
     character.infoFeatures.forEach(element => {
         fNr++;
+        const elementNr = fNr;
+        console.log("element: " + elementNr)
         var feature = document.createElement('div');
         feature.setAttribute('class', 'feature');
         var title = document.createElement('div');
-        title.setAttribute('id', 'f_title');
-        var txt = document.createElement('text');
+        title.setAttribute('id', 'f' + elementNr + '_title');
+        var txt = document.createElement('input');
+        txt.value = element.title;
         txt.setAttribute('class', 'f_name');
-        txt.setAttribute('id', 'f_name');
+        txt.setAttribute('id', 'f' + elementNr + '_name');
         var btn = document.createElement('button');
         btn.setAttribute('class', 'f_button');
-        btn.setAttribute('id', 'f' + fNr + '_btn');
-        btn.innerHTML = 'click me';
+        btn.setAttribute('id', 'f' + elementNr + '_btn');
+        btn.innerHTML = '-';
         btn.onclick = function(){
-            showText(fNr);
+            showText(elementNr);
           return false;
         };
         var txtArea = document.createElement('textarea');
-        var t = document.createTextNode("Write here...");
+        var t = document.createTextNode(element.text);
         txtArea.appendChild(t);
-        txtArea.setAttribute('id', 'f' + fNr + '_text');
+        txtArea.setAttribute('id', 'f' + elementNr + '_text');
         txtArea.setAttribute('class', 'f_txtArea');
 
-        title.appendChild(txt);
+
         title.appendChild(btn);
+        title.appendChild(txt);
         feature.appendChild(title);
         feature.appendChild(txtArea);
+        featureList.appendChild(feature);
     });
     document.getElementById("info_Bag1").value = character.infoBag.bag1;
     document.getElementById("info_Bag2").value = character.infoBag.bag2;
@@ -215,9 +210,21 @@ function StringifyCharacter(){
     const e_arm1 = document.getElementById("e_Arm1").value;
     const e_arm2 = document.getElementById("e_Arm2").value;
     const e_arm3 = document.getElementById("e_Arm3").value;
-
     // const feats = document.getElementById("info_Feats").value;
-    const feats = document.getElementsByClassName("feature");
+    // const feats = document.getElementsByClassName("feature");
+    if(fNr > 0){
+        var features = [];
+        for (let index = 1; index <= fNr; index++) {
+            console.log("index is:" + index);
+            const feature = {
+                title: document.getElementById('f' + index + '_name').value,
+                text: document.getElementById('f' + index + '_text').value
+            }
+            features.push(feature);
+    
+        }
+        console.log(features);
+    }
     const bag1 = document.getElementById("info_Bag1").value;
     const bag2 = document.getElementById("info_Bag2").value;
 
@@ -230,7 +237,7 @@ function StringifyCharacter(){
 
         infoEquip: "",
         infoBag: {bag1, bag2},
-        infoFeatures: feats,
+        infoFeatures: features,
     }
     console.log(updatedCharacter);
     return JSON.stringify(updatedCharacter);
