@@ -30,49 +30,66 @@
                     <input type="text" class="infoPTxt" id="p_Class" name="pClass" value="Fighter">
                     <input type="text" class="infoPTxt" id="p_Deity" name="pDeity" value="Tellos">
                     <div style="display: flex;">
-                        <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8"
-                            style="max-width: 2em;">
+                        <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8" style="max-width: 2em;"
+                            onclick="this.select()">
                         <input type="text" class="infoPTxt" id="p_FP" name="pFP" value="0"
-                            style="margin-left: 7.5em; max-width: 2em;">
+                            style="margin-left: 7.5em; max-width: 2em;" onclick="this.select()">
                     </div>
 
                 </div>
                 <div id="info_Attributes">
                     <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_BodyBase" name="aBody" value="0">
-                        <input type="text" class="infoATxtTemp" id="a_BodyTemp" name="aBody" value="0">
+                        <input type="text" class="infoATxtBase" id="a_BodyBase" name="aBody" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoATxtTemp" id="a_BodyTemp" name="aBody" value="0"
+                            onclick="this.select()">
                     </div>
                     <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_AgilityBase" name="aAgility" value="0">
-                        <input type="text" class="infoATxtTemp" id="a_AgilityTemp" name="aAgility" value="0">
+                        <input type="text" class="infoATxtBase" id="a_AgilityBase" name="aAgility" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoATxtTemp" id="a_AgilityTemp" name="aAgility" value="0"
+                            onclick="this.select()">
                     </div>
                     <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_MindBase" name="aMind" value="0">
-                        <input type="text" class="infoATxtTemp" id="a_MindTemp" name="aMind" value="0">
+                        <input type="text" class="infoATxtBase" id="a_MindBase" name="aMind" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoATxtTemp" id="a_MindTemp" name="aMind" value="0"
+                            onclick="this.select()">
                     </div>
                     <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_MysticBase" name="aMystic" value="0">
-                        <input type="text" class="infoATxtTemp" id="a_MysticTemp" name="aMystic" value="0">
+                        <input type="text" class="infoATxtBase" id="a_MysticBase" name="aMystic" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoATxtTemp" id="a_MysticTemp" name="aMystic" value="0"
+                            onclick="this.select()">
                     </div>
                     <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_PresenceBase" name="aPresence" value="0">
-                        <input type="text" class="infoATxtTemp" id="a_PresenceTemp" name="aPresence" value="0">
+                        <input type="text" class="infoATxtBase" id="a_PresenceBase" name="aPresence" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoATxtTemp" id="a_PresenceTemp" name="aPresence" value="0"
+                            onclick="this.select()">
                     </div>
                 </div>
 
                 <div id="info_Base">
                     <div class="info_HpDiv">
-                        <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="30">
-                        <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="30">
-                        <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0">
+                        <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="30"
+                            onclick="this.select()">
+                        <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="30"
+                            onclick="this.select()">
+                        <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0"
+                            onclick="this.select()">
                     </div>
                     <div class="info_BaseDiv">
-                        <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="0">
-                        <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0">
+                        <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="0"
+                            onclick="this.select()">
+                        <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0"
+                            onclick="this.select()">
                     </div>
                     <div class="info_BaseDiv">
-                        <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30">
-                        <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30">
+                        <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30"
+                            onclick="this.select()">
+                        <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30"
+                            onclick="this.select()">
                     </div>
                 </div>
                 <div id="info_Language">
@@ -82,8 +99,10 @@
                     <input type="text" class="infoLTxt" id="language_4" name="language4" value="">
                 </div>
                 <div id="info_Combat">
-                    <input type="text" class="infoCTxt" id="c_movement" name="movement" value="6">
-                    <input type="text" class="infoCTxt" id="c_initiative" name="initiative" value="0">
+                    <input type="text" class="infoCTxt" id="c_movement" name="movement" value="6"
+                        onclick="this.select()">
+                    <input type="text" class="infoCTxt" id="c_initiative" name="initiative" value="0"
+                        onclick="this.select()">
 
                 </div>
                 <div id="info_Equip">
@@ -99,10 +118,8 @@
                     </div>
                 </div>
                 <div id="info_Items">
-                    <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...
-                    </textarea>
-                    <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...
-                    </textarea>
+                    <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...</textarea>
+                    <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...</textarea>
                 </div>
                 <button id="addFeature" onclick="createFeature()">add</button>
                 <div id="info_Features">
