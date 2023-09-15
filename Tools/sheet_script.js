@@ -151,11 +151,17 @@ function LoadCharacterInfo(character){
     document.getElementById("p_Level").value = character.infoPerson.level;
     document.getElementById("p_FP").value = character.infoPerson.fp;
 
-    document.getElementById("a_Body").value = character.infoAttribute.body;
-    document.getElementById("a_Agility").value = character.infoAttribute.agility;
-    document.getElementById("a_Mind").value = character.infoAttribute.mind;
-    document.getElementById("a_Mystic").value = character.infoAttribute.mystic;
-    document.getElementById("a_Presence").value = character.infoAttribute.presence;
+    document.getElementById("a_BodyTemp").value = character.infoAttributeTemp.body;
+    document.getElementById("a_AgilityTemp").value = character.infoAttributeTemp.agility;
+    document.getElementById("a_MindTemp").value = character.infoAttributeTemp.mind;
+    document.getElementById("a_MysticTemp").value = character.infoAttributeTemp.mystic;
+    document.getElementById("a_PresenceTemp").value = character.infoAttributeTemp.presence;
+
+    document.getElementById("a_BodyBase").value = character.infoAttributeBase.body;
+    document.getElementById("a_AgilityBase").value = character.infoAttributeBase.agility;
+    document.getElementById("a_MindBase").value = character.infoAttributeBase.mind;
+    document.getElementById("a_MysticBase").value = character.infoAttributeBase.mystic;
+    document.getElementById("a_PresenceBase").value = character.infoAttributeBase.presence;
 
     document.getElementById("b_HpMax").value = character.infoBase.hpMax;
     document.getElementById("b_HpCurr").value = character.infoBase.hpCurr;
@@ -177,6 +183,10 @@ function LoadCharacterInfo(character){
     document.getElementById('language_2').value = character.language.i_language2;
     document.getElementById('language_3').value = character.language.i_language3;
     document.getElementById('language_4').value = character.language.i_language4;
+
+    document.getElementById('c_movement').value = character.combat.c_movement;
+    document.getElementById('c_initiative').value = character.combat.c_initiative;
+
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
     fNr = 0;
@@ -242,11 +252,17 @@ function StringifyCharacter(){
     const p_level = document.getElementById("p_Level").value;
     const p_fp = document.getElementById("p_FP").value;
 
-    const a_body = document.getElementById("a_Body").value;
-    const a_agility = document.getElementById("a_Agility").value;
-    const a_mind = document.getElementById("a_Mind").value;
-    const a_mystic = document.getElementById("a_Mystic").value;
-    const a_presence = document.getElementById("a_Presence").value;
+    const a_bodyTemp = document.getElementById("a_BodyTemp").value;
+    const a_agilityTemp = document.getElementById("a_AgilityTemp").value;
+    const a_mindTemp = document.getElementById("a_MindTemp").value;
+    const a_mysticTemp = document.getElementById("a_MysticTemp").value;
+    const a_presenceTemp = document.getElementById("a_PresenceTemp").value;
+
+    const a_bodyBase = document.getElementById("a_BodyBase").value;
+    const a_agilityBase = document.getElementById("a_AgilityBase").value;
+    const a_mindBase = document.getElementById("a_MindBase").value;
+    const a_mysticBase = document.getElementById("a_MysticBase").value;
+    const a_presenceBase = document.getElementById("a_PresenceBase").value;
 
     const b_hpMax = document.getElementById("b_HpMax").value;
     const b_hpCurr = document.getElementById("b_HpCurr").value;
@@ -269,8 +285,10 @@ function StringifyCharacter(){
     const i_language2 = document.getElementById('language_2').value;
     const i_language3 = document.getElementById('language_3').value;
     const i_language4 = document.getElementById('language_4').value;
-    // const feats = document.getElementById("info_Feats").value;
-    // const feats = document.getElementsByClassName("feature");
+
+    const c_movement = document.getElementById('c_movement').value;
+    const c_initiative = document.getElementById('c_initiative').value;
+
     if(fNr > 0){
         var features = [];
         for (let index = 1; index <= fNr; index++) {
@@ -289,7 +307,8 @@ function StringifyCharacter(){
 
     const updatedCharacter = {
         infoPerson: {name: p_name, race: p_race, class: p_class, deity: p_deity, level: p_level, fp: p_fp},
-        infoAttribute: {body: a_body, agility: a_agility, mind: a_mind, mystic: a_mystic, presence: a_presence},
+        infoAttributeBase: {body: a_bodyTemp, agility: a_agilityTemp, mind: a_mindTemp, mystic: a_mysticTemp, presence: a_presenceTemp},
+        infoAttributeTemp: {body: a_bodyBase, agility: a_agilityBase, mind: a_mindBase, mystic: a_mysticBase, presence: a_presenceBase},
         infoBase: {hpMax: b_hpMax, hpCurr: b_hpCurr, hpTemp: b_hpTemp, armMax: b_armMax, armTemp: b_armTemp, spMax: b_spMax, spCurr: b_spCurr},
         infoWeapon: {wep1: e_wep1, wep2: e_wep2, wep3: e_wep3},
         infoArmor: {arm1: e_arm1, arm2: e_arm2, arm3: e_arm3},
@@ -298,7 +317,8 @@ function StringifyCharacter(){
         infoBag: {bag1, bag2},
         infoFeatures: features,
         art: art,
-        language: {i_language1, i_language2, i_language3, i_language4}
+        language: {i_language1, i_language2, i_language3, i_language4},
+        combat: {c_movement, c_initiative}
     }
     console.log(updatedCharacter);
     return JSON.stringify(updatedCharacter);
