@@ -212,10 +212,12 @@
         
         document.getElementById("CardGen_Types_sun").innerHTML = sunType;
         document.getElementById("CardGen_Rules_sun").innerHTML = sunRuleReplaced;
-        if(csRange > 0){
-            var sunRange = csRange;
+        if(csRange == 0){
+            var sunRange = ""
         }
-        else{var sunRange = ""}
+        else{
+            sunRange = csRange;
+        }
         document.getElementById("rangeText_sun").innerHTML = sunRange;
         document.getElementById("flavourText_sun").innerHTML = document.getElementById("csFlavor").value;
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
@@ -229,10 +231,12 @@
         document.getElementById("CardGen_Title_moon").innerHTML = moonTitle;
         document.getElementById("CardGen_Types_moon").innerHTML = moonType;
         document.getElementById("CardGen_Rules_moon").innerHTML = moonRuleReplaced;
-        if(cmRange > 0){
-            var moonRange = cmRange;
+        if(cmRange == 0){
+            var moonRange = ""
         }
-        else{var moonRange = ""}
+        else{
+            moonRange = cmRange;
+        }
         document.getElementById("rangeText_moon").innerHTML = moonRange;
         document.getElementById("flavourText_moon").innerHTML = document.getElementById("cmFlavor").value;
         var selectedSubclass = classDropdown.options[classDropdown.selectedIndex].value;      
