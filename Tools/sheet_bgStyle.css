@@ -1,6 +1,6 @@
 #BackgroundSheet{
+  display: none;
   position: relative;
-  display: flex;
   z-index: 80;
 }
 #BackgroundSheetBg{

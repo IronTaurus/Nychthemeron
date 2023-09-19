@@ -64,14 +64,20 @@ function createInterest(){
 }
 
 function showBackground(){
+    console.log("Button: pressed")
     var bgElement = document.getElementById("BackgroundSheet");
     var chElement = document.getElementById("CharacterSheet");
+    var btnElement = document.getElementById("backgroundBtn");
 
     if (bgElement.style.display === "none") {
+        console.log("BG: none")
+        btnElement.textContent = "Character";
         bgElement.style.display = "flex";
         chElement.style.display = "none";
     } 
     else {
+        console.log("BG: flex")
+        btnElement.textContent = "Background"
         bgElement.style.display = "none";
         chElement.style.display = "flex";
     }
@@ -93,58 +99,60 @@ function getInterests(){
 }
 
 function loadInterests(infoInterests){
-    var interestList = document.getElementById("info_Interest");
-    interestList.replaceChildren([]);
-    iNr = 0;
-    infoInterests.forEach(element => {
-        fNr++;
-        const elementNr = iNr;
-        var interest = document.createElement('div');
-        interest.setAttribute('class', 'interest');
-        interest.setAttribute('id',  'interest' + elementNr);
-        var title = document.createElement('div');
-        title.setAttribute('id', 'i_title');
-        var txt = document.createElement('input');
-        txt.setAttribute("type", "text");
-        txt.setAttribute('class', 'i_name');
-        txt.setAttribute('id', 'i' + elementNr + '_name');
-        txt.value = element.title;       
+        console.log(infoInterests);
+        var interestList = document.getElementById("info_Interest");
+        interestList.replaceChildren([]);
+        iNr = 0;
+        infoInterests.forEach(element => {
+            iNr++;
+            const elementNr = iNr;
+            var interest = document.createElement('div');
+            interest.setAttribute('class', 'interest');
+            interest.setAttribute('id',  'interest' + elementNr);
+            var title = document.createElement('div');
+            title.setAttribute('id', 'i_title');
+            var txt = document.createElement('input');
+            txt.setAttribute("type", "text");
+            txt.setAttribute('class', 'i_name');
+            txt.setAttribute('id', 'i' + elementNr + '_name');
+            txt.value = element.title;       
+        
+            var txtArea = document.createElement('textarea');
+            var t = document.createTextNode(element.text);
+            txtArea.appendChild(t);
+            txtArea.setAttribute('id', 'i' + elementNr + '_text');
+            txtArea.setAttribute('class', 'i_txtArea');
+            txtArea.oninput= function(){
+                auto_grow(this);
+            }
+            var btn = document.createElement('button');
+            btn.setAttribute('class', 'i_button');
+            btn.setAttribute('id', 'i' + elementNr + '_btn');
+            btn.innerHTML = '-';
+            btn.onclick = function(){
+                showInterest(elementNr);
+              return false;
+            };
+            var btnRemove = document.createElement('button');
+            btnRemove.setAttribute('class', 'i_button');
+            btnRemove.setAttribute('id', 'btn_remove');
+            btnRemove.innerHTML = 'X';
+            btnRemove.onclick = function(){
+                var removableElement = document.getElementById("interest"+elementNr);
+                interestList.removeChild(removableElement);
+                iNr--;
+              return false;
+            };
+     
+            title.appendChild(btn);
+            title.appendChild(txt);
+            title.appendChild(btnRemove);
+            interest.appendChild(title);
+            interest.appendChild(txtArea);
+            interestList.appendChild(interest);
     
-        var txtArea = document.createElement('textarea');
-        var t = document.createTextNode(element.text);
-        txtArea.appendChild(t);
-        txtArea.setAttribute('id', 'i' + elementNr + '_text');
-        txtArea.setAttribute('class', 'i_txtArea');
-        txtArea.oninput= function(){
-            auto_grow(this);
-        }
-        var btn = document.createElement('button');
-        btn.setAttribute('class', 'i_button');
-        btn.setAttribute('id', 'i' + elementNr + '_btn');
-        btn.innerHTML = '-';
-        btn.onclick = function(){
-            showInterest(elementNr);
-          return false;
-        };
-        var btnRemove = document.createElement('button');
-        btnRemove.setAttribute('class', 'i_button');
-        btnRemove.setAttribute('id', 'btn_remove');
-        btnRemove.innerHTML = 'X';
-        btnRemove.onclick = function(){
-            var removableElement = document.getElementById("interest"+elementNr);
-            interestList.removeChild(removableElement);
-            iNr--;
-          return false;
-        };
- 
-        title.appendChild(btn);
-        title.appendChild(txt);
-        title.appendChild(btnRemove);
-        interest.appendChild(title);
-        interest.appendChild(txtArea);
-        interestList.appendChild(interest);
+            auto_grow(txtArea);
+        });
 
-        auto_grow(txtArea);
-    });
 }
 

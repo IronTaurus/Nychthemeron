@@ -1,6 +1,6 @@
 #CharacterSheet{
   position: relative;
-  display: none;
+  display: flex;
   z-index: 80;
 }
 #CharacterSheetBg{

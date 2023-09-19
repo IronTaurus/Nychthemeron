@@ -197,9 +197,9 @@ function LoadCharacterInfo(character){
 
     document.getElementById('bio_Notes').value = character.infoNotes;
     document.getElementById('bio_Background').value = character.infoBackground;
-
-
-    loadInterests(character.infoInterest);
+    var interestList = [];
+    interestList = character.infoInterest;
+    loadInterests(interestList);
 
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
@@ -355,28 +355,16 @@ function StringifyCharacter(){
 }
 function showText(id){
     console.log(id);
-var textElement = document.getElementById('f' + id + "_text");
-var buttonElement = document.getElementById('f' + id + "_btn");
-console.log('f' + id + "_text");
+    var textElement = document.getElementById('f' + id + "_text");
+    var buttonElement = document.getElementById('f' + id + "_btn");
+    console.log('f' + id + "_text");
 
-if (textElement.style.display === "none") {
-    buttonElement.textContent = "-"
-    textElement.style.display = "block";
-} else {
-    textElement.style.display = "none";
-    buttonElement.textContent = "+"
-}
-}
-function showBackground(){
-    var bgElement = document.getElementById("BackgroundSheet");
-    var chElement = document.getElementById("CharacterSheet");
-
-    if (bgElement.style.display === "none") {
-        bgElement.style.display = "flex";
-        chElement.style.display = "none";
+    if (textElement.style.display === "none") {
+        buttonElement.textContent = "-"
+        textElement.style.display = "block";
     } else {
-        bgElement.style.display = "none";
-        chElement.style.display = "flex";
+        textElement.style.display = "none";
+        buttonElement.textContent = "+"
     }
 }
 
