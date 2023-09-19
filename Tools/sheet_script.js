@@ -187,6 +187,20 @@ function LoadCharacterInfo(character){
     document.getElementById('c_movement').value = character.combat.c_movement;
     document.getElementById('c_initiative').value = character.combat.c_initiative;
 
+    document.getElementById('bio_Name').value = character.infoBio.bg_Name;
+    document.getElementById('bio_Age').value = character.infoBio.bg_Age;
+    document.getElementById('bio_Race1').value = character.infoBio.bg_Race1;
+    document.getElementById('bio_Race2').value = character.infoBio.bg_Race2;
+    document.getElementById('bio_Heritage').value = character.infoBio.bg_Heritage;
+    document.getElementById('bio_Origin').value = character.infoBio.bg_Origin;
+    document.getElementById('bio_Nation').value = character.infoBio.bg_Nation;
+
+    document.getElementById('bio_Notes').value = character.infoNotes;
+    document.getElementById('bio_Background').value = character.infoBackground;
+
+
+    loadInterests(character.infoInterest);
+
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
     fNr = 0;
@@ -289,6 +303,18 @@ function StringifyCharacter(){
     const c_movement = document.getElementById('c_movement').value;
     const c_initiative = document.getElementById('c_initiative').value;
 
+    const bg_Name = document.getElementById("bio_Name").value;
+    const bg_Age = document.getElementById("bio_Age").value;
+    const bg_Race1 = document.getElementById("bio_Race1").value;
+    const bg_Race2 = document.getElementById("bio_Race2").value;
+    const bg_Heritage = document.getElementById("bio_Heritage").value;
+    const bg_Origin = document.getElementById("bio_Origin").value;
+    const bg_Nation = document.getElementById("bio_Nation").value;
+
+    var bg_Interests = getInterests();
+    var bg_Notes = document.getElementById("bio_Notes").value;
+    var bg_Background = document.getElementById("bio_Background").value;
+
     if(fNr > 0){
         var features = [];
         for (let index = 1; index <= fNr; index++) {
@@ -298,7 +324,6 @@ function StringifyCharacter(){
                 text: document.getElementById('f' + index + '_text').value
             }
             features.push(feature);
-    
         }
         console.log(features);
     }
@@ -313,12 +338,17 @@ function StringifyCharacter(){
         infoWeapon: {wep1: e_wep1, wep2: e_wep2, wep3: e_wep3},
         infoArmor: {arm1: e_arm1, arm2: e_arm2, arm3: e_arm3},
 
-        infoEquip: "",
         infoBag: {bag1, bag2},
         infoFeatures: features,
         art: art,
         language: {i_language1, i_language2, i_language3, i_language4},
-        combat: {c_movement, c_initiative}
+        combat: {c_movement, c_initiative},
+
+        infoBio: {bg_Name, bg_Age, bg_Race1, bg_Race2, bg_Heritage, bg_Origin, bg_Nation},
+        infoInterest: bg_Interests,
+        infoNotes: bg_Notes,
+        infoBackground: bg_Background
+
     }
     console.log(updatedCharacter);
     return JSON.stringify(updatedCharacter);
@@ -336,6 +366,18 @@ if (textElement.style.display === "none") {
     textElement.style.display = "none";
     buttonElement.textContent = "+"
 }
+}
+function showBackground(){
+    var bgElement = document.getElementById("BackgroundSheet");
+    var chElement = document.getElementById("CharacterSheet");
+
+    if (bgElement.style.display === "none") {
+        bgElement.style.display = "flex";
+        chElement.style.display = "none";
+    } else {
+        bgElement.style.display = "none";
+        chElement.style.display = "flex";
+    }
 }
 
 function Resize(slider){

@@ -3,7 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="./sheet_style.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="stylesheet" href="./sheet_bgStyle.css" />
+    <link rel="stylesheet" href="./sheet_characterStyle.css" />
+    <!-- <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <title>Character Sheet</title>
     <link rel="stylesheet" href="../Main/Style.css">
@@ -15,121 +18,145 @@
         <script src="../Main/TopMenu.js"></script>
     </div>
     <div id="MainDiv">
-        <div id="SheetDiv">
+        <div id="BackgroundSheet">
+            <!-- <img id="BackgroundSheetBg" src="../Art/BackgroundSheet_Circadian.png"> -->
+            <img id="BackgroundSheetBg" src="../Art/BackgroundSheet_Circadian.png">
+            <div id="info_Bio">
+                <div class="infoBioRow">
+                    <input type="text" id="bio_Name" name="bioName" value="Elaine">
+                    <input type="text" id="bio_Age" name="bioName" value="23">
+                </div>
+                <div class="infoBioRow">
+                    <input type="text" class="infoBioCol1Txt" id="bio_Race1" name="bioRace1" value="Human">
+                    <input type="text" class="infoBioCol2Txt" id="bio_Race2" name="bioRace2" value="Elf">
+                    <input type="text" class="infoBioCol3Txt" id="bio_Heritage" name="bioHeritage" value="Mihridahl">
+                </div>
+                <div class="infoBioRow">
+                    <input type="text" class="infoBioCol1Txt" id="bio_Origin" name="bioOrigin" value="Mihridahl">
+                    <input type="text" class="infoBioCol2Txt" id="bio_Nation" name="bioNation" value="Avena">
+                </div>
+            </div>
+            <div id="info_Background">
+                <textarea class="infoTxtBackground" id="bio_Background" rows="20">Write background here...</textarea>
+            </div>
+            <div id="info_Notes">
+                <textarea class="infoTxtNotes" id="bio_Notes" rows="20">Write notes here...</textarea>
+            </div>
+
+            <button id="addInterest" onclick="createInterest()">add</button>
+            <div id="info_Interest">
+
+            </div>
+        </div>
+        <div id="CharacterSheet">
+            <img id="CharacterSheetBg" src="../Art/CharacterSheet_Circadian.png">
             <input type="range" id="resizeSlider" min="1" max="10" value="5" onchange="Resize(this.value)">
-            <div class="CharacterSheet" id="CharacterSheet">
-                <img id="CharacterSheetBg" src="../Art/CharacterSheet_Circadian.png">
-                <div id="artFrame">
-                    <img id="ProfileArt" src="https://i.pinimg.com/564x/44/3e/82/443e82246c141e456be0d3b6808109a8.jpg">
+            <div id="artFrame">
+                <img id="ProfileArt" src="https://i.pinimg.com/564x/44/3e/82/443e82246c141e456be0d3b6808109a8.jpg">
+            </div>
+            <div id="info_Person">
+                <input type="text" class="infoPTxt" id="p_Name" name="pName" value="Elaine">
+                <input type="text" class="infoPTxt" id="p_Race" name="pRace" value="Human">
+                <input type="text" class="infoPTxt" id="p_Class" name="pClass" value="Fighter">
+                <input type="text" class="infoPTxt" id="p_Deity" name="pDeity" value="Tellos">
+                <div style="display: flex;">
+                    <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8" style="max-width: 2em;"
+                        onclick="this.select()">
+                    <input type="text" class="infoPTxt" id="p_FP" name="pFP" value="0"
+                        style="margin-left: 7.5em; max-width: 2em;" onclick="this.select()">
                 </div>
 
 
-                <div id="info_Person">
-                    <input type="text" class="infoPTxt" id="p_Name" name="pName" value="Elaine">
-                    <input type="text" class="infoPTxt" id="p_Race" name="pRace" value="Human">
-                    <input type="text" class="infoPTxt" id="p_Class" name="pClass" value="Fighter">
-                    <input type="text" class="infoPTxt" id="p_Deity" name="pDeity" value="Tellos">
-                    <div style="display: flex;">
-                        <input type="text" class="infoPTxt" id="p_Level" name="pLevel" value="8" style="max-width: 2em;"
-                            onclick="this.select()">
-                        <input type="text" class="infoPTxt" id="p_FP" name="pFP" value="0"
-                            style="margin-left: 7.5em; max-width: 2em;" onclick="this.select()">
-                    </div>
+            </div>
+            <div id="info_Attributes">
+                <div id="attribute">
+                    <input type="text" class="infoATxtBase" id="a_BodyBase" name="aBody" value="0"
+                        onclick="this.select()">
+                    <input type="text" class="infoATxtTemp" id="a_BodyTemp" name="aBody" value="0"
+                        onclick="this.select()">
+                </div>
+                <div id="attribute">
+                    <input type="text" class="infoATxtBase" id="a_AgilityBase" name="aAgility" value="0"
+                        onclick="this.select()">
+                    <input type="text" class="infoATxtTemp" id="a_AgilityTemp" name="aAgility" value="0"
+                        onclick="this.select()">
+                </div>
+                <div id="attribute">
+                    <input type="text" class="infoATxtBase" id="a_MindBase" name="aMind" value="0"
+                        onclick="this.select()">
+                    <input type="text" class="infoATxtTemp" id="a_MindTemp" name="aMind" value="0"
+                        onclick="this.select()">
+                </div>
+                <div id="attribute">
+                    <input type="text" class="infoATxtBase" id="a_MysticBase" name="aMystic" value="0"
+                        onclick="this.select()">
+                    <input type="text" class="infoATxtTemp" id="a_MysticTemp" name="aMystic" value="0"
+                        onclick="this.select()">
+                </div>
+                <div id="attribute">
+                    <input type="text" class="infoATxtBase" id="a_PresenceBase" name="aPresence" value="0"
+                        onclick="this.select()">
+                    <input type="text" class="infoATxtTemp" id="a_PresenceTemp" name="aPresence" value="0"
+                        onclick="this.select()">
+                </div>
+            </div>
 
+            <div id="info_Base">
+                <div class="info_HpDiv">
+                    <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="30" onclick="this.select()">
+                    <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="30" onclick="this.select()">
+                    <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0" onclick="this.select()">
                 </div>
-                <div id="info_Attributes">
-                    <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_BodyBase" name="aBody" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoATxtTemp" id="a_BodyTemp" name="aBody" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_AgilityBase" name="aAgility" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoATxtTemp" id="a_AgilityTemp" name="aAgility" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_MindBase" name="aMind" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoATxtTemp" id="a_MindTemp" name="aMind" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_MysticBase" name="aMystic" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoATxtTemp" id="a_MysticTemp" name="aMystic" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div id="attribute">
-                        <input type="text" class="infoATxtBase" id="a_PresenceBase" name="aPresence" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoATxtTemp" id="a_PresenceTemp" name="aPresence" value="0"
-                            onclick="this.select()">
-                    </div>
+                <div class="info_BaseDiv">
+                    <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="0" onclick="this.select()">
+                    <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0"
+                        onclick="this.select()">
                 </div>
-
-                <div id="info_Base">
-                    <div class="info_HpDiv">
-                        <input type="text" class="infoBTxt" id="b_HpMax" name="hpMax" value="30"
-                            onclick="this.select()">
-                        <input type="text" class="infoBTxt" id="b_HpCurr" name="hpCurr" value="30"
-                            onclick="this.select()">
-                        <input type="text" class="infoBTxt" id="b_HpTemp" name="hpTemp" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div class="info_BaseDiv">
-                        <input type="text" class="infoBTxt_2" id="b_ArmMax" name="armMax" value="0"
-                            onclick="this.select()">
-                        <input type="text" class="infoBTxt_2" id="b_ArmTemp" name="armTemp" value="0"
-                            onclick="this.select()">
-                    </div>
-                    <div class="info_BaseDiv">
-                        <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30"
-                            onclick="this.select()">
-                        <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30"
-                            onclick="this.select()">
-                    </div>
+                <div class="info_BaseDiv">
+                    <input type="text" class="infoBTxt" id="b_SpMax" name="spMax" value="30" onclick="this.select()">
+                    <input type="text" class="infoBTxt" id="b_SpCurr" name="spCurr" value="30" onclick="this.select()">
                 </div>
-                <div id="info_Language">
-                    <input type="text" class="infoLTxt" id="language_1" name="language1" value="Common">
-                    <input type="text" class="infoLTxt" id="language_2" name="language2" value="">
-                    <input type="text" class="infoLTxt" id="language_3" name="language3" value="">
-                    <input type="text" class="infoLTxt" id="language_4" name="language4" value="">
-                </div>
+            </div>
+            <div id="info_Language">
+                <input type="text" class="infoLTxt" id="language_1" name="language1" value="Common">
+                <input type="text" class="infoLTxt" id="language_2" name="language2" value="">
+                <input type="text" class="infoLTxt" id="language_3" name="language3" value="">
+                <input type="text" class="infoLTxt" id="language_4" name="language4" value="">
+            </div>
+            <div id="info_Extra" style="display: flex;">
                 <div id="info_Combat">
                     <input type="text" class="infoCTxt" id="c_movement" name="movement" value="6"
                         onclick="this.select()">
                     <input type="text" class="infoCTxt" id="c_initiative" name="initiative" value="0"
                         onclick="this.select()">
-
-                </div>
-                <div id="info_Equip">
-                    <div class="info_EquipDiv">
-                        <input type="text" class="infoETxt" id="e_Wep1" name="eWep1" value="Long sword">
-                        <input type="text" class="infoETxt" id="e_Wep2" name="eWep2" value="Dagger">
-                        <input type="text" class="infoETxt" id="e_Wep3" name="eWep3" value="Short bow">
-                    </div>
-                    <div class="info_EquipDiv">
-                        <input type="text" class="infoETxt" id="e_Arm1" name="eArm1" value="Chain mail">
-                        <input type="text" class="infoETxt" id="e_Arm2" name="eArm2" value="">
-                        <input type="text" class="infoETxt" id="e_Arm3" name="eArm3" value="">
-                    </div>
-                </div>
-                <div id="info_Items">
-                    <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...</textarea>
-                    <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...</textarea>
-                </div>
-                <button id="addFeature" onclick="createFeature()">add</button>
-                <div id="info_Features">
-
                 </div>
             </div>
+            <div id="info_Equip">
+                <div class="info_EquipDiv">
+                    <input type="text" class="infoETxt" id="e_Wep1" name="eWep1" value="Long sword">
+                    <input type="text" class="infoETxt" id="e_Wep2" name="eWep2" value="Dagger">
+                    <input type="text" class="infoETxt" id="e_Wep3" name="eWep3" value="Short bow">
+                </div>
+                <div class="info_EquipDiv">
+                    <input type="text" class="infoETxt" id="e_Arm1" name="eArm1" value="Chain mail">
+                    <input type="text" class="infoETxt" id="e_Arm2" name="eArm2" value="">
+                    <input type="text" class="infoETxt" id="e_Arm3" name="eArm3" value="">
+                </div>
+            </div>
+            <div id="info_Items">
+                <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...</textarea>
+                <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...</textarea>
+            </div>
+            <button id="addFeature" onclick="createFeature()">add</button>
+            <div id="info_Features">
+
+            </div>
         </div>
+
         <div id="OptionsDiv">
-            <div id="button">
+            <div id="buttons">
                 <button id="download" class="Buttons" onclick="downloadFile_OnClick()">Download character</button>
+                <button id="download" class="Buttons" onclick="showBackground()">Background</button>
                 <div class="upload">
                     <div>
                         Load Character
@@ -140,8 +167,6 @@
                         <!-- <input type="file" accept="image/*" name="image" id="imageFile" onchange="LoadFile(event)"> -->
                         <input type="text" name="imageUrl" id="imageUrl" onchange="LoadFile(event)">
                     </div>
-
-
                 </div>
             </div>
 
@@ -152,6 +177,8 @@
 
     <script src="./html2canvas.min.js"></script>
     <script src="./sheet_script.js"></script>
+    <script src="./sheetBackground_script.js"></script>
+
 
 
 
