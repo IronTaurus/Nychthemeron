@@ -3,6 +3,8 @@ var profileArt = document.getElementById("ProfileArt");
 const artHeight = profileArt.height;
 const artWidth = profileArt.width;
 const characterSheet = document.querySelector("#CharacterSheet");
+var listBG = [];
+var listCharacter = [];
 var fNr = 0;
 
 function draw2canvas(){
@@ -21,10 +23,6 @@ function draw2canvas(){
     });
 }
 
-function auto_grow(element) {
-    element.style.height = "5px";
-    element.style.height = (element.scrollHeight) + "px";
-  }
 
 function download_img(canvasId, fileName) {
     var link = document.createElement('a');
@@ -62,6 +60,41 @@ function LoadFile(event) {
     image.src = document.getElementById("imageUrl").value;
 };
 
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight) + "px";
+  }
+
+function resizeTextAreas(list, id){
+    console.log("Enter resize mode..." + list)
+    console.log(list)
+    for (let index = 0; index < list.length; index++) {
+        const element = list[index];
+        auto_grow(document.getElementById(id + (index+1) + '_text'));
+        console.log("Autogrow: " + id + (index+1) + '_text')
+    }
+}
+function showBackground(){
+    console.log("Button: pressed")
+    var bgElement = document.getElementById("BackgroundSheet");
+    var chElement = document.getElementById("CharacterSheet");
+    var btnElement = document.getElementById("backgroundBtn");
+
+    if (bgElement.style.display === "none") {
+        console.log("BG: none")
+        btnElement.textContent = "Character";
+        bgElement.style.display = "flex";
+        chElement.style.display = "none";
+        resizeTextAreas(listBG, 'i');
+    } 
+    else {
+        console.log("BG: flex")
+        btnElement.textContent = "Background"
+        bgElement.style.display = "none";
+        chElement.style.display = "flex";
+        resizeTextAreas(listCharacter, 'f');
+    }
+}
 function LoadJsonFile(){
     var input, file, fr;
 
@@ -197,9 +230,7 @@ function LoadCharacterInfo(character){
 
     document.getElementById('bio_Notes').value = character.infoNotes;
     document.getElementById('bio_Background').value = character.infoBackground;
-    var interestList = [];
-    interestList = character.infoInterest;
-    loadInterests(interestList);
+    listBG = loadInterests(character.infoInterest);
 
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
@@ -249,6 +280,7 @@ function LoadCharacterInfo(character){
         feature.appendChild(title);
         feature.appendChild(txtArea);
         featureList.appendChild(feature);
+        listCharacter.push(txtArea);
 
         auto_grow(txtArea);
     });
