@@ -177,6 +177,7 @@ function createFeature(){
 }
 
 function LoadCharacterInfo(character){
+    console.log("Entering: Person info..");
     document.getElementById("p_Name").value = character.infoPerson.name;
     document.getElementById("p_Race").value = character.infoPerson.race;
     document.getElementById("p_Class").value = character.infoPerson.class;
@@ -184,18 +185,21 @@ function LoadCharacterInfo(character){
     document.getElementById("p_Level").value = character.infoPerson.level;
     document.getElementById("p_FP").value = character.infoPerson.fp;
 
+    console.log("Entering: Temp Attributes..");
     document.getElementById("a_BodyTemp").value = character.infoAttributeTemp.body;
     document.getElementById("a_AgilityTemp").value = character.infoAttributeTemp.agility;
     document.getElementById("a_MindTemp").value = character.infoAttributeTemp.mind;
     document.getElementById("a_MysticTemp").value = character.infoAttributeTemp.mystic;
     document.getElementById("a_PresenceTemp").value = character.infoAttributeTemp.presence;
 
+    console.log("Entering: Base Attributes..");
     document.getElementById("a_BodyBase").value = character.infoAttributeBase.body;
     document.getElementById("a_AgilityBase").value = character.infoAttributeBase.agility;
     document.getElementById("a_MindBase").value = character.infoAttributeBase.mind;
     document.getElementById("a_MysticBase").value = character.infoAttributeBase.mystic;
     document.getElementById("a_PresenceBase").value = character.infoAttributeBase.presence;
 
+    console.log("Entering: Base Stats..");
     document.getElementById("b_HpMax").value = character.infoBase.hpMax;
     document.getElementById("b_HpCurr").value = character.infoBase.hpCurr;
     document.getElementById("b_HpTemp").value = character.infoBase.hpTemp;
@@ -204,6 +208,7 @@ function LoadCharacterInfo(character){
     document.getElementById("b_SpMax").value = character.infoBase.spMax;
     document.getElementById("b_SpCurr").value = character.infoBase.spCurr;
 
+    console.log("Entering: Equippments..");
     document.getElementById("e_Wep1").value = character.infoWeapon.wep1;
     document.getElementById("e_Wep2").value = character.infoWeapon.wep2;
     document.getElementById("e_Wep3").value = character.infoWeapon.wep3;
@@ -212,14 +217,17 @@ function LoadCharacterInfo(character){
     document.getElementById("e_Arm3").value = character.infoArmor.arm3;
     document.getElementById('ProfileArt').src = character.art;
 
+    console.log("Entering: Languages..");
     document.getElementById('language_1').value = character.language.i_language1;
     document.getElementById('language_2').value = character.language.i_language2;
     document.getElementById('language_3').value = character.language.i_language3;
     document.getElementById('language_4').value = character.language.i_language4;
 
+    console.log("Entering: Movement and Initiative..");
     document.getElementById('c_movement').value = character.combat.c_movement;
     document.getElementById('c_initiative').value = character.combat.c_initiative;
 
+    console.log("Entering: Bio information..");
     document.getElementById('bio_Name').value = character.infoBio.bg_Name;
     document.getElementById('bio_Age').value = character.infoBio.bg_Age;
     document.getElementById('bio_Race1').value = character.infoBio.bg_Race1;
@@ -228,10 +236,14 @@ function LoadCharacterInfo(character){
     document.getElementById('bio_Origin').value = character.infoBio.bg_Origin;
     document.getElementById('bio_Nation').value = character.infoBio.bg_Nation;
 
+    console.log("Entering: Bio notes and background..");
     document.getElementById('bio_Notes').value = character.infoNotes;
     document.getElementById('bio_Background').value = character.infoBackground;
-    listBG = loadInterests(character.infoInterest);
+    console.log("Entering: Interest list..");
+    listBG = character.infoInterest;
+    loadInterests(character.infoInterest);
 
+    console.log("Entering: Feature list..");
     var featureList = document.getElementById("info_Features");
     featureList.replaceChildren([]);
     fNr = 0;
@@ -248,12 +260,21 @@ function LoadCharacterInfo(character){
         txt.value = element.title;
         txt.setAttribute('class', 'f_name');
         txt.setAttribute('id', 'f' + elementNr + '_name');
+        var txtArea = document.createElement('textarea');
+        var t = document.createTextNode(element.text);
+        txtArea.appendChild(t);
+        txtArea.setAttribute('id', 'f' + elementNr + '_text');
+        txtArea.setAttribute('class', 'f_txtArea');
+        txtArea.oninput= function(){
+            auto_grow(this);
+        }
         var btn = document.createElement('button');
         btn.setAttribute('class', 'f_button');
         btn.setAttribute('id', 'f' + elementNr + '_btn');
         btn.innerHTML = '-';
         btn.onclick = function(){
             showText(elementNr);
+            auto_grow(txtArea)
           return false;
         };
         var btnRemove = document.createElement('button');
@@ -266,14 +287,7 @@ function LoadCharacterInfo(character){
             fNr--;
             return false;
         };
-        var txtArea = document.createElement('textarea');
-        var t = document.createTextNode(element.text);
-        txtArea.appendChild(t);
-        txtArea.setAttribute('id', 'f' + elementNr + '_text');
-        txtArea.setAttribute('class', 'f_txtArea');
-        txtArea.oninput= function(){
-            auto_grow(this);
-        }
+
         title.appendChild(btn);
         title.appendChild(txt);
         title.appendChild(btnRemove);
@@ -344,11 +358,13 @@ function StringifyCharacter(){
     const bg_Nation = document.getElementById("bio_Nation").value;
 
     var bg_Interests = getInterests();
+    console.log("Interest list:" + bg_Interests);
+
     var bg_Notes = document.getElementById("bio_Notes").value;
     var bg_Background = document.getElementById("bio_Background").value;
-
+    var features = [];
+    console.log("fNr is:" + fNr);
     if(fNr > 0){
-        var features = [];
         for (let index = 1; index <= fNr; index++) {
             console.log("index is:" + index);
             const feature = {
@@ -357,7 +373,7 @@ function StringifyCharacter(){
             }
             features.push(feature);
         }
-        console.log(features);
+        console.log("features are:" + features);
     }
     const bag1 = document.getElementById("info_Bag1").value;
     const bag2 = document.getElementById("info_Bag2").value;

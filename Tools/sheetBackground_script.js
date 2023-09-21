@@ -76,10 +76,13 @@ function getInterests(){
         }
         return interests;
     }
+    else{
+        return [];
+    }
 }
 
 function loadInterests(infoInterests){
-        console.log(infoInterests);
+        console.log(typeof infoInterests);
         var txtList = [];
         var interestList = document.getElementById("info_Interest");
         interestList.replaceChildren([]);
