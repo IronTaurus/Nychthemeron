@@ -1,0 +1,48 @@
+.creatures{
+    margin: 2%;
+    background-color: blanchedalmond;
+    border: 2px;
+    border-radius: 4px;
+    padding: 4px;
+    width: fit-content;
+}
+.c_Div{
+    display: flex;
+    width: 20em;
+}
+.c_title{
+    width: fit-content;
+    display: flex;
+}
+.info{
+
+    width: 20em;
+    padding: 4px;
+}
+.initiative{
+    display: flex;
+    width: 12em;
+    margin: 0%;
+}
+.txt{
+    height: 1.5em;
+    width: 2em;
+    margin-left: 2%;
+}
+.title{
+    height: 1.5em;
+    width: fit-content;
+    text-align: right;
+    margin: 0%;
+}
+#con_txt{
+    width: 20em;
+}
+.c_name{
+    font-size: large;
+}
+.c_button{
+    height: 1.5em;
+    width: 1.5em;
+    text-align: center;
+}
