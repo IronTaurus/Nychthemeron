@@ -1,10 +1,38 @@
+body{
+    display: flex;
+    width: fit-content;
+}
+.blocks{
+    width: fit-content;
+    margin: 20px;
+    background-color: gray;
+    border: 5px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 8px;
+}
+#initiativeOrder{
+    width: fit-content;
+    padding: 5px;
+}
 .creatures{
     margin: 2%;
     background-color: blanchedalmond;
     border: 2px;
     border-radius: 4px;
-    padding: 4px;
+    padding: 6px;
     width: fit-content;
+}
+#DeadList{
+    padding: 4px;
+}
+.deadCreature{
+    background-color: brown;
+    border: 2px;
+    font-size: large;
+    padding: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
 }
 .c_Div{
     display: flex;

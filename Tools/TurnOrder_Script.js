@@ -41,6 +41,19 @@ function orderList(){
     });
 }
 
+function clearDeadList(){
+    var deadList = document.getElementById("DeadList");
+    deadList.innerHTML = '';
+}
+
+function AddToDead(name){
+    var deadList = document.getElementById("DeadList");
+    var deadElement = document.createElement("li");
+    deadElement.setAttribute('class', 'deadCreature');
+    deadElement.innerHTML = name;
+    deadList.appendChild(deadElement);
+}
+
 function createCreature(id, noCreatures){
 
     const newSlot = new initativeSlot;
@@ -92,6 +105,7 @@ function createCreature(id, noCreatures){
     btnRemove.onclick = function(){
         var removableElement = document.getElementById("creature_" + elementNr);
         creatureList.removeChild(removableElement);
+        AddToDead(txt.value);
         const targetIndex = initativeOrder.indexOf(removableElement);
         initativeOrder.splice(targetIndex, 1);
         queue--;

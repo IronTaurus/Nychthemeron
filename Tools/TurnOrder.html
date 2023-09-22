@@ -10,18 +10,30 @@
 </head>
 
 <body>
-    <div>Initiative</div>
-    <div id="addToList">
-        <button id="addCreature" onclick="addCreature()">add</button>
-        <input type="text" id="creatureNumbers" class="txt" value="1">
+    <div id="ActiveCreatures" class="blocks">
+        <h3>Initiative</h3>
+        <div id="addToList">
+            <button id="addCreature" onclick="addCreature()">add</button>
+            <input type="text" id="creatureNumbers" class="txt" value="1">
+        </div>
+        <div>
+            <button id="orderList" onclick="orderList()">Order</button>
+        </div>
+
+        <div id="initiativeOrder">
+
+        </div>
     </div>
-    <div id="addToList">
-        <button id="orderList" onclick="orderList()">Order</button>
+    <div id="InactiveCreatures" class="blocks">
+        <h3>Graveyard</h3>
+        <div>
+            <button id="clearDead" onclick="clearDeadList()">Clear</button>
+        </div>
+        <ul id="DeadList">
+
+        </ul>
     </div>
 
-    <div id="initiativeOrder">
-
-    </div>
 
     <script src="./TurnOrder_Script.js"></script>
 </body>
