@@ -14,6 +14,23 @@ function showInterest(id){
     }
 }
 
+function getKeyWords(e){
+
+    var eTxt = e.innerHTML;
+    console.log(eTxt)
+    var innerTxt = eTxt.replace('{b}','<b>')
+    var innerTxt = innerTxt.replace('{/b}','</b>')
+    var mapObj = {
+        '{b}':"<b>",
+        '{b.}':"</b>",
+        '{i}':"<i>",
+        '{i.}':"</i>"
+        };
+    let eTxtReplaced = eTxt.replace(/{b}|{b.}|{i}|{i.}/gi, matched => mapObj[matched]);
+    console.log(eTxtReplaced)
+    return eTxtReplaced;
+}
+
 function createInterest(){
     iNr++;
     const elementNr = iNr;
@@ -24,14 +41,29 @@ function createInterest(){
     var title = document.createElement('div');
     title.setAttribute('id', 'i_title');
 
-    var txtArea = document.createElement('textarea');
-    var t = document.createTextNode("Write here...");
-    txtArea.appendChild(t);
-    txtArea.setAttribute('id', 'i' + elementNr + '_text');
-    txtArea.setAttribute('class', 'i_txtArea');
-    txtArea.oninput= function(){
+    var txtContent = document.createElement('div');
+    txtContent.setAttribute('contenteditable', true);
+    txtContent.setAttribute('id', 'i' + elementNr + '_text');
+    txtContent.setAttribute('class', 'i_txtArea');
+    txtContent.innerHTML = "Write here...";
+    txtContent.oninput= function(){
         auto_grow(this);
     }
+    txtContent.onblur = function(){
+            console.log("onclose");
+            this.innerHTML = getKeyWords(this);
+    }
+
+
+
+    // var txtArea = document.createElement('textarea');
+    // var t = document.createTextNode("Write here...");
+    // txtArea.appendChild(t);
+    // txtArea.setAttribute('id', 'i' + elementNr + '_text');
+    // txtArea.setAttribute('class', 'i_txtArea');
+    // txtArea.oninput= function(){
+    //     auto_grow(this);
+    // }
     var btn = document.createElement('button');
     btn.setAttribute('class', 'i_button');
     btn.setAttribute('id', 'i' + elementNr + '_btn');
@@ -59,7 +91,7 @@ function createInterest(){
     title.appendChild(txt);
     title.appendChild(btnRemove);
     interest.appendChild(title);
-    interest.appendChild(txtArea);
+    interest.appendChild(txtContent);
     interestList.appendChild(interest);
 }
 
@@ -69,7 +101,7 @@ function getInterests(){
         for (let index = 1; index <= iNr; index++) {
             const interest = {
                 title: document.getElementById('i' + index + '_name').value,
-                text: document.getElementById('i' + index + '_text').value
+                text: document.getElementById('i' + index + '_text').innerHTML
             }
             interests.push(interest);
     
@@ -100,15 +132,20 @@ function loadInterests(infoInterests){
             txt.setAttribute('class', 'i_name');
             txt.setAttribute('id', 'i' + elementNr + '_name');
             txt.value = element.title;       
-        
-            var TxtArea = document.createElement('textarea');
-            var t = document.createTextNode(element.text);
-            TxtArea.appendChild(t);
-            TxtArea.setAttribute('id', 'i' + elementNr + '_text');
-            TxtArea.setAttribute('class', 'i_txtArea');
-            TxtArea.oninput= function(){
+
+            var txtContent = document.createElement('div');
+            txtContent.setAttribute('contenteditable', true);
+            txtContent.setAttribute('id', 'i' + elementNr + '_text');
+            txtContent.setAttribute('class', 'i_txtArea');
+            txtContent.innerHTML = element.text;
+            txtContent.oninput= function(){
                 auto_grow(this);
             }
+            txtContent.onblur = function(){
+                    console.log("onclose");
+                    this.innerHTML = getKeyWords(this);
+            }
+
             var btn = document.createElement('button');
             btn.setAttribute('class', 'i_button');
             btn.setAttribute('id', 'i' + elementNr + '_btn');
@@ -132,11 +169,11 @@ function loadInterests(infoInterests){
             title.appendChild(txt);
             title.appendChild(btnRemove);
             interest.appendChild(title);
-            interest.appendChild(TxtArea);
+            interest.appendChild(txtContent);
             interestList.appendChild(interest);
-            txtList.push(TxtArea);
+            txtList.push(txtContent);
     
-            auto_grow(TxtArea);
+            auto_grow(txtContent);
         });
         return txtList;
 }
