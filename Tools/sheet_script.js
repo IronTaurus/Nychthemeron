@@ -204,6 +204,7 @@ function LoadCharacterInfo(character){
     document.getElementById("b_HpCurr").value = character.infoBase.hpCurr;
     document.getElementById("b_HpTemp").value = character.infoBase.hpTemp;
     document.getElementById("b_ArmMax").value = character.infoBase.armMax;
+    document.getElementById("b_ArmCurr").value = character.infoBase.armCurr;
     document.getElementById("b_ArmTemp").value = character.infoBase.armTemp;
     document.getElementById("b_SpMax").value = character.infoBase.spMax;
     document.getElementById("b_SpCurr").value = character.infoBase.spCurr;
@@ -328,6 +329,7 @@ function StringifyCharacter(){
     const b_hpCurr = document.getElementById("b_HpCurr").value;
     const b_hpTemp = document.getElementById("b_HpTemp").value;
     const b_armMax = document.getElementById("b_ArmMax").value;
+    const b_armCurr = document.getElementById("b_ArmCurr").value;
     const b_armTemp = document.getElementById("b_ArmTemp").value;
     const b_spMax = document.getElementById("b_SpMax").value;
     const b_spCurr = document.getElementById("b_SpCurr").value;
@@ -382,7 +384,7 @@ function StringifyCharacter(){
         infoPerson: {name: p_name, race: p_race, class: p_class, deity: p_deity, level: p_level, fp: p_fp},
         infoAttributeBase: {body: a_bodyTemp, agility: a_agilityTemp, mind: a_mindTemp, mystic: a_mysticTemp, presence: a_presenceTemp},
         infoAttributeTemp: {body: a_bodyBase, agility: a_agilityBase, mind: a_mindBase, mystic: a_mysticBase, presence: a_presenceBase},
-        infoBase: {hpMax: b_hpMax, hpCurr: b_hpCurr, hpTemp: b_hpTemp, armMax: b_armMax, armTemp: b_armTemp, spMax: b_spMax, spCurr: b_spCurr},
+        infoBase: {hpMax: b_hpMax, hpCurr: b_hpCurr, hpTemp: b_hpTemp, armMax: b_armMax, armCurr: b_armCurr, armTemp: b_armTemp, spMax: b_spMax, spCurr: b_spCurr},
         infoWeapon: {wep1: e_wep1, wep2: e_wep2, wep3: e_wep3},
         infoArmor: {arm1: e_arm1, arm2: e_arm2, arm3: e_arm3},
 

@@ -1,10 +1,6 @@
 var queue = 0;
 var initativeOrder = [];
 var creatureList = document.getElementById("initiativeOrder");
-// const initativeSlot = {
-//     Creature: "",
-//     Initiative: 0
-// }
 
 class initativeSlot {
     constructor(creature, initiative) {
@@ -76,7 +72,7 @@ function createCreature(id, noCreatures){
     txt.setAttribute("type", "text");
     txt.setAttribute('class', 'c_name');
     txt.setAttribute('id', elementNr + '_name');
-    txt.value = "Title";  
+    txt.value = id;  
 
     var initative = document.createElement('div');
     initative.setAttribute('class', 'initiative');
@@ -104,11 +100,14 @@ function createCreature(id, noCreatures){
     btnRemove.innerHTML = 'X';
     btnRemove.onclick = function(){
         var removableElement = document.getElementById("creature_" + elementNr);
-        creatureList.removeChild(removableElement);
         AddToDead(txt.value);
-        const targetIndex = initativeOrder.indexOf(removableElement);
+        console.log(removableElement)
+        const targetIndex = initativeOrder.indexOf(newSlot);
+        console.log(initativeOrder);
+        console.log(targetIndex + " " + initativeOrder[targetIndex]);
         initativeOrder.splice(targetIndex, 1);
-        queue--;
+        creatureList.removeChild(removableElement);
+        // queue--;
       return false;
     };
     title.appendChild(btn);

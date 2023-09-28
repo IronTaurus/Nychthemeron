@@ -131,7 +131,8 @@ margin-left: 8.1%;
   display: flex;
 }
 .info_BaseDiv{
-  margin-right: 55%;
+  margin-right: 50%;
+  margin-left: 2%;
   display: block;
   width: 6em;
 }
@@ -143,7 +144,7 @@ margin-left: 8.1%;
 
 .infoBTxt{
   margin: 2%;
-  margin-left: 3%;
+  /* margin-left: 0%; */
   height: 26px;
   margin-bottom: 13%;
   width: 6.5em;

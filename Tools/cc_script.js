@@ -112,9 +112,9 @@
             '{and}': "<img src='"+ imgPath +"and.png' height='16' width='340' style='margin-top: 8px'/> <br>",
             '{or}': "<img src='"+ imgPath +"or.png' height='16' width='340' style='margin-top: 8px'/> <br>",
             '{-}': "<img src='"+ imgPath +"break.png' height='16' width='340'/> <br>",
-            '{one}': "<img src='"+ imgPath +"break_first.png' height='16' width='340'/> <br>",
-            '{two}': "<img src='"+ imgPath +"break_second.png' height='16' width='340'/> <br>",
-            '{three}': "<img src='"+ imgPath +"break_third.png' height='16' width='340'/> <br>",
+            '{1}': "<img src='"+ imgPath +"break_first.png' height='16' width='340'/> <br>",
+            '{2}': "<img src='"+ imgPath +"break_second.png' height='16' width='340'/> <br>",
+            '{3}': "<img src='"+ imgPath +"break_third.png' height='16' width='340'/> <br>",
             '{melody}': "<img src='"+ imgPath +"LingeringMelody.png' height='16' width='340'/> <br>",
         };
         let sunRuleReplaced = sunRuleText.replace(/{ac}|{w}|{and}|{or}|{-}|{one}|{two}|{three}|{melody}/gi, matched => mapObj[matched]);
