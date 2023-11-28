@@ -370,14 +370,13 @@ margin-left: 8.1%;
 }
 #b_title{
   display: flex;
+  height: 1.2em;
 }
 .b_button{
   background: none;
   font-weight: bold;
-  width: 25px;
-  height: 25px;
   border: none;   
-  font-size: 18px;
+  height: fit-content;
   text-align: center;
   height: 50%;
 }
@@ -417,7 +416,7 @@ margin-left: 8.1%;
   font-size: 16px;
   font-weight: bold;
   border: none;
-  width: 2em;
+  width: 1.9em;
   background: none;
 }
 .bag_icons{
