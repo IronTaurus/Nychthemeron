@@ -187,29 +187,54 @@ margin-left: 8.1%;
   font-size: 1.2em;
 }
 #info_Items{
-  top: 51%;
+  top: 50.5%;
   left: 25%;
   position: absolute;
   z-index: 98;
   display: flex;
-align-items: center;
-width: 50%;
+  align-items: center;
+  width: 50%;
 }
 .infoTxtItems{
   resize: none;
   margin: 1%;
+  margin-top: 3%;
   width: 17em;
-  height: 27em;
+  height: 26em;
   font-size: 1.2em;
   background: none;
   border: 0em;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: rgb(83, 69, 48);  */
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(83, 69, 48); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(83, 69, 48); }
+  ::-webkit-scrollbar-corner{
+
+  }
+
 #info_Features{
   top: 8%;
   left: 69.4%;
   position: absolute;
   z-index: 98;
-align-items: center;
+  align-items: center;
 }
 .infoTxtFeatures{
   text-align: left;
@@ -275,3 +300,173 @@ align-items: center;
   padding: 5px;
 }
 
+/* Dropdown Button */
+.dropItemMenuBtn {
+  margin-left: 4%;
+  font-size: medium;
+  font-weight: bold;
+  background:none;
+  border: 0.4em;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropItemMenu {
+  position: absolute;
+  display: block;
+  top: 0%;
+}
+.dropMenuItem{
+  margin-left: 5px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropItemMenu-content {
+  background: rgb(198, 182, 156);
+  border: solid 1px #3F3019;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+  position: absolute;
+  min-width: 7em;
+  z-index: 1;
+
+}
+/*Top menu button styling*/
+.dropItemMenu-content a:hover {
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.2s;
+  transform: scale(1.1);
+  /*background-color: #4bd4a0;*/
+}
+.dropItemMenu:hover .dropItemMenu-content {
+  display: block;
+}
+.dropItemMenu:hover .dropItemMenuBtn {
+  cursor: pointer;
+}
+/* Links inside the dropdown */
+.dropItemMenu-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.bagRow{
+  display: flex;
+  padding-top: 2px;
+  height: fit-content;
+  width: 17em;
+  align-items: center;
+}
+
+.b_name{
+  width: 14em;
+  margin-right: 2%;
+  font-weight: bold;
+  font-size: 17px;
+  background: none;
+  border: none;
+}
+#b_title{
+  display: flex;
+}
+.b_button{
+  background: none;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  border: none;   
+  font-size: 18px;
+  text-align: center;
+  height: 50%;
+}
+.b_button:hover{
+  cursor: pointer;
+}
+.b_itemName{
+  width: 11.5em;
+  margin-right: 2%;
+  font-weight: bold;
+  font-size: 17px;
+  background: none;
+  border: none;
+}
+.b_itemTitle{
+  font-size: 16px;
+  margin: 0%;
+  padding-right: 4px;
+  text-align: center;
+}
+
+.b_attribute{
+  font-size: 16px;
+  margin: 2px;
+  width: 4em;
+  border: none;
+  background: none;
+}
+.b_armAttribute{
+  font-size: 16px;
+  margin: 2px;
+  width: 7em;
+  border: none;
+  background: none;
+}
+.bag_smallDigit{
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  width: 2em;
+  background: none;
+}
+.bag_icons{
+  height: 18px;
+  width: 18px;
+  margin-right: 0.2em;
+}
+.b_attributeTitle{
+  font-size: 16px;
+  margin: 0%;
+  width: fit-content;
+  padding-right: 4px;
+  text-align: center;
+}
+.b_dmgTypes{
+  width: 5em;
+  border: none;
+  border-radius: 40%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background: rgba(144, 130, 110, 0.3);
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.b_penaltyText{
+  font-size: 16px;
+  font-weight: bold;
+  margin: 2px;
+  resize: none;
+  overflow: hidden;
+  width: 14em;
+  min-height: 25px;
+  max-height: 200px;
+  border: none;
+  background: none;
+}
+.dmgTypesInfo{
+  position: absolute;
+  margin-bottom: 0%;
+  margin-left: 17%;
+  z-index: 99;
+  background: rgb(198, 182, 156);
+  border: solid 1px #3F3019;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 6em;
+  height: fit-content;
+  font-size: 14px;
+
+  padding: 2px;
+}

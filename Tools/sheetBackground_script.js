@@ -54,16 +54,6 @@ function createInterest(){
             this.innerHTML = getKeyWords(this);
     }
 
-
-
-    // var txtArea = document.createElement('textarea');
-    // var t = document.createTextNode("Write here...");
-    // txtArea.appendChild(t);
-    // txtArea.setAttribute('id', 'i' + elementNr + '_text');
-    // txtArea.setAttribute('class', 'i_txtArea');
-    // txtArea.oninput= function(){
-    //     auto_grow(this);
-    // }
     var btn = document.createElement('button');
     btn.setAttribute('class', 'i_button');
     btn.setAttribute('id', 'i' + elementNr + '_btn');
@@ -72,6 +62,7 @@ function createInterest(){
         showInterest(elementNr);
       return false;
     };
+    
     var btnRemove = document.createElement('button');
     btnRemove.setAttribute('class', 'i_button');
     btnRemove.setAttribute('id', 'btn_remove');
@@ -114,12 +105,11 @@ function getInterests(){
 }
 
 function loadInterests(infoInterests){
-        console.log(typeof infoInterests);
         var txtList = [];
         var interestList = document.getElementById("info_Interest");
         interestList.replaceChildren([]);
         iNr = 0;
-        infoInterests.forEach(element => {
+        infoInterests?.forEach(element => {
             iNr++;
             const elementNr = iNr;
             var interest = document.createElement('div');

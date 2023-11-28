@@ -1,0 +1,1359 @@
+var profileArt = document.getElementById("ProfileArt");
+var parentUrl = window.location.origin + "/Etharia_Wiki";
+const artHeight = profileArt.height;
+const artWidth = profileArt.width;
+var fNr = 0;
+var eNr = 0;
+var bag1Nr = 0;
+var dmgTypeList = [
+  "S: Slashing",
+  "P: Piercing",
+  "B: Bludgeon",
+  "F: Fire",
+  "C: Cold",
+  "R: Radiant",
+  "N: Necrotic",
+  "T: Toxic",
+];
+
+function getDamageTypeInfo() {
+  var typeList = [];
+  typeList.push(document.createTextNode("S: Slashing"));
+  typeList.push(document.createTextNode("P: Piercing"));
+  typeList.push(document.createTextNode("B: Bludgeon"));
+  typeList.push(document.createTextNode("F: Fire"));
+  typeList.push(document.createTextNode("C: Cold"));
+  typeList.push(document.createTextNode("R: Radiant"));
+  typeList.push(document.createTextNode("N: Necrotic"));
+  typeList.push(document.createTextNode("T: Toxic"));
+  return typeList;
+}
+
+function getFeatures() {
+  console.log("fNr is:" + fNr);
+  if (fNr > 0) {
+    var features = [];
+    for (let index = 1; index <= fNr; index++) {
+      const feature = {
+        title: document.getElementById("f" + index + "_name").value,
+        text: document.getElementById("f" + index + "_text").value,
+      };
+      features.push(feature);
+    }
+    return features;
+  } else {
+    return [];
+  }
+}
+
+function getBagInventory() {
+  console.log("Entering bag inventory...");
+  console.log("Number in bag..." + bag1Nr);
+  if (bag1Nr > 0) {
+    var bag1Inventory = [];
+    for (let index = 1; index <= bag1Nr; index++) {
+      console.log(
+        "index..." +
+          index +
+          "...item is of type: " +
+          document.getElementById("b1_item" + index).getAttribute("tag")
+      );
+      if (
+        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        "ranged"
+      ) {
+        const ranged = {
+          tag: "ranged",
+          name: document.getElementById("b1" + index + "_name").value,
+          type: document.getElementById("b1" + index + "_type").value,
+          hand: document.getElementById("b1" + index + "_hand").value,
+          dmg: document.getElementById("b1" + index + "_dmg").value,
+          dmgTypes: document.getElementById("b1" + index + "_dmgTypes").value,
+          range: document.getElementById("b1" + index + "_range").value,
+          initiative: document.getElementById("b1" + index + "_init").value,
+          reload: document.getElementById("b1" + index + "_reload").value,
+          penalty: document.getElementById("b1" + index + "_penalty").value,
+        };
+        bag1Inventory.push(weapon);
+      } else if (
+        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        "melee"
+      ) {
+        const ranged = {
+          tag: "melee",
+          name: document.getElementById("b1" + index + "_name").value,
+          type: document.getElementById("b1" + index + "_type").value,
+          hand: document.getElementById("b1" + index + "_hand").value,
+          dmg: document.getElementById("b1" + index + "_dmg").value,
+          dmgTypes: document.getElementById("b1" + index + "_dmgTypes").value,
+          range: document.getElementById("b1" + index + "_range").value,
+          initiative: document.getElementById("b1" + index + "_init").value,
+          penalty: document.getElementById("b1" + index + "_penalty").value,
+        };
+        bag1Inventory.push(weapon);
+      } else if (
+        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        "armor"
+      ) {
+        console.log(
+          "Armor name is..." +
+            document.getElementById("b1" + index + "_name").value
+        );
+        console.log(
+          "Armor type is..." + document.getElementById("b1" + index + "_type")
+        );
+        const armor = {
+          tag: "armor",
+          name: document.getElementById("b1" + index + "_name").value,
+          type: document.getElementById("b1" + index + "_type").value,
+          material: document.getElementById("b1" + index + "_material").value,
+          armor: document.getElementById("b1" + index + "_armor").value,
+          armInit: document.getElementById("b1" + index + "_armInit").value,
+          penalty: document.getElementById("b1" + index + "_penalty").value,
+        };
+        bag1Inventory.push(armor);
+      } else if (
+        document.getElementById("b1_item" + index).getAttribute("tag") == "item"
+      ) {
+        const item = {
+          tag: "item",
+          name: document.getElementById("b1" + index + "_name").value,
+          quantity: document.getElementById("b1" + index + "_quantity").value,
+        };
+        bag1Inventory.push(item);
+      }
+    }
+    return bag1Inventory;
+  } else {
+    return [];
+  }
+}
+
+function createBag1MeleeWeapon(bag) {
+  bag1Nr++;
+  const elementNr = bag1Nr;
+  var bag1List = document.getElementById("info_Bag1");
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "weapon");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bag1List.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", "b1" + elementNr + "_name");
+  name.value = "Sword of Glory";
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = "Light";
+  typeDiv.appendChild(type);
+  var hand = document.createElement("input");
+  hand.setAttribute("type", "text");
+  hand.setAttribute("class", "b_attribute");
+  hand.setAttribute("id", bag + elementNr + "_hand");
+  hand.value = "1H";
+  typeDiv.appendChild(hand);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var dmgDiv = document.createElement("div");
+  dmgDiv.setAttribute("class", "bagRow");
+
+  var dmgImg = document.createElement("img");
+  //   dmgImg.src = `${parentUrl}/Art/BaseDmg.png`;
+  dmgImg.src = "../Art/BaseDmg.png";
+  dmgImg.setAttribute("class", "bag_icons");
+  dmgDiv.appendChild(dmgImg);
+
+  var damage = document.createElement("input");
+  damage.setAttribute("type", "text");
+  damage.setAttribute("class", "bag_smallDigit");
+  damage.setAttribute("id", bag + elementNr + "_dmg");
+  damage.value = "2";
+  dmgDiv.appendChild(damage);
+
+  var damageType = document.createElement("input");
+  damageType.setAttribute("type", "text");
+  damageType.setAttribute("class", "b_dmgTypes");
+  damageType.setAttribute("id", bag + elementNr + "_dmgTypes");
+  damageType.value = "Slashing";
+  damageType.onmouseenter = function () {
+    console.log("Mouse Enter");
+    var dmgTypeInfo = document.createElement("p");
+    dmgTypeInfo.setAttribute("type", "text");
+    dmgTypeInfo.setAttribute("class", "dmgTypesInfo");
+    dmgTypeInfo.setAttribute("id", "dmgTypesInfo");
+    dmgTypeList.forEach((element) => {
+      dmgTypeInfo.appendChild(document.createTextNode(element));
+      dmgTypeInfo.appendChild(document.createElement("br"));
+    });
+    dmgDiv.appendChild(dmgTypeInfo);
+  };
+  damageType.onmouseleave = function () {
+    var dmgTypesElement = document.getElementById("dmgTypesInfo");
+    dmgDiv.removeChild(dmgTypesElement);
+  };
+
+  dmgDiv.appendChild(damageType);
+  itemInfo.appendChild(dmgDiv);
+  //#endregion stats
+
+  var rangeDiv = document.createElement("div");
+  rangeDiv.setAttribute("class", "bagRow");
+  var rangeTxt = document.createElement("p");
+  rangeTxt.setAttribute("type", "text");
+  rangeTxt.setAttribute("class", "b_attributeTitle");
+  rangeTxt.textContent = "Range: ";
+  rangeDiv.appendChild(rangeTxt);
+  var range = document.createElement("input");
+  range.setAttribute("type", "text");
+  range.setAttribute("class", "bag_smallDigit");
+  range.setAttribute("id", bag + elementNr + "_range");
+  range.value = "1";
+  rangeDiv.appendChild(range);
+  itemInfo.appendChild(rangeDiv);
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var wepInitative = document.createElement("input");
+  wepInitative.setAttribute("type", "text");
+  wepInitative.setAttribute("class", "bag_smallDigit");
+  wepInitative.setAttribute("id", bag + elementNr + "_init");
+  wepInitative.value = "+0";
+  bonusesDiv.appendChild(wepInitative);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "text");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.textContent = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  var t = document.createTextNode("-1 Inititive");
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  bag1List.appendChild(equippment);
+}
+function createBag1RangedWeapon(bag) {
+  bag1Nr++;
+  const elementNr = bag1Nr;
+  var bag1List = document.getElementById("info_Bag1");
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "ranged");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bag1List.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", "b1" + elementNr + "_name");
+  name.value = "Long Bow";
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = "Light";
+  typeDiv.appendChild(type);
+  var hand = document.createElement("input");
+  hand.setAttribute("type", "text");
+  hand.setAttribute("class", "b_attribute");
+  hand.setAttribute("id", bag + elementNr + "_hand");
+  hand.value = "2H";
+  typeDiv.appendChild(hand);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var dmgDiv = document.createElement("div");
+  dmgDiv.setAttribute("class", "bagRow");
+
+  var dmgImg = document.createElement("img");
+  //   dmgImg.src = `${parentUrl}/Art/BaseDmg.png`;
+  dmgImg.src = "../Art/BaseDmg.png";
+  dmgImg.setAttribute("class", "bag_icons");
+  dmgDiv.appendChild(dmgImg);
+
+  var damage = document.createElement("input");
+  damage.setAttribute("type", "text");
+  damage.setAttribute("class", "bag_smallDigit");
+  damage.setAttribute("id", bag + elementNr + "_dmg");
+  damage.value = "2";
+  dmgDiv.appendChild(damage);
+
+  var damageType = document.createElement("input");
+  damageType.setAttribute("type", "text");
+  damageType.setAttribute("class", "b_dmgTypes");
+  damageType.setAttribute("id", bag + elementNr + "_dmgTypes");
+  damageType.value = "Piercing";
+  damageType.onmouseenter = function () {
+    console.log("Mouse Enter");
+    var dmgTypeInfo = document.createElement("p");
+    dmgTypeInfo.setAttribute("type", "text");
+    dmgTypeInfo.setAttribute("class", "dmgTypesInfo");
+    dmgTypeInfo.setAttribute("id", "dmgTypesInfo");
+    dmgTypeList.forEach((element) => {
+      dmgTypeInfo.appendChild(document.createTextNode(element));
+      dmgTypeInfo.appendChild(document.createElement("br"));
+    });
+    dmgDiv.appendChild(dmgTypeInfo);
+  };
+  damageType.onmouseleave = function () {
+    var dmgTypesElement = document.getElementById("dmgTypesInfo");
+    dmgDiv.removeChild(dmgTypesElement);
+  };
+
+  dmgDiv.appendChild(damageType);
+  itemInfo.appendChild(dmgDiv);
+  //#endregion stats
+
+  var rangeDiv = document.createElement("div");
+  rangeDiv.setAttribute("class", "bagRow");
+  var rangeTxt = document.createElement("p");
+  rangeTxt.setAttribute("type", "text");
+  rangeTxt.setAttribute("class", "b_attributeTitle");
+  rangeTxt.textContent = "Range: ";
+  rangeDiv.appendChild(rangeTxt);
+  var range = document.createElement("input");
+  range.setAttribute("type", "text");
+  range.setAttribute("class", "bag_smallDigit");
+  range.setAttribute("id", bag + elementNr + "_range");
+  range.value = "1";
+  rangeDiv.appendChild(range);
+  itemInfo.appendChild(rangeDiv);
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var wepInitative = document.createElement("input");
+  wepInitative.setAttribute("type", "text");
+  wepInitative.setAttribute("class", "bag_smallDigit");
+  wepInitative.setAttribute("id", bag + elementNr + "_init");
+  wepInitative.value = "+0";
+  bonusesDiv.appendChild(wepInitative);
+
+  var reloadTxt = document.createElement("p");
+  reloadTxt.setAttribute("type", "text");
+  reloadTxt.setAttribute("class", "b_attributeTitle");
+  reloadTxt.textContent = "Reload Penalty: ";
+  bonusesDiv.appendChild(reloadTxt);
+  var reloadPenalty = document.createElement("input");
+  reloadPenalty.setAttribute("type", "text");
+  reloadPenalty.setAttribute("class", "bag_smallDigit");
+  reloadPenalty.setAttribute("id", bag + elementNr + "_reload");
+  reloadPenalty.value = "0";
+  bonusesDiv.appendChild(reloadPenalty);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "text");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.textContent = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  var t = document.createTextNode("-1 Inititive");
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  bag1List.appendChild(equippment);
+}
+
+function createBag1Armor(bag) {
+  console.log("Enter create armor...");
+  bag1Nr++;
+  const elementNr = bag1Nr;
+  var bag1List = document.getElementById("info_Bag1");
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "armor");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bag1List.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = "Armor of Demise";
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = "Heavy";
+  typeDiv.appendChild(type);
+  var material = document.createElement("input");
+  material.setAttribute("type", "text");
+  material.setAttribute("class", "b_armAttribute");
+  material.setAttribute("id", bag + elementNr + "_material");
+  material.value = "Scale Mail";
+  typeDiv.appendChild(material);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var armDiv = document.createElement("div");
+  armDiv.setAttribute("class", "bagRow");
+
+  var armTxt = document.createElement("p");
+  armTxt.setAttribute("type", "text");
+  armTxt.setAttribute("class", "b_attributeTitle");
+  armTxt.textContent = "Armor: ";
+  armDiv.appendChild(armTxt);
+
+  var armor = document.createElement("input");
+  armor.setAttribute("type", "text");
+  armor.setAttribute("class", "bag_smallDigit");
+  armor.setAttribute("id", bag + elementNr + "_armor");
+  armor.value = "2";
+  armDiv.appendChild(armor);
+
+  itemInfo.appendChild(armDiv);
+  //#endregion stats
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var armInitative = document.createElement("input");
+  armInitative.setAttribute("type", "text");
+  armInitative.setAttribute("class", "bag_smallDigit");
+  console.log("Bag id is..." + bag);
+  armInitative.setAttribute("id", bag + elementNr + "_armInit");
+  armInitative.value = "-2";
+  console.log("armInit has value set to..." + armInitative.value);
+  bonusesDiv.appendChild(armInitative);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltiesDiv = document.createElement("div");
+  penaltiesDiv.setAttribute("class", "bagRow");
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "text");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.textContent = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  var t = document.createTextNode("-1 Inititive");
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  bag1List.appendChild(equippment);
+}
+function createBag1Item(bag) {
+  bag1Nr++;
+  const elementNr = bag1Nr;
+  var bag1List = document.getElementById("info_Bag1");
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "item");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", "b1_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById("b1_item" + elementNr);
+    bag1List.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_itemName");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = "Rations";
+  title.appendChild(name);
+  var quantityTxt = document.createElement("p");
+  quantityTxt.setAttribute("type", "text");
+  quantityTxt.setAttribute("class", "b_itemTitle");
+  quantityTxt.textContent = "Qty: ";
+  title.appendChild(quantityTxt);
+  var quantity = document.createElement("input");
+  quantity.setAttribute("type", "text");
+  quantity.setAttribute("class", "bag_smallDigit");
+  quantity.setAttribute("id", bag + elementNr + "_quantity");
+  quantity.value = "2";
+  title.appendChild(quantity);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  bag1List.appendChild(equippment);
+}
+
+function loadBag(info_Bag, bagId) {
+  console.log(bagId);
+  var bagList = document.getElementById(bagId);
+  console.log(bagList);
+  bagList.replaceChildren([]);
+  if (bagId == "b1") {
+    bag1Nr = 0;
+  } else {
+    bag2Nr = 0;
+  }
+
+  console.log(bagList);
+  info_Bag?.forEach((element) => {
+    if (bagId == "info_Bag1") {
+      bag1Nr++;
+    } else {
+      bag2Nr++;
+    }
+    if (element.tag == "melee") {
+      bagList.appendChild(loadBagMeleeWeapon(bag1Nr, element, bagList, bagId));
+    } else if (element.tag == "ranged") {
+      bagList.appendChild(loadBagRangedWeapon(bag1Nr, element, bagList, bagId));
+    } else if (element.tag == "armor") {
+      bagList.appendChild(loadBagArmor(bag1Nr, element, bagList, bagId));
+    } else if (element.tag == "item") {
+      bagList.appendChild(loadBagItem(bag1Nr, element, bagList, bagId));
+    }
+  });
+}
+
+function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "melee");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = element.type;
+  typeDiv.appendChild(type);
+  var hand = document.createElement("input");
+  hand.setAttribute("type", "text");
+  hand.setAttribute("class", "b_attribute");
+  hand.setAttribute("id", bag + elementNr + "_hand");
+  hand.value = element.hand;
+  typeDiv.appendChild(hand);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var dmgDiv = document.createElement("div");
+  dmgDiv.setAttribute("class", "bagRow");
+
+  var dmgImg = document.createElement("img");
+  //   dmgImg.src = `${parentUrl}/Art/BaseDmg.png`;
+  dmgImg.src = "../Art/BaseDmg.png";
+  dmgImg.setAttribute("class", "bag_icons");
+  dmgDiv.appendChild(dmgImg);
+
+  var damage = document.createElement("input");
+  damage.setAttribute("type", "text");
+  damage.setAttribute("class", "bag_smallDigit");
+  damage.setAttribute("id", bag + elementNr + "_dmg");
+  damage.value = element.dmg;
+  dmgDiv.appendChild(damage);
+
+  var damageType = document.createElement("input");
+  damageType.setAttribute("type", "text");
+  damageType.setAttribute("class", "b_dmgTypes");
+  damageType.setAttribute("id", bag + elementNr + "_dmgTypes");
+  damageType.value = element.dmgTypes;
+  damageType.onmouseenter = function () {
+    console.log("Mouse Enter");
+    var dmgTypeInfo = document.createElement("p");
+    dmgTypeInfo.setAttribute("type", "text");
+    dmgTypeInfo.setAttribute("class", "dmgTypesInfo");
+    dmgTypeInfo.setAttribute("id", "dmgTypesInfo");
+
+    dmgTypeList.forEach((element) => {
+      dmgTypeInfo.appendChild(document.createTextNode(element));
+      dmgTypeInfo.appendChild(document.createElement("br"));
+    });
+
+    dmgDiv.appendChild(dmgTypeInfo);
+  };
+  damageType.onmouseleave = function () {
+    var dmgTypesElement = document.getElementById("dmgTypesInfo");
+    dmgDiv.removeChild(dmgTypesElement);
+  };
+
+  dmgDiv.appendChild(damageType);
+  itemInfo.appendChild(dmgDiv);
+  //#endregion stats
+
+  var rangeDiv = document.createElement("div");
+  rangeDiv.setAttribute("class", "bagRow");
+  var rangeTxt = document.createElement("p");
+  rangeTxt.setAttribute("type", "text");
+  rangeTxt.setAttribute("class", "b_attributeTitle");
+  rangeTxt.textContent = "Range: ";
+  rangeDiv.appendChild(rangeTxt);
+  var range = document.createElement("input");
+  range.setAttribute("type", "text");
+  range.setAttribute("class", "bag_smallDigit");
+  range.setAttribute("id", bag + elementNr + "_range");
+  range.value = element.range;
+  rangeDiv.appendChild(range);
+  itemInfo.appendChild(rangeDiv);
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var wepInitative = document.createElement("input");
+  wepInitative.setAttribute("type", "text");
+  wepInitative.setAttribute("class", "bag_smallDigit");
+  wepInitative.setAttribute("id", bag + elementNr + "_init");
+  wepInitative.value = element.initiative;
+  bonusesDiv.appendChild(wepInitative);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "text");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.value = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
+  var t = document.createTextNode(element.penalty);
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  return equippment;
+}
+function loadBagRangedWeapon(elementNr, element, bagList, bag) {
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "ranged");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = element.type;
+  typeDiv.appendChild(type);
+  var hand = document.createElement("input");
+  hand.setAttribute("type", "text");
+  hand.setAttribute("class", "b_attribute");
+  hand.setAttribute("id", bag + elementNr + "_hand");
+  hand.value = element.hand;
+  typeDiv.appendChild(hand);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var dmgDiv = document.createElement("div");
+  dmgDiv.setAttribute("class", "bagRow");
+
+  var dmgImg = document.createElement("img");
+  //   dmgImg.src = `${parentUrl}/Art/BaseDmg.png`;
+  dmgImg.src = "../Art/BaseDmg.png";
+  dmgImg.setAttribute("class", "bag_icons");
+  dmgDiv.appendChild(dmgImg);
+
+  var damage = document.createElement("input");
+  damage.setAttribute("type", "text");
+  damage.setAttribute("class", "bag_smallDigit");
+  damage.setAttribute("id", bag + elementNr + "_dmg");
+  damage.value = element.dmg;
+  dmgDiv.appendChild(damage);
+
+  var damageType = document.createElement("input");
+  damageType.setAttribute("type", "text");
+  damageType.setAttribute("class", "b_dmgTypes");
+  damageType.setAttribute("id", bag + elementNr + "_dmgTypes");
+  damageType.value = element.dmgTypes;
+  damageType.onmouseenter = function () {
+    console.log("Mouse Enter");
+    var dmgTypeInfo = document.createElement("p");
+    dmgTypeInfo.setAttribute("type", "text");
+    dmgTypeInfo.setAttribute("class", "dmgTypesInfo");
+    dmgTypeInfo.setAttribute("id", "dmgTypesInfo");
+    dmgTypeList.forEach((element) => {
+      dmgTypeInfo.appendChild(document.createTextNode(element));
+      dmgTypeInfo.appendChild(document.createElement("br"));
+    });
+    dmgDiv.appendChild(dmgTypeInfo);
+  };
+  damageType.onmouseleave = function () {
+    var dmgTypesElement = document.getElementById("dmgTypesInfo");
+    dmgDiv.removeChild(dmgTypesElement);
+  };
+
+  dmgDiv.appendChild(damageType);
+  itemInfo.appendChild(dmgDiv);
+  //#endregion stats
+
+  var rangeDiv = document.createElement("div");
+  rangeDiv.setAttribute("class", "bagRow");
+  var rangeTxt = document.createElement("p");
+  rangeTxt.setAttribute("type", "text");
+  rangeTxt.setAttribute("class", "b_attributeTitle");
+  rangeTxt.textContent = "Range: ";
+  rangeDiv.appendChild(rangeTxt);
+  var range = document.createElement("input");
+  range.setAttribute("type", "text");
+  range.setAttribute("class", "bag_smallDigit");
+  range.setAttribute("id", bag + elementNr + "_range");
+  range.value = element.range;
+  rangeDiv.appendChild(range);
+  itemInfo.appendChild(rangeDiv);
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var wepInitative = document.createElement("input");
+  wepInitative.setAttribute("type", "text");
+  wepInitative.setAttribute("class", "bag_smallDigit");
+  wepInitative.setAttribute("id", bag + elementNr + "_init");
+  wepInitative.value = element.initiative;
+  bonusesDiv.appendChild(wepInitative);
+
+  var reloadTxt = document.createElement("p");
+  reloadTxt.setAttribute("type", "text");
+  reloadTxt.setAttribute("class", "b_attributeTitle");
+  reloadTxt.textContent = "Reload Penalty: ";
+  bonusesDiv.appendChild(reloadTxt);
+  var reloadPenalty = document.createElement("input");
+  reloadPenalty.setAttribute("type", "text");
+  reloadPenalty.setAttribute("class", "bag_smallDigit");
+  reloadPenalty.setAttribute("id", bag + elementNr + "_reload");
+  reloadPenalty.value = element.reload;
+  bonusesDiv.appendChild(reloadPenalty);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "textarea");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.value = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
+  var t = document.createTextNode(element.penalty);
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  return equippment;
+}
+function loadBagArmor(elementNr, element, bagList, bag) {
+  console.log("Armor element number is..." + elementNr);
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "armor");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    console.log("Element number is..." + elementNr);
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+  title.appendChild(name);
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+
+  //#region type
+  var typeDiv = document.createElement("div");
+  typeDiv.setAttribute("class", "bagRow");
+
+  var typeTxt = document.createElement("p");
+  typeTxt.setAttribute("type", "text");
+  typeTxt.setAttribute("class", "b_attributeTitle");
+  typeTxt.textContent = "Type: ";
+  typeDiv.appendChild(typeTxt);
+
+  var type = document.createElement("input");
+  type.setAttribute("type", "text");
+  type.setAttribute("class", "b_attribute");
+  type.setAttribute("id", bag + elementNr + "_type");
+  type.value = element.type;
+  typeDiv.appendChild(type);
+  var material = document.createElement("input");
+  material.setAttribute("type", "text");
+  material.setAttribute("class", "b_armAttribute");
+  material.setAttribute("id", bag + elementNr + "_material");
+  material.value = element.material;
+  typeDiv.appendChild(material);
+  itemInfo.appendChild(typeDiv);
+  //#endregion type
+
+  //#region stats
+  var armDiv = document.createElement("div");
+  armDiv.setAttribute("class", "bagRow");
+
+  var armTxt = document.createElement("p");
+  armTxt.setAttribute("type", "text");
+  armTxt.setAttribute("class", "b_attributeTitle");
+  armTxt.textContent = "Armor: ";
+  armDiv.appendChild(armTxt);
+
+  var armor = document.createElement("input");
+  armor.setAttribute("type", "text");
+  armor.setAttribute("class", "bag_smallDigit");
+  armor.setAttribute("id", bag + elementNr + "_armor");
+  armor.value = element.armor;
+  armDiv.appendChild(armor);
+
+  itemInfo.appendChild(armDiv);
+  //#endregion stats
+
+  var bonusesDiv = document.createElement("div");
+  bonusesDiv.setAttribute("class", "bagRow");
+
+  var initiativeTxt = document.createElement("p");
+  initiativeTxt.setAttribute("type", "text");
+  initiativeTxt.setAttribute("class", "b_attributeTitle");
+  initiativeTxt.textContent = "Initative: ";
+  bonusesDiv.appendChild(initiativeTxt);
+  var armInitative = document.createElement("input");
+  armInitative.setAttribute("type", "text");
+  armInitative.setAttribute("class", "bag_smallDigit");
+  armInitative.setAttribute("id", bag + elementNr + "_armInit");
+  armInitative.value = element.armInit;
+  bonusesDiv.appendChild(armInitative);
+  itemInfo.appendChild(bonusesDiv);
+
+  var penaltiesDiv = document.createElement("div");
+  penaltiesDiv.setAttribute("class", "bagRow");
+
+  var penaltyTitle = document.createElement("p");
+  penaltyTitle.setAttribute("type", "text");
+  penaltyTitle.setAttribute("class", "b_attributeTitle");
+  penaltyTitle.textContent = "Penalties: ";
+  itemInfo.appendChild(penaltyTitle);
+  var penalty = document.createElement("textarea");
+  penalty.setAttribute("class", "b_penaltyText");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
+  var t = document.createTextNode(element.penalty);
+  penalty.appendChild(t);
+  penalty.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(penalty);
+
+  title.appendChild(btn);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  return equippment;
+}
+function loadBagItem(elementNr, element, bagList, bag) {
+  console.log("Item element number is..." + elementNr);
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "item");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  //#region button
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    iNr--;
+    return false;
+  };
+
+  //#endregion button
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_itemName");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+  title.appendChild(name);
+  var quantityTxt = document.createElement("p");
+  quantityTxt.setAttribute("type", "text");
+  quantityTxt.setAttribute("class", "b_itemTitle");
+  quantityTxt.textContent = "Qty: ";
+  title.appendChild(quantityTxt);
+  var quantity = document.createElement("input");
+  quantity.setAttribute("type", "text");
+  quantity.setAttribute("class", "bag_smallDigit");
+  quantity.setAttribute("id", bag + elementNr + "_quantity");
+  quantity.value = element.quantity;
+  title.appendChild(quantity);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  return equippment;
+}
+
+function loadFeatures(infoFeatures) {
+  var featureList = document.getElementById("info_Features");
+  featureList.replaceChildren([]);
+  fNr = 0;
+  infoFeatures?.forEach((element) => {
+    fNr++;
+    const elementNr = fNr;
+    console.log("element: " + elementNr);
+    var feature = document.createElement("div");
+    feature.setAttribute("id", "feature" + elementNr);
+    feature.setAttribute("class", "feature");
+    var title = document.createElement("div");
+    title.setAttribute("id", "f" + elementNr + "_title");
+    var txt = document.createElement("input");
+    txt.value = element.title;
+    txt.setAttribute("class", "f_name");
+    txt.setAttribute("id", "f" + elementNr + "_name");
+    var txtArea = document.createElement("textarea");
+    var t = document.createTextNode(element.text);
+    txtArea.appendChild(t);
+    txtArea.setAttribute("id", "f" + elementNr + "_text");
+    txtArea.setAttribute("class", "f_txtArea");
+    txtArea.oninput = function () {
+      auto_grow(this);
+    };
+    var btn = document.createElement("button");
+    btn.setAttribute("class", "f_button");
+    btn.setAttribute("id", "f" + elementNr + "_btn");
+    btn.innerHTML = "-";
+    btn.onclick = function () {
+      showText(elementNr);
+      auto_grow(txtArea);
+      return false;
+    };
+    var btnRemove = document.createElement("button");
+    btnRemove.setAttribute("class", "f_button");
+    btnRemove.setAttribute("id", "btn_remove");
+    btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+    btnRemove.onclick = function () {
+      var removableElement = document.getElementById("feature" + elementNr);
+      featureList.removeChild(removableElement);
+      fNr--;
+      return false;
+    };
+
+    title.appendChild(btn);
+    title.appendChild(txt);
+    title.appendChild(btnRemove);
+    feature.appendChild(title);
+    feature.appendChild(txtArea);
+    featureList.appendChild(feature);
+    listCharacter.push(txtArea);
+
+    auto_grow(txtArea);
+  });
+}
+
+function createFeature() {
+  fNr++;
+  const elementNr = fNr;
+  var featureList = document.getElementById("info_Features");
+  var feature = document.createElement("div");
+  feature.setAttribute("class", "feature");
+  feature.setAttribute("id", "feature" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "f_title");
+
+  var txtArea = document.createElement("textarea");
+  var t = document.createTextNode("Write here...");
+  txtArea.appendChild(t);
+  txtArea.setAttribute("id", "f" + elementNr + "_text");
+  txtArea.setAttribute("class", "f_txtArea");
+  txtArea.oninput = function () {
+    auto_grow(this);
+  };
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "f_button");
+  btn.setAttribute("id", "f" + elementNr + "_btn");
+  btn.innerHTML = "-";
+  btn.onclick = function () {
+    showText(elementNr);
+    return false;
+  };
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "f_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById("feature" + elementNr);
+    featureList.removeChild(removableElement);
+    fNr--;
+    return false;
+  };
+  var txt = document.createElement("input");
+  txt.setAttribute("type", "text");
+  txt.setAttribute("class", "f_name");
+  txt.setAttribute("id", "f" + elementNr + "_name");
+  txt.value = "Title";
+  title.appendChild(btn);
+  title.appendChild(txt);
+  title.appendChild(btnRemove);
+  feature.appendChild(title);
+  feature.appendChild(txtArea);
+  featureList.appendChild(feature);
+}
+
+function showText(id) {
+  console.log(id);
+  var textElement = document.getElementById("f" + id + "_text");
+  var buttonElement = document.getElementById("f" + id + "_btn");
+  console.log("f" + id + "_text");
+
+  if (textElement.style.display === "none") {
+    buttonElement.textContent = "-";
+    textElement.style.display = "block";
+  } else {
+    textElement.style.display = "none";
+    buttonElement.textContent = "+";
+  }
+}
+function showDiv(tag, id) {
+  console.log(tag + id + "_info");
+  var divElement = document.getElementById(tag + id + "_info");
+  console.log(divElement);
+  var buttonElement = document.getElementById(tag + id + "_btn");
+
+  if (divElement.style.display === "none") {
+    console.log("div is closed -> now opens");
+    buttonElement.textContent = "-";
+    divElement.style.display = "block";
+  } else {
+    console.log("div is open -> now closes");
+    divElement.style.display = "none";
+    buttonElement.textContent = "+";
+  }
+}
+
+function Resize(slider) {
+  console.log("Resize");
+  const resizeNumber = {
+    1: 0.4,
+    2: 0.55,
+    3: 0.7,
+    4: 0.85,
+    5: 1,
+    6: 1.2,
+    7: 1.4,
+    8: 1.6,
+    9: 2,
+    10: 2.2,
+  };
+  console.log(slider);
+  let resizeValue = resizeNumber[slider];
+  console.log("art height:" + artHeight);
+  console.log("art width:" + artWidth);
+  console.log("height:" + profileArt.height);
+  console.log("width:" + profileArt.width);
+  console.log(resizeValue);
+
+  profileArt.style.height = artHeight * resizeValue + "px";
+  profileArt.style.width = artWidth * resizeValue + "px";
+  console.log("height:" + profileArt.height);
+  console.log("width:" + profileArt.width);
+  profileArt.src = profileArt.src;
+}

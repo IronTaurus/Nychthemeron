@@ -146,7 +146,20 @@
                 </div>
             </div>
             <div id="info_Items">
-                <textarea class="infoTxtItems" id="info_Bag1" rows="20">Write items here...</textarea>
+                <div class="dropItemMenu">
+                    <img class="dropItemMenuBtn" src='../art/icon_add.png' />
+                    <div class="dropItemMenu-content">
+                        <a class="dropMenuItem" id="Equippment" onclick="createBag1MeleeWeapon('b1')">Melee Weapon</a>
+                        <a class="dropMenuItem" id="Equippment" onclick="createBag1RangedWeapon('b1')">Ranged Weapon</a>
+                        <a class="dropMenuItem" id="Armor" onclick="createBag1Armor('b1')">Armor</a>
+                        <a class="dropMenuItem" id="Item" onclick="createBag1Item('b1')">Item</a>
+
+                    </div>
+                </div>
+
+                <div class="infoTxtItems" id="info_Bag1">
+
+                </div>
                 <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...</textarea>
             </div>
             <button id="addFeature" onclick="createFeature()">add</button>
@@ -179,6 +192,7 @@
 
     <script src="./html2canvas.min.js"></script>
     <script src="./sheet_script.js"></script>
+    <script src="./sheetCharacter_script.js"></script>
     <script src="./sheetBackground_script.js"></script>
 
 
