@@ -1,12 +1,12 @@
 var profileArt = document.getElementById("ProfileArt");
-var parentUrl = window.location.origin + "/Etharia_Wiki";
-// var parentUrl = window.location.origin + "";
+// var parentUrl = window.location.origin + "/Etharia_Wiki";
+var parentUrl = window.location.origin + "";
 const artHeight = profileArt.height;
 const artWidth = profileArt.width;
 var fNr = 0;
 var eNr = 0;
-var bag1Nr = 0;
-var bag2Nr = 0;
+// var bag1Nr = 0;
+// var bag2Nr = 0;
 var dmgTypeList = [
   "S: Slashing",
   "P: Piercing",
@@ -48,23 +48,22 @@ function getFeatures() {
   }
 }
 
-function getBagInventory(bag) {
-  var bagNr;
-  if (bag == "b1") {
-    bagNr = bag1Nr;
-  } else {
-    bagNr = bag2Nr;
-  }
-  console.log("Entering bag inventory...");
+function getBagInventory(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  console.log("Entering " + bagId + " inventory...");
   console.log("Number in bag..." + bagNr);
   if (bagNr > 0) {
     var bagInventory = [];
     for (let index = 1; index <= bagNr; index++) {
+      console.log("index..." + index + " out of " + bagNr);
       console.log(
-        "index..." +
-          index +
-          "...item is of type: " +
-          document.getElementById(bag + "_item" + index).getAttribute("tag")
+        "The item is:" + document.getElementById(bag + "_item" + index)
+      );
+      console.log(
+        "...item is of type: " +
+          document.getElementById(bag + "_item" + index).getAttribute("tag") +
+          " and is in bag..." +
+          bag
       );
       if (
         document.getElementById(bag + "_item" + index).getAttribute("tag") ==
@@ -82,12 +81,12 @@ function getBagInventory(bag) {
           reload: document.getElementById(bag + index + "_reload").value,
           penalty: document.getElementById(bag + index + "_penalty").value,
         };
-        bagInventory.push(weapon);
+        bagInventory.push(ranged);
       } else if (
         document.getElementById(bag + "_item" + index).getAttribute("tag") ==
         "melee"
       ) {
-        const ranged = {
+        const melee = {
           tag: "melee",
           name: document.getElementById(bag + index + "_name").value,
           type: document.getElementById(bag + index + "_type").value,
@@ -98,18 +97,11 @@ function getBagInventory(bag) {
           initiative: document.getElementById(bag + index + "_init").value,
           penalty: document.getElementById(bag + index + "_penalty").value,
         };
-        bagInventory.push(weapon);
+        bagInventory.push(melee);
       } else if (
         document.getElementById(bag + "_item" + index).getAttribute("tag") ==
         "armor"
       ) {
-        console.log(
-          "Armor name is..." +
-            document.getElementById(bag + index + "_name").value
-        );
-        console.log(
-          "Armor type is..." + document.getElementById(bag + index + "_type")
-        );
         const armor = {
           tag: "armor",
           name: document.getElementById(bag + index + "_name").value,
@@ -130,6 +122,28 @@ function getBagInventory(bag) {
           quantity: document.getElementById(bag + index + "_quantity").value,
         };
         bagInventory.push(item);
+      } else if (
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
+        "specialItem"
+      ) {
+        const specialItem = {
+          tag: "specialItem",
+          name: document.getElementById(bag + index + "_name").value,
+          description: document.getElementById(bag + index + "_description")
+            .value,
+        };
+        bagInventory.push(specialItem);
+      } else if (
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
+        "container"
+      ) {
+        const container = {
+          tag: "container",
+          name: document.getElementById(bag + index + "_name").value,
+          description: document.getElementById(bag + index + "_description")
+            .value,
+        };
+        bagInventory.push(container);
       }
     }
     return bagInventory;
@@ -138,20 +152,14 @@ function getBagInventory(bag) {
   }
 }
 
-function createBag1MeleeWeapon(bag, bagId) {
-  var bagNr;
-  if (bag == "b1") {
-    bag1Nr++;
-    bagNr = bag1Nr;
-  } else {
-    bag2Nr++;
-    bagNr = bag2Nr;
-  }
+function createBagMeleeWeapon(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
 
   const elementNr = bagNr;
   var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
-  equippment.setAttribute("tag", "weapon");
+  equippment.setAttribute("tag", "melee");
   equippment.setAttribute("class", "item");
   equippment.setAttribute("id", bag + "_item" + elementNr);
   var title = document.createElement("div");
@@ -174,7 +182,6 @@ function createBag1MeleeWeapon(bag, bagId) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -183,7 +190,7 @@ function createBag1MeleeWeapon(bag, bagId) {
   var name = document.createElement("input");
   name.setAttribute("type", "text");
   name.setAttribute("class", "b_name");
-  name.setAttribute("id", "b1" + elementNr + "_name");
+  name.setAttribute("id", bag + elementNr + "_name");
   name.value = "Sword of Glory";
 
   var itemInfo = document.createElement("div");
@@ -296,7 +303,7 @@ function createBag1MeleeWeapon(bag, bagId) {
   itemInfo.appendChild(penaltyTitle);
   var penalty = document.createElement("textarea");
   penalty.setAttribute("class", "b_penaltyText");
-  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
   var t = document.createTextNode("-1 Inititive");
   penalty.appendChild(t);
   penalty.oninput = function () {
@@ -311,16 +318,12 @@ function createBag1MeleeWeapon(bag, bagId) {
   equippment.appendChild(itemInfo);
   bagList.appendChild(equippment);
 }
-function createBag1RangedWeapon(bag, bagId) {
-  var bagNr;
-  if (bag == "b1") {
-    bag1Nr++;
-    bagNr = bag1Nr;
-  } else {
-    bag2Nr++;
-    bagNr = bag2Nr;
-  }
+function createBagRangedWeapon(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
+
   const elementNr = bagNr;
+  console.log("The bag is..." + bag + " and the item number is..." + elementNr);
   var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "ranged");
@@ -346,7 +349,6 @@ function createBag1RangedWeapon(bag, bagId) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -355,9 +357,8 @@ function createBag1RangedWeapon(bag, bagId) {
   var name = document.createElement("input");
   name.setAttribute("type", "text");
   name.setAttribute("class", "b_name");
-  name.setAttribute("id", "b1" + elementNr + "_name");
+  name.setAttribute("id", bag + elementNr + "_name");
   name.value = "Long Bow";
-  title.appendChild(name);
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
@@ -482,7 +483,7 @@ function createBag1RangedWeapon(bag, bagId) {
   itemInfo.appendChild(penaltyTitle);
   var penalty = document.createElement("textarea");
   penalty.setAttribute("class", "b_penaltyText");
-  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
   var t = document.createTextNode("-1 Inititive");
   penalty.appendChild(t);
   penalty.oninput = function () {
@@ -491,21 +492,17 @@ function createBag1RangedWeapon(bag, bagId) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
   bagList.appendChild(equippment);
 }
 
-function createBag1Armor(bag, bagId) {
-  var bagNr;
-  if (bag == "b1") {
-    bag1Nr++;
-    bagNr = bag1Nr;
-  } else {
-    bag2Nr++;
-    bagNr = bag2Nr;
-  }
+function createBagArmor(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
+
   const elementNr = bagNr;
   console.log("Enter create armor...");
 
@@ -534,7 +531,6 @@ function createBag1Armor(bag, bagId) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bag1List.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -545,7 +541,6 @@ function createBag1Armor(bag, bagId) {
   name.setAttribute("class", "b_name");
   name.setAttribute("id", bag + elementNr + "_name");
   name.value = "Armor of Demise";
-  title.appendChild(name);
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
@@ -624,7 +619,7 @@ function createBag1Armor(bag, bagId) {
   itemInfo.appendChild(penaltyTitle);
   var penalty = document.createElement("textarea");
   penalty.setAttribute("class", "b_penaltyText");
-  penalty.setAttribute("id", "b1" + elementNr + "_penalty");
+  penalty.setAttribute("id", bag + elementNr + "_penalty");
   var t = document.createTextNode("-1 Inititive");
   penalty.appendChild(t);
   penalty.oninput = function () {
@@ -633,26 +628,22 @@ function createBag1Armor(bag, bagId) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
   bag1List.appendChild(equippment);
 }
-function createBag1Item(bag, bagId) {
-  var bagNr;
-  if (bag == "b1") {
-    bag1Nr++;
-    bagNr = bag1Nr;
-  } else {
-    bag2Nr++;
-    bagNr = bag2Nr;
-  }
+function createBagItem(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
+  console.log("The new element is of type: Item and is the number..." + bagNr);
   const elementNr = bagNr;
-  var bag1List = document.getElementById(bagId);
+  var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "item");
   equippment.setAttribute("class", "item");
-  equippment.setAttribute("id", "b1_item" + elementNr);
+  equippment.setAttribute("id", bag + "_item" + elementNr);
   var title = document.createElement("div");
   title.setAttribute("id", "b_title");
 
@@ -661,8 +652,8 @@ function createBag1Item(bag, bagId) {
   btnRemove.setAttribute("id", "btn_remove");
   btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
-    var removableElement = document.getElementById("b1_item" + elementNr);
-    bag1List.removeChild(removableElement);
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
     iNr--;
     return false;
   };
@@ -685,35 +676,144 @@ function createBag1Item(bag, bagId) {
   title.appendChild(quantity);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
-  bag1List.appendChild(equippment);
+  bagList.appendChild(equippment);
+}
+function createBagSpecialItem(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
+  const elementNr = bagNr;
+  var bagList = document.getElementById(bagId);
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "specialItem");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    return false;
+  };
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = "Note from the Balrog";
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
+
+  var description = document.createElement("textarea");
+  description.setAttribute("class", "b_penaltyText");
+  description.setAttribute("id", "b1" + elementNr + "_description");
+  var t = document.createTextNode("Write here...");
+  description.appendChild(t);
+  description.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(description);
+  title.appendChild(btn);
+  title.appendChild(name);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  bagList.appendChild(equippment);
+}
+function createBagContainer(bag, bagId) {
+  let bagNr = document.getElementById(bagId).children.length;
+  bagNr++;
+
+  const elementNr = bagNr;
+  var bagList = document.getElementById(bagId);
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "container");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    return false;
+  };
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = "Bag of Holding";
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
+
+  var description = document.createElement("textarea");
+  description.setAttribute("class", "b_penaltyText");
+  description.setAttribute("id", "b1" + elementNr + "_description");
+  var t = document.createTextNode("Write here...");
+  description.appendChild(t);
+  description.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(description);
+  title.appendChild(btn);
+  title.appendChild(name);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  bagList.appendChild(equippment);
 }
 
-function loadBag(info_Bag, bagId) {
-  console.log(bagId);
+function loadBag(info_Bag, bagId, bag) {
+  console.log("Loading bag..." + bagId + "!");
   var bagList = document.getElementById(bagId);
   console.log(bagList);
   bagList.replaceChildren([]);
-  if (bagId == "info_Bag1") {
-    bag1Nr = 0;
-  } else {
-    bag2Nr = 0;
-  }
+  let bagNr = document.getElementById(bagId).children.length;
 
   console.log(bagList);
   info_Bag?.forEach((element) => {
-    if (bagId == "info_Bag1") {
-      bag1Nr++;
-    } else {
-      bag2Nr++;
-    }
+    bagNr++;
     if (element.tag == "melee") {
-      bagList.appendChild(loadBagMeleeWeapon(bag1Nr, element, bagList, bagId));
+      bagList.appendChild(loadBagMeleeWeapon(bagNr, element, bagList, bag));
     } else if (element.tag == "ranged") {
-      bagList.appendChild(loadBagRangedWeapon(bag1Nr, element, bagList, bagId));
+      bagList.appendChild(loadBagRangedWeapon(bagNr, element, bagList, bag));
     } else if (element.tag == "armor") {
-      bagList.appendChild(loadBagArmor(bag1Nr, element, bagList, bagId));
+      bagList.appendChild(loadBagArmor(bagNr, element, bagList, bag));
     } else if (element.tag == "item") {
-      bagList.appendChild(loadBagItem(bag1Nr, element, bagList, bagId));
+      bagList.appendChild(loadBagItem(bagNr, element, bagList, bag));
+    } else if (element.tag == "specialItem") {
+      bagList.appendChild(loadBagSpecialItem(bagNr, element, bagList, bag));
+    } else if (element.tag == "container") {
+      bagList.appendChild(loadBagContainer(bagNr, element, bagList, bag));
     }
   });
 }
@@ -743,7 +843,6 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -754,7 +853,6 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   name.setAttribute("class", "b_name");
   name.setAttribute("id", bag + elementNr + "_name");
   name.value = element.name;
-  title.appendChild(name);
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
@@ -877,6 +975,7 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
@@ -907,7 +1006,6 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -1051,6 +1149,7 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
@@ -1083,7 +1182,6 @@ function loadBagArmor(elementNr, element, bagList, bag) {
     console.log("Element number is..." + elementNr);
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -1094,7 +1192,6 @@ function loadBagArmor(elementNr, element, bagList, bag) {
   name.setAttribute("class", "b_name");
   name.setAttribute("id", bag + elementNr + "_name");
   name.value = element.name;
-  title.appendChild(name);
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
@@ -1180,6 +1277,7 @@ function loadBagArmor(elementNr, element, bagList, bag) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
@@ -1211,7 +1309,6 @@ function loadBagItem(elementNr, element, bagList, bag) {
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
-    iNr--;
     return false;
   };
 
@@ -1235,6 +1332,112 @@ function loadBagItem(elementNr, element, bagList, bag) {
   title.appendChild(quantity);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
+  return equippment;
+}
+function loadBagSpecialItem(elementNr, element, bagList, bag) {
+  console.log("Loading special item...");
+
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "specialItem");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    return false;
+  };
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
+
+  var description = document.createElement("textarea");
+  description.setAttribute("class", "b_penaltyText");
+  description.setAttribute("id", bag + elementNr + "_description");
+  var t = document.createTextNode(element.description);
+  description.appendChild(t);
+  description.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(description);
+  title.appendChild(btn);
+  title.appendChild(name);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
+  return equippment;
+}
+function loadBagContainer(elementNr, element, bagList, bag) {
+  var equippment = document.createElement("div");
+  equippment.setAttribute("tag", "container");
+  equippment.setAttribute("class", "item");
+  equippment.setAttribute("id", bag + "_item" + elementNr);
+  var title = document.createElement("div");
+  title.setAttribute("id", "b_title");
+
+  var btn = document.createElement("button");
+  btn.setAttribute("class", "b_button");
+  btn.setAttribute("id", bag + elementNr + "_btn");
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+  btn.onclick = function () {
+    showDiv(bag, elementNr);
+    return false;
+  };
+
+  var btnRemove = document.createElement("button");
+  btnRemove.setAttribute("class", "b_button");
+  btnRemove.setAttribute("id", "btn_remove");
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
+  btnRemove.onclick = function () {
+    var removableElement = document.getElementById(bag + "_item" + elementNr);
+    bagList.removeChild(removableElement);
+    return false;
+  };
+  var name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("class", "b_name");
+  name.setAttribute("id", bag + elementNr + "_name");
+  name.value = element.name;
+
+  var itemInfo = document.createElement("div");
+  itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
+
+  var description = document.createElement("textarea");
+  description.setAttribute("class", "b_penaltyText");
+  description.setAttribute("id", "b1" + elementNr + "_description");
+  var t = document.createTextNode(element.description);
+  description.appendChild(t);
+  description.oninput = function () {
+    auto_grow(this);
+  };
+  itemInfo.appendChild(description);
+  title.appendChild(btn);
+  title.appendChild(name);
+  title.appendChild(btnRemove);
+  equippment.appendChild(title);
+  equippment.appendChild(itemInfo);
   return equippment;
 }
 

@@ -228,8 +228,9 @@ function LoadCharacterInfo(character) {
   loadFeatures(listCharacter);
   // document.getElementById("info_Bag1").value = character.infoBag?.bag1 ?? "";
   bag1List = character.infoBag?.bag1 ?? [];
-  loadBag(bag1List, "info_Bag1");
-  document.getElementById("info_Bag2").value = character.infoBag?.bag2 ?? "";
+  loadBag(bag1List, "info_Bag1", "b1");
+  bag2List = character.infoBag?.bag2 ?? [];
+  loadBag(bag2List, "info_Bag2", "b2");
 }
 
 function StringifyCharacter() {
@@ -294,8 +295,8 @@ function StringifyCharacter() {
   var bg_Background = document.getElementById("bio_Background").value;
   var features = getFeatures();
 
-  var bag1 = getBagInventory("b1");
-  var bag2 = getBagInventory("b2");
+  var bag1 = getBagInventory("b1", "info_Bag1");
+  var bag2 = getBagInventory("b2", "info_Bag2");
 
   const updatedCharacter = {
     infoPerson: {
