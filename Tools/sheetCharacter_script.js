@@ -153,7 +153,7 @@ function createBag1MeleeWeapon(bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bag1List.removeChild(removableElement);
@@ -317,7 +317,7 @@ function createBag1RangedWeapon(bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bag1List.removeChild(removableElement);
@@ -495,7 +495,7 @@ function createBag1Armor(bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bag1List.removeChild(removableElement);
@@ -616,7 +616,7 @@ function createBag1Item(bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById("b1_item" + elementNr);
     bag1List.removeChild(removableElement);
@@ -696,7 +696,7 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
@@ -859,7 +859,7 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
@@ -1033,7 +1033,7 @@ function loadBagArmor(elementNr, element, bagList, bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     console.log("Element number is..." + elementNr);
     var removableElement = document.getElementById(bag + "_item" + elementNr);
@@ -1161,7 +1161,7 @@ function loadBagItem(elementNr, element, bagList, bag) {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "b_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
     bagList.removeChild(removableElement);
@@ -1229,7 +1229,7 @@ function loadFeatures(infoFeatures) {
     var btnRemove = document.createElement("button");
     btnRemove.setAttribute("class", "f_button");
     btnRemove.setAttribute("id", "btn_remove");
-    btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+    btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
     btnRemove.onclick = function () {
       var removableElement = document.getElementById("feature" + elementNr);
       featureList.removeChild(removableElement);
@@ -1278,7 +1278,7 @@ function createFeature() {
   var btnRemove = document.createElement("button");
   btnRemove.setAttribute("class", "f_button");
   btnRemove.setAttribute("id", "btn_remove");
-  btnRemove.innerHTML = '<img src="../art/icon_removesmall.png"/>';
+  btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById("feature" + elementNr);
     featureList.removeChild(removableElement);
