@@ -1,5 +1,6 @@
 var profileArt = document.getElementById("ProfileArt");
-var parentUrl = window.location.origin + "/Etharia_Wiki";
+// var parentUrl = window.location.origin + "/Etharia_Wiki";
+var parentUrl = window.location.origin + "";
 const artHeight = profileArt.height;
 const artWidth = profileArt.width;
 var fNr = 0;
@@ -160,7 +161,7 @@ function createBag1MeleeWeapon(bag, bagId) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -184,10 +185,10 @@ function createBag1MeleeWeapon(bag, bagId) {
   name.setAttribute("class", "b_name");
   name.setAttribute("id", "b1" + elementNr + "_name");
   name.value = "Sword of Glory";
-  title.appendChild(name);
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -204,13 +205,13 @@ function createBag1MeleeWeapon(bag, bagId) {
   type.setAttribute("class", "b_attribute");
   type.setAttribute("id", bag + elementNr + "_type");
   type.value = "Light";
-  typeDiv.appendChild(type);
   var hand = document.createElement("input");
   hand.setAttribute("type", "text");
-  hand.setAttribute("class", "b_attribute");
+  hand.setAttribute("class", "bag_smallDigit");
   hand.setAttribute("id", bag + elementNr + "_hand");
   hand.value = "1H";
   typeDiv.appendChild(hand);
+  typeDiv.appendChild(type);
   itemInfo.appendChild(typeDiv);
   //#endregion type
 
@@ -304,6 +305,7 @@ function createBag1MeleeWeapon(bag, bagId) {
   itemInfo.appendChild(penalty);
 
   title.appendChild(btn);
+  title.appendChild(name);
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
@@ -331,7 +333,7 @@ function createBag1RangedWeapon(bag, bagId) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -359,6 +361,7 @@ function createBag1RangedWeapon(bag, bagId) {
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -375,13 +378,14 @@ function createBag1RangedWeapon(bag, bagId) {
   type.setAttribute("class", "b_attribute");
   type.setAttribute("id", bag + elementNr + "_type");
   type.value = "Light";
-  typeDiv.appendChild(type);
+
   var hand = document.createElement("input");
   hand.setAttribute("type", "text");
   hand.setAttribute("class", "b_attribute");
   hand.setAttribute("id", bag + elementNr + "_hand");
   hand.value = "2H";
   typeDiv.appendChild(hand);
+  typeDiv.appendChild(type);
   itemInfo.appendChild(typeDiv);
   //#endregion type
 
@@ -517,7 +521,7 @@ function createBag1Armor(bag, bagId) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -545,6 +549,7 @@ function createBag1Armor(bag, bagId) {
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -725,7 +730,7 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -753,6 +758,7 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -769,13 +775,13 @@ function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   type.setAttribute("class", "b_attribute");
   type.setAttribute("id", bag + elementNr + "_type");
   type.value = element.type;
-  typeDiv.appendChild(type);
   var hand = document.createElement("input");
   hand.setAttribute("type", "text");
   hand.setAttribute("class", "b_attribute");
   hand.setAttribute("id", bag + elementNr + "_hand");
   hand.value = element.hand;
   typeDiv.appendChild(hand);
+  typeDiv.appendChild(type);
   itemInfo.appendChild(typeDiv);
   //#endregion type
 
@@ -888,7 +894,7 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -916,6 +922,7 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -932,13 +939,13 @@ function loadBagRangedWeapon(elementNr, element, bagList, bag) {
   type.setAttribute("class", "b_attribute");
   type.setAttribute("id", bag + elementNr + "_type");
   type.value = element.type;
-  typeDiv.appendChild(type);
   var hand = document.createElement("input");
   hand.setAttribute("type", "text");
   hand.setAttribute("class", "b_attribute");
   hand.setAttribute("id", bag + elementNr + "_hand");
   hand.value = element.hand;
   typeDiv.appendChild(hand);
+  typeDiv.appendChild(type);
   itemInfo.appendChild(typeDiv);
   //#endregion type
 
@@ -1062,7 +1069,7 @@ function loadBagArmor(elementNr, element, bagList, bag) {
   var btn = document.createElement("button");
   btn.setAttribute("class", "b_button");
   btn.setAttribute("id", bag + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showDiv(bag, elementNr);
     return false;
@@ -1091,6 +1098,7 @@ function loadBagArmor(elementNr, element, bagList, bag) {
 
   var itemInfo = document.createElement("div");
   itemInfo.setAttribute("id", bag + elementNr + "_info");
+  itemInfo.setAttribute("class", "b_info_div");
 
   //#region type
   var typeDiv = document.createElement("div");
@@ -1258,7 +1266,7 @@ function loadFeatures(infoFeatures) {
     var btn = document.createElement("button");
     btn.setAttribute("class", "f_button");
     btn.setAttribute("id", "f" + elementNr + "_btn");
-    btn.innerHTML = "-";
+    btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
     btn.onclick = function () {
       showText(elementNr);
       auto_grow(txtArea);
@@ -1308,7 +1316,7 @@ function createFeature() {
   var btn = document.createElement("button");
   btn.setAttribute("class", "f_button");
   btn.setAttribute("id", "f" + elementNr + "_btn");
-  btn.innerHTML = "-";
+  btn.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
   btn.onclick = function () {
     showText(elementNr);
     return false;
@@ -1343,11 +1351,12 @@ function showText(id) {
   console.log("f" + id + "_text");
 
   if (textElement.style.display === "none") {
-    buttonElement.textContent = "-";
+    buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+
     textElement.style.display = "block";
   } else {
     textElement.style.display = "none";
-    buttonElement.textContent = "+";
+    buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_closed.png" style="height: 10px"/>`;
   }
 }
 function showDiv(tag, id) {
@@ -1358,12 +1367,12 @@ function showDiv(tag, id) {
 
   if (divElement.style.display === "none") {
     console.log("div is closed -> now opens");
-    buttonElement.textContent = "-";
+    buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
     divElement.style.display = "block";
   } else {
     console.log("div is open -> now closes");
     divElement.style.display = "none";
-    buttonElement.textContent = "+";
+    buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_closed.png" style="height: 10px"/>`;
   }
 }
 
