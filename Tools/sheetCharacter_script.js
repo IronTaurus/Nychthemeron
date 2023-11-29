@@ -1,6 +1,6 @@
 var profileArt = document.getElementById("ProfileArt");
-// var parentUrl = window.location.origin + "/Etharia_Wiki";
-var parentUrl = window.location.origin + "";
+var parentUrl = window.location.origin + "/Etharia_Wiki";
+// var parentUrl = window.location.origin + "";
 const artHeight = profileArt.height;
 const artWidth = profileArt.width;
 var fNr = 0;
