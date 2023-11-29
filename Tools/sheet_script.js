@@ -294,8 +294,8 @@ function StringifyCharacter() {
   var bg_Background = document.getElementById("bio_Background").value;
   var features = getFeatures();
 
-  var bag1 = getBagInventory();
-  const bag2 = document.getElementById("info_Bag2").value;
+  var bag1 = getBagInventory("b1");
+  var bag2 = getBagInventory("b2");
 
   const updatedCharacter = {
     infoPerson: {

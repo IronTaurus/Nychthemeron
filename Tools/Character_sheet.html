@@ -149,18 +149,32 @@
                 <div class="dropItemMenu">
                     <img class="dropItemMenuBtn" src='../Art/icon_add.png' />
                     <div class="dropItemMenu-content">
-                        <a class="dropMenuItem" id="Equippment" onclick="createBag1MeleeWeapon('b1')">Melee Weapon</a>
-                        <a class="dropMenuItem" id="Equippment" onclick="createBag1RangedWeapon('b1')">Ranged Weapon</a>
-                        <a class="dropMenuItem" id="Armor" onclick="createBag1Armor('b1')">Armor</a>
-                        <a class="dropMenuItem" id="Item" onclick="createBag1Item('b1')">Item</a>
+                        <a class="dropMenuItem" id="Equippment" onclick="createBag1MeleeWeapon('b1', 'info_Bag1')">Melee
+                            Weapon</a>
+                        <a class="dropMenuItem" id="Equippment"
+                            onclick="createBag1RangedWeapon('b1', 'info_Bag1')">Ranged Weapon</a>
+                        <a class="dropMenuItem" id="Armor" onclick="createBag1Armor('b1', 'info_Bag1')">Armor</a>
+                        <a class="dropMenuItem" id="Item" onclick="createBag1Item('b1', 'info_Bag1')">Item</a>
+
+                    </div>
+                </div>
+                <div class="dropItemMenu" style="margin-left: 43%;">
+                    <img class="dropItemMenuBtn" src='../Art/icon_add.png' />
+                    <div class="dropItemMenu-content">
+                        <a class="dropMenuItem" id="Equippment" onclick="createBag1MeleeWeapon('b2', 'info_Bag2')">Melee
+                            Weapon</a>
+                        <a class="dropMenuItem" id="Equippment"
+                            onclick="createBag1RangedWeapon('b2', 'info_Bag2')">Ranged Weapon</a>
+                        <a class="dropMenuItem" id="Armor" onclick="createBag1Armor('b2', 'info_Bag2')">Armor</a>
+                        <a class="dropMenuItem" id="Item" onclick="createBag1Item('b2', 'info_Bag2')">Item</a>
 
                     </div>
                 </div>
 
                 <div class="infoTxtItems" id="info_Bag1">
-
                 </div>
-                <textarea class="infoTxtItems" id="info_Bag2" rows="20">Write items here...</textarea>
+                <div class="infoTxtItems" id="info_Bag2">
+                </div>
             </div>
             <button id="addFeature" onclick="createFeature()">add</button>
             <div id="info_Features">

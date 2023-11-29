@@ -5,6 +5,7 @@ const artWidth = profileArt.width;
 var fNr = 0;
 var eNr = 0;
 var bag1Nr = 0;
+var bag2Nr = 0;
 var dmgTypeList = [
   "S: Slashing",
   "P: Piercing",
@@ -46,93 +47,108 @@ function getFeatures() {
   }
 }
 
-function getBagInventory() {
+function getBagInventory(bag) {
+  var bagNr;
+  if (bag == "b1") {
+    bagNr = bag1Nr;
+  } else {
+    bagNr = bag2Nr;
+  }
   console.log("Entering bag inventory...");
-  console.log("Number in bag..." + bag1Nr);
-  if (bag1Nr > 0) {
-    var bag1Inventory = [];
-    for (let index = 1; index <= bag1Nr; index++) {
+  console.log("Number in bag..." + bagNr);
+  if (bagNr > 0) {
+    var bagInventory = [];
+    for (let index = 1; index <= bagNr; index++) {
       console.log(
         "index..." +
           index +
           "...item is of type: " +
-          document.getElementById("b1_item" + index).getAttribute("tag")
+          document.getElementById(bag + "_item" + index).getAttribute("tag")
       );
       if (
-        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
         "ranged"
       ) {
         const ranged = {
           tag: "ranged",
-          name: document.getElementById("b1" + index + "_name").value,
-          type: document.getElementById("b1" + index + "_type").value,
-          hand: document.getElementById("b1" + index + "_hand").value,
-          dmg: document.getElementById("b1" + index + "_dmg").value,
-          dmgTypes: document.getElementById("b1" + index + "_dmgTypes").value,
-          range: document.getElementById("b1" + index + "_range").value,
-          initiative: document.getElementById("b1" + index + "_init").value,
-          reload: document.getElementById("b1" + index + "_reload").value,
-          penalty: document.getElementById("b1" + index + "_penalty").value,
+          name: document.getElementById(bag + index + "_name").value,
+          type: document.getElementById(bag + index + "_type").value,
+          hand: document.getElementById(bag + index + "_hand").value,
+          dmg: document.getElementById(bag + index + "_dmg").value,
+          dmgTypes: document.getElementById(bag + index + "_dmgTypes").value,
+          range: document.getElementById(bag + index + "_range").value,
+          initiative: document.getElementById(bag + index + "_init").value,
+          reload: document.getElementById(bag + index + "_reload").value,
+          penalty: document.getElementById(bag + index + "_penalty").value,
         };
-        bag1Inventory.push(weapon);
+        bagInventory.push(weapon);
       } else if (
-        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
         "melee"
       ) {
         const ranged = {
           tag: "melee",
-          name: document.getElementById("b1" + index + "_name").value,
-          type: document.getElementById("b1" + index + "_type").value,
-          hand: document.getElementById("b1" + index + "_hand").value,
-          dmg: document.getElementById("b1" + index + "_dmg").value,
-          dmgTypes: document.getElementById("b1" + index + "_dmgTypes").value,
-          range: document.getElementById("b1" + index + "_range").value,
-          initiative: document.getElementById("b1" + index + "_init").value,
-          penalty: document.getElementById("b1" + index + "_penalty").value,
+          name: document.getElementById(bag + index + "_name").value,
+          type: document.getElementById(bag + index + "_type").value,
+          hand: document.getElementById(bag + index + "_hand").value,
+          dmg: document.getElementById(bag + index + "_dmg").value,
+          dmgTypes: document.getElementById(bag + index + "_dmgTypes").value,
+          range: document.getElementById(bag + index + "_range").value,
+          initiative: document.getElementById(bag + index + "_init").value,
+          penalty: document.getElementById(bag + index + "_penalty").value,
         };
-        bag1Inventory.push(weapon);
+        bagInventory.push(weapon);
       } else if (
-        document.getElementById("b1_item" + index).getAttribute("tag") ==
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
         "armor"
       ) {
         console.log(
           "Armor name is..." +
-            document.getElementById("b1" + index + "_name").value
+            document.getElementById(bag + index + "_name").value
         );
         console.log(
-          "Armor type is..." + document.getElementById("b1" + index + "_type")
+          "Armor type is..." + document.getElementById(bag + index + "_type")
         );
         const armor = {
           tag: "armor",
-          name: document.getElementById("b1" + index + "_name").value,
-          type: document.getElementById("b1" + index + "_type").value,
-          material: document.getElementById("b1" + index + "_material").value,
-          armor: document.getElementById("b1" + index + "_armor").value,
-          armInit: document.getElementById("b1" + index + "_armInit").value,
-          penalty: document.getElementById("b1" + index + "_penalty").value,
+          name: document.getElementById(bag + index + "_name").value,
+          type: document.getElementById(bag + index + "_type").value,
+          material: document.getElementById(bag + index + "_material").value,
+          armor: document.getElementById(bag + index + "_armor").value,
+          armInit: document.getElementById(bag + index + "_armInit").value,
+          penalty: document.getElementById(bag + index + "_penalty").value,
         };
-        bag1Inventory.push(armor);
+        bagInventory.push(armor);
       } else if (
-        document.getElementById("b1_item" + index).getAttribute("tag") == "item"
+        document.getElementById(bag + "_item" + index).getAttribute("tag") ==
+        "item"
       ) {
         const item = {
           tag: "item",
-          name: document.getElementById("b1" + index + "_name").value,
-          quantity: document.getElementById("b1" + index + "_quantity").value,
+          name: document.getElementById(bag + index + "_name").value,
+          quantity: document.getElementById(bag + index + "_quantity").value,
         };
-        bag1Inventory.push(item);
+        bagInventory.push(item);
       }
     }
-    return bag1Inventory;
+    return bagInventory;
   } else {
     return [];
   }
 }
 
-function createBag1MeleeWeapon(bag) {
-  bag1Nr++;
-  const elementNr = bag1Nr;
-  var bag1List = document.getElementById("info_Bag1");
+function createBag1MeleeWeapon(bag, bagId) {
+  var bagNr;
+  if (bag == "b1") {
+    bag1Nr++;
+    bagNr = bag1Nr;
+  } else {
+    bag2Nr++;
+    bagNr = bag2Nr;
+  }
+
+  const elementNr = bagNr;
+  var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "weapon");
   equippment.setAttribute("class", "item");
@@ -156,7 +172,7 @@ function createBag1MeleeWeapon(bag) {
   btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
-    bag1List.removeChild(removableElement);
+    bagList.removeChild(removableElement);
     iNr--;
     return false;
   };
@@ -291,12 +307,19 @@ function createBag1MeleeWeapon(bag) {
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
-  bag1List.appendChild(equippment);
+  bagList.appendChild(equippment);
 }
-function createBag1RangedWeapon(bag) {
-  bag1Nr++;
-  const elementNr = bag1Nr;
-  var bag1List = document.getElementById("info_Bag1");
+function createBag1RangedWeapon(bag, bagId) {
+  var bagNr;
+  if (bag == "b1") {
+    bag1Nr++;
+    bagNr = bag1Nr;
+  } else {
+    bag2Nr++;
+    bagNr = bag2Nr;
+  }
+  const elementNr = bagNr;
+  var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "ranged");
   equippment.setAttribute("class", "item");
@@ -320,7 +343,7 @@ function createBag1RangedWeapon(bag) {
   btnRemove.innerHTML = `<img src="${parentUrl}/Art/icon_remove.png"/>`;
   btnRemove.onclick = function () {
     var removableElement = document.getElementById(bag + "_item" + elementNr);
-    bag1List.removeChild(removableElement);
+    bagList.removeChild(removableElement);
     iNr--;
     return false;
   };
@@ -467,14 +490,22 @@ function createBag1RangedWeapon(bag) {
   title.appendChild(btnRemove);
   equippment.appendChild(title);
   equippment.appendChild(itemInfo);
-  bag1List.appendChild(equippment);
+  bagList.appendChild(equippment);
 }
 
-function createBag1Armor(bag) {
+function createBag1Armor(bag, bagId) {
+  var bagNr;
+  if (bag == "b1") {
+    bag1Nr++;
+    bagNr = bag1Nr;
+  } else {
+    bag2Nr++;
+    bagNr = bag2Nr;
+  }
+  const elementNr = bagNr;
   console.log("Enter create armor...");
-  bag1Nr++;
-  const elementNr = bag1Nr;
-  var bag1List = document.getElementById("info_Bag1");
+
+  var bag1List = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "armor");
   equippment.setAttribute("class", "item");
@@ -602,10 +633,17 @@ function createBag1Armor(bag) {
   equippment.appendChild(itemInfo);
   bag1List.appendChild(equippment);
 }
-function createBag1Item(bag) {
-  bag1Nr++;
-  const elementNr = bag1Nr;
-  var bag1List = document.getElementById("info_Bag1");
+function createBag1Item(bag, bagId) {
+  var bagNr;
+  if (bag == "b1") {
+    bag1Nr++;
+    bagNr = bag1Nr;
+  } else {
+    bag2Nr++;
+    bagNr = bag2Nr;
+  }
+  const elementNr = bagNr;
+  var bag1List = document.getElementById(bagId);
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "item");
   equippment.setAttribute("class", "item");
@@ -650,7 +688,7 @@ function loadBag(info_Bag, bagId) {
   var bagList = document.getElementById(bagId);
   console.log(bagList);
   bagList.replaceChildren([]);
-  if (bagId == "b1") {
+  if (bagId == "info_Bag1") {
     bag1Nr = 0;
   } else {
     bag2Nr = 0;
