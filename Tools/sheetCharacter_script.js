@@ -777,7 +777,7 @@ function createBagContainer(bag, bagId) {
 
   var description = document.createElement("textarea");
   description.setAttribute("class", "b_penaltyText");
-  description.setAttribute("id", "b1" + elementNr + "_description");
+  description.setAttribute("id", bag + elementNr + "_description");
   var t = document.createTextNode("Write here...");
   description.appendChild(t);
   description.oninput = function () {
