@@ -1,5 +1,5 @@
 var profileArt = document.getElementById("ProfileArt");
-var parentUrl = window.location.origin + "/Etharia_Wiki";
+var parentUrl = window.location.origin + "/Nychthemeron";
 // var parentUrl = window.location.origin + "";
 const artHeight = profileArt.height;
 const artWidth = profileArt.width;
