@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Main/Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner">
+        <script src="../Main/TopMenu.js" style="z-index: 99;"></script>
+
+        <div id="Top-menu-2" class="top-menu">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Fighter</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Fighter-Berserker.html">Berserker</a>
+                    <a href="#">Vanguard</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Apprentice</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Apprentice-Sun.html">Sun</a>
+                    <a href="../Classes/Apprentice-Truth.html">Truth</a>
+                    <a href="#">Death</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Rouge</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Rouge-ShadowDancer.html">Shadow Dancer</a>
+                    <a href="#">Assassin</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Ranger</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Ranger-Hunter.html">Hunter</a>
+                    <a href="#">Sharpshooter</a>
+                    <a href="#">Duelist</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Warlock</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Warlock-Shadow.html">Shadow</a>
+                    <a href="../Classes/Warlock-Deathknight.html">Deathknight</a>
+                    <a href="../Classes/Warlock-PhantomLordhtml">PhantomLord</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Wizard</button>
+                <div class="dropdown-content">
+                    <a href="#">Elemental</a>
+                    <a href="#">Chaos</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='#';">Bard</button>
+                <div class="dropdown-content">
+                    <a href="../Classes/Bard-Instrument.html">Instrument</a>
+                    <a href="#">Sword Dancer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-block">
+        <div class="section">
+            <div class="sub-section" id="sub-section-border">
+                <h4 class="block-header" id="description">Truth Apprentice v.1.2</h4>
+                <p>The Truth apprentice uses its long range and versatile abilities and buffs to change the course of
+                    the battlefield.
+                </p>
+                <h5 class="block-header" id="description">Features</h5>
+                <div id="trait-list">
+                    <div class="trait-box">
+                        <a id="positive-trait"><strong>The all seeing eye</strong></a>
+                        <div class="trait-pop-content">
+                            <p>
+                                Gain the card: 'The All Seeing Eye' and attach it to a target creature within sight.
+                                You may spend a Standard action to attach 'the all seeing eye' to a different creature.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="trait-box">
+                        <a id="positive-trait"><strong>Touch of a Truthsayer</strong></a>
+                        <div class="trait-pop-content">
+                            <p>
+                                Gain the card: 'Bounds of Truth / Bounds Unraveled'.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardcontainer">
+            <div id="Card00" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="../Art/Conditions/Sun_Condition_Theallseeingeye.png" alt="Sun" width="249" height="349"
+                    class="cardimg">
+            </div>
+
+            <div id="Card01" class="card">
+                <img src="../Art/Basic/Ranged/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(1)"
+                    id="card-changer1" class="cardimg">
+            </div>
+            <div id="Card02" class="card">
+                <img src="../Art/Basic/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(2)"
+                    id="card-changer2" class="cardimg">
+            </div>
+            <div id="Card03" class="card">
+                <img src="../Art/Basic/03_sun.png" alt="Sun" width="249" height="349" onclick="changeside(3)"
+                    id="card-changer3" class="cardimg">
+            </div>
+            <div id="Card04" class="card">
+                <img src="../Art/Basic/04_sun.png" alt="Sun" width="249" height="349" onclick="changeside(4)"
+                    id="card-changer4" class="cardimg">
+            </div>
+
+            <div id="Card01" class="card">
+                <span class="tooltiptext">Click to flip</span>
+                <img src="../Art/Apprentice/Truth/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(5)"
+                    id="card-changer5" class="cardimg">
+            </div>
+
+            <div id="Card02" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="../Art/Apprentice/Truth/02_sun.png" alt="Sun" width="249" height="349" onclick="changeside(6)"
+                    id="card-changer6" class="cardimg">
+            </div>
+
+            <div id="Card03" class="card">
+                <span class="tooltiptext">Tooltip text</span>
+                <img src="../Art/Apprentice/Truth/03_sun.png" alt="Sun" width="249" height="349" onclick="changeside(7)"
+                    id="card-changer7" class="cardimg">
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script language="javascript">
+    function changeside(cardnr) {
+        var element = document.getElementById("card-changer" + cardnr);
+        console.log(element.src);
+        if (element.src.includes('sun')) {
+            element.src = element.src.replace('sun', 'mon');
+            element.alt = "Moon"
+        }
+        else if (element.src.includes('mon')) {
+            element.src = element.src.replace('mon', 'sun');
+            element.alt = "Sun"
+        }
+        document.getElementById('card-changer' + cardnr).src = element.src;
+    }
+</script>
+
+</html>

@@ -226,7 +226,7 @@ body {
 }
 .cardimg:hover {
   transform-origin: center;
-  transform: scale(1.5);
+  transform: scale(2);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
