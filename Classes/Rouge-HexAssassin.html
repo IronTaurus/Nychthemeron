@@ -27,22 +27,22 @@
                 <div class="dropdown-content">
                     <a href="../Classes/Apprentice-Sun.html">Sun</a>
                     <a href="../Classes/Apprentice-Truth.html">Truth</a>
-                    <a href="#">Death</a>
+                    <a href="#">Death (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Rouge</button>
                 <div class="dropdown-content">
                     <a href="../Classes/Rouge-ShadowDancer.html">Shadow Dancer</a>
-                    <a href="#">Assassin</a>
+                    <a href="../Classes/Rouge-HexAssassin.html">Hex Assassin</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Ranger</button>
                 <div class="dropdown-content">
                     <a href="../Classes/Ranger-Hunter.html">Hunter</a>
-                    <a href="#">Sharpshooter</a>
-                    <a href="#">Duelist</a>
+                    <a href="#">Sharpshooter (not yet implemented)</a>
+                    <a href="#">Duelist (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -56,15 +56,15 @@
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Wizard</button>
                 <div class="dropdown-content">
-                    <a href="#">Elemental</a>
-                    <a href="#">Chaos</a>
+                    <a href="#">Elemental (not yet implemented)</a>
+                    <a href="#">Chaos (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Bard</button>
                 <div class="dropdown-content">
                     <a href="../Classes/Bard-Instrument.html">Instrument</a>
-                    <a href="#">Sword Dancer</a>
+                    <a href="#">Sword Dancer (not yet implemented)</a>
                 </div>
             </div>
         </div>
@@ -73,19 +73,29 @@
     <div id="main-block">
         <div class="section">
             <div class="sub-section" id="sub-section-border">
-                <h4 class="block-header" id="description">Shadow Dancer</h4>
-                <p></p>
+                <h4 class="block-header" id="description">Hex Assassin</h4>
+                <p>The Hex assassin may not be as stealthy as other assassins but they do make up for it with their
+                    agile movements and their excellent combination of corruptive curses and piercing attacks.
+                    Being able to easily weaken their enemy while swiftly moving around in the battlefield attacking
+                    their enemy from any direction.
+                </p>
                 <h5 class="block-header" id="description">Features</h5>
                 <div id="trait-list">
                     <div class="trait-box">
-                        <a id="positive-trait"><strong>Back Stab</strong></a>
+                        <a id="positive-trait"><strong>Quick and Quiet</strong></a>
                         <div class="trait-pop-content">
                             <p>
-                                When attacking an enemy that is flanked or unaware of your presence, gain advantage
-                                on any attack against that enemy. (draw two sets of AC cards and choose the
-                                higher/better set and shuffle
-                                the rest into the deck again).
-
+                                You may use potions and salves as a free action. You may ignore the verbal component for
+                                reaction spells.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="trait-box">
+                        <a id="positive-trait"><strong>Backstab</strong></a>
+                        <div class="trait-pop-content">
+                            <p>
+                                If you attack a creature without it being aware of you, you may add 2 AC in additional
+                                damage.
                             </p>
                         </div>
                     </div>
@@ -97,13 +107,13 @@
         <div class="cardcontainer">
             <div id="Card01" class="card">
                 <span class="tooltiptext">Click to flip</span>
-                <img src="../Art/Basic/" alt="Sun" width="249" height="349" onclick="changeside(1)" id="card-changer1"
-                    class="cardimg">
+                <img src="../Art/Basic/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(1)"
+                    id="card-changer1" class="cardimg">
             </div>
 
             <div id="Card02" class="card">
                 <span class="tooltiptext">Tooltip text</span>
-                <img src="../Art/Basic/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(2)"
+                <img src="../Art/Basic/Melee/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(2)"
                     id="card-changer2" class="cardimg">
             </div>
 
@@ -121,18 +131,13 @@
 
             <div id="Card05" class="card">
                 <span class="tooltiptext">Tooltip text</span>
-                <img src="../Art/Rouge/Shadow Dancer/01_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Rouge/Hex Assassin/01_sun.png" alt="Sun" width="249" height="349"
                     onclick="changeside(5)" id="card-changer5" class="cardimg">
             </div>
             <div id="Card06" class="card">
                 <span class="tooltiptext">Tooltip text</span>
-                <img src="../Art/Rouge/Shadow Dancer/02_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Rouge/Hex Assassin/02_sun.png" alt="Sun" width="249" height="349"
                     onclick="changeside(6)" id="card-changer6" class="cardimg">
-            </div>
-            <div id="Card07" class="card">
-                <span class="tooltiptext">Tooltip text</span>
-                <img src="../Art/Rouge/Shadow Dancer/03_sun.png" alt="Sun" width="249" height="349"
-                    onclick="changeside(7)" id="card-changer7" class="cardimg">
             </div>
 
         </div>
