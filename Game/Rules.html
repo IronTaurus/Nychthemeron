@@ -77,16 +77,21 @@
                                     type:<br>
                                     <strong>Standard</strong> - Can only be taken during your turn.<br>
                                     <strong>Movement</strong> - Can only be taken during your turn.<br>
-                                    <strong>Reaction</strong> - Can be taken anytime during the round (on the time
-                                    specified on the card, i.e. 'Whenever', 'At').<br>
+                                    <strong>Reaction</strong> - Can be taken at any
+                                    <a onclick="viewElement('Moment-Reaction');"
+                                        style="color: rgb(0, 30, 255); cursor: pointer;">Moment</a> during the
+                                    round.<br>
                                     <br>
                                     Some cards can be both <strong>Standard</strong> and <strong>Reaction</strong>,
                                     these types of cards can have
-                                    two function and each action is used for the respective function of the card.<br>
-                                    Other cards can have both types but only one function in which both Actions can be
+                                    two function and each action is used for the respective function of the
+                                    card.<br>
+                                    Other cards can have both types but only one function in which both Actions can
+                                    be
                                     used for the same single function, in these cases if the card is both
                                     <strong>Reaction</strong> and
-                                    <strong>Standard</strong> when and how you use the card is specified in the ruling
+                                    <strong>Standard</strong> when and how you use the card is specified in the
+                                    ruling
                                     text of the card.
                                 </p>
                                 </p>
@@ -111,7 +116,7 @@
                                     value and turn order can be changed mid combat.
                                 </p>
                             </div>
-                            <h4 class="block-header">Moment and Reaction</h4>
+                            <h4 class="block-header" id="Moment-Reaction" ;>Moment and Reaction</h4>
                             <div id="text-block">
                                 <p style="margin: 2px;">
                                     Some cards such as those of the type Reaction can be activated on another creature’s
@@ -122,73 +127,34 @@
                                 <div id="text-block" style="margin-bottom: 2%;">
                                     <h2>List of Moments:</h2>
                                     <div id="text-block">
-                                        <h3 style="margin: 4px;">Start of the round</h3>
+                                        <h3 style="margin: 4px;">Start</h3>
                                         <p style="margin: 2px;">
-                                            (i.e. “At the start of the round”)
+                                            Start of a Turn or Round. (i.e. “At the start of your turn”)
                                         </p>
                                     </div>
                                     <div id="text-block">
-                                        <h3 style="margin: 4px;">Start of turn</h3>
+                                        <h3 style="margin: 4px;">Activation</h3>
                                         <p style="margin: 2px;">
-                                            (i.e. “At the start of your turn”)
-                                        </p>
-                                    </div>
-
-
-                                    <h3 style="margin: 4px;">Action</h3>
-                                    <p style="margin: 2px;">
-                                        Any of the following moments of actions.
-                                    </p>
-                                    <div id="text-block">
-                                        <h4 style="margin: 2px;">Standard</h4>
-                                        <p style="margin: 2px;">
-                                            - Whenever a spell is activated.(i.e. “Whenever a creature casts a spell”.)
-                                        </p>
-                                        <p style="margin: 2px;">- Whenever a spell has been resolved. (i.e. “Whenever a
-                                            creature’s
-                                            spell has been
-                                            resolved”.)</p>
-                                        <p style="margin: 2px;">- Whenever an attack is initiated. (i.e. “Whenever a
-                                            creature
-                                            attacks”.)</p>
-                                        <p style="margin: 2px;">- Whenever an attack has hit. (i.e. “Whenever a creature
-                                            hits
-                                            with
-                                            an attack”.)</p>
-                                        <p style="margin: 2px;">- Whenever damage is dealt. (i.e. “Whenever you are
-                                            dealt
-                                            damage”.)</p>
-                                        <h4 style="margin: 2px;">Movement</h4>
-                                        <p style="margin: 2px;">- Whenever movement is initiated. (i.e. “Whenever a
-                                            creature
-                                            moves”.)</p>
-                                        <p style="margin: 2px;">- After the movement has been done. (i.e. “After a
-                                            creature
-                                            has
-                                            moved”.)
-                                            Reaction</p>
-                                        <h4 style="margin: 2px;">Reaction</h4>
-                                        <p style="margin: 2px;">- Whenever a reaction is used. (i.e. “Whenever a
-                                            creature
-                                            uses a
-                                            reaction in any
-                                            Moment”.)</p>
-                                        <p style="margin: 2px;">- After a reaction has been used. (i.e. “Whenever a
-                                            creature
-                                            has
-                                            used a reaction in
-                                            any Moment”.)</p>
-                                    </div>
-                                    <div id="text-block">
-                                        <h3 style="margin: 4px;">End of the turn</h3>
-                                        <p style="margin: 2px;">
-                                            (i.e. “At the end of your turn”.)
+                                            Activation of a card. (i.e. “Whenever a creature moves”.)
                                         </p>
                                     </div>
                                     <div id="text-block">
-                                        <h3 style="margin: 4px;">End of round</h3>
+                                        <h3 style="margin: 4px;">Pre-Resolution</h3>
                                         <p style="margin: 2px;">
-                                            (i.e. “At the end of the round”.)
+                                            After the effects of a card have been determined and a resolution is
+                                            imminent. (i.e. “Whenever a creature is attacked”.)
+                                        </p>
+                                    </div>
+                                    <div id="text-block">
+                                        <h3 style="margin: 4px;">Resolution</h3>
+                                        <p style="margin: 2px;">
+                                            After the resolution of a card. (i.e. “Whenever you are dealt damage”.)
+                                        </p>
+                                    </div>
+                                    <div id="text-block">
+                                        <h3 style="margin: 4px;">End</h3>
+                                        <p style="margin: 2px;">
+                                            End of a turn or round. (i.e. “At the end of the round”.)
                                         </p>
                                     </div>
                                 </div>
@@ -232,7 +198,7 @@
 
                         </div>
                         <div class="sub-section" id="sub-section-border">
-                            <h4 class="block-header">Physical and Magical damage</h4>
+                            <h4 class="block-header">Damage Types</h4>
                             <div id="text-block">
                                 <p>
                                     An attack can be physical and/or magical, usually this is determined by the nature
@@ -315,6 +281,16 @@
         </div>
     </div>
 
+    <script>
+        function viewElement(scrollTo) {
+            console.log(scrollTo);
+            document.getElementById(scrollTo).scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            });
+        }
+    </script>
 </body>
 
 </html>

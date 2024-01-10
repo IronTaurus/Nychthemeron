@@ -2,6 +2,11 @@ const characterSheet = document.querySelector("#CharacterSheet");
 var listBG = [];
 var listCharacter = [];
 var fNr = 0;
+var initative = {
+  base: 0,
+  equippments: 0,
+  features: 0,
+};
 
 function draw2canvas() {
   console.log("Test draw2canvas complete");
@@ -198,6 +203,7 @@ function LoadCharacterInfo(character) {
   document.getElementById("c_movement").value = character.combat?.c_movement;
   document.getElementById("c_initiative").value =
     character.combat?.c_initiative;
+  initative.base = character.combat?.c_initiative ?? 0;
 
   console.log("Entering: Bio information..");
   document.getElementById("bio_Name").value =
