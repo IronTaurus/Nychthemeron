@@ -1,0 +1,56 @@
+.feat-title{
+    margin: 2%;
+    padding: 2px;
+}
+input[type="checkbox"]  {
+    display: none;
+ }
+.AttributeList{width: 250px; height: 38px; margin: 100px auto;}
+
+div label input {margin-right: 100px;}
+
+.attribte{
+  margin: 4px;
+  background-color: #104068;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  float: left;
+}
+
+.attribte label {
+  float: left; line-height: 3.0em;
+  width: 8.0em; height: 3.0em;
+}
+
+.attribte label span {
+  text-align: center;
+  padding: 3px 0;
+  display: block;
+}
+
+.attribte label input {
+  position: absolute;
+  display: none;
+  color: #fff !important;
+}
+/* selects all of the text within the input element and changes the color of the text */
+.attribte label input + span{color: #fff;}
+
+
+/* This will declare how a selected input will look giving generic properties */
+.attribte input:checked + span {
+    color: #ffffff;
+    text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
+}
+
+
+/*
+This following statements selects each category individually that contains an input element that is a checkbox and is checked (or selected) and chabges the background color of the span element.
+*/
+
+.body input:checked + span{background-color: #F75A1B;}
+.agility input:checked + span{background-color: #1bf740;}
+.mind input:checked + span{background-color: #5db8d9;}
+.mystic input:checked + span{background-color: #d44ecb;}
+.presence input:checked + span{background-color: #ebff65;}

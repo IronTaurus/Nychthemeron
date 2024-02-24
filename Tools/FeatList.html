@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Main/Style.css">
+    <link rel="stylesheet" href="../Tools/featList_Style.css">
+</head>
+
+<body>
+    <div id="fixed-banner" style="z-index: 99;">
+        <script src="../Main/TopMenu.js"></script>
+    </div>
+
+    <div id="main-block">
+        <div class="sub-section" id="sub-section-border">
+            <div class="AttributeList">
+                <div class="attribute body">
+                    <label>
+                        <input type="checkbox" value="1" class="attribute" onchange="loadFeats()"
+                            name="Body"><span>Body</span>
+                    </label>
+                </div>
+                <div class="attribute agility">
+                    <label>
+                        <input type="checkbox" value="1" class="attribute" onchange="loadFeats()"
+                            name="Agility"><span>Agility</span>
+                    </label>
+                </div>
+                <div class="attribute mind">
+                    <label>
+                        <input type="checkbox" value="1" class="attribute" onchange="loadFeats()"
+                            name="Mind"><span>Mind</span>
+                    </label>
+                </div>
+                <div class="attribute mystic">
+                    <label>
+                        <input type="checkbox" value="1" class="attribute" onchange="loadFeats()"
+                            name="Mystic"><span>Mystic</span>
+                    </label>
+                </div>
+                <div class="attribute presence">
+                    <label>
+                        <input type="checkbox" value="1" class="attribute" onchange="loadFeats()"
+                            name="Presence"><span>Presence</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="FeatList">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function getFeats(options) {
+        console.log("chosen attribute is: " + options);
+        const Attributes = {
+            Body: {
+                OrcishStrength1: {
+                    title: "Orcish Strength I",
+                    Type1: "Body",
+                    Type2: "",
+                    Description: "Add an Eclipse Card to your Action Deck. (The maximum number of Eclipses in your deck is 1) In addition to its other effects, Eclipses are always considered as a Success during a Strength check.",
+                    Requirement1: "1",
+                    Requirement2: "",
+                    Cost: "5"
+                },
+                OrcishStrength2: {
+                    title: "Orcish Strength II",
+                    Type1: "Body",
+                    Type2: "",
+                    Description: "Draw an additional card during a strength check. (usable once/action)",
+                    Requirement1: "2",
+                    Requirement2: "",
+                    Cost: "10"
+                },
+                OrcishStrength3: {
+                    title: "Orcish Strength III",
+                    Type1: "Body",
+                    Type2: "",
+                    Description: "In addition to its other effects, Eclipses are considered a Critical Success during Strength Checks. You may draw an additional card during a strength check then remove 1 card of your choice. (Usable once/action)",
+                    Requirement1: "3",
+                    Requirement2: "",
+                    Cost: "15"
+                }
+            }
+        }
+
+        const f = Attributes[options];
+        console.log("Feats are:" + JSON.stringify(f))
+        return f;
+
+    }
+
+    let featList = document.getElementById("FeatList");
+
+
+    function loadFeats() {
+        console.log("Loading feat...")
+        var attributeList = document.querySelectorAll(".attribute");
+        attributeList.forEach(element => {
+            if (element.checked) {
+                var feats = getFeats(element.name);
+                Object.values(feats).forEach(f => {
+                    console.log(JSON.stringify(f.title))
+                    var eDiv = document.createElement("div");
+                    var eTitle = document.createElement("h2");
+                    eTitle.innerHTML = f.title
+                    eDiv.appendChild(eTitle);
+                    featList.appendChild(eDiv);
+                });
+            }
+        });
+    }
+
+</script>
+
+</html>
