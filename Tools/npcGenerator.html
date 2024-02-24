@@ -261,26 +261,6 @@
         document.getElementById("appearenceNotable").innerHTML = `${text}`;
         const clothesText = sentenceConstructor["Clothes"](newCharacter);
         document.getElementById("appearenceClothes").innerHTML = clothesText;
-        // console.log(text);
-
-        // let newNpc = {
-        //     sex: npcFetch.get("sex", { ...constans }),
-        //     status: constans.status,
-        //     body: npcFetch.get("body", { ...constans }),
-        //     job: npcFetch.get("job", { ...constans }),
-        //     race: constans.race,
-        //     origin: constans.origin,
-        //     name: get("name", { ...constans }),
-        // };
-
-        // document.getElementById("appearenceNotable").innerHTML = newNpc.features;
-        // document.getElementById("npcName").innerHTML = newNpc.name.fNamn + " " + newNpc.name.eNamn;
-        // document.getElementById("height").innerHTML = newNpc.height + "cm";
-        // document.getElementById("age").innerHTML = newNpc.age + " years old.";
-        // document.getElementById("appearanceHair").innerHTML = newNpc.hair;
-        // document.getElementById("job").innerHTML = newNpc.job;
-        //document.getElementById("appearenceNotable").innerHTML =
-        // document.getElementById("appearenceClothes").innerHTML = newNpc.name.fNamn + " is dressed in " + newNpc.clothes + ".";
         nameCon1 = nameContruct1[Math.floor(Math.random() * nameContruct1.length)];
         if (Math.random() < 0.5) {
             nameCon2 = nameContruct2[Math.floor(Math.random() * nameContruct2.length)];
@@ -475,7 +455,31 @@
             }
         }
     }
-    function getHair(race) {
+    function getHair(race, nationality, status) {
+        const race = {
+            human: {
+                avena: {
+                    commoner: {
+                        style: ["wavy", "bushy", "wild", "dirty", "straight"],
+                    length: ["medium", "long", "short"],
+                    color: ["brown", "blonde", "light brown", "dark brown"]
+                    },
+                    noble: {
+                        style: ["wavy", "shiny", "silken", "straight"],
+                    length: ["medium", "long", "short"],
+                    color: ["brown", "blonde", "light brown", "dark brown"] 
+                    }
+                    
+                },
+                legaria: [],
+                heln: [],
+                illindar: [],
+                acreos: []
+            },
+            orc: {
+
+            }
+        }
         if (race == 'human') {
             var hairStyle1 = appearanceHairStyle1[Math.floor(Math.random() * appearanceHairStyle1.length)];
             var hairStyle2 = appearanceHairStyle2[Math.floor(Math.random() * appearanceHairStyle2.length)];
@@ -689,8 +693,6 @@
         }
         return Body;
     }
-
-
     function createFacialWound(job) {
         const headPos = ["leftEye", "rightEye", "leftCheek", "rightCheek", "chin", "forehead", "hairline", "upperLip", "lowerLip"]
         headWoundCover = ["covering", "over", "across", "near"]
@@ -847,7 +849,6 @@
         }
         return Head;
     }
-
     function createBodyWound(job) {
 
         const parts = [

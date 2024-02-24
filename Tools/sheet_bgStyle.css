@@ -118,14 +118,17 @@ align-items: center;
 }
 #addInterest{
   z-index: 98;
-  top: 17%;
-  left: 70%;
+  top: 17.2%;
+  left: 70.4%;
   margin-left: 2%;
   font-size: medium;
   font-weight: bold;
   background:none;
   border: 0.4em;
   position: absolute;
+}
+#addInterest:hover{
+  cursor: pointer;
 }
 .i_button{
   font-size: 1.3em;
