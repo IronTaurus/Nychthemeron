@@ -22,6 +22,7 @@
                 title="Draw Card">Draw
                 Card!</button>
             <button id=" Draw" class="cardDraw" onclick="AddTwilight()" title="Draw Card">Add Twilight card.</button>
+            <button id=" Draw" class="cardDraw" onclick="AddEclipse()" title="Draw Card">Add Eclipse card.</button>
 
             <div style="margin-top: 5px;">
                 <button id="Reshuffle" class="reShuffle" onclick="Reshuffle()" title="Reshuffle">Reshuffle</button>
@@ -97,6 +98,11 @@
         CycleDeckModel.push(twilightCard);
 
     }
+    function AddEclipse() {
+        const eclipseCard = new Card("Eclispe", 0, `${imgPath}Cycle_Eclipse.jpg`, 4);
+        CycleDeckModel.push(eclipseCard);
+
+    }
     function DrawCard(nrOfCards) {
         historyArr.length = 0;
         if (nrOfCards != 0) {
@@ -146,6 +152,11 @@
         historyArr.forEach(Card => {
             if (Card.crit == 3) {
                 document.getElementById("cardArt").src = imgPath + "Cycle_Twilight.jpg";
+                newResult.color = 'purple';
+                console.log(newResult.color)
+            }
+            else if (Card.crit == 3) {
+                document.getElementById("cardArt").src = imgPath + "Cycle_Eclipse.jpg";
                 newResult.color = 'purple';
                 console.log(newResult.color)
             }
