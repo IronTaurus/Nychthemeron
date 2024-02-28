@@ -94,12 +94,12 @@
         return myCard;
     }
     function AddTwilight() {
-        const twilightCard = new Card("Twilight", 0, `${imgPath}Cycle_Twilight.jpg`, 3);
+        const twilightCard = new Card("Twilight", 0, `${imgPath}Cycle_Twilight.jpg`, 4);
         CycleDeckModel.push(twilightCard);
 
     }
     function AddEclipse() {
-        const eclipseCard = new Card("Eclispe", 0, `${imgPath}Cycle_Eclipse.jpg`, 4);
+        const eclipseCard = new Card("Eclispe", 0, `${imgPath}Cycle_Eclipse.jpg`, 3);
         CycleDeckModel.push(eclipseCard);
 
     }
@@ -112,7 +112,7 @@
                     if (CycleDeck.length > 0) {
                         let newCard = TakeCard();
                         historyArr.push(newCard);
-                        if (newCard.crit == 3) {
+                        if (newCard.crit == 3 || newCard.crit == 4) {
                             if (CycleDeck.length > 0) {
                                 nrOfCards++;
                             }
@@ -150,14 +150,14 @@
         newResult.value = 0
         newResult.color = 'gray';
         historyArr.forEach(Card => {
-            if (Card.crit == 3) {
+            if (Card.crit == 4) {
                 document.getElementById("cardArt").src = imgPath + "Cycle_Twilight.jpg";
                 newResult.color = 'purple';
                 console.log(newResult.color)
             }
             else if (Card.crit == 3) {
                 document.getElementById("cardArt").src = imgPath + "Cycle_Eclipse.jpg";
-                newResult.color = 'purple';
+                newResult.color = 'teal';
                 console.log(newResult.color)
             }
             else if (Card.crit == 2) {
