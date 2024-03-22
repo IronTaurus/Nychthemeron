@@ -79,6 +79,7 @@
     var DiscardDeck = []
     var historyArr = []
     var atkHistoryArr = []
+    var aspiration = 3;
 
     function TakeCard() {
         myCard = new Card();
@@ -122,14 +123,8 @@
                 GetResult();
                 UpdateHistory();
             }
-
-
         }
-
-
-
     }
-
     function UpdateHistory() {
         document.getElementById("cardHistory").textContent = "";
         document.getElementById("atkHistory").textContent = "";
@@ -176,7 +171,6 @@
         atkHistoryArr.push(newResult);
 
     }
-
     function Shuffle3() {
         atkHistoryArr.splice(0, atkHistoryArr.length - 3);
         UpdateHistory();
@@ -328,8 +322,6 @@
     CycleDeck = [...CycleDeckModel];
     console.log("CycleDeck Size: " + CycleDeck.length);
     console.log("CycleDeckModel Size: " + CycleDeckModel.length);
-
-
 </script>
 
 </html>

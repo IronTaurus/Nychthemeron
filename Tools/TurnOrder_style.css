@@ -13,6 +13,7 @@ body{
 }
 #initiativeOrder{
     width: fit-content;
+    max-height: 20em;
     padding: 5px;
 }
 .creatures{
@@ -52,8 +53,13 @@ body{
     width: 12em;
     margin: 0%;
 }
+#baseInitative{
+    background: none;
+    border: 0px;
+    height: auto;
+}
 .txt{
-    height: 1.5em;
+    height: auto;
     width: 2em;
     margin-left: 2%;
 }

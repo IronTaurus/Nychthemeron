@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Main/Style.css">
-    <link rel="stylesheet" href="../Tools/featList_Style.css">
+    <link rel="stylesheet" href="../Tools/css/featList_Style.css">
 </head>
 
 <body>
@@ -50,42 +50,45 @@
                 </div>
             </div>
         </div>
-        <div id="FeatList">
+        <div id="FeatList" class="sub-section">
         </div>
     </div>
 
 </body>
 
 <script>
+    var parentUrl = window.location.origin + "/Nychthemeron";
+    requirement = {
+        type: "",
+        value: 0
+    }
+
     function getFeats(options) {
         console.log("chosen attribute is: " + options);
         const Attributes = {
             Body: {
                 OrcishStrength1: {
-                    title: "Orcish Strength I",
-                    Type1: "Body",
-                    Type2: "",
+                    Title: "Orcish Strength I",
+                    Id: "OrcStr1",
+                    Types: ["Body"],
                     Description: "Add an Eclipse Card to your Action Deck. (The maximum number of Eclipses in your deck is 1) In addition to its other effects, Eclipses are always considered as a Success during a Strength check.",
-                    Requirement1: "1",
-                    Requirement2: "",
+                    Requirements: [{ type: "body", value: 1 }],
                     Cost: "5"
                 },
                 OrcishStrength2: {
-                    title: "Orcish Strength II",
-                    Type1: "Body",
-                    Type2: "",
+                    Title: "Orcish Strength II",
+                    Id: "OrcStr2",
+                    Types: ["Body"],
                     Description: "Draw an additional card during a strength check. (usable once/action)",
-                    Requirement1: "2",
-                    Requirement2: "",
+                    Requirements: [{ type: "body", value: 2 }],
                     Cost: "10"
                 },
                 OrcishStrength3: {
-                    title: "Orcish Strength III",
-                    Type1: "Body",
-                    Type2: "",
+                    Title: "Orcish Strength III",
+                    Id: "OrcStr3",
+                    Types: ["Body", "Agility"],
                     Description: "In addition to its other effects, Eclipses are considered a Critical Success during Strength Checks. You may draw an additional card during a strength check then remove 1 card of your choice. (Usable once/action)",
-                    Requirement1: "3",
-                    Requirement2: "",
+                    Requirements: [{ type: "body", value: 4 }, { type: "agility", value: 2 }],
                     Cost: "15"
                 }
             }
@@ -100,24 +103,78 @@
     let featList = document.getElementById("FeatList");
 
 
+
     function loadFeats() {
+        let child = featList.lastElementChild;
+        while (child) {
+            featList.removeChild(child);
+            child = featList.lastElementChild;
+        }
         console.log("Loading feat...")
         var attributeList = document.querySelectorAll(".attribute");
         attributeList.forEach(element => {
             if (element.checked) {
                 var feats = getFeats(element.name);
+                //Create a div element for each feat of the chosen attribute.
                 Object.values(feats).forEach(f => {
                     console.log(JSON.stringify(f.title))
+
                     var eDiv = document.createElement("div");
+                    eDiv.setAttribute("class", "featRow");
+                    var eDrop = document.createElement("button");
+                    eDrop.setAttribute("id", `${f.Id}_btn`)
+                    eDrop.onclick = function () {
+                        showDiv(f.Id);
+                        return false;
+                    }
+                    eDiv.appendChild(eDrop);
                     var eTitle = document.createElement("h2");
                     eTitle.innerHTML = f.title
                     eDiv.appendChild(eTitle);
+                    var eRequirments = document.createElement("div");
+                    eRequirments.setAttribute("class", "featRequirments")
+                    f.Requirements.forEach(r => {
+                        var newRequirement = document.createElement("div");
+                        var rType = document.createElement("h3");
+                        rType.setAttribute("class", "featCell");
+                        rType.innerHTML = r.type;
+                        rValue = document.createElement("h3");
+                        rValue.setAttribute("class", "featCell");
+                        rValue.innerHTML = r.value;
+                        newRequirement.appendChild(rType);
+                        newRequirement.appendChild(rValue);
+                        eRequirments.appendChild(newRequirement);
+                    });
+                    var eReq1 = document.createElement("h3");
+                    eRequirments.appendChild(eReq1);
+                    eDiv.appendChild(eRequirments);
+                    var eDesc = document.createElement("div");
+                    eDesc.setAttribute("id", `${f.Id}_Description`);
+                    eDesc.setAttribute("class", `f_description`);
+                    var descText = document.createElement("text");
+                    descText.textContent = f.Description;
+                    eDesc.appendChild(descText);
+                    eDiv.appendChild(eDesc);
                     featList.appendChild(eDiv);
                 });
             }
         });
     }
+    function showDiv(id) {
+        var divElement = document.getElementById(id + "_Description");
+        console.log(divElement);
+        var buttonElement = document.getElementById(id + "_btn");
 
+        if (divElement.style.display === "none") {
+            console.log("div is closed -> now opens");
+            buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_opened.png" style="height: 10px"/>`;
+            divElement.style.display = "block";
+        } else {
+            console.log("div is open -> now closes");
+            divElement.style.display = "none";
+            buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_closed.png" style="height: 10px"/>`;
+        }
+    }
 </script>
 
 </html>

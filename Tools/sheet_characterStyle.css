@@ -225,9 +225,7 @@ margin-left: 8.1%;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(83, 69, 48); }
-  ::-webkit-scrollbar-corner{
 
-  }
 
 #info_Features{
   top: 8%;

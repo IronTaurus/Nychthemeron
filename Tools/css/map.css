@@ -1,0 +1,10 @@
+
+#mapImg{
+    height: 500px;
+    width: 500px;
+}
+#mapCanvas{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+}
