@@ -60,11 +60,31 @@ function downloadFile(content, fileName, contentType) {
 }
 
 function LoadFile(event) {
+  
   var image = document.getElementById("ProfileArt");
-  //Local file
-  // image.src = URL.createObjectURL(event.target.files[0]);
-  //online url
   image.src = document.getElementById("imageUrl").value;
+  
+
+}
+
+function setOffset(image){
+  console.log("Art w:" + image.clientWidth + " Art h:" + image.clientHeight)
+  var frame = document.getElementById("artFrame");
+  console.log("frame w:" + frame.clientWidth + " frame h:" + frame.clientHeight)
+
+  if(image.clientHeight > frame.clientHeight){
+    var topValue = document.getElementById("ProfileArt").style.top
+    console.log("Image pos:" + topValue)
+    var topOffset = (image.clientHeight - frame.clientHeight);
+    image.style.top -= topOffset;
+    console.log("offsetTop:" + topOffset);
+  }
+  if(image.clientWidth > frame.clientWidth){
+    console.log(image.style.left)
+    var leftOffset = (image.clientWidth - frame.clientWidth);
+    image.style.left -= leftOffset;
+    console.log("offsetLeft:" + leftOffset);
+  }
 }
 
 function auto_grow(element) {
