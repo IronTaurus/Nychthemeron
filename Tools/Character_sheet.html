@@ -52,7 +52,7 @@
             <img id="CharacterSheetBg" src="../Art/CharacterSheet_Circadian.png">
             <input type="range" id="resizeSlider" min="1" max="10" value="5" onchange="Resize(this.value)">
             <div id="artFrame">
-                <img id="ProfileArt" src="https://i.pinimg.com/564x/44/3e/82/443e82246c141e456be0d3b6808109a8.jpg">
+                <img id="ProfileArt" src="" onload="setOffset(this)">
             </div>
             <div id="info_Person">
                 <input type="text" class="infoPTxt" id="p_Name" name="pName" value="Elaine">
@@ -202,6 +202,15 @@
                         Load Portrait
                         <!-- <input type="file" accept="image/*" name="image" id="imageFile" onchange="LoadFile(event)"> -->
                         <input type="text" name="imageUrl" id="imageUrl" onchange="LoadFile(event)">
+                        <div>
+                            <button id="aspectRatio">1:1</button>
+                            <div id="aspectRatio">
+                            <a onclick="aspRatio(1,1)">1:1</a>
+                            <a onclick="aspRatio(1,2)">9:16</a>
+                            <a onclick="aspRatio(2,1)">16:9</a>
+                            </div>  
+                        </div>
+                        
                     </div>
                 </div>
             </div>
