@@ -60,29 +60,42 @@ function downloadFile(content, fileName, contentType) {
 }
 
 function LoadFile(event) {
-  
   var image = document.getElementById("ProfileArt");
   image.src = document.getElementById("imageUrl").value;
-  
-
 }
 
-function setOffset(image){
-  console.log("Art w:" + image.clientWidth + " Art h:" + image.clientHeight)
+function setOffset(image) {
+  console.log("Art w:" + image.clientWidth + " Art h:" + image.clientHeight);
   var frame = document.getElementById("artFrame");
-  console.log("frame w:" + frame.clientWidth + " frame h:" + frame.clientHeight)
+  const w = document.getElementById("CharacterSheet").clientWidth;
+  const h = document.getElementById("CharacterSheet").clientHeight;
+  var drawTop = 0;
+  var drawLeft = 0;
 
-  if(image.clientHeight > frame.clientHeight){
-    var topValue = document.getElementById("ProfileArt").style.top
-    console.log("Image pos:" + topValue)
-    var topOffset = (image.clientHeight - frame.clientHeight);
-    image.style.top -= topOffset;
-    console.log("offsetTop:" + topOffset);
+  if (image.clientHeight < frame.clientHeight) {
+    const excess = frame.clientHeight - image.clientHeight;
+    image.style.maxWidth = image.clientWidth + excess + 10 + "px";
   }
-  if(image.clientWidth > frame.clientWidth){
-    console.log(image.style.left)
-    var leftOffset = (image.clientWidth - frame.clientWidth);
-    image.style.left -= leftOffset;
+  if (image.clientWidth < frame.clientWidth) {
+    const excess = frame.clientWidth - image.clientWidth;
+    console.log("Entering resizing: Height - " + excess);
+    image.style.maxHeight = image.clientHeight + excess + 10 + "px";
+    console.log("Resizing: Height - " + image.style.maxHeight);
+  }
+
+  if (image.clientHeight > frame.clientHeight) {
+    var topOffset = image.clientHeight - frame.clientHeight;
+    console.log("offsetTop:" + topOffset);
+    image.style.display = "";
+    image.style.position = "absolute";
+    image.style.top = h * 0.02 + "px";
+  }
+  if (image.clientWidth > frame.clientWidth) {
+    var leftOffset = image.clientWidth - frame.clientWidth;
+    image.style.display = "";
+    image.style.position = "absolute";
+    console.log(image.style.left);
+    image.style.left = w * 0.03 - leftOffset + "px";
     console.log("offsetLeft:" + leftOffset);
   }
 }

@@ -1607,21 +1607,3 @@ function Resize(slider) {
   console.log("width:" + profileArt.width);
   profileArt.src = profileArt.src;
 }
-function aspRatio(w, h){
-  var art = document.getElementById();
-  var aspOption = document.getElementById("aspectRatio");
-  let wRatio = 23;
-  let hRatio = 29;
-  let offset = 0;
-
-  aspOption.textContent = "";
-  if(w == 1 && h == 1){
-    wRatio = 29;
-    hRatio = 29;
-    offset = 0;
-  }
-  if(h == 1){
-    
-  }
-
-}
