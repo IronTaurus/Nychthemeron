@@ -30,7 +30,6 @@ function getDamageTypeInfo() {
   typeList.push(document.createTextNode("T: Toxic"));
   return typeList;
 }
-
 function getFeatures() {
   console.log("fNr is:" + fNr);
   if (fNr > 0) {
@@ -47,7 +46,6 @@ function getFeatures() {
     return [];
   }
 }
-
 function getBagInventory(bag, bagId) {
   let bagNr = document.getElementById(bagId).children.length;
   console.log("Entering " + bagId + " inventory...");
@@ -151,7 +149,6 @@ function getBagInventory(bag, bagId) {
     return [];
   }
 }
-
 function createBagMeleeWeapon(bag, bagId) {
   let bagNr = document.getElementById(bagId).children.length;
   bagNr++;
@@ -498,7 +495,6 @@ function createBagRangedWeapon(bag, bagId) {
   equippment.appendChild(itemInfo);
   bagList.appendChild(equippment);
 }
-
 function createBagArmor(bag, bagId) {
   let bagNr = document.getElementById(bagId).children.length;
   bagNr++;
@@ -791,7 +787,6 @@ function createBagContainer(bag, bagId) {
   equippment.appendChild(itemInfo);
   bagList.appendChild(equippment);
 }
-
 function loadBag(info_Bag, bagId, bag) {
   console.log("Loading bag..." + bagId + "!");
   var bagList = document.getElementById(bagId);
@@ -817,7 +812,6 @@ function loadBag(info_Bag, bagId, bag) {
     }
   });
 }
-
 function loadBagMeleeWeapon(elementNr, element, bagList, bag) {
   var equippment = document.createElement("div");
   equippment.setAttribute("tag", "melee");
@@ -1440,7 +1434,6 @@ function loadBagContainer(elementNr, element, bagList, bag) {
   equippment.appendChild(itemInfo);
   return equippment;
 }
-
 function loadFeatures(infoFeatures) {
   var featureList = document.getElementById("info_Features");
   featureList.replaceChildren([]);
@@ -1497,7 +1490,6 @@ function loadFeatures(infoFeatures) {
     auto_grow(txtArea);
   });
 }
-
 function createFeature() {
   fNr++;
   const elementNr = fNr;
@@ -1546,7 +1538,6 @@ function createFeature() {
   feature.appendChild(txtArea);
   featureList.appendChild(feature);
 }
-
 function showText(id) {
   console.log(id);
   var textElement = document.getElementById("f" + id + "_text");
@@ -1578,7 +1569,6 @@ function showDiv(tag, id) {
     buttonElement.innerHTML = `<img src="${parentUrl}/Art/icon_closed.png" style="height: 10px"/>`;
   }
 }
-
 function Resize(slider) {
   console.log("Resize");
   const resizeNumber = {
