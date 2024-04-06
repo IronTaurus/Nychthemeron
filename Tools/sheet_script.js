@@ -74,12 +74,12 @@ function setOffset(image) {
 
   if (image.clientHeight < frame.clientHeight) {
     const excess = frame.clientHeight - image.clientHeight;
-    image.style.maxWidth = image.clientWidth + excess + 10 + "px";
+    image.style.maxWidth = image.clientWidth + excess + 5 + "px";
   }
   if (image.clientWidth < frame.clientWidth) {
     const excess = frame.clientWidth - image.clientWidth;
     console.log("Entering resizing: Height - " + excess);
-    image.style.maxHeight = image.clientHeight + excess + 10 + "px";
+    image.style.maxHeight = image.clientHeight + excess + 5 + "px";
     console.log("Resizing: Height - " + image.style.maxHeight);
   }
 
@@ -87,15 +87,15 @@ function setOffset(image) {
     var topOffset = image.clientHeight - frame.clientHeight;
     console.log("offsetTop:" + topOffset);
     image.style.display = "";
-    image.style.position = "absolute";
-    image.style.top = h * 0.02 + "px";
+    image.style.position = "relative";
+    image.style.top = topOffset / 2 + "px";
   }
   if (image.clientWidth > frame.clientWidth) {
     var leftOffset = image.clientWidth - frame.clientWidth;
     image.style.display = "";
-    image.style.position = "absolute";
+    image.style.position = "relative";
     console.log(image.style.left);
-    image.style.left = w * 0.03 - leftOffset + "px";
+    image.style.right = leftOffset / 2 + "px";
     console.log("offsetLeft:" + leftOffset);
   }
 }

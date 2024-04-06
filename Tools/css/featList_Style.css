@@ -10,7 +10,7 @@
   background-color: rgb(65, 49, 45);
 }
 .featRow {
-  display: flex;
+  display: block;
   text-align: center;
   align-items: center;
 }
