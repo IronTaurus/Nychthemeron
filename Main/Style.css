@@ -55,34 +55,65 @@ body {
   width: 100%;
 }
 
+@media only screen and (max-width: 1920px){
+  .top-button {
+    font-size: 30px;
+  }
+  #homeImg{
+    height: 100px;
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .top-button {
+    font-size: 18px;
+  }
+  #homeImg{
+    height: 75px;
+    width: 75px;
+  }
+}
+@media only screen and (max-width: 240px){
+  .top-button {
+    font-size: 14px;
+  }
+  #homeImg{
+    height: 50px;
+    width: 50px;
+  }
+}
 .top-button {
   cursor: pointer;
   display: block;
   background-color: #158359;
   color: rgb(255, 255, 255);
   padding: 5px 15px 5px 15px;
-  font-size: 24px;
   font-family: Gabriola;
   border: 1.5px;
   border-style: solid;
   border-color: #034218;
   border-bottom-left-radius: 30px;
   border-top-right-radius: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .top-button:hover {
   background-color: #28a374;
   box-shadow: 0 5px 15px #77ffcbd0;
 }
 
-.Grid-container-top {
+#topContainer{
   width: 100%;
-  display: grid;
-  border: #034218 solid 1px;
-  grid-template-areas: "left1 left2 left3 main right1 right2 right3";
+  display: flex;
   background-image: url("https://i.pinimg.com/originals/1b/55/e4/1b55e4bdb4fc6051382e370bf26d5a59.jpg");
   background-repeat: repeat-x;
+  border: #034218 solid 1px;
+  background-size: cover;
+  justify-items: center;
+}
+.Grid-container-top {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "left1 left2 left3 main right1 right2 right3";
   background-size: cover;
   justify-items: center;
   align-items: center;
@@ -91,7 +122,6 @@ body {
 .Grid-container-top > div {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  padding: 20px 0;
 }
 
 /* Dropdown Button */

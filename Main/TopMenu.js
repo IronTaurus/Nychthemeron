@@ -1,9 +1,10 @@
 var parentUrl = window.location.origin + "/Nychthemeron";
 console.log(parentUrl);
-
+var container = document.createElement("div");
+container.setAttribute("id", "topContainer");
 var mDiv = document.createElement("div");
 mDiv.setAttribute("class", "Grid-container-top");
-document.getElementById("fixed-banner").appendChild(mDiv);
+document.getElementById("fixed-banner").appendChild(container);
 //Religion Button
 mButton_Religion = document.createElement("button");
 mButton_Religion.setAttribute("id", "Religion");
@@ -40,8 +41,7 @@ mButton_Home.onclick = function () {
 mDiv.appendChild(mButton_Home);
 mHomeArt = document.createElement("img");
 mHomeArt.setAttribute("src", `${parentUrl}/Art/Home.png`);
-mHomeArt.setAttribute("height", 100);
-mHomeArt.setAttribute("width", 100);
+mHomeArt.setAttribute("id", "homeImg");
 mButton_Home.appendChild(mHomeArt);
 //Races
 mButton_Races = document.createElement("button");
@@ -70,3 +70,4 @@ mButton_Tools.onclick = function () {
 };
 mButton_Tools.textContent = "Tools";
 mDiv.appendChild(mButton_Tools);
+container.appendChild(mDiv);
