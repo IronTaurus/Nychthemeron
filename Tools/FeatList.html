@@ -121,16 +121,18 @@
 
                     var eDiv = document.createElement("div");
                     eDiv.setAttribute("class", "featRow");
-                    var eDrop = document.createElement("button");
-                    eDrop.setAttribute("id", `${f.Id}_btn`)
-                    eDrop.onclick = function () {
+                    var baseDiv = document.createElement("div");
+                    baseDiv.style.display = "flex";
+                    var eDropBtn = document.createElement("button");
+                    eDropBtn.setAttribute("id", `${f.Id}_btn`)
+                    eDropBtn.onclick = function () {
                         showDiv(f.Id);
                         return false;
                     }
-                    eDiv.appendChild(eDrop);
+                    baseDiv.appendChild(eDropBtn);
                     var eTitle = document.createElement("h2");
                     eTitle.innerHTML = f.title
-                    eDiv.appendChild(eTitle);
+                    baseDiv.appendChild(eTitle);
                     var eRequirments = document.createElement("div");
                     eRequirments.setAttribute("class", "featRequirments")
                     f.Requirements.forEach(r => {
@@ -147,21 +149,27 @@
                     });
                     var eReq1 = document.createElement("h3");
                     eRequirments.appendChild(eReq1);
-                    eDiv.appendChild(eRequirments);
+                    baseDiv.appendChild(eRequirments);
+
+                    var eDrop = document.createElement("div");
+                    eDrop.style.display = "block";
+                    eDrop.setAttribute("id", `${f.Id}_drop`)
                     var eDesc = document.createElement("div");
                     eDesc.setAttribute("id", `${f.Id}_Description`);
                     eDesc.setAttribute("class", `f_description`);
                     var descText = document.createElement("text");
                     descText.textContent = f.Description;
                     eDesc.appendChild(descText);
-                    eDiv.appendChild(eDesc);
+                    eDrop.appendChild(eDesc);
+                    eDiv.appendChild(baseDiv);
+                    eDiv.appendChild(eDrop);
                     featList.appendChild(eDiv);
                 });
             }
         });
     }
     function showDiv(id) {
-        var divElement = document.getElementById(id + "_Description");
+        var divElement = document.getElementById(id + "_drop");
         console.log(divElement);
         var buttonElement = document.getElementById(id + "_btn");
 

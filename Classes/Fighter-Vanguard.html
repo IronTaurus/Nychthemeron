@@ -105,6 +105,7 @@
         </div>
         <div class="cardcontainer">
             <div id="Card01" class="card">
+                <img id="updateNotes" src="" onclick="updates(1)">
                 <img src="../Art/Basic/Melee/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(1)"
                     id="card-changer1" class="cardimg">
             </div>
@@ -136,7 +137,43 @@
     </div>
 
 </body>
-<script language="javascript">
+<script>
+    const VanguardUpdates = {
+        10: {
+            Version: "1.0",
+            Date: ["2024-03-24"],
+            Changes: []
+        },
+        11: {
+            Version: "1.1",
+            Date: ["2023-09-03"],
+            Changes: [
+                {
+                    Title: "Never Ending Rage",
+                    Notes: "Changes to the Rage gain and a rework of the second half of the card to solve issues with the player being stuck and unable to utilize its abilities.",
+                    Changes: "Rage gain is changed from 1 to 2.\n 'Whenever you are on half HP or less, you may spend a standard action to deal 3{ac}+Base to a single target creature.' is changed into 'Deal 2{ac}+Base to a single target creature, if you have 6 or more Rage charges deal 3{ac}+Base instead.'"
+                }
+            ]
+        },
+        12: {
+            Version: "1.2",
+            Date: ["2023-01-12"],
+            Changes: [
+                {
+                    Title: "Never Ending Rage",
+                    Notes: "An issue with the Canguard constant lack of Rage made it very limited in its playstyle, to solve this Vanguard now also gain rage whenever an ally is attacked.",
+                    Changes: "Added: Gain 1 rage whenever an ally takes damage."
+                }
+            ]
+        },
+        13: {
+        },
+    }
+    function updates(nr) {
+        var element = document.getElementById(`Card0${nr}`)
+
+    }
+
     function changeside(cardnr) {
         var element = document.getElementById("card-changer" + cardnr);
         console.log(element.src);
