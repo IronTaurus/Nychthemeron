@@ -1,8 +1,16 @@
 .feat-title{
-    margin: 2%;
+    margin: 0%;
+    align-self: center;
     padding: 2px;
 }
+.featCol{
+  display: block;
+  width: 33%;
+  max-width: 33%;
+}
 #FeatList {
+  display: flex;
+  flex-wrap: wrap;
   border: solid;
   border-color: orange;
   border-width: 2px;
@@ -13,12 +21,18 @@
   display: block;
   text-align: center;
   align-items: center;
+  margin: 0.5em;
+  background-color: #eae4b4;
+  border: solid;
+  border-color: orange;
+  border-width: 2px;
+  border-radius: 10px;
 }
 .featCell{
   padding-left: 2px;
   padding-right: 2px;
   height: max-content;
-  margin: 4px;
+  margin: 1%;
   border: solid;
   border-color: black;
   border-width: 1px;
@@ -28,8 +42,16 @@
   width: fit-content;
   height: fit-content;
 }
+.costText{
+  margin: 0%;
+  margin-left: 1em;
+  align-self: center;
+}
 .f_description{
-  display: none;
+  font-size: 0.90em;
+  display: block;
+  white-space: pre-wrap;
+  padding: 1%;
 }
 input[type="checkbox"]  {
     display: none;
