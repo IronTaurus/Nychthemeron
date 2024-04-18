@@ -16,26 +16,76 @@ export function getFeats(options) {
       Title: "Quick Reactions II",
       Id: "QckReact2",
       Types: ["Agility"],
-      Description: "Your base initiative is increased by 3.",
-      Requirements: [{ type: "Agility", value: 2, color: "#1bf740" }],
-      Cost: "10",
+      Description: "Your base initiative is increased by 2.",
+      Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
+      Cost: "5",
     },
     {
       //AGI Quick Reactions III
       Title: "Quick Reactions III",
       Id: "QckReact3",
       Types: ["Agility"],
-      Description: "Your base initiative is increased by 5.",
-      Requirements: [{ type: "Agility", value: 4, color: "#1bf740" }],
-      Cost: "15",
+      Description: "Your base initiative is increased by 2.",
+      Requirements: [{ type: "Agility", value: 5, color: "#1bf740" }],
+      Cost: "5",
     },
+    //AGI High Alert
     {
-      //AGI Light-footed I
+      Title: "High Alert",
+      Id: "HighAlert",
+      Types: ["Agility"],
+      Description:
+        "For the first round only, your initative is increased by 6. (Usable: once/combat)",
+      Requirements: [{ type: "Agility", value: 2, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Light-footed I
+    {
       Title: "Light-footed I",
       Id: "LightFoot1",
       Types: ["Agility"],
       Description:
         "If you do not have an Eclipse card in your deck add one. \n The maximum number of Eclipses in your deck is 1. \n Eclipses are always considered as a Success during Acrobatic checks.",
+      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "5",
+    },
+    //AGI Light-footed II
+    {
+      Title: "Light-footed II",
+      Id: "LightFoot2",
+      Types: ["Agility"],
+      Description:
+        "Draw an additional card during a Acrobatic check. (Usable: once/action)",
+      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Light-footed III
+    {
+      Title: "Light-footed III",
+      Id: "LightFoot3",
+      Types: ["Agility"],
+      Description:
+        "Draw an additional card during a Acrobatic check. (Usable: once/action)",
+      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "15",
+    },
+    //AGI Nimble Feet
+    {
+      Title: "Nimble Feet",
+      Id: "NimbleFeet",
+      Types: ["Agility"],
+      Description:
+        "When using a movement action you may ignore and move over minor obstacles and terrain.",
+      Requirements: [{ type: "Agility", value: 2, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Crimson Blood
+    {
+      Title: "Crimson Blood",
+      Id: "CrimsonBlood",
+      Types: ["Agility"],
+      Description:
+        "The maximum number of Eclipses are increased by 1. \nAdd one Eclipse card to your Action deck.",
       Requirements: [{ type: "Agility", value: 4, color: "#1bf740" }],
       Cost: "15",
     },
@@ -55,7 +105,7 @@ export function getFeats(options) {
       Id: "OrcStr2",
       Types: ["Body"],
       Description:
-        "Draw an additional card during a Strength check. (usable once/action)",
+        "Draw an additional card during a Strength check. (Usable: once/action)",
       Requirements: [{ type: "Body", value: 2, color: "#F75A1B" }],
       Cost: "10",
     },
@@ -136,6 +186,36 @@ export function getFeats(options) {
       Requirements: [{ type: "Body", value: 2, color: "#F75A1B" }],
       Cost: "10",
     },
+    //MND Insight I
+    {
+      Title: "Insight I",
+      Id: "Insight1",
+      Types: ["Mind"],
+      Description:
+        "Add an Eclipse Card to your Action Deck. (The maximum number of Eclipses in your deck is 1) In addition to its other effects, Eclipses are always considered as a Success during a  check.",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Insight II
+    {
+      Title: "Insight II",
+      Id: "Insight2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card when you read a person. (Usable: once/action)",
+      Requirements: [{ type: "Mind", value: 2, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Insight III
+    {
+      Title: "Insight III",
+      Id: "Insight3",
+      Types: ["Mind"],
+      Description:
+        "In addition to its other effects, Eclipses are considered a Critical Success while you read a person. You may draw an additional card when you read a person then remove 1 card of your choice. (Usable once/action)",
+      Requirements: [{ type: "Mind", value: 4, color: "#5db8d9" }],
+      Cost: "15",
+    },
     {
       //MND StrongWill I
       Title: "Strong Will I",
@@ -153,7 +233,7 @@ export function getFeats(options) {
       Types: ["Mind"],
       Description:
         "In addition to its other effects Strong Will now also halves the damage you take by the attack rounded down.",
-      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Requirements: [{ type: "Mind", value: 4, color: "#5db8d9" }],
       Cost: "10",
     },
     {
@@ -224,13 +304,23 @@ export function getFeats(options) {
       Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
       Cost: "10",
     },
+    //MSC Trained Spirit III
     {
-      //MSC Trained Spirit III
       Title: "Trained Spirit III",
       Id: "TrainedSpirit3",
       Types: ["Mystic"],
       Description: "Your max Spirit is increased by 25.",
       Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "15",
+    },
+    //MSC Crimson Spirit
+    {
+      Title: "Crimson Spirit",
+      Id: "CrimsonSpirit",
+      Types: ["Mystic"],
+      Description:
+        "The maximum number of Eclipses are increased by 1. \nAdd one Eclipse card to your Action deck.",
+      Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
       Cost: "15",
     },
     {
