@@ -44,6 +44,7 @@ function loadFeats() {
         baseDiv.appendChild(eTitle);
         var eRequirments = document.createElement("div");
         eRequirments.setAttribute("class", "featRequirments");
+        //create a requirement element for each requirement on the feat.
         f.Requirements.forEach((r) => {
           var newRequirement = document.createElement("div");
           var rType = document.createElement("h5");

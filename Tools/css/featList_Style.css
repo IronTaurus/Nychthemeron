@@ -105,3 +105,4 @@ This following statements selects each category individually that contains an in
 .mind input:checked + span{background-color: #5db8d9;}
 .mystic input:checked + span{background-color: #d44ecb;}
 .presence input:checked + span{background-color: #ebff65;}
+.basic input:checked + span{background-color: #9b9b9b;}

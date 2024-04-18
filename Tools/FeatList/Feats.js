@@ -269,7 +269,7 @@ export function getFeats(options) {
       Id: "SenseSoul1",
       Types: ["Presence", "Mystic"],
       Description:
-        "You are able to sense a lingering soul if any are in the vicinity of you (10 x Presence) meters.  A 10 minutes ritual enables you to see the souls for up to (5 x Mystic) minutes or for as long as you uphold the ritual but while doing so you are also seen by other souls or spirits.",
+        "By concentrating you are able to sense if there are any lingering souls in the vicinity of you equal to 10 x Presence in meters.  A 10 minutes ritual enables you to see the souls for up to 5 x Mystic in minutes or for as long as you uphold the ritual but during this effect you are also seen by all souls or spirits.",
       Requirements: [
         { type: "Presence", value: 2, color: "#ebff65" },
         { type: "Mystic", value: 2, color: "#d44ecb" },
@@ -282,25 +282,45 @@ export function getFeats(options) {
       Id: "SenseSoul2",
       Types: ["Presence", "Mystic"],
       Description:
-        "In addition to its other effects Sense: Soul enables you to also communicate with the lingering souls. \nThe range is increased to (20 x Presence) meters.",
+        "In addition to its other effects the ritual of Sense: Soul enables you to also communicate with the lingering souls. \nThe range of which you can sense souls is increased to 20 x Presence meters and you are able to sense if the souls are hostile or not at half of that distance",
       Requirements: [
         { type: "Presence", value: 3, color: "#ebff65" },
         { type: "Mystic", value: 3, color: "#d44ecb" },
       ],
       Cost: "10",
     },
+    //PRS-MSC Sense: Soul III
     {
-      //PRS-MSC Sense: Soul III
       Title: "Sense: Soul III",
       Id: "SenseSoul3",
       Types: ["Presence", "Mystic"],
       Description:
-        "In addition to its other effects Sense: Soul enables you to physically interact with lingering souls or spirits and you can also see the souls in the living. \nThe duration is increased to (10 x Mystic) minutes. \nWhile under the effect of Sense: Soul may at any time choose to become invisible to any spirit or soul.",
+        "In addition to its other effects the ritual of Sense: Soul enables you to physically interact with lingering souls or spirits and you can also see the souls in the living but not interact with. \nThe duration of the ritual effect is increased to 10 x Mystic in minutes. \nWhile under the effect of Sense: Soul you may at any time choose to become invisible to any spirit or soul.",
       Requirements: [
-        { type: "Presence", value: 5, color: "#ebff65" },
-        { type: "Mystic", value: 5, color: "#d44ecb" },
+        { type: "Presence", value: 4, color: "#ebff65" },
+        { type: "Mystic", value: 4, color: "#d44ecb" },
       ],
       Cost: "15",
+    },
+    //BSC Weapon Expertise
+    {
+      Title: "Weapon Expertise",
+      Id: "WeaponExp",
+      Types: ["Basic"],
+      Description:
+        "Choose a Weapon type (for example: One-Handed Sword, Two-Handed Axe, Bow, etc). You are not affected by the penalty of the chosen weapon.",
+      Requirements: [{ type: "Basic", value: 0, color: "#9b9b9b" }],
+      Cost: "5",
+    },
+    //BSC Armour Expertise
+    {
+      Title: "Armour Expertise",
+      Id: "ArmourExp",
+      Types: ["Basic"],
+      Description:
+        "Choose a Armour type (for example: Heavy, Medium, Light). You are not affected by the penalty of the chosen armour. \nYou are able to do minor maintainance and repairs (with the required materials) to the chosen armour.",
+      Requirements: [{ type: "Basic", value: 0, color: "#9b9b9b" }],
+      Cost: "5",
     },
   ];
 
