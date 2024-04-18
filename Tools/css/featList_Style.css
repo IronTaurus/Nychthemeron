@@ -53,6 +53,10 @@
   white-space: pre-wrap;
   padding: 1%;
 }
+.dropDownBtn{
+  background: none;
+  border: none;
+}
 input[type="checkbox"]  {
     display: none;
  }

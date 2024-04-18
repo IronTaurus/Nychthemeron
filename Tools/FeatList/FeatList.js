@@ -30,7 +30,9 @@ function loadFeats() {
         var baseDiv = document.createElement("div");
         baseDiv.style.display = "flex";
         var eDropBtn = document.createElement("button");
+        eDropBtn.setAttribute("class", "dropDownBtn");
         eDropBtn.setAttribute("id", `${f.Id}_btn`);
+        eDropBtn.innerHTML = `<img src="${parentUrl}/Art/icon_closed.png" style="height: 10px"/>`;
         eDropBtn.onclick = function () {
           showDiv(f.Id);
           return false;
