@@ -1,3 +1,7 @@
+span {
+  cursor: pointer;
+}
+
 .feat-title{
     margin: 0%;
     align-self: center;
@@ -60,15 +64,18 @@
 input[type="checkbox"]  {
     display: none;
  }
-.AttributeList{width: 250px; height: 38px; margin: 100px auto;}
+#AttributeList{
+  width: 12.5em; 
+  height: fit-content; 
+  margin: auto;
+  display: flex;
+}
 
 div label input {margin-right: 100px;}
 
 .attribte{
   margin: 4px;
-  background-color: #104068;
-  border-radius: 4px;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   overflow: hidden;
   float: left;
 }
@@ -76,6 +83,11 @@ div label input {margin-right: 100px;}
 .attribte label {
   float: left; line-height: 3.0em;
   width: 8.0em; height: 3.0em;
+}
+.attribte span{
+  border: black;
+  border-radius: 14%;
+  border: 2px;
 }
 
 .attribte label span {
@@ -103,10 +115,23 @@ div label input {margin-right: 100px;}
 /*
 This following statements selects each category individually that contains an input element that is a checkbox and is checked (or selected) and chabges the background color of the span element.
 */
+.body {margin: 5%;}
+.agility {margin: 5%;}
+.mind {margin: 5%;}
+.mystic {margin: 5%;}
+.presence {margin: 5%;}
+.basic {margin: 5%;}
 
-.body input:checked + span{background-color: #F75A1B;}
-.agility input:checked + span{background-color: #1bf740;}
-.mind input:checked + span{background-color: #5db8d9;}
-.mystic input:checked + span{background-color: #d44ecb;}
-.presence input:checked + span{background-color: #ebff65;}
-.basic input:checked + span{background-color: #9b9b9b;}
+
+.body input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.body input:checked + span{background-color: #F75A1B; border: solid #a03e17 2px;}
+.agility input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.agility input:checked + span{background-color: #1bf740; border: solid #12ab2c 2px;}
+.mind input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.mind input:checked + span{background-color: #5db8d9; border: solid #4589a2 2px;}
+.mystic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.mystic input:checked + span{background-color: #d44ecb; border: solid #9a3a94 2px;}
+.presence input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.presence input:checked + span{background-color: #ebff65; border: solid #b1c04c 2px;}
+.basic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.basic input:checked + span{background-color: #9b9b9b; border: solid #686868 2px;}
