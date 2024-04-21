@@ -1,5 +1,5 @@
 console.log("Feats.js loaded.");
-export function getFeats(options) {
+export function getFeats(type, requirement) {
   console.log("chosen attribute is: " + options);
   const Attributes = [
     {
@@ -399,7 +399,7 @@ export function getFeats(options) {
       Types: ["Basic"],
       Description:
         "Choose a Weapon type (for example: One-Handed Sword, Two-Handed Axe, Bow, etc). You are not affected by the penalty of the chosen weapon.",
-      Requirements: [{ type: "Basic", value: 0, color: "#9b9b9b" }],
+      Requirements: [{ type: "Basic", value: 3, color: "#9b9b9b" }],
       Cost: "5",
     },
     //BSC Armour Expertise
@@ -409,10 +409,14 @@ export function getFeats(options) {
       Types: ["Basic"],
       Description:
         "Choose a Armour type (for example: Heavy, Medium, Light). You are not affected by the penalty of the chosen armour. \nYou are able to do minor maintainance and repairs (with the required materials) to the chosen armour.",
-      Requirements: [{ type: "Basic", value: 0, color: "#9b9b9b" }],
+      Requirements: [{ type: "Basic", value: 3, color: "#9b9b9b" }],
       Cost: "5",
     },
   ];
+
+  const sortByRequirement = Attributes.filter((req) =>
+    req.Requirements.some((r) => requirement.some((cost) => r.value == cost))
+  );
 
   const f = Attributes.filter((atr) =>
     atr.Types.some((type) => type === options)

@@ -9,6 +9,10 @@ document.querySelectorAll(".attribute").forEach((attribute) => {
 
 function loadFeats() {
   let featList = document.getElementById("FeatList");
+  var requirementList = document.querySelectorAll(".requirement");
+  var requirementsValues = [];
+
+  console.log("Tier Number: " + JSON.stringify(requirementList));
   let child = featList.lastElementChild;
   while (child) {
     featList.removeChild(child);
@@ -16,11 +20,19 @@ function loadFeats() {
   }
   console.log("Loading feat...");
   var attributeList = document.querySelectorAll(".attribute");
+  requirementList.forEach((element) => {
+    if (element.checked) {
+      requirementsValues.push(element.value);
+    }
+  });
+
+  //var feats = getFeats(list1, list2)
+
   attributeList.forEach((element) => {
     if (element.checked) {
       var featColumn = document.createElement("div");
       featColumn.setAttribute("class", "featCol");
-      var feats = getFeats(element.name);
+      var feats = getFeats(element.name, requirementsValues);
 
       //Create a div element for each feat of the chosen attribute.
       Object.values(feats).forEach((f) => {
