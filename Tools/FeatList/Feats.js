@@ -1,6 +1,6 @@
 console.log("Feats.js loaded.");
-export function getFeats(type, requirement) {
-  console.log("chosen attribute is: " + options);
+export function getFeats(types, requirement) {
+  console.log("chosen attribute is: " + types);
   const Attributes = [
     {
       //AGI Quick Reactions I
@@ -414,12 +414,16 @@ export function getFeats(type, requirement) {
     },
   ];
 
-  const sortByRequirement = Attributes.filter((req) =>
-    req.Requirements.some((r) => requirement.some((cost) => r.value == cost))
+  // const sortByRequirement = Attributes.filter((req) =>
+  //   req.Requirements.some((r) => requirement.some((cost) => r.value == cost))
+  // );
+
+  const sortByType = Attributes.filter((typ) =>
+    typ.Types.some((t) => types.some((fType) => t === fType))
   );
 
-  const f = Attributes.filter((atr) =>
-    atr.Types.some((type) => type === options)
-  );
-  return f;
+  // const f = Attributes.filter((atr) =>
+  //   atr.Types.some((type) => type === options)
+  // );
+  return sortByType;
 }
