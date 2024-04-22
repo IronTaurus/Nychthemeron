@@ -408,7 +408,7 @@ export function getFeats(types, requirement) {
     //PRS-MSC Sense: Divine I
     {
       Title: "Sense: Divine I",
-      Id: "SenseSoul1",
+      Id: "SenseDivine1",
       Types: ["Presence", "Mystic"],
       Description:
         "You are able to sense the presence of a divine entity. You may distinguish Arcane magic from Divine magic.",
