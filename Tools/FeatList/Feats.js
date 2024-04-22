@@ -353,8 +353,21 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
       Cost: "15",
     },
+    //PRS-MND Talk With Animals
     {
-      //PRS-MSC Sense: Soul I
+      Title: "Talk With Animals",
+      Id: "TalkWithAnimals",
+      Types: ["Presence", "Mind"],
+      Description:
+        "You are able to understand and communicate with animals of the chosen type.",
+      Requirements: [
+        { type: "Presence", value: 1, color: "#ebff65" },
+        { type: "Mind", value: 1, color: "#5db8d9" },
+      ],
+      Cost: "10",
+    },
+    //PRS-MSC Sense: Soul I
+    {
       Title: "Sense: Soul I",
       Id: "SenseSoul1",
       Types: ["Presence", "Mystic"],
@@ -366,8 +379,8 @@ export function getFeats(types, requirement) {
       ],
       Cost: "10",
     },
+    //PRS-MSC Sense: Soul II
     {
-      //PRS-MSC Sense: Soul II
       Title: "Sense: Soul II",
       Id: "SenseSoul2",
       Types: ["Presence", "Mystic"],
@@ -386,6 +399,45 @@ export function getFeats(types, requirement) {
       Types: ["Presence", "Mystic"],
       Description:
         "In addition to its other effects the ritual of Sense: Soul enables you to physically interact with lingering souls or spirits and you can also see the souls in the living but not interact with. \nThe duration of the ritual effect is increased to 10 x Mystic in minutes. \nWhile under the effect of Sense: Soul you may at any time choose to become invisible to any spirit or soul.",
+      Requirements: [
+        { type: "Presence", value: 4, color: "#ebff65" },
+        { type: "Mystic", value: 4, color: "#d44ecb" },
+      ],
+      Cost: "15",
+    },
+    //PRS-MSC Sense: Divine I
+    {
+      Title: "Sense: Divine I",
+      Id: "SenseSoul1",
+      Types: ["Presence", "Mystic"],
+      Description:
+        "You are able to sense the presence of a divine entity. You may distinguish Arcane magic from Divine magic.",
+      Requirements: [
+        { type: "Presence", value: 2, color: "#ebff65" },
+        { type: "Mystic", value: 2, color: "#d44ecb" },
+      ],
+      Cost: "10",
+    },
+    //PRS-MSC Sense: Divine II
+    {
+      Title: "Sense: Divine II",
+      Id: "SenseDivine2",
+      Types: ["Presence", "Mystic"],
+      Description:
+        "In addition to its other effects Sense: Divine now also allows you to distinguish what portfolio the divine presence or magic it belongs to. \nBy making a 10 min ritual you are able to hide yourself and an area around you equal to your Presence x 2 in meters in diameters. The effect of the ritual last for your Mystic x 5 in minutes or for as long as you uphold the ritual.",
+      Requirements: [
+        { type: "Presence", value: 3, color: "#ebff65" },
+        { type: "Mystic", value: 3, color: "#d44ecb" },
+      ],
+      Cost: "10",
+    },
+    //PRS-MSC Sense: Divine III
+    {
+      Title: "Sense: Divine III",
+      Id: "SenseDivine3",
+      Types: ["Presence", "Mystic"],
+      Description:
+        "In addition to its other effects Sense: Divine now lets you distinguish exactly which divine entity of the presence or magic. \nThe effect of the ritual's multiplier is increased to 5 for Mystic and 10 for Presence.",
       Requirements: [
         { type: "Presence", value: 4, color: "#ebff65" },
         { type: "Mystic", value: 4, color: "#d44ecb" },
