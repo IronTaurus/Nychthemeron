@@ -424,7 +424,7 @@ export function getFeats(types, requirement) {
       Id: "SenseDivine2",
       Types: ["Presence", "Mystic"],
       Description:
-        "In addition to its other effects Sense: Divine now also allows you to distinguish what portfolio the divine presence or magic it belongs to. \nBy making a 10 min ritual you are able to hide yourself and an area around you equal to your Presence x 2 in meters in diameters. The effect of the ritual last for your Mystic x 5 in minutes or for as long as you uphold the ritual.",
+        "In addition to its other effects Sense: Divine now also allows you to distinguish what portfolio the divine presence or magic it belongs to. \nBy making a 10 min ritual you are able to hide yourself and an area around you equal to your Presence x 2 in diameters. The effect of the ritual last for your Mystic x 5 in minutes or for as long as you uphold the ritual.",
       Requirements: [
         { type: "Presence", value: 3, color: "#ebff65" },
         { type: "Mystic", value: 3, color: "#d44ecb" },
