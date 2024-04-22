@@ -8,7 +8,7 @@ span {
     padding: 2px;
 }
 .featCol{
-  display: block;
+  display: none;
   width: 33%;
   max-width: 33%;
 }

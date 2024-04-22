@@ -25,26 +25,6 @@ function loadFeats(event) {
   console.log(JSON.stringify(typeList));
 
   createFeatElement(getFeats(typeList, []));
-
-  // var requirementList = document.querySelectorAll(".requirement");
-  // var requirementsValues = [];
-
-  // console.log("Tier Number: " + JSON.stringify(requirementList));
-
-  // console.log("Loading feat...");
-  // var attributeList = document.querySelectorAll(".attribute");
-  // requirementList.forEach((element) => {
-  //   if (element.checked) {
-  //     requirementsValues.push(element.value);
-  //   }
-  // });
-
-  //var feats = getFeats(list1, list2)
-
-  // attributeList.forEach((element) => {
-  //   if (element.checked) {
-  //   }
-  // });
 }
 function createFeatElement(feats) {
   let featList = document.getElementById("FeatList");
@@ -54,7 +34,8 @@ function createFeatElement(feats) {
     featList.removeChild(child);
     child = featList.lastElementChild;
   }
-  typeList.forEach((type) => {
+  const baseTypes = ["Basic", "Body", "Agility", "Mind", "Mystic", "Presence"];
+  baseTypes.forEach((type) => {
     const col = document.createElement("div");
     col.setAttribute("id", `${type}_col`);
     col.setAttribute("class", "featCol");
@@ -62,9 +43,7 @@ function createFeatElement(feats) {
   });
 
   //Create a div element for each feat of the chosen attribute.
-  //Object.values(feats).forEach
   Object.values(feats).forEach((f) => {
-    // console.log(f.Title);
     var eDiv = document.createElement("div");
     eDiv.setAttribute("class", "featRow");
     var baseDiv = document.createElement("div");
@@ -121,9 +100,13 @@ function createFeatElement(feats) {
     eDiv.appendChild(baseDiv);
     eDiv.appendChild(eDrop);
     console.log(f.Types[0]);
-    const f_col = document.getElementById(`${f.Types[0]}_col`);
-    console.log(f_col);
-    f_col.appendChild(eDiv);
+    typeList.forEach((type) => {
+      if (f.Types.includes(type)) {
+        const f_col = document.getElementById(`${type}_col`);
+        f_col.style.display = "block";
+        f_col.appendChild(eDiv);
+      }
+    });
   });
   // featList.appendChild(f_col);
 }
