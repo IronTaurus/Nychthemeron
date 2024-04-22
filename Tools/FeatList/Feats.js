@@ -416,7 +416,7 @@ export function getFeats(types, requirement) {
         { type: "Presence", value: 2, color: "#ebff65" },
         { type: "Mystic", value: 2, color: "#d44ecb" },
       ],
-      Cost: "10",
+      Cost: "5",
     },
     //PRS-MSC Sense: Divine II
     {
