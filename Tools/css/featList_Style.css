@@ -7,6 +7,16 @@ span {
     align-self: center;
     padding: 2px;
 }
+#optionsScreen{
+  width: 100%;
+  padding: 0.5em;
+  border: 2px solid;
+  background-color: rgba(204, 245, 209, 0.4);
+  border-color: #7fd39b;
+  border-style: ridge;
+  border-radius: 1em;
+  margin-bottom: 0.1em;
+}
 @media only screen and (max-width: 4000px){
 .featCol{
   display: none;
@@ -24,7 +34,7 @@ span {
   @media only screen and (max-width: 400px){
     .featCol{
       display: none;
-      width: max-content;
+      width: 100%;
       max-width: 100%;
     }
     }
@@ -81,7 +91,7 @@ input[type="checkbox"]  {
     display: none;
  }
 #AttributeList{
-  width: 12.5em; 
+  width: 12.5em;
   height: fit-content; 
   margin: auto;
   display: flex;
@@ -147,15 +157,15 @@ This following statements selects each category individually that contains an in
 
 
 
-.body input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.body input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .body input:checked + span{background-color: #F75A1B; border: solid #a03e17 2px;}
-.agility input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.agility input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .agility input:checked + span{background-color: #1bf740; border: solid #12ab2c 2px;}
-.mind input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.mind input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .mind input:checked + span{background-color: #5db8d9; border: solid #4589a2 2px;}
-.mystic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.mystic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .mystic input:checked + span{background-color: #d44ecb; border: solid #9a3a94 2px;}
-.presence input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.presence input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .presence input:checked + span{background-color: #ebff65; border: solid #b1c04c 2px;}
-.basic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 4%;}
+.basic input + span{background-color: #fefefe; border: solid black 2px; border-radius: 8%; padding: 0.2em;}
 .basic input:checked + span{background-color: #9b9b9b; border: solid #686868 2px;}
