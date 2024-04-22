@@ -7,11 +7,27 @@ span {
     align-self: center;
     padding: 2px;
 }
+@media only screen and (max-width: 4000px){
 .featCol{
   display: none;
   width: 33%;
   max-width: 33%;
 }
+}
+@media only screen and (max-width: 600px){
+  .featCol{
+    display: none;
+    width: 66%;
+    max-width: 33%;
+  }
+  }
+  @media only screen and (max-width: 240px){
+    .featCol{
+      display: none;
+      width: 100%;
+      max-width: 33%;
+    }
+    }
 #FeatList {
   display: flex;
   flex-wrap: wrap;
