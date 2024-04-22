@@ -18,14 +18,14 @@ span {
   .featCol{
     display: none;
     width: 66%;
-    max-width: 33%;
+    max-width: 66%;
   }
   }
   @media only screen and (max-width: 400px){
     .featCol{
       display: none;
-      width: 100%;
-      max-width: 33%;
+      width: max-content;
+      max-width: 100%;
     }
     }
 #FeatList {
