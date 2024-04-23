@@ -98,19 +98,13 @@ input[type="checkbox"]  {
   display: flex;
 }
 #RequirementList{
-  width: 12.5em; 
+  width: 50%;
   height: fit-content; 
   margin: auto;
   display: flex;
 }
 
 div label input {margin-right: 100px;}
-
-.attribute{
-  margin: 4px;
-  /* border: 2px solid #fff; */
-  float: left;
-}
 
 .attribute label {
   line-height: 3.0em;
@@ -120,17 +114,17 @@ div label input {margin-right: 100px;}
   border: black;
   border-radius: 14%;
   border: 2px;
-
+  min-width: 5em;
 }
 
 .attribute label span {
   text-align: center;
   padding: 3px 0;
-  display: block;
+  display: block; 
 }
 
 .attribute label input {
-  position: absolute;
+  /* position: absolute; */
   display: none;
   color: #fff !important;
 }
@@ -149,12 +143,12 @@ div label input {margin-right: 100px;}
 /*
 This following statements selects each category individually that contains an input element that is a checkbox and is checked (or selected) and chabges the background color of the span element.
 */
-.body {margin: 5%;}
-.agility {margin: 5%;}
-.mind {margin: 5%;}
-.mystic {margin: 5%;}
-.presence {margin: 5%;}
-.basic {margin: 5%;}
+.body {margin: 0.3em;}
+.agility {margin: 0.3em;}
+.mind {margin: 0.3em;}
+.mystic {margin: 0.3em;}
+.presence {margin: 0.3em;}
+.basic {margin: 0.3em;}
 
 
 
