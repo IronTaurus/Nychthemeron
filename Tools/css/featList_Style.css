@@ -16,6 +16,7 @@ span {
   border-style: ridge;
   border-radius: 1em;
   margin-bottom: 0.1em;
+  align-items: center;
 }
 @media only screen and (max-width: 4000px){
 .featCol{
@@ -91,7 +92,7 @@ input[type="checkbox"]  {
     display: none;
  }
 #AttributeList{
-  width: 12.5em;
+  width: fit-content;
   height: fit-content; 
   margin: auto;
   display: flex;
@@ -105,40 +106,40 @@ input[type="checkbox"]  {
 
 div label input {margin-right: 100px;}
 
-.attribte{
+.attribute{
   margin: 4px;
-  border: 2px solid #fff;
-  overflow: hidden;
+  /* border: 2px solid #fff; */
   float: left;
 }
 
-.attribte label {
-  float: left; line-height: 3.0em;
+.attribute label {
+  line-height: 3.0em;
   width: 8.0em; height: 3.0em;
 }
-.attribte span{
+.attribute span{
   border: black;
   border-radius: 14%;
   border: 2px;
+
 }
 
-.attribte label span {
+.attribute label span {
   text-align: center;
   padding: 3px 0;
   display: block;
 }
 
-.attribte label input {
+.attribute label input {
   position: absolute;
   display: none;
   color: #fff !important;
 }
 /* selects all of the text within the input element and changes the color of the text */
-.attribte label input + span{color: #fff;}
+.attribute label input + span{color: #000000;}
 
 
 /* This will declare how a selected input will look giving generic properties */
-.attribte input:checked + span {
+.attribute input:checked + span {
     color: #ffffff;
     text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
 }
