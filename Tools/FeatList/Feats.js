@@ -81,11 +81,11 @@ export function getFeats(types, requirement) {
     },
     //AGI Crimson Blood
     {
-      Title: "Crimson Blood",
-      Id: "CrimsonBlood",
+      Title: "Twilight Blood",
+      Id: "TwilightBlood",
       Types: ["Agility"],
       Description:
-        "The maximum number of Eclipses are increased by 1. \nAdd one Eclipse card to your Action deck.",
+        "(You may not have more than 3 Feats named Twilight) The maximum number of Twilight cards are increased by 1. \nAdd one Twilight card to your Action deck.",
       Requirements: [{ type: "Agility", value: 4, color: "#1bf740" }],
       Cost: "15",
     },
@@ -313,15 +313,15 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
       Cost: "15",
     },
-    //MSC Crimson Spirit
+    //MSC Twilight Spirit
     {
-      Title: "Crimson Spirit",
-      Id: "CrimsonSpirit",
+      Title: "Twilight Spirit",
+      Id: "TwilightSpirit",
       Types: ["Mystic"],
       Description:
-        "The maximum number of Eclipses are increased by 1. \nAdd one Eclipse card to your Action deck.",
+        "(You may not have more than 3 Feats named Twilight) The maximum number of Twilight cards are increased by 1. \nAdd one Twilight card to your Action deck.",
       Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
-      Cost: "15",
+      Cost: "10",
     },
     {
       //PRS Performer I
