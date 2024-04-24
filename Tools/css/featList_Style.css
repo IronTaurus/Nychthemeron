@@ -106,10 +106,27 @@ input[type="checkbox"]  {
 
 div label input {margin-right: 100px;}
 
-.attribute label {
-  line-height: 3.0em;
-  width: 8.0em; height: 3.0em;
+@media only screen and (max-width: 4000px){
+  .attribute label {
+    line-height: 3.0em;
+    width: 8.0em; height: 3.0em;
+  }
 }
+
+@media only screen and (max-width: 800px){
+  .attribute label {
+    line-height: 3.0em;
+    width: 6.0em; height: 3.0em;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .attribute label {
+    line-height: 3.0em;
+    width: 4.0em; height: 3.0em;
+  }
+}
+
 .attribute span{
   border: black;
   border-radius: 14%;
