@@ -99,7 +99,7 @@ body {
     display: block;
   }
 }
-@media only screen and (max-width: 600px){
+/* @media only screen and (max-width: 600px){
   .top-button {
     font-size: 1.2em;
     padding: 0.15em 0.6em 0.15em, 0.6em;
@@ -112,8 +112,8 @@ body {
   .sub-section {
     display: flex;
   }
-}
-@media only screen and (max-width: 400px){
+} */
+@media only screen and (max-width: 600px){
   .Grid-container-top {
     /* grid-template-areas: "left1 left2 left3 main right1 right2 right3"; */
     grid-template: 
