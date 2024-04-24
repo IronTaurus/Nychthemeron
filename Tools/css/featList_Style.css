@@ -105,11 +105,20 @@ input[type="checkbox"]  {
 }
 
 div label input {margin-right: 100px;}
+.attribute span{
+  border: black;
+  border-radius: 14%;
+  border: 2px;
+}
 
 @media only screen and (max-width: 4000px){
   .attribute label {
     line-height: 3.0em;
     width: 8.0em; height: 3.0em;
+  }
+
+  .attribute span{
+    min-width: 5em;
   }
 }
 
@@ -118,6 +127,10 @@ div label input {margin-right: 100px;}
     line-height: 3.0em;
     width: 6.0em; height: 3.0em;
   }
+
+  .attribute span{
+    min-width: 3em;
+  }
 }
 
 @media only screen and (max-width: 400px){
@@ -125,14 +138,13 @@ div label input {margin-right: 100px;}
     line-height: 3.0em;
     width: 4.0em; height: 3.0em;
   }
+
+  .attribute span{
+    min-width: 1em;
+  }
 }
 
-.attribute span{
-  border: black;
-  border-radius: 14%;
-  border: 2px;
-  min-width: 5em;
-}
+
 
 .attribute label span {
   text-align: center;
