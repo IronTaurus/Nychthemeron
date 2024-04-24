@@ -56,7 +56,7 @@ body {
 }
 
 .Grid-container-top {
-  width: 100%;
+  width: fit-content;
   margin: auto;
   display: grid;
   background-size: cover;
@@ -82,9 +82,10 @@ body {
   border-top-right-radius: 30px;
 }
 
-@media only screen and (max-width: 1920px){
+@media only screen and (max-width: 4000px){
   .Grid-container-top {
     grid-template: "religion history myths home races game tools";
+    grid-gap: 1em;
   }
   .top-button {
     font-size: 1.9em;
@@ -116,11 +117,14 @@ body {
 @media only screen and (max-width: 600px){
   .Grid-container-top {
     /* grid-template-areas: "left1 left2 left3 main right1 right2 right3"; */
+    grid-gap: 0.6em;
     grid-template: 
-    'religion . races' 
-    'history home game' 
-    'myths . tools';
-    grid-gap: 0.2em
+    'religion history home home races game' 
+    '. myths home home tools .';
+    /* 'religion home home races' 
+    'history home home game' 
+    'myths home home tools'; */
+    
   }
 
   .top-button {
@@ -144,6 +148,8 @@ body {
 
 #topContainer{
   width: 100%;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
   display: flex;
   background-image: url("https://i.pinimg.com/originals/1b/55/e4/1b55e4bdb4fc6051382e370bf26d5a59.jpg");
   background-repeat: repeat-x;
