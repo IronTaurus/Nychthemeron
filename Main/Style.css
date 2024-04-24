@@ -21,31 +21,31 @@ body {
 }
 
 #Religion {
-  grid-area: left1;
+  grid-area: religion;
 }
 
 #History {
-  grid-area: left2;
+  grid-area: history;
 }
 
 #Myths {
-  grid-area: left3;
+  grid-area: myths;
 }
 
 #Home {
-  grid-area: main;
+  grid-area: home;
 }
 
 #Races {
-  grid-area: right1;
+  grid-area: races;
 }
 
-#Cards {
-  grid-area: right2;
+#Game {
+  grid-area: game;
 }
 
-#Rules {
-  grid-area: right3;
+#Tools {
+  grid-area: tools;
 }
 
 #fixed-banner {
@@ -55,9 +55,41 @@ body {
   width: 100%;
 }
 
+.Grid-container-top {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  background-size: cover;
+  justify-items: center;
+  align-items: center;
+}
+
+.Grid-container-top > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.top-button {
+  cursor: pointer;
+  display: block;
+  background-color: #158359;
+  color: rgb(255, 255, 255);
+  font-family: Gabriola;
+  border: 1.5px;
+  border-style: solid;
+  border-color: #034218;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
 @media only screen and (max-width: 1920px){
+  .Grid-container-top {
+    grid-template: "religion history myths home races game tools";
+  }
   .top-button {
-    font-size: 30px;
+    font-size: 1.9em;
+    padding: 0.2em 1em 0.2em, 1em;
+    min-width: 3em;
   }
   #homeImg{
     height: 100px;
@@ -69,7 +101,9 @@ body {
 }
 @media only screen and (max-width: 600px){
   .top-button {
-    font-size: 18px;
+    font-size: 1.2em;
+    padding: 0.15em 0.6em 0.15em, 0.6em;
+    min-width: 2em;
   }
   #homeImg{
     height: 75px;
@@ -79,31 +113,30 @@ body {
     display: flex;
   }
 }
-@media only screen and (max-width: 240px){
+@media only screen and (max-width: 400px){
+  .Grid-container-top {
+    /* grid-template-areas: "left1 left2 left3 main right1 right2 right3"; */
+    grid-template: 
+    'religion . races' 
+    'history home game' 
+    'myths . tools';
+    grid-gap: 0.2em
+  }
+
   .top-button {
-    font-size: 14px;
+    font-size: 1em;
+    padding: 0.1em 0.5em 0.1em, 0.5em;
+    min-width: 4em;
   }
   #homeImg{
-    height: 50px;
-    width: 50px;
+    height: 4em;
+    width: 4em;
   }
   .sub-section {
     display: flex;
   }
 }
-.top-button {
-  cursor: pointer;
-  display: block;
-  background-color: #158359;
-  color: rgb(255, 255, 255);
-  padding: 5px 15px 5px 15px;
-  font-family: Gabriola;
-  border: 1.5px;
-  border-style: solid;
-  border-color: #034218;
-  border-bottom-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
+
 .top-button:hover {
   background-color: #28a374;
   box-shadow: 0 5px 15px #77ffcbd0;
@@ -118,20 +151,7 @@ body {
   background-size: cover;
   justify-items: center;
 }
-.Grid-container-top {
-  width: 100%;
-  margin: auto;
-  display: grid;
-  grid-template-areas: "left1 left2 left3 main right1 right2 right3";
-  background-size: cover;
-  justify-items: center;
-  align-items: center;
-}
 
-.Grid-container-top > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-}
 
 /* Dropdown Button */
 .dropbtn {
