@@ -2,13 +2,10 @@ import { getFeats } from "./Feats.js";
 console.log("FeatList.js loaded.");
 var parentUrl = window.location.origin + "/Nychthemeron";
 
-document.querySelectorAll(".attribute").forEach((attribute) => {
-  // attribute.addEventListener("change", loadFeats);
-
-  if (attribute.getAttribute("bool") == "false") {
-    attribute.addEventListener("change", loadFeats);
-    attribute.setAttribute("bool", "true");
-  }
+var attr = document.querySelectorAll("div.attribute");
+console.log(JSON.stringify(attr));
+document.querySelectorAll("div.attribute").forEach((attribute) => {
+  attribute.addEventListener("change", loadFeats);
 });
 
 let typeList = [];
