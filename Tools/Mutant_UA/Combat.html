@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="turOrdning">
+
+    </div>
+    <script>
+        let spelareLista = [];
+        class Spelare {
+            constructor(namn, iv, handling, tidigareHandlingar){
+                this.namn = namn;
+                this.iv = iv;
+                this.handling = handling;
+                this.tidigareHandlingar = tidigareHandlingar;
+            }
+        }
+
+        function popup(){
+            let popupDiv = document.createElement("div");
+            popupDiv.setAttribute("id", "popupDiv");
+            let spelarNamn = document.createElement("input");
+            spelarNamn.setAttribute("type", "text");
+            let spelarIv = document.createElement("input");
+            spelarIv.setAttribute("type", "text");
+            let spelarHandling = document.createElement("input");
+            spelarHandling.setAttribute("type", "text");
+            let klar = document.createElement("button");
+            klar.onclick = function () {
+                läggTillSpelare(spelarNamn, spelarIv, spelarHandling);
+            }
+            popupDiv.appendChild(spelarNamn);
+            popupDiv.appendChild(spelarIv);
+            popupDiv.appendChild(spelarHandling);
+            popupDiv.style.display = "none";
+        }
+
+        function läggTillSpelare(namn, iv, handling){
+            //skapa ny spelare
+            let spelare = new Spelare();
+            spelare.namn = namn;
+            spelare.iv = iv;
+            spelare.handling = handling;
+
+            spelareLista.appendChild(spelare)
+        }
+    </script>
+</body>
+</html>
