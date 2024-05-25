@@ -18,23 +18,24 @@ span {
   margin-bottom: 0.1em;
   align-items: center;
 }
-@media only screen and (max-width: 4000px){
 .featCol{
   display: none;
+}
+
+@media only screen and (max-width: 4000px){
+.featCol{
   width: 33%;
   max-width: 33%;
 }
 }
 @media only screen and (max-width: 800px){
   .featCol{
-    display: none;
     width: 66%;
     max-width: 66%;
   }
   }
   @media only screen and (max-width: 400px){
     .featCol{
-      display: none;
       width: 100%;
       max-width: 100%;
     }
