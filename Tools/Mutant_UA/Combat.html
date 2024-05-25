@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="combat.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="turOrdning">
+    <button onclick="popup()">Skapa</button>
+    <div id="display"></div>
+    <ul id="turOrdning">
 
-    </div>
+    </ul>
     <script>
         let spelareLista = [];
         class Spelare {
             constructor(namn, iv, handling, tidigareHandlingar){
                 this.namn = namn;
                 this.iv = iv;
-                this.handling = handling;
+                this.tidigareHandlingar = tidigareHandlingar;
+            }
+        }
+                class NPC {
+            constructor(namn, iv, handling, tidigareHandlingar){
+                this.namn = namn;
+                this.iv = iv;
+                this.hp = hp;
                 this.tidigareHandlingar = tidigareHandlingar;
             }
         }
@@ -23,20 +33,59 @@
         function popup(){
             let popupDiv = document.createElement("div");
             popupDiv.setAttribute("id", "popupDiv");
+            let namnLabel = document.createElement("text");
+            namnLabel.setAttribute("class", "label");
+            namnLabel.textContent = "Namn:"
             let spelarNamn = document.createElement("input");
             spelarNamn.setAttribute("type", "text");
+            spelarNamn.setAttribute("class", "long-input");
+            spelarNamn.oninput = function(){
+                if(this.style.backgroundColor != "white"){
+                    this.style.backgroundColor = "white";
+                }
+            }
+            let ivLabel = document.createElement("text");
+            ivLabel.setAttribute("class", "label");
+            ivLabel.textContent = "Initiativ:"
             let spelarIv = document.createElement("input");
             spelarIv.setAttribute("type", "text");
-            let spelarHandling = document.createElement("input");
-            spelarHandling.setAttribute("type", "text");
-            let klar = document.createElement("button");
-            klar.onclick = function () {
-                läggTillSpelare(spelarNamn, spelarIv, spelarHandling);
+            spelarIv.setAttribute("class", "short-input");
+            spelarIv.oninput = function(){
+                if(this.style.backgroundColor != "white"){
+                    this.style.backgroundColor = "white";
+                }
             }
+            let klar = document.createElement("button");
+            var regExp = /[a-zA-Z]/;
+
+            klar.onclick = function () {
+                let namnStr = spelarNamn.value.replace(/\s/g, '');
+                let ivStr = spelarIv.value.replace(/\s/g, '');
+
+                if(namnStr != "" && ivStr != "" && regExp.test(ivStr) == false){
+                    läggTillSpelare(spelarNamn.value, spelarIv.value);
+                popupDiv.style.display = "none";
+                populateList();
+                }
+                else{
+                    if(namnStr == ""){
+                        spelarNamn.style.backgroundColor = "rgb(255, 151, 151)";
+                    }
+                    if(ivStr == "" || regExp.test(ivStr) == true){
+                        spelarIv.style.backgroundColor = "rgb(255, 151, 151)";
+                    }
+                }
+
+            }
+            klar.innerHTML = "Klar"
+            popupDiv.appendChild(namnLabel);
             popupDiv.appendChild(spelarNamn);
+            popupDiv.appendChild(ivLabel);
             popupDiv.appendChild(spelarIv);
-            popupDiv.appendChild(spelarHandling);
-            popupDiv.style.display = "none";
+            popupDiv.appendChild(klar);
+            let displayWindow = document.getElementById("display");
+            displayWindow.appendChild(popupDiv);
+            
         }
 
         function läggTillSpelare(namn, iv, handling){
@@ -45,8 +94,33 @@
             spelare.namn = namn;
             spelare.iv = iv;
             spelare.handling = handling;
+            spelareLista.push(spelare)
+            console.log(JSON.stringify(spelare))
 
-            spelareLista.appendChild(spelare)
+        }
+
+        function populateList(){
+            let list = document.getElementById("turOrdning")
+            //Clear list from childs
+            while (list.firstChild) { 
+                list.removeChild(list.firstChild); 
+            }
+
+            const sortedList = spelareLista.sort((a, b) => b.iv-a.iv);
+            spelareLista.forEach(spelare => {
+                let spelarNod = document.createElement("li");
+                spelarNod.setAttribute("class", "line");
+                let spelarIv = document.createElement("text");
+                // spelarIv.setAttribute("type", "text");
+                spelarIv.setAttribute("class", "iv");
+                spelarIv.textContent = spelare.iv;
+                let spelarNamn = document.createElement("text");
+                spelarNamn.setAttribute("class", "namn");
+                spelarNamn.textContent = spelare.namn;
+                spelarNod.appendChild(spelarIv);
+                spelarNod.appendChild(spelarNamn)
+                list.appendChild(spelarNod);
+            });
         }
     </script>
 </body>
