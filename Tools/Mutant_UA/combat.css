@@ -38,3 +38,46 @@ margin-right: 0.3em;
 width: 2em;
 margin-right: 0.3em;
 }
+#hp{
+    margin-left: 0.5em;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    background-color: rgb(224, 224, 224);
+    height: fit-content;
+    width: fit-content;
+    padding: 0.2em;
+    border: solid rgb(84, 84, 84) 1px;
+    position: absolute;
+    z-index: 1;
+  }
+  .dropMenu_btn{
+    background: none;
+    border: none;
+    margin: 0.1em;
+    padding: 0.1em;
+  }
+  .dropMenu_btn:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+    border: solid 1px rgb(209, 209, 209);
+  }
+  /*Top menu button styling*/
+.dropdown-content a:hover {
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.2s;
+    transform: scale(1.1);
+    /*background-color: #4bd4a0;*/
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    background-color: #28a374;
+    cursor: pointer;
+  }

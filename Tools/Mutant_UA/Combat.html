@@ -7,30 +7,105 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="popup()">Skapa</button>
+    <div class="dropdown">
+        <button class="dropbtn">Lägg till</button>
+        <div class="dropdown-content">
+            <div class="dropMenu_btn" onclick="popup('spelare')">Spelare</div>
+            <div class="dropMenu_btn" onclick="popup('npc')">Npc</div>
+        </div>
+
+    </div>
+
     <div id="display"></div>
     <ul id="turOrdning">
-
     </ul>
+
+    <div id="rundKlocka">Runda: 1</div>
+    <button onclick="avslutaRunda()">Nästa Runda</button>
+
     <script>
         let spelareLista = [];
+        let ordningLista = document.getElementById("turOrdning")
+        let draggedItem = null;
+
+        ordningLista.addEventListener("dragstart", (e) => {
+            draggedItem = e.target;
+            setTimeout(() => {
+                e.target.style.display = "none";
+            }, 0);
+        })
+
+        ordningLista.addEventListener("dragend", (e) => {
+            setTimeout(() => {
+                e.target.style.display = "";
+                draggedItem = null;
+            }, 0);
+        })
+
+        ordningLista.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            const efterElement = getDragEfterElement(ordningLista, e.clientY);
+            const currentElement = document.querySelector(".dragging");
+            if(efterElement == null){
+                ordningLista.appendChild(draggedItem);
+            }
+            else{
+                ordningLista.insertBefore(draggedItem, efterElement);
+                // const children = draggedItem.childnodes()
+                draggedItem.firstChild.textContent = efterElement.firstChild.textContent;
+            }
+        })
+
+        const getDragEfterElement = (container, y) => {
+            const draggableElement = [...container.querySelectorAll("li:not(.dragging)"), ];
+            return draggableElement.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if(offset < 0 && offset > closest.offset){
+                    return {offset: offset, element: child,};
+                }
+                else{
+                    return closest;
+                }
+            },
+            {
+                offset: Number.NEGATIVE_INFINITY,
+            }).element;
+        }
+
+
         class Spelare {
-            constructor(namn, iv, handling, tidigareHandlingar){
+            constructor(typ, namn, currIv, baseIv, handling, tidigareHandlingar, clr, ID){
+                this.typ = typ;
                 this.namn = namn;
-                this.iv = iv;
+                this.currIv = currIv;
+                this.baseIv = baseIv;
                 this.tidigareHandlingar = tidigareHandlingar;
+                this.clr = clr;
+                this.ID = ID;
             }
         }
                 class NPC {
-            constructor(namn, iv, handling, tidigareHandlingar){
+            constructor(typ, namn, currIv, baseIv, handling, tidigareHandlingar, hp, clr){
+                this.typ = typ;
                 this.namn = namn;
-                this.iv = iv;
+                this.currIv = currIv;
+                this.baseIv = baseIv;
                 this.hp = hp;
                 this.tidigareHandlingar = tidigareHandlingar;
+                this.clr = clr;
             }
         }
 
-        function popup(){
+        let runda = 1;
+        function avslutaRunda(){
+            runda++
+            let rundKlocka = document.getElementById("rundKlocka");
+            rundKlocka.innerHTML = `Runda: ${runda}`;
+            populateList();
+        }
+
+        function popup(typ){
             let popupDiv = document.createElement("div");
             popupDiv.setAttribute("id", "popupDiv");
             let namnLabel = document.createElement("text");
@@ -57,13 +132,34 @@
             }
             let klar = document.createElement("button");
             var regExp = /[a-zA-Z]/;
-
+           
+            popupDiv.appendChild(namnLabel);
+            popupDiv.appendChild(spelarNamn);
+            popupDiv.appendChild(ivLabel);
+            popupDiv.appendChild(spelarIv);
+            let hp;
+            if(typ == "npc"){
+                let hpLabel = document.createElement("text");
+                hpLabel.setAttribute("class", "label");
+                hpLabel.textContent = "Hp:";
+                hp = document.createElement("input");
+                hp.setAttribute("class", "short-input");
+                popupDiv.appendChild(hpLabel);
+                popupDiv.appendChild(hp);
+            }
             klar.onclick = function () {
                 let namnStr = spelarNamn.value.replace(/\s/g, '');
                 let ivStr = spelarIv.value.replace(/\s/g, '');
 
                 if(namnStr != "" && ivStr != "" && regExp.test(ivStr) == false){
-                    läggTillSpelare(spelarNamn.value, spelarIv.value);
+                    if(typ == "npc"){
+                        läggTillSpelare(spelarNamn.value, spelarIv.value, typ, hp.value);
+                    }
+                    else if(typ == "spelare"){
+                        läggTillSpelare(spelarNamn.value, spelarIv.value, typ);
+                    }
+                    
+                    
                 popupDiv.style.display = "none";
                 populateList();
                 }
@@ -78,48 +174,85 @@
 
             }
             klar.innerHTML = "Klar"
-            popupDiv.appendChild(namnLabel);
-            popupDiv.appendChild(spelarNamn);
-            popupDiv.appendChild(ivLabel);
-            popupDiv.appendChild(spelarIv);
             popupDiv.appendChild(klar);
             let displayWindow = document.getElementById("display");
             displayWindow.appendChild(popupDiv);
             
         }
 
-        function läggTillSpelare(namn, iv, handling){
+        function läggTillSpelare(namn, iv, typ, hp){
             //skapa ny spelare
-            let spelare = new Spelare();
-            spelare.namn = namn;
-            spelare.iv = iv;
-            spelare.handling = handling;
-            spelareLista.push(spelare)
-            console.log(JSON.stringify(spelare))
+            console.log("Entering läggTillSpelare...")
+            if(typ == "npc"){
+                console.log("Entering npc...")
+                let npc = new NPC();
+                npc.ID = `n${spelareLista.length + 1}`
+                npc.typ = typ;
+                npc.clr = {bg:"rgb(218, 64, 64)", border:"rgb(109, 27, 27)"};
+                npc.namn = namn;
+                npc.hp = hp;
+                npc.currIv = iv;
+                npc.baseIv = iv;
+                npc.typ;
+                spelareLista.push(npc);
+                
+            }
+            else if(typ == "spelare"){
+                console.log("Entering spelare...")
+                let spelare = new Spelare();
+                spelare.ID = `s${spelareLista.length + 1}`
+                spelare.typ = typ;
+                spelare.namn = namn;
+                spelare.currIv = iv;
+                spelare.baseIv = iv;
+                spelare.typ = typ;
+                spelare.clr = {bg:"rgb(255, 255, 29)", border:"rgb(217, 188, 24)"};
+                spelareLista.push(spelare)
+                console.log(JSON.stringify(spelare))
+            }
+
 
         }
 
         function populateList(){
-            let list = document.getElementById("turOrdning")
-            //Clear list from childs
-            while (list.firstChild) { 
-                list.removeChild(list.firstChild); 
+
+            //Clear ordningLista from childs
+            while (ordningLista.firstChild) { 
+                ordningLista.removeChild(ordningLista.firstChild); 
             }
 
-            const sortedList = spelareLista.sort((a, b) => b.iv-a.iv);
+            const sortedList = spelareLista.sort((a, b) => b.baseIv-a.baseIv);
             spelareLista.forEach(spelare => {
                 let spelarNod = document.createElement("li");
                 spelarNod.setAttribute("class", "line");
+                spelarNod.setAttribute("draggable", true);
+                spelarNod.setAttribute("ID", spelare.ID)
                 let spelarIv = document.createElement("text");
                 // spelarIv.setAttribute("type", "text");
                 spelarIv.setAttribute("class", "iv");
-                spelarIv.textContent = spelare.iv;
+                spelarIv.setAttribute("baseIv", spelare.baseIv)
+                spelarIv.textContent = spelare.currIv;
+                spelarIv.style.backgroundColor = spelare.clr.bg;
+                spelarIv.style.borderColor = spelare.clr.border;
                 let spelarNamn = document.createElement("text");
                 spelarNamn.setAttribute("class", "namn");
                 spelarNamn.textContent = spelare.namn;
                 spelarNod.appendChild(spelarIv);
                 spelarNod.appendChild(spelarNamn)
-                list.appendChild(spelarNod);
+                if(spelare.typ == "npc"){
+                    let hpLabel = document.createElement("text");
+                    hpLabel.setAttribute("class", "label");
+                    hpLabel.setAttribute("id", "hp")
+                    hpLabel.textContent = "Hp:";
+                    spelarNod.appendChild(hpLabel); 
+                    let spelarHp = document.createElement("input");
+                    spelarHp.setAttribute("type", "text");
+                    spelarHp.setAttribute("id", "hp");
+                    spelarHp.setAttribute("class", "short-input")
+                    spelarHp.value = spelare.hp;
+                    spelarNod.appendChild(spelarHp);
+                }
+                ordningLista.appendChild(spelarNod);
             });
         }
     </script>
