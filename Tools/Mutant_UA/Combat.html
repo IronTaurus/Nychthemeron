@@ -249,6 +249,9 @@
                     spelarHp.setAttribute("type", "text");
                     spelarHp.setAttribute("id", "hp");
                     spelarHp.setAttribute("class", "short-input")
+                    spelarHp.onchange = function (){
+                        spelare.hp = spelarHp.value;
+                    }
                     spelarHp.value = spelare.hp;
                     spelarNod.appendChild(spelarHp);
                 }
