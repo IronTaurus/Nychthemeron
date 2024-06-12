@@ -25,7 +25,7 @@
 
     <script>
         let spelareLista = [];
-        let ordningLista = document.getElementById("turOrdning")
+        let ordningLista = document.getElementById("turOrdning");
         let draggedItem = null;
 
         ordningLista.addEventListener("dragstart", (e) => {
@@ -52,6 +52,9 @@
             else{
                 ordningLista.insertBefore(draggedItem, efterElement);
                 // const children = draggedItem.childnodes()
+                const thisSpelare = spelareLista.find(s => s.ID == draggedItem.id);
+                console.log(draggedItem);
+                thisSpelare.currIv = efterElement.firstChild.textContent;
                 draggedItem.firstChild.textContent = efterElement.firstChild.textContent;
             }
         })
@@ -73,24 +76,25 @@
             }).element;
         }
 
-
         class Spelare {
-            constructor(typ, namn, currIv, baseIv, handling, tidigareHandlingar, clr, ID){
+            constructor(typ, namn, currIv, baseIv, status, handling, tidigareHandlingar, clr, ID){
                 this.typ = typ;
                 this.namn = namn;
                 this.currIv = currIv;
                 this.baseIv = baseIv;
+                this.status = status;
                 this.tidigareHandlingar = tidigareHandlingar;
                 this.clr = clr;
                 this.ID = ID;
             }
         }
                 class NPC {
-            constructor(typ, namn, currIv, baseIv, handling, tidigareHandlingar, hp, clr){
+            constructor(typ, namn, currIv, baseIv, status, handling, tidigareHandlingar, hp, clr){
                 this.typ = typ;
                 this.namn = namn;
                 this.currIv = currIv;
                 this.baseIv = baseIv;
+                this.status = status;
                 this.hp = hp;
                 this.tidigareHandlingar = tidigareHandlingar;
                 this.clr = clr;
@@ -102,6 +106,9 @@
             runda++
             let rundKlocka = document.getElementById("rundKlocka");
             rundKlocka.innerHTML = `Runda: ${runda}`;
+            spelareLista.forEach(spelare => {
+                spelare.currIv = spelare.baseIv;
+            });
             populateList();
         }
 
@@ -175,6 +182,12 @@
             }
             klar.innerHTML = "Klar"
             popupDiv.appendChild(klar);
+            let ångra = document.createElement("button");
+            ångra.onclick = function () {
+                popupDiv.style.display = "none";
+            }
+            ångra.innerHTML = "X"
+            popupDiv.appendChild(ångra);    
             let displayWindow = document.getElementById("display");
             displayWindow.appendChild(popupDiv);
             
@@ -193,10 +206,11 @@
                 npc.hp = hp;
                 npc.currIv = iv;
                 npc.baseIv = iv;
+                npc.status = "Välmående";
                 npc.typ;
-                spelareLista.push(npc);
-                
+                spelareLista.push(npc);                
             }
+
             else if(typ == "spelare"){
                 console.log("Entering spelare...")
                 let spelare = new Spelare();
@@ -205,24 +219,23 @@
                 spelare.namn = namn;
                 spelare.currIv = iv;
                 spelare.baseIv = iv;
+                spelare.status = "Välmående";
                 spelare.typ = typ;
                 spelare.clr = {bg:"rgb(255, 255, 29)", border:"rgb(217, 188, 24)"};
                 spelareLista.push(spelare)
                 console.log(JSON.stringify(spelare))
             }
-
-
         }
 
         function populateList(){
-
             //Clear ordningLista from childs
             while (ordningLista.firstChild) { 
                 ordningLista.removeChild(ordningLista.firstChild); 
             }
+            spelareLista.sort((a, b) => b.currIv-a.currIv);
 
-            const sortedList = spelareLista.sort((a, b) => b.baseIv-a.baseIv);
             spelareLista.forEach(spelare => {
+                //#region ul List
                 let spelarNod = document.createElement("li");
                 spelarNod.setAttribute("class", "line");
                 spelarNod.setAttribute("draggable", true);
@@ -230,7 +243,7 @@
                 let spelarIv = document.createElement("text");
                 // spelarIv.setAttribute("type", "text");
                 spelarIv.setAttribute("class", "iv");
-                spelarIv.setAttribute("baseIv", spelare.baseIv)
+                spelarIv.setAttribute("baseIv", spelare.currIv)
                 spelarIv.textContent = spelare.currIv;
                 spelarIv.style.backgroundColor = spelare.clr.bg;
                 spelarIv.style.borderColor = spelare.clr.border;
@@ -255,7 +268,32 @@
                     spelarHp.value = spelare.hp;
                     spelarNod.appendChild(spelarHp);
                 }
+                let dropdown = document.createElement("div");
+                dropdown.setAttribute("class", "dropdown");
+                let statusBtn = document.createElement("text");
+                statusBtn.setAttribute("class", "dropMenu_btn");
+                statusBtn.innerHTML = spelare.status;
+                let statusDiv = document.createElement("div");
+                statusDiv.setAttribute("class", "dropdown-content");
+                const statusLista = ["Välmående", "Medvetslös", "Död"];
+                statusLista.forEach(status => {
+                    let statusEffekt = document.createElement("div");
+                    statusEffekt.setAttribute("class", "dropMenu_btn");
+                    statusEffekt.textContent = status;
+                    statusEffekt.onclick = function() {
+                        spelare.status = status;
+                        statusBtn.innerHTML = status
+                    }
+                    statusDiv.appendChild(statusEffekt);
+                });
+                dropdown.appendChild(statusDiv);
+                dropdown.appendChild(statusBtn);
+                spelarNod.appendChild(dropdown);
+
+                
                 ordningLista.appendChild(spelarNod);
+                //#endregion Ul List
+
             });
         }
     </script>
