@@ -1,15 +1,37 @@
+body{
+ background-color: rgb(62, 62, 62); 
+}
+#display{
+  margin: 0.5em;
+}
 ul {
     list-style-type: none;
   }
 
+#turOrdning{
+  background-image: url(https://i.pinimg.com/564x/6a/21/92/6a21921ed473d07fd037cf4b1bfb2a9d.jpg);
+  background-position-y: bottom;
+  background-size: cover;
+  border: solid 2px black;
+  margin: 0%;
+  padding: 2em;
+  align-content: baseline;
+  visibility: hidden;
+}
+
+#popupDiv{
+  margin-bottom: 0.1em;
+}
 .line{
-    display: flex;
-background-color: rgb(237, 234, 234);
-border: solid 1px rgb(181, 179, 179);
-margin-bottom: 0.7em;
-max-width: 20em;
-max-height: 1.2em;
-height: fit-content;
+  display: flex;
+  background-color: rgba(237, 234, 234, 0.6);
+  border-radius: 0.2em;
+  border: solid 1px rgb(181, 179, 179);
+  max-width: 24em;
+  max-height: 1.6em;
+  margin: 0.35em;
+  align-items: center;
+  margin-left: 1em;
 }
 
 .iv{
@@ -27,10 +49,12 @@ height: fit-content;
     
 }
 .namn{
-    width: fit-content;
+    width: 10em;
     height: fit-content;
+    padding-right: 0.3em;
 }
 .long-input{
+  align-self: center;
 width: 10em;
 margin-right: 0.3em;
 }
@@ -43,9 +67,12 @@ margin-right: 0.3em;
 }
 .dropdown {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
+    width: 5em;
+    text-align: center;
   }
   .dropdown-content {
+    align-self: center;
     display: none;
     background-color: rgb(224, 224, 224);
     height: fit-content;

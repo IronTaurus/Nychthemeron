@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const storaPinHjulet = {
+            nummer: 100,
+            bricka: 5,
+            priser: [2,2,1,1,0],
+        }
+        const storaStjärnHjulet = {
+            nummer: 100,
+            bricka: 5,
+            priser: [3]
+        }
+        const lillaHjulet = {
+            nummer: 32,
+            priser: [2,2,1,1,3]
+        }
+
+        let vinster = 0;
+        let vinstpool = 0;
+        const antalNummer = 5;
+        const försök = 1000;
+        let valdaNummer = [];
+
+        for (let index = 0; index < försök; index++) {
+            for (let index = 0; index < antalNummer; index++) {
+            var result = rullaHjul(lillaHjulet, [Math.floor(Math.random() * lillaHjulet.nummer)]);
+            if(result == 3){
+                vinster++;
+                vinstpool++;
+            }
+            else if (result == 1 || result == 2){
+                vinstpool++;
+            }
+            }
+
+        }
+        console.log("Att köra 5 gånger med bara ett nummer gav: " + (vinster/10) + " % chans att få Stjärnvinst! \n Totalt var det " + (vinstpool/10) + "% chans att vinna något!");
+        vinster = 0;
+        
+        for (let index = 0; index < 5; index++) {
+            const rand = Math.floor(Math.random() * lillaHjulet.nummer);
+            if(rand != valdaNummer.includes(rand)){
+                valdaNummer.push(rand);
+            }
+            else{
+                index--;
+            }
+        }
+        for (let index = 0; index < försök; index++) {
+            var result = rullaHjul(lillaHjulet, valdaNummer);
+            if(result == 3){
+                vinster++;
+                vinstpool++;
+            }
+            else if (result == 1 || result == 2){
+                vinstpool++;
+            }
+
+        }
+        console.log("Att köra 1 gång med 5 nummer gav: " + (vinster/10) + "% chans att få Stjärnvinst! \n Totalt var det " + (vinstpool/10) + "% chans att vinna något!");
+        
+        function rullaHjul(setup, val){
+            const randNr = Math.floor(Math.random() * setup.nummer);
+            if(randNr == val.includes(randNr)){
+                const pris = Math.floor(Math.random() * setup.priser.length);
+                return pris;
+            }
+            else return 0;
+        }
+    
+    </script>
+</body>
+</html>

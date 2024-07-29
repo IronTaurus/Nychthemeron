@@ -1,10 +1,15 @@
 
+#mapContainer{
+    display: inline-block;
+}
+
 #mapImg{
-    height: 500px;
-    width: 500px;
+    position: absolute;
+    border: solid blue 4px;
+    z-index: 1;
 }
 #mapCanvas{
     position: absolute;
-    height: 500px;
-    width: 500px;
+    z-index: 20;
+    border: solid red 2px;
 }

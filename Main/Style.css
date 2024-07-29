@@ -124,7 +124,10 @@ body {
     /* 'religion home home races' 
     'history home home game' 
     'myths home home tools'; */
-    
+  }
+  #main-block {
+    padding-top: 140px;
+    max-width: 100em;
   }
 
   .top-button {
@@ -219,9 +222,7 @@ body {
   margin: auto;
   width: 50%;
 }
-#main-block {
-  padding-top: 140px;
-}
+
 .section {
   background-image: url("https://www.stockvault.net/data/2021/05/10/285722/thumb16.jpg");
   background-repeat: no-repeat;

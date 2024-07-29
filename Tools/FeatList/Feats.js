@@ -232,7 +232,7 @@ export function getFeats(types, requirement) {
       Id: "StrongWill2",
       Types: ["Mind"],
       Description:
-        "In addition to its other effects Strong Will now also halves the damage you take by the attack rounded down.",
+        "In addition to its other effects Strong Will now also halves the damage you take by the attack rounded down and can now also be used twize/combat",
       Requirements: [{ type: "Mind", value: 4, color: "#5db8d9" }],
       Cost: "10",
     },
@@ -242,7 +242,7 @@ export function getFeats(types, requirement) {
       Id: "KnwHistory1",
       Types: ["Mind"],
       Description:
-        "If you do not have an Eclipse card in your deck add one. \n The maximum number of Eclipses in your deck is 1. \n Eclipses are always considered as a Success during Know History checks.",
+        "If you do not have a Twilight card in your deck add one. \n The maximum number of Twilights in your deck is 1. \n Twilights are always considered as a Success during Know History checks.",
       Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
       Cost: "5",
     },
@@ -262,7 +262,7 @@ export function getFeats(types, requirement) {
       Id: "KnwHistory3",
       Types: ["Mind"],
       Description:
-        "In addition to its other effects, Eclipses are considered a Critical Success during Know History Checks. \n You may draw 1 additional card during Know History checks then remove 1 card of your choice. (Usable: once/action)",
+        "In addition to its other effects, Twilights are considered a Critical Success during Know History Checks. \n You may draw 1 additional card during Know History checks then remove 1 card of your choice. (Usable: once/action)",
       Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
       Cost: "15",
     },
@@ -272,7 +272,7 @@ export function getFeats(types, requirement) {
       Id: "KnwReligion1",
       Types: ["Mystic"],
       Description:
-        "If you do not have an Eclipse card in your deck add one. \n The maximum number of Eclipses in your deck is 1. \n Eclipses are always considered as a Success during Religion checks.",
+        "If you do not have a Twilight card in your deck add one. \n The maximum number of Twilights in your deck is 1. \n Twiligths are always considered as a Success during Religion checks.",
       Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
       Cost: "5",
     },
@@ -329,7 +329,7 @@ export function getFeats(types, requirement) {
       Id: "Performer1",
       Types: ["Presence"],
       Description:
-        "If you do not have an Eclipse card in your deck add one. \nThe maximum number of Eclipses in your deck is 1. \nEclipses are always considered as a Success during Performance checks.",
+        "If you do not have a Twilight card in your deck add one. \nThe maximum number of Twilights in your deck is 1. \nTwilight are always considered as a Success during Performance checks.",
       Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
       Cost: "5",
     },
@@ -349,7 +349,7 @@ export function getFeats(types, requirement) {
       Id: "Performer3",
       Types: ["Presence"],
       Description:
-        "In addition to its other effects, Eclipses are considered a Critical Success during Performance Checks.\nYou may draw 1 additional card in the act of Performance then remove 1 card of your choice.(Usable: once/action)",
+        "In addition to its other effects, Twilights are considered a Critical Success during Performance Checks.\nYou may draw 1 additional card in the act of Performance then remove 1 card of your choice.(Usable: once/action)",
       Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
       Cost: "15",
     },
@@ -359,7 +359,7 @@ export function getFeats(types, requirement) {
       Id: "TalkWithAnimals",
       Types: ["Presence", "Mind"],
       Description:
-        "You are able to understand and communicate with animals of the chosen type.",
+        "You are able to understand and communicate with animals of the chosen type. (Aquatic, Mamals, Birds)",
       Requirements: [
         { type: "Presence", value: 1, color: "#ebff65" },
         { type: "Mind", value: 1, color: "#5db8d9" },

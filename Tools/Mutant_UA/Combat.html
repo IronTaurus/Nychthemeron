@@ -228,6 +228,7 @@
         }
 
         function populateList(){
+            ordningLista.style.visibility = "visible";
             //Clear ordningLista from childs
             while (ordningLista.firstChild) { 
                 ordningLista.removeChild(ordningLista.firstChild); 
@@ -289,8 +290,6 @@
                 dropdown.appendChild(statusDiv);
                 dropdown.appendChild(statusBtn);
                 spelarNod.appendChild(dropdown);
-
-                
                 ordningLista.appendChild(spelarNod);
                 //#endregion Ul List
 
