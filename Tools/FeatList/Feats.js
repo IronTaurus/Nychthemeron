@@ -2,8 +2,9 @@ console.log("Feats.js loaded.");
 export function getFeats(types, requirement) {
   console.log("chosen attribute is: " + types);
   const Attributes = [
+    //#region Agility
+    //AGI Quick Reactions I
     {
-      //AGI Quick Reactions I
       Title: "Quick Reactions I",
       Id: "QckReact1",
       Types: ["Agility"],
@@ -11,8 +12,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
       Cost: "5",
     },
+    //AGI Quick Reactions II
     {
-      //AGI Quick Reactions II
       Title: "Quick Reactions II",
       Id: "QckReact2",
       Types: ["Agility"],
@@ -20,8 +21,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
       Cost: "5",
     },
+    //AGI Quick Reactions III
     {
-      //AGI Quick Reactions III
       Title: "Quick Reactions III",
       Id: "QckReact3",
       Types: ["Agility"],
@@ -31,12 +32,22 @@ export function getFeats(types, requirement) {
     },
     //AGI High Alert
     {
-      Title: "High Alert",
-      Id: "HighAlert",
+      Title: "High Alert I",
+      Id: "HighAlert1",
       Types: ["Agility"],
       Description:
         "For the first round only, your initative is increased by 6. (Usable: once/combat)",
       Requirements: [{ type: "Agility", value: 2, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI High Alert
+    {
+      Title: "High Alert II",
+      Id: "HighAlert2",
+      Types: ["Agility"],
+      Description:
+        "For the first round only, your initative is increased by 6. (Usable: once/combat)",
+      Requirements: [{ type: "Agility", value: 4, color: "#1bf740" }],
       Cost: "10",
     },
     //AGI Light-footed I
@@ -45,7 +56,7 @@ export function getFeats(types, requirement) {
       Id: "LightFoot1",
       Types: ["Agility"],
       Description:
-        "If you do not have an Eclipse card in your deck add one. \n The maximum number of Eclipses in your deck is 1. \n Eclipses are always considered as a Success during Acrobatic checks.",
+        "You have +1 in Acrobatics checks. \nTwilights has a value of +1 during Acrobatics checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1.)",
       Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
       Cost: "5",
     },
@@ -55,8 +66,8 @@ export function getFeats(types, requirement) {
       Id: "LightFoot2",
       Types: ["Agility"],
       Description:
-        "Draw an additional card during a Acrobatic check. (Usable: once/action)",
-      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+        "You may draw an additional card in the act of Acrobatic. (Once/Action)",
+      Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
       Cost: "10",
     },
     //AGI Light-footed III
@@ -65,21 +76,111 @@ export function getFeats(types, requirement) {
       Id: "LightFoot3",
       Types: ["Agility"],
       Description:
-        "Draw an additional card during a Acrobatic check. (Usable: once/action)",
+        "You have +2 in Acrobatics checks. \nYou may draw 1 additional card during Acrobatic checks then remove 1 card of your choice. \n\nIn addition to its other effects, Twilights are considered a Critical Success during Acrobatic Checks.",
+      Requirements: [{ type: "Agility", value: 5, color: "#1bf740" }],
+      Cost: "15",
+    },
+    //AGI Stealth I
+    {
+      Title: "Stealth I",
+      Id: "Stealth1",
+      Types: ["Agility"],
+      Description:
+        "You have +1 to Stealth checks. \nTwilights have a value of +1 during stealth checks.\n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "5",
+    },
+    //AGI Stealth II
+    {
+      Title: "Stealth II",
+      Id: "Stealth2",
+      Types: ["Agility"],
+      Description:
+        "Draw an additional card during Stealth checks (Once/Action)",
+      Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Stealth III
+    {
+      Title: "Stealth III",
+      Id: "Stealth3",
+      Types: ["Agility"],
+      Description:
+        "You have +2 in Stealth checks. \nYou may draw 1 additional card in the act of Stealth then remove 1 card of your choice. \n\nIn addition to its other effects, Twilight are considered a Critical Success during Stealth Checks. ",
+      Requirements: [{ type: "Agility", value: 5, color: "#1bf740" }],
+      Cost: "15",
+    },
+    //AGI Disarm Trap I
+    {
+      Title: "Disarm Trap I",
+      Id: "DisarmTrap1",
+      Types: ["Agility"],
+      Description:
+        "You have +1 to Disarm Trap checks. \nTwilights have a value of +1 during Disarm Trap checks.\n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "5",
+    },
+    //AGI Disarm Trap II
+    {
+      Title: "Disarm Trap II",
+      Id: "DisarmTrap2",
+      Types: ["Agility"],
+      Description:
+        "Draw an additional card during Disarm Trap checks (Once/Action)",
+      Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Disarm Trap III
+    {
+      Title: "Disarm Trap III",
+      Id: "DisarmTrap3",
+      Types: ["Agility"],
+      Description:
+        "You have +2 in Disarm Trap checks. \nYou may draw 1 additional card in the act of Disarm Trap then remove 1 card of your choice. \n\nIn addition to its other effects, Twilight are considered a Critical Success during Disarm Trap Checks. ",
+      Requirements: [{ type: "Agility", value: 5, color: "#1bf740" }],
+      Cost: "15",
+    },
+    //AGI Lock Picking I
+    {
+      Title: "Lock Picking I",
+      Id: "LockPicking1",
+      Types: ["Agility"],
+      Description:
+        "You have +1 to Lock Picking checks. \nTwilights have a value of +1 during Lock Picking checks.\n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Agility", value: 1, color: "#1bf740" }],
+      Cost: "5",
+    },
+    //AGI Lock Picking II
+    {
+      Title: "Lock Picking II",
+      Id: "LockPicking2",
+      Types: ["Agility"],
+      Description:
+        "Draw an additional card during Lock Picking checks (Once/Action)",
+      Requirements: [{ type: "Agility", value: 3, color: "#1bf740" }],
+      Cost: "10",
+    },
+    //AGI Lock Picking III
+    {
+      Title: "Lock Picking III",
+      Id: "LockPicking3",
+      Types: ["Agility"],
+      Description:
+        "You have +2 in Lock Picking checks. \nYou may draw 1 additional card in the act of Lock Picking then remove 1 card of your choice. \n\nIn addition to its other effects, Twilight are considered a Critical Success during Lock Picking Checks. ",
+      Requirements: [{ type: "Agility", value: 5, color: "#1bf740" }],
       Cost: "15",
     },
     //AGI Nimble Feet
     {
-      Title: "Nimble Feet",
-      Id: "NimbleFeet",
+      Title: "Nimble Feet I",
+      Id: "NimbleFeet1",
       Types: ["Agility"],
       Description:
         "When using a movement action you may ignore and move over minor obstacles and terrain.",
       Requirements: [{ type: "Agility", value: 2, color: "#1bf740" }],
       Cost: "10",
     },
-    //AGI Crimson Blood
+    //AGI Twilight Blood
     {
       Title: "Twilight Blood",
       Id: "TwilightBlood",
@@ -89,38 +190,71 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Agility", value: 4, color: "#1bf740" }],
       Cost: "15",
     },
+    //#endregion Agility
+
+    //#region Body
+    //BOD Orcish Strength I
     {
-      //BOD Orcish Strength I
       Title: "Orcish Strength I",
       Id: "OrcStr1",
       Types: ["Body"],
       Description:
-        "Add an Eclipse Card to your Action Deck. (The maximum number of Eclipses in your deck is 1) In addition to its other effects, Eclipses are always considered as a Success during a Strength check.",
+        "You have +1 to Strength checks. \nTwilights have a value of +1 during Strength checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilight in your deck is 1).",
       Requirements: [{ type: "Body", value: 1, color: "#F75A1B" }],
       Cost: "5",
     },
+    //BOD Orcish Strength II
     {
-      //BOD Orcish Strength II
       Title: "Orcish Strength II",
       Id: "OrcStr2",
       Types: ["Body"],
       Description:
-        "Draw an additional card during a Strength check. (Usable: once/action)",
-      Requirements: [{ type: "Body", value: 2, color: "#F75A1B" }],
+        "Draw an additional card during a Strength check. (Usable: Once/Action)",
+      Requirements: [{ type: "Body", value: 3, color: "#F75A1B" }],
       Cost: "10",
     },
+    //BOD Orcish Strength III
     {
-      //BOD Orcish Strength III
       Title: "Orcish Strength III",
       Id: "OrcStr3",
       Types: ["Body"],
       Description:
-        "In addition to its other effects, Eclipses are considered a Critical Success during Strength Checks. You may draw an additional card during a Strength check then remove 1 card of your choice. (Usable once/action)",
+        "You have +2 in Strength checks. \n You may draw 1 additional card during Strength checks then remove 1 card of your choice. \n\n In addition to its other effects, Twilights are considered a Critical Success during Strength checks.",
       Requirements: [{ type: "Body", value: 4, color: "#F75A1B" }],
       Cost: "15",
     },
+    //BOD Climber I
     {
-      //BOD Steel Body I
+      Title: "Climber I",
+      Id: "Climber1",
+      Types: ["Body"],
+      Description:
+        "You have +1 to Climbing checks. \nTwilights have a value of +1 during Climbing checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilight in your deck is 1).",
+      Requirements: [{ type: "Body", value: 1, color: "#F75A1B" }],
+      Cost: "5",
+    },
+    //BOD Climber II
+    {
+      Title: "Climber II",
+      Id: "Climber2",
+      Types: ["Body"],
+      Description:
+        "Draw an additional card during a Climbing check. (Usable: Once/Action)",
+      Requirements: [{ type: "Body", value: 3, color: "#F75A1B" }],
+      Cost: "10",
+    },
+    //BOD Climber III
+    {
+      Title: "Climber III",
+      Id: "Climber3",
+      Types: ["Body"],
+      Description:
+        "You have +2 in Climbing checks. \n You may draw 1 additional card during Climbing checks then remove 1 card of your choice. \n\n In addition to its other effects, Twilights are considered a Critical Success during Climbing checks.",
+      Requirements: [{ type: "Body", value: 4, color: "#F75A1B" }],
+      Cost: "15",
+    },
+    //BOD Steel Body I
+    {
       Title: "Steel Body I",
       Id: "SteelBdy1",
       Types: ["Body"],
@@ -129,8 +263,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 2, color: "#F75A1B" }],
       Cost: "10",
     },
+    //BOD Steel Body II
     {
-      //BOD Steel Body II
       Title: "Steel Body II",
       Id: "SteelBdy2",
       Types: ["Body"],
@@ -139,8 +273,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 3, color: "#F75A1B" }],
       Cost: "10",
     },
+    //BOD Resilient I
     {
-      //BOD Resilient I
       Title: "Resilient I",
       Id: "Resilient1",
       Types: ["Body"],
@@ -148,8 +282,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 1, color: "#F75A1B" }],
       Cost: "5",
     },
+    //BOD Resilient II
     {
-      //BOD Resilient II
       Title: "Resilient II",
       Id: "Resilient2",
       Types: ["Body"],
@@ -157,8 +291,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 3, color: "#F75A1B" }],
       Cost: "10",
     },
+    //BOD Resilient III
     {
-      //BOD Resilient III
       Title: "Resilient III",
       Id: "Resilient3",
       Types: ["Body"],
@@ -166,18 +300,55 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 5, color: "#F75A1B" }],
       Cost: "15",
     },
+    //BOD Resilient IV
     {
-      //BOD Resilient IV
       Title: "Resilient IV",
       Id: "Resilient4",
       Types: ["Body"],
       Description:
-        "Increase your maximum health by 2 for each point in Body you have.",
-      Requirements: [{ type: "Body", value: 6, color: "#F75A1B" }],
+        "Increase your maximum health by 3 for each point in Body you have.",
+      Requirements: [{ type: "Body", value: 7, color: "#F75A1B" }],
       Cost: "15",
     },
+    //BOD Carrier I
     {
-      //BOD NaturalArmour
+      Title: "Carrier I",
+      Id: "Carrier1",
+      Types: ["Body"],
+      Description: "You encumber limit is increased by 8kg.",
+      Requirements: [{ type: "Body", value: 1, color: "#F75A1B" }],
+      Cost: "5",
+    },
+    //BOD Carrier II
+    {
+      Title: "Carrier II",
+      Id: "Carrier2",
+      Types: ["Body"],
+      Description: "You encumber limit is increased by 8kg.",
+      Requirements: [{ type: "Body", value: 3, color: "#F75A1B" }],
+      Cost: "5",
+    },
+    //BOD Carrier III
+    {
+      Title: "Carrier III",
+      Id: "Carrier3",
+      Types: ["Body"],
+      Description: "You encumber limit is increased by 12kg.",
+      Requirements: [{ type: "Body", value: 5, color: "#F75A1B" }],
+      Cost: "10",
+    },
+    //BOD Carrier IV
+    {
+      Title: "Carrier IV",
+      Id: "Carrier4",
+      Types: ["Body"],
+      Description:
+        "You encumber limit is increased by 2 for each point in Body",
+      Requirements: [{ type: "Body", value: 7, color: "#F75A1B" }],
+      Cost: "15",
+    },
+    //BOD NaturalArmour
+    {
       Title: "Natural Armour",
       Id: "NaturalArm",
       Types: ["Body"],
@@ -186,13 +357,27 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Body", value: 2, color: "#F75A1B" }],
       Cost: "10",
     },
+    //BOD Poison Immunity
+    {
+      Title: "Poison Immunity",
+      Id: "PoisonImmunity",
+      Types: ["Body"],
+      Description:
+        "Chose a type of poison, you are immune to intake of the chosen poison in the form of food or drink. \n\nPoison types include: Physical Immobilizing (Sedative, Paralyzing, etc), Deadly and Mind Altering.",
+      Requirements: [{ type: "Body", value: 5, color: "#F75A1B" }],
+      Cost: "15",
+    },
+    //#endregion Body
+
+    //#region Mind
+
     //MND Insight I
     {
       Title: "Insight I",
       Id: "Insight1",
       Types: ["Mind"],
       Description:
-        "Add an Eclipse Card to your Action Deck. (The maximum number of Eclipses in your deck is 1) In addition to its other effects, Eclipses are always considered as a Success during a  check.",
+        "You always have +1 to any Reading checks. \nTwilights has a value of +1 during Reading checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
       Cost: "5",
     },
@@ -202,8 +387,8 @@ export function getFeats(types, requirement) {
       Id: "Insight2",
       Types: ["Mind"],
       Description:
-        "Draw an additional card when you read a person. (Usable: once/action)",
-      Requirements: [{ type: "Mind", value: 2, color: "#5db8d9" }],
+        "Draw an additional card during Reading checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
       Cost: "10",
     },
     //MND Insight III
@@ -212,9 +397,130 @@ export function getFeats(types, requirement) {
       Id: "Insight3",
       Types: ["Mind"],
       Description:
-        "In addition to its other effects, Eclipses are considered a Critical Success while you read a person. You may draw an additional card when you read a person then remove 1 card of your choice. (Usable once/action)",
-      Requirements: [{ type: "Mind", value: 4, color: "#5db8d9" }],
-      Cost: "15",
+        "You have +2 in Reading checks. \nYou may draw 1 additional card in the act of Reading then remove 1 card of your choice. \n\nIn addition to its other effects, Twilights are considered a Critical Success during Reading Checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Knw: History I
+    {
+      Title: "Knowledge: History I",
+      Id: "KnwHistory1",
+      Types: ["Mind"],
+      Description:
+        "You always have +1 to any Knowledge: History checks. \nTwilights has a value of +1 during Knowledge: History checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Knw: History II
+    {
+      Title: "Knowledge: History II",
+      Id: "KnwHistory2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card during Knowledge: History checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Knw: History III
+    {
+      Title: "Knowledge: History III",
+      Id: "KnwHistory3",
+      Types: ["Mind"],
+      Description:
+        "You have +2 in Knowledge: History checks. \nYou may draw 1 additional card in the act of Knowledge: History then remove 1 card of your choice. \n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: History Checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
+    },
+
+    //MND Knw: Culture I
+    {
+      Title: "Knowledge: Culture I",
+      Id: "KnwCulture1",
+      Types: ["Mind"],
+      Description:
+        "You always have +1 to any Knowledge: Culture checks. \nTwilights has a value of +1 during Knowledge: Culture checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Knw: Culture II
+    {
+      Title: "Knowledge: Culture II",
+      Id: "KnwCulture2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card during Knowledge: Culture checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Knw: Culture III
+    {
+      Title: "Knowledge: Culture III",
+      Id: "KnwCulture3",
+      Types: ["Mind"],
+      Description:
+        "You have +2 in Knowledge: Culture checks. \nYou may draw 1 additional card in the act of Knowledge: Culture then remove 1 card of your choice. \n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Culture Checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Investigator I
+    {
+      Title: "Investigator I",
+      Id: "Investigator1",
+      Types: ["Mind"],
+      Description:
+        "You always have +1 to any Investigation checks. \nTwilights has a value of +1 during Investigation checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Investigator II
+    {
+      Title: "Investigator II",
+      Id: "Investigator2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card during Investigation checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Investigator III
+    {
+      Title: "Investigator III",
+      Id: "Investigator3",
+      Types: ["Mind"],
+      Description:
+        "You have +2 in Investigation checks.\nYou may draw 1 additional card in the act of Investigation then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Investigation checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Sharp Sight I
+    {
+      Title: "Sharp Sight I",
+      Id: "SharpSight1",
+      Types: ["Mind"],
+      Description:
+        "You always have +1 to any Perception checks. \nTwilights has a value of +1 during Perception checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Sharp Sight II
+    {
+      Title: "Sharp Sight II",
+      Id: "SharpSight2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card during Perception checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Sharp Sight III
+    {
+      Title: "Sharp Sight III",
+      Id: "SharpSight3",
+      Types: ["Mind"],
+      Description:
+        "You have +2 in Perception checks.\nYou may draw 1 additional card in the act of Perception then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Perception checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
     },
     {
       //MND StrongWill I
@@ -266,28 +572,71 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
       Cost: "15",
     },
+    //#endregion Mind
+
+    //#region Mystic
+    //MSC Knowledge: Religion I
     {
-      //MSC KnwReligion I
       Title: "Knowledge: Religion I",
       Id: "KnwReligion1",
       Types: ["Mystic"],
       Description:
-        "If you do not have a Twilight card in your deck add one. \n The maximum number of Twilights in your deck is 1. \n Twiligths are always considered as a Success during Religion checks.",
+        "You always have +1 to any Knowledge: Religion checks. \nTwilights has a value of +1 during Knowledge: Religion checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
       Cost: "5",
     },
+    //MSC Knowledge: Religion II
     {
-      //MSC KnwReligion II
       Title: "Knowledge: Religion II",
       Id: "KnwReligion2",
       Types: ["Mystic"],
       Description:
-        "You may draw an additional card during Know Religion checks. (Usable: once/action)",
+        "Draw an additional card during Knowledge: Religion checks (Once/Action)",
+      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Knowledge: Religion III
+    {
+      Title: "Knowledge: Religion III",
+      Id: "KnwReligion3",
+      Types: ["Mystic"],
+      Description:
+        "You have +2 in Knowledge: Religion checks.\nYou may draw 1 additional card in the act of Knowledge: Religion then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Religion checks.",
+      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Knowledge: Medicine I
+    {
+      Title: "Knowledge: Medicine I",
+      Id: "KnwMedicine1",
+      Types: ["Mystic"],
+      Description:
+        "You always have +1 to any Knowledge: Medicine checks. \nTwilights has a value of +1 during Knowledge: Medicine checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
       Cost: "5",
     },
+    //MSC Knowledge: Medicine II
     {
-      //MSC Trained Spirit I
+      Title: "Knowledge: Medicine II",
+      Id: "KnwMedicine2",
+      Types: ["Mystic"],
+      Description:
+        "Draw an additional card during Knowledge: Medicine checks (Once/Action)",
+      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Knowledge: Medicine III
+    {
+      Title: "Knowledge: Medicine III",
+      Id: "KnwMedicine3",
+      Types: ["Mystic"],
+      Description:
+        "You have +2 in Knowledge: Medicine checks.\nYou may draw 1 additional card in the act of Knowledge: Medicine then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Medicine checks.",
+      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Trained Spirit I
+    {
       Title: "Trained Spirit I",
       Id: "TrainedSpirit1",
       Types: ["Mystic"],
@@ -295,8 +644,8 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
       Cost: "5",
     },
+    //MSC Trained Spirit II
     {
-      //MSC Trained Spirit II
       Title: "Trained Spirit II",
       Id: "TrainedSpirit2",
       Types: ["Mystic"],
@@ -323,6 +672,29 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
       Cost: "10",
     },
+    //MSC Field Medic I
+    {
+      Title: "Field Medic I",
+      Id: "FieldMedic1",
+      Types: ["Mystic"],
+      Description:
+        "-Reaction-\nAt any moment during your turn: Consuming medical herbs you may do a Knowledge: Medicine check to do one of the following:\n- Remove a Death token and grant a Life token to a dying creature.\n- Remove a non-permanent infliction on target creature.\n\nRange: Touch",
+      Requirements: [{ type: "Mystic", value: 2, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Field Medic II
+    {
+      Title: "Field Medic II",
+      Id: "FieldMedic2",
+      Types: ["Mystic"],
+      Description:
+        "In addition to its other effects Field medic will now also:\n- Grant another Life token to the dying creature.\n- Remove any infliction instead of a non-permanent one.",
+      Requirements: [{ type: "Mystic", value: 2, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //#endregion Mystic
+
+    //#region Presence
     {
       //PRS Performer I
       Title: "Performer I",
@@ -353,6 +725,10 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
       Cost: "15",
     },
+    //#endregion Presence
+
+    //#region Multi-Attribute
+
     //PRS-MND Talk With Animals
     {
       Title: "Talk With Animals",
@@ -444,6 +820,9 @@ export function getFeats(types, requirement) {
       ],
       Cost: "15",
     },
+    //#endregion Multi-Atrribute
+
+    //#region Basic
     //BSC Weapon Expertise
     {
       Title: "Weapon Expertise",
@@ -464,6 +843,7 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Basic", value: 3, color: "#9b9b9b" }],
       Cost: "5",
     },
+    //#endregion Basic
   ];
 
   // const sortByRequirement = Attributes.filter((req) =>
