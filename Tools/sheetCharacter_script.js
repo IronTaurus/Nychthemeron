@@ -637,6 +637,7 @@ function createBagItem(bag, bagId) {
   const elementNr = bagNr;
   var bagList = document.getElementById(bagId);
   var equippment = document.createElement("div");
+
   equippment.setAttribute("tag", "item");
   equippment.setAttribute("class", "item");
   equippment.setAttribute("id", bag + "_item" + elementNr);

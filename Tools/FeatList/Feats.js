@@ -572,6 +572,56 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
       Cost: "15",
     },
+    //MND Knowledge: Medicine I
+    {
+      Title: "Knowledge: Medicine I",
+      Id: "KnwMedicine1",
+      Types: ["Mind"],
+      Description:
+        "You always have +1 to any Knowledge: Medicine checks. \nTwilights has a value of +1 during Knowledge: Medicine checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Knowledge: Medicine II
+    {
+      Title: "Knowledge: Medicine II",
+      Id: "KnwMedicine2",
+      Types: ["Mind"],
+      Description:
+        "Draw an additional card during Knowledge: Medicine checks (Once/Action)",
+      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Knowledge: Medicine III
+    {
+      Title: "Knowledge: Medicine III",
+      Id: "KnwMedicine3",
+      Types: ["Mind"],
+      Description:
+        "You have +2 in Knowledge: Medicine checks.\nYou may draw 1 additional card in the act of Knowledge: Medicine then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Medicine checks.",
+      Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+      Cost: "10",
+    },
+    //MND Field Medic I
+    {
+      Title: "Field Medic I",
+      Id: "FieldMedic1",
+      Types: ["Mind"],
+      Description:
+        "-Reaction-\nAt any moment during your turn: Consuming medical herbs you may do a Knowledge: Medicine check to do one of the following:\n- Remove a Death token and grant a Life token to a dying creature.\n- Remove a non-permanent infliction on target creature.\n\nRange: Touch",
+      Requirements: [{ type: "Mind", value: 2, color: "#5db8d9" }],
+      Cost: "5",
+    },
+    //MND Field Medic II
+    {
+      Title: "Field Medic II",
+      Id: "FieldMedic2",
+      Types: ["Mind"],
+      Description:
+        "In addition to its other effects Field medic will now also:\n- Grant another Life token to the dying creature.\n- Remove any infliction instead of a non-permanent one.",
+      Requirements: [{ type: "Mind", value: 2, color: "#5db8d9" }],
+      Cost: "5",
+    },
     //#endregion Mind
 
     //#region Mystic
@@ -602,36 +652,6 @@ export function getFeats(types, requirement) {
       Types: ["Mystic"],
       Description:
         "You have +2 in Knowledge: Religion checks.\nYou may draw 1 additional card in the act of Knowledge: Religion then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Religion checks.",
-      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
-      Cost: "10",
-    },
-    //MSC Knowledge: Medicine I
-    {
-      Title: "Knowledge: Medicine I",
-      Id: "KnwMedicine1",
-      Types: ["Mystic"],
-      Description:
-        "You always have +1 to any Knowledge: Medicine checks. \nTwilights has a value of +1 during Knowledge: Medicine checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
-      Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
-      Cost: "5",
-    },
-    //MSC Knowledge: Medicine II
-    {
-      Title: "Knowledge: Medicine II",
-      Id: "KnwMedicine2",
-      Types: ["Mystic"],
-      Description:
-        "Draw an additional card during Knowledge: Medicine checks (Once/Action)",
-      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
-      Cost: "10",
-    },
-    //MSC Knowledge: Medicine III
-    {
-      Title: "Knowledge: Medicine III",
-      Id: "KnwMedicine3",
-      Types: ["Mystic"],
-      Description:
-        "You have +2 in Knowledge: Medicine checks.\nYou may draw 1 additional card in the act of Knowledge: Medicine then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Medicine checks.",
       Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
       Cost: "10",
     },
@@ -672,41 +692,22 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
       Cost: "10",
     },
-    //MSC Field Medic I
-    {
-      Title: "Field Medic I",
-      Id: "FieldMedic1",
-      Types: ["Mystic"],
-      Description:
-        "-Reaction-\nAt any moment during your turn: Consuming medical herbs you may do a Knowledge: Medicine check to do one of the following:\n- Remove a Death token and grant a Life token to a dying creature.\n- Remove a non-permanent infliction on target creature.\n\nRange: Touch",
-      Requirements: [{ type: "Mystic", value: 2, color: "#d44ecb" }],
-      Cost: "5",
-    },
-    //MSC Field Medic II
-    {
-      Title: "Field Medic II",
-      Id: "FieldMedic2",
-      Types: ["Mystic"],
-      Description:
-        "In addition to its other effects Field medic will now also:\n- Grant another Life token to the dying creature.\n- Remove any infliction instead of a non-permanent one.",
-      Requirements: [{ type: "Mystic", value: 2, color: "#d44ecb" }],
-      Cost: "5",
-    },
     //#endregion Mystic
 
     //#region Presence
+
+    //PRS Performer I
     {
-      //PRS Performer I
       Title: "Performer I",
       Id: "Performer1",
       Types: ["Presence"],
       Description:
-        "If you do not have a Twilight card in your deck add one. \nThe maximum number of Twilights in your deck is 1. \nTwilight are always considered as a Success during Performance checks.",
+        "You always have +1 to any Performance checks. \nTwilights has a value of +1 during Performance checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
       Cost: "5",
     },
+    //PRS Performer II
     {
-      //PRS Performer II
       Title: "Performer II",
       Id: "Performer2",
       Types: ["Presence"],
@@ -715,16 +716,77 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Presence", value: 3, color: "#ebff65" }],
       Cost: "10",
     },
+    //PRS Performer III
     {
-      //PRS Performer III
       Title: "Performer III",
       Id: "Performer3",
       Types: ["Presence"],
       Description:
-        "In addition to its other effects, Twilights are considered a Critical Success during Performance Checks.\nYou may draw 1 additional card in the act of Performance then remove 1 card of your choice.(Usable: once/action)",
+        "You have +2 in Performance checks.\nYou may draw 1 additional card in the act of Performance then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Performance checks.",
       Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
-      Cost: "15",
+      Cost: "10",
     },
+    //PRS Snakes Tongue I
+    {
+      Title: "Snakes Tongue I",
+      Id: "SnakesTongue1",
+      Types: ["Presence"],
+      Description:
+        "You always have +1 to any Deception checks. \nTwilights has a value of +1 during Deception checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
+      Cost: "5",
+    },
+    //PRS Snakes Tongue II
+    {
+      Title: "Snakes Tongue II",
+      Id: "SnakesTongue2",
+      Types: ["Presence"],
+      Description:
+        "You may draw an additional card in the act of a Deception. (Usable: once/action)",
+      Requirements: [{ type: "Presence", value: 3, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Snakes Tongue III
+    {
+      Title: "Snakes Tongue III",
+      Id: "SnakesTongue3",
+      Types: ["Presence"],
+      Description:
+        "You have +2 in Deception checks.\nYou may draw 1 additional card in the act of Deception then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Deception checks.",
+      Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Silver Tongue I
+    {
+      Title: "Silver Tongue I",
+      Id: "SilverTongue1",
+      Types: ["Presence"],
+      Description:
+        "You always have +1 to any Persuasion checks. \nTwilights has a value of +1 during Persuasion checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
+      Cost: "5",
+    },
+    //PRS Silver Tongue II
+    {
+      Title: "Silver Tongue II",
+      Id: "SilverTongue2",
+      Types: ["Presence"],
+      Description:
+        "You may draw an additional card in the act of a Persuasion. (Usable: once/action)",
+      Requirements: [{ type: "Presence", value: 3, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Silver Tongue III
+    {
+      Title: "Silver Tongue III",
+      Id: "SilverTongue3",
+      Types: ["Presence"],
+      Description:
+        "You have +2 in Persuasion checks.\nYou may draw 1 additional card in the act of Persuasion then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Persuasion checks.",
+      Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
+      Cost: "10",
+    },
+
     //#endregion Presence
 
     //#region Multi-Attribute
