@@ -542,36 +542,6 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mind", value: 4, color: "#5db8d9" }],
       Cost: "10",
     },
-    {
-      //MND KnwHistory I
-      Title: "Knowledge: History I",
-      Id: "KnwHistory1",
-      Types: ["Mind"],
-      Description:
-        "If you do not have a Twilight card in your deck add one. \n The maximum number of Twilights in your deck is 1. \n Twilights are always considered as a Success during Know History checks.",
-      Requirements: [{ type: "Mind", value: 1, color: "#5db8d9" }],
-      Cost: "5",
-    },
-    {
-      //MND KnwHistory II
-      Title: "Knowledge: History II",
-      Id: "KnwHistory2",
-      Types: ["Mind"],
-      Description:
-        "You may draw an additional card during Know History checks. (Usable: once/action)",
-      Requirements: [{ type: "Mind", value: 2, color: "#5db8d9" }],
-      Cost: "10",
-    },
-    {
-      //MND KnwHistory III
-      Title: "Knowledge: History III",
-      Id: "KnwHistory3",
-      Types: ["Mind"],
-      Description:
-        "In addition to its other effects, Twilights are considered a Critical Success during Know History Checks. \n You may draw 1 additional card during Know History checks then remove 1 card of your choice. (Usable: once/action)",
-      Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
-      Cost: "15",
-    },
     //MND Knowledge: Medicine I
     {
       Title: "Knowledge: Medicine I",
@@ -655,6 +625,36 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
       Cost: "10",
     },
+    //MSC Knowledge: Alchemy I
+    {
+      Title: "Knowledge: Alchemy I",
+      Id: "KnwAlchemy1",
+      Types: ["Mystic"],
+      Description:
+        "You always have +1 to any Knowledge: Alchemy checks. \nTwilights has a value of +1 during Knowledge: Alchemy checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Knowledge: Alchemy II
+    {
+      Title: "Knowledge: Alchemy II",
+      Id: "KnwAlchemy2",
+      Types: ["Mystic"],
+      Description:
+        "Draw an additional card during Knowledge: Alchemy checks (Once/Action)",
+      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Knowledge: Alchemy III
+    {
+      Title: "Knowledge: Alchemy III",
+      Id: "KnwAlchemy3",
+      Types: ["Mystic"],
+      Description:
+        "You have +2 in Knowledge: Alchemy checks.\nYou may draw 1 additional card in the act of Knowledge: Alchemy then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Knowledge: Alchemy checks.",
+      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "10",
+    },
     //MSC Trained Spirit I
     {
       Title: "Trained Spirit I",
@@ -692,6 +692,26 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
       Cost: "10",
     },
+    //MSC Divine Rituals I
+    {
+      Title: "Divine Rituals I",
+      Id: "DivineRituals1",
+      Types: ["Mystic"],
+      Description:
+        "Make a Knowledge: Religion check to make a 10 min ritual to connect with a specific divine or demonic entity.",
+      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Divine Rituals II
+    {
+      Title: "Divine Rituals II",
+      Id: "DivineRituals2",
+      Types: ["Mystic"],
+      Description:
+        "You have a +1 to Knowledge: Religion checks for the purpose of Divine Rituals.\n\nIn addition to its other effects: With a Knowledge: Religion check you are able to fully understand a ritual of divine or demonic nature and what it is trying to accomplish.",
+      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "5",
+    },
     //#endregion Mystic
 
     //#region Presence
@@ -702,7 +722,7 @@ export function getFeats(types, requirement) {
       Id: "Performer1",
       Types: ["Presence"],
       Description:
-        "You always have +1 to any Performance checks. \nTwilights has a value of +1 during Performance checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+        "You have +1 in Performance checks. \nTwilights has a value of +1 during Performance checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
       Cost: "5",
     },
@@ -732,7 +752,7 @@ export function getFeats(types, requirement) {
       Id: "SnakesTongue1",
       Types: ["Presence"],
       Description:
-        "You always have +1 to any Deception checks. \nTwilights has a value of +1 during Deception checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+        "You have +1 in Deception checks. \nTwilights has a value of +1 during Deception checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
       Cost: "5",
     },
@@ -762,7 +782,7 @@ export function getFeats(types, requirement) {
       Id: "SilverTongue1",
       Types: ["Presence"],
       Description:
-        "You always have +1 to any Persuasion checks. \nTwilights has a value of +1 during Persuasion checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+        "You have +1 in Persuasion checks. \nTwilights has a value of +1 during Persuasion checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
       Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
       Cost: "5",
     },
@@ -783,6 +803,66 @@ export function getFeats(types, requirement) {
       Types: ["Presence"],
       Description:
         "You have +2 in Persuasion checks.\nYou may draw 1 additional card in the act of Persuasion then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Persuasion checks.",
+      Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Intimidation I
+    {
+      Title: "Intimidation I",
+      Id: "Intimidation1",
+      Types: ["Presence"],
+      Description:
+        "You have +1 in Intimidation checks. \nTwilights has a value of +1 during Intimidation checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
+      Cost: "5",
+    },
+    //PRS Intimidation II
+    {
+      Title: "Intimidation II",
+      Id: "Intimidation2",
+      Types: ["Presence"],
+      Description:
+        "You may draw an additional card in the act of a Intimidation. (Usable: once/action)",
+      Requirements: [{ type: "Presence", value: 3, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Intimidation III
+    {
+      Title: "Intimidation III",
+      Id: "Intimidation3",
+      Types: ["Presence"],
+      Description:
+        "You have +2 in Intimidation checks.\nYou may draw 1 additional card in the act of Intimidation then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Intimidation checks.",
+      Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Leadership I
+    {
+      Title: "Leadership I",
+      Id: "Leadership1",
+      Types: ["Presence"],
+      Description:
+        "You have +1 in Leadership checks. \nTwilights has a value of +1 during Leadership checks. \n\nIf you do not have an Twilight card in your deck add one. (The maximum number of Twilights in your deck is 1).",
+      Requirements: [{ type: "Presence", value: 1, color: "#ebff65" }],
+      Cost: "5",
+    },
+    //PRS Leadership II
+    {
+      Title: "Leadership II",
+      Id: "Leadership2",
+      Types: ["Presence"],
+      Description:
+        "You may draw an additional card in the act of a Leadership. (Usable: once/action)",
+      Requirements: [{ type: "Presence", value: 3, color: "#ebff65" }],
+      Cost: "10",
+    },
+    //PRS Leadership III
+    {
+      Title: "Leadership III",
+      Id: "Leadership3",
+      Types: ["Presence"],
+      Description:
+        "You have +2 in Intimidation checks.\nYou may draw 1 additional card in the act of Leadership then remove 1 card of your choice.\n\nIn addition to its other effects, Twilights are considered a Critical Success during Intimidation checks.",
       Requirements: [{ type: "Presence", value: 5, color: "#ebff65" }],
       Cost: "10",
     },
