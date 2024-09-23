@@ -17,7 +17,7 @@
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Fighter</button>
                 <div class="dropdown-content">
-                    <a href="../Classes/Fighter-Berserker.html">Berserker</a>
+                    <a href="../Classes/Fighter-Berserker.html">Berserker (not yet implemented)</a>
                     <a href="../Classes/Fighter-Vanguard.html">Vanguard</a>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Apprentice</button>
                 <div class="dropdown-content">
-                    <a href="../Classes/Apprentice-Sun.html">Sun</a>
+                    <a href="../Classes/Apprentice-Sun.html">Sun (not yet implemented)</a>
                     <a href="../Classes/Apprentice-Truth.html">Truth</a>
                     <a href="#">Death</a>
                 </div>
@@ -33,31 +33,31 @@
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Rouge</button>
                 <div class="dropdown-content">
-                    <a href="../Classes/Rouge-ShadowDancer.html">Shadow Dancer</a>
-                    <a href="#">Assassin</a>
+                    <a href="../Classes/Rouge-ShadowDancer.html">Shadow Dancer (not yet implemented)</a>
+                    <a href="../Classes/Rouge-HexAssassin.html">Hex Assassin</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Ranger</button>
                 <div class="dropdown-content">
-                    <a href="../Classes/Ranger-Hunter.html">Hunter</a>
-                    <a href="#">Sharpshooter</a>
-                    <a href="#">Duelist</a>
+                    <a href="../Classes/Ranger-Hunter.html">Hunter (not yet implemented)</a>
+                    <a href="#">Sharpshooter (not yet implemented)</a>
+                    <a href="#">Duelist (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Warlock</button>
                 <div class="dropdown-content">
-                    <a href="../Classes/Warlock-Shadow.html">Shadow</a>
-                    <a href="../Classes/Warlock-Deathknight.html">Deathknight</a>
-                    <a href="../Classes/Warlock-PhantomLordhtml">PhantomLord</a>
+                    <a href="../Classes/Warlock-Shadow.html">Shadow (not yet implemented)</a>
+                    <a href="../Classes/Warlock-Deathknight.html">Deathknight (not yet implemented)</a>
+                    <a href="../Classes/Warlock-PhantomLordhtml">PhantomLord (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='#';">Wizard</button>
                 <div class="dropdown-content">
-                    <a href="#">Elemental</a>
-                    <a href="#">Chaos</a>
+                    <a href="#">Elemental (not yet implemented)</a>
+                    <a href="#">Chaos (not yet implemented)</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -74,18 +74,15 @@
         <div class="section">
             <div class="sub-section" id="sub-section-border">
                 <h4 class="block-header" id="description">Instrumental Bard</h4>
-                <p>A bard can bind magic spells to the tune of their instrument and control the way its sound will
-                    travel
-                    wether it be to aid an ally or cause a horde of goblins to fall asleep.
-                    As a flexible magic wielder the bard can control the outcome of a battlefield.
+                <p>The bard is a flexible support with either long range or large Area Of Effect. The bard utilize a 'Lingering Melody' mechanic that grants multiple buffs to their allies, together with their powerful songs the bard can quickly become the one that swifts the battle to their advantage.
                 </p>
-                <h5 class="block-header" id="description">Features</h5>
+                <h5 class="block-header" id="description">Class Specific Skills</h5>
                 <div id="trait-list">
                     <div class="trait-box">
                         <a id="positive-trait"><strong>Controlled Tunes</strong></a>
                         <div class="trait-pop-content">
                             <p>
-                                You gain the Card 'Controlled Tunes'.
+                                You gain the Card 'Controlled Tunes / Uncontrolled Tunes'.
                             </p>
                         </div>
                     </div>
@@ -93,9 +90,7 @@
                         <a id="positive-trait"><strong>Lingering melody</strong></a>
                         <div class="trait-pop-content">
                             <p>
-                                Start any battle with the condition 'Captivating
-                                Song'. <br>Whenever this condition is removed place it sun face up attached to you
-                                instead.
+                                You gain the card 'Enchanted Tunes / Captivating Song'.
                             </p>
                         </div>
                     </div>
@@ -106,40 +101,60 @@
 
 
         <div class="cardcontainer">
+            <div id="Card00" class="card">
+                <img src="../Art/Bard/Instrumental/00_c.png" alt="Sun" width="186" height="261"
+                    id="card-changer100" class="cardimg">
+            </div>
+            <div id="Card101" class="card">
+                <img src="../Art/Bard/Instrumental/01_c_sun.png" alt="Sun" width="186" height="261" onclick="changeside(101)"
+                    id="card-changer101" class="cardimg">
+            </div>
+            <div id="Card102" class="card"></div>
+                <img src="../Art/Bard/Instrumental/02_c_sun.png" alt="Sun" width="186" height="261" onclick="changeside(102)"
+                    id="card-changer102" class="cardimg">
+            </div>
+            <div id="Card00" class="card">
+                <img src="../Art/Bard/Instrumental/00_sun.png" alt="Sun" width="186" height="261" onclick="changeside(0)"
+                    id="card-changer0" class="cardimg">
+            </div>
             <div id="Card01" class="card">
-                <img src="../Art/Basic/Ranged/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(1)"
+                <img src="../Art/Basic/Ranged/01_sun.png" alt="Sun" width="186" height="261" onclick="changeside(1)"
                     id="card-changer1" class="cardimg">
             </div>
             <div id="Card02" class="card">
-                <img src="../Art/Basic/01_sun.png" alt="Sun" width="249" height="349" onclick="changeside(2)"
+                <img src="../Art/Basic/01_sun.png" alt="Sun" width="186" height="261" onclick="changeside(2)"
                     id="card-changer2" class="cardimg">
             </div>
             <div id="Card03" class="card">
-                <img src="../Art/Basic/03_sun.png" alt="Sun" width="249" height="349" onclick="changeside(3)"
+                <img src="../Art/Basic/03_sun.png" alt="Sun" width="186" height="261" onclick="changeside(3)"
                     id="card-changer3" class="cardimg">
             </div>
             <div id="Card04" class="card">
-                <img src="../Art/Basic/04_sun.png" alt="Sun" width="249" height="349" onclick="changeside(4)"
+                <img src="../Art/Basic/04_sun.png" alt="Sun" width="186" height="261" onclick="changeside(4)"
                     id="card-changer4" class="cardimg">
             </div>
 
             <div id="Card05" class="card">
-                <img src="../Art/Bard/Instrumental/01_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Bard/Instrumental/01_sun.png" alt="Sun" width="186" height="261"
                     onclick="changeside(5)" id="card-changer5" class="cardimg">
             </div>
 
             <div id="Card06" class="card">
-                <img src="../Art/Bard/Instrumental/02_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Bard/Instrumental/02_sun.png" alt="Sun" width="186" height="261"
                     onclick="changeside(6)" id="card-changer6" class="cardimg">
             </div>
 
             <div id="Card07" class="card">
-                <img src="../Art/Bard/Instrumental/03_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Bard/Instrumental/03_sun.png" alt="Sun" width="186" height="261"
                     onclick="changeside(7)" id="card-changer7" class="cardimg">
             </div>
             <div id="Card08" class="card">
-                <img src="../Art/Bard/Instrumental/04_sun.png" alt="Sun" width="249" height="349"
+                <img src="../Art/Bard/Instrumental/04_sun.png" alt="Sun" width="186" height="261"
                     onclick="changeside(8)" id="card-changer8" class="cardimg">
+            </div>
+            <div id="Card09" class="card">
+                <img src="../Art/Bard/Instrumental/05_sun.png" alt="Sun" width="186" height="261"
+                    onclick="changeside(9)" id="card-changer9" class="cardimg">
             </div>
         </div>
     </div>

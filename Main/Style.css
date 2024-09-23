@@ -82,6 +82,11 @@ body {
   border-top-right-radius: 30px;
 }
 
+#main-block {
+  max-width: 100em;
+  margin-top: 7em;
+}
+
 @media only screen and (max-width: 4000px){
   .Grid-container-top {
     grid-template: "religion history myths home races game tools";
@@ -125,10 +130,7 @@ body {
     'history home home game' 
     'myths home home tools'; */
   }
-  #main-block {
-    padding-top: 140px;
-    max-width: 100em;
-  }
+
 
   .top-button {
     font-size: 1em;
@@ -254,14 +256,14 @@ body {
   text-align: center;
   margin: 1%;
 }
-#sub-section-border {
+/* #sub-section-border {
   border: 2px solid;
   background-color: rgba(204, 245, 209, 0.4);
   border-color: #7fd39b;
   border-style: ridge;
   border-radius: 10px;
   margin-bottom: 20px;
-}
+} */
 
 .block-title {
   text-shadow: 0px 0px 1px #000000;
