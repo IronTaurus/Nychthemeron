@@ -38,15 +38,15 @@
             <div class="sub-block">
                 <div id="text-block">
                     <p>
-                        Realms Of Etharia is a turn based card roleplaying game, the game is sort of a mix between DnD
+                        Nychthemeron is a turn based card roleplaying game, the game is sort of a mix between DnD
                         and Magic the Gathering. The game does not have any dice making it less luck based while still
-                        retaining some random elements, a calculable randomness so to speak. The way this is that most
-                        random elements come in the form of a deck called Action Cards, these cards determine your
-                        overall damage value as well as your success rate, much like a dice does in DnD but since the
+                        retaining some random elements, a calculable randomness so to speak. The way this work is that most
+                        random elements come in the form of a deck called Action Cards. These cards determine your
+                        overall damage value as well as your success rate in checks, much like a dice does in DnD but since the
                         deck has a limited amount of cards you can keep track on how many good or bad cards there are
                         left in the deck.
-                        The game will feature a lot of customizability both by multi classing, adding removing Action Cards
-                        in your deck as well as the choice of races.
+                        The game will feature a lot of customizability both by multi classing, adding/removing Action Cards
+                        in your deck as well as various different races with unique abilities.
                     </p>
                 </div>
 
@@ -95,17 +95,75 @@
                                 </p>
                                 </p>
                             </div>
-                            <h4 class="block-header">Active Cards</h4>
+                            <div class="sub-section" id="sub-section-border">
+                                <div id="flex-section">
+                                    <div>
+                                        <img src="../Art/Rules/CardLayout.png" width="400" height="561">>
+                                    </div>
+                                    <div>
+                                        <h4 class="block-header">Layout</h4>
+                                        <div style="text-align: left;">
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                   <b>1.</b> Title of the skill/ability
+                                                </p>
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>2.</b> The card type, this often determines what action is required to use the skill/ability. The different types are: <strong>Standard</strong>, <strong>Movement</strong>, <strong>Reaction</strong>, <strong>Out-of-combat</strong>, <strong>Passive</strong> and <strong>Condition</strong>.
+                                                </p>
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>3.</b> Determines the face of the card, it is either Sun or Moon.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>4.</b> The Spirit cost of the card, this cost can be 0.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>5.</b> The ruletext of the card, this explain what the card does.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>6.</b> The type of attack and range modifier. <br>If the modifier is + or - the total value is the base range of the respective weapon equipped +/- the modifier value.<br>
+                                                    If the modifier is neither + or -, the range is set at the number indicated regardless of the base range of the weapon.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>7.</b> Requirements, this condition must be forfilled to use the card.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>8.</b> The name of the class the card belongs to.
+                                            </div>
+                                            <div id="text-block" style="padding: 3px;">
+                                                <p style="margin: 2px;">
+                                                    <b>9.</b> The name of the sub-class the card belongs to and the tier of the card.
+                                            </div>
+                                        </div>
+                                        
+        
+                                    </div>
+
+                                </div>
+
+                                
+                                <h4 class="block-header">Active Cards</h4>
                             <div id="text-block">
                                 <p>
                                     Active cards are the side of the card that is currently face up.
                                     Casting a spell does not make the other side of the card 'Active' until after the
-                                    effect of the casted spell has concluded and the card has been flipped over
+                                    inital effect of the casted spell has been concluded and the card has been flipped over
                                     to the other
                                     side (This does not include additional after-effects such as conditions, lasting
                                     buffs and debuffs).
                                 </p>
                             </div>
+                            </div>
+                            
+                            
                             <h4 class="block-header">Initative</h4>
                             <div id="text-block">
                                 <p id="text-block">
@@ -232,8 +290,16 @@
                                 <p>
                                     Whenever a player makes an ability check, he or she draws 3 cards from the
                                     ActionCards
-                                    deck, each card is either a Sun or a Moon, you add the numbers together but depending on the current <b>Day Time</b> the corresponding card has its value doubbled.
+                                    deck, each card is either a Sun or a Moon, you add the numbers together but depending on the current <b>Day Time</b> the corresponding card has its value doubled.
                                     On the top of the card you can see the value it has when calculating for checks.
+                                </p>
+                            </div>
+                            <h4 class="block-header">Difficulty Rating</h4>
+                            <div id="text-block">
+                                <p>
+                                    The DM determines the difficulty of a certain challenge and the player need to draw
+                                    cards adding their value up to or higher than that difficulty.
+                                    A Player also have their own Difficulty Rating that normally starts at 6, this is what enemies need to beat in order to avoid your inflictions. This can be increased by Talents.
                                 </p>
                             </div>
                             <h4 class="block-header">Attributes & Talents</h4>
@@ -260,14 +326,7 @@
                                     after a long rest.
                                 </p>
                             </div>
-                            <h4 class="block-header">Difficulty Rating</h4>
-                            <div id="text-block">
-                                <p>
-                                    The DM determines the difficulty of a certain challenge and the player need to draw
-                                    cards adding their value up to or higher than that difficulty.
-                                    A Player also have their own Difficulty Rating that normally starts at 6, this is what enemies need to beat in order to avoid your inflictions. This can be increased by Talents.
-                                </p>
-                            </div>
+
                         </div>
                         <div>
                             <img src="../Art/ActionCards.png" width="363" height="302">
