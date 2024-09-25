@@ -1,0 +1,41 @@
+#trait-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .trait-box {
+    margin: 1%;
+  }
+  
+  #positive-trait {
+    border: 1px solid #034218;
+    border-radius: 10px;
+    background-color: rgb(41, 175, 75);
+    font-size: 18px;
+    padding: 5px;
+  }
+  #negative-trait {
+    border: 1px solid #420303;
+    border-radius: 10px;
+    background-color: rgb(206, 48, 48);
+    font-size: 18px;
+    padding: 5px;
+  }
+  .trait-pop-content {
+    display: none;
+    position: absolute;
+    border: #034218 solid 1px;
+    border-radius: 10px;
+    background-color: #d7f1e0;
+    max-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 5px;
+  }
+  .trait-box:hover {
+    cursor: default;
+  }
+  .trait-box:hover .trait-pop-content {
+    display: block;
+  }

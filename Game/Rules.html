@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Main/Style.css">
+    <link rel="stylesheet" href="../Tools/css/Style.css">
 </head>
 
 <body>
@@ -100,51 +100,22 @@
                                     <div>
                                         <img src="../Art/Rules/CardLayout.png" width="400" height="561">>
                                     </div>
-                                    <div>
+                                    <div style="align-items: start;">
                                         <h4 class="block-header">Layout</h4>
-                                        <div style="text-align: left;">
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                   <b>1.</b> Title of the skill/ability
-                                                </p>
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>2.</b> The card type, this often determines what action is required to use the skill/ability. The different types are: <strong>Standard</strong>, <strong>Movement</strong>, <strong>Reaction</strong>, <strong>Out-of-combat</strong>, <strong>Passive</strong> and <strong>Condition</strong>.
-                                                </p>
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>3.</b> Determines the face of the card, it is either Sun or Moon.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>4.</b> The Spirit cost of the card, this cost can be 0.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>5.</b> The ruletext of the card, this explain what the card does.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>6.</b> The type of attack and range modifier. <br>If the modifier is + or - the total value is the base range of the respective weapon equipped +/- the modifier value.<br>
-                                                    If the modifier is neither + or -, the range is set at the number indicated regardless of the base range of the weapon.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>7.</b> Requirements, this condition must be forfilled to use the card.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>8.</b> The name of the class the card belongs to.
-                                            </div>
-                                            <div id="text-block" style="padding: 3px;">
-                                                <p style="margin: 2px;">
-                                                    <b>9.</b> The name of the sub-class the card belongs to and the tier of the card.
-                                            </div>
-                                        </div>
-                                        
-        
+                                        <div id="text-block" style="padding: 3px; min-width: 25em;" >
+                                            <p style="margin: 2px; text-align: left;" >
+                                               <b>1.</b> Title of the skill/ability<br><br>
+                                               <b>2.</b> The card type, this often determines what action is required to use the skill/ability. The different types are: <strong>Standard</strong>, <strong>Movement</strong>, <strong>Reaction</strong>, <strong>Out-of-combat</strong>, <strong>Passive</strong> and <strong>Condition</strong>.<br><br>
+                                               <b>3.</b> Determines the face of the card, it is either Sun or Moon.<br><br>
+                                               <b>4.</b> The Spirit cost of the card, this cost can be 0.<br><br>
+                                               <b>5.</b> The ruletext of the card, this explain what the card does.<br><br>
+                                               <b>6.</b> The type of attack and range modifier. <br>If the modifier is + or - the total value is the base range of the respective weapon equipped +/- the modifier value.
+                                               If the modifier is neither + or -, the range is set at the number indicated regardless of the base range of the weapon.<br><br>
+                                               <b>7.</b> Requirements, this condition must be forfilled to use the card.<br><br>
+                                               <b>8.</b> The name of the class the card belongs to.<br><br>
+                                               <b>9.</b> The name of the sub-class the card belongs to and the tier of the card.
+                                            </p>
+                                        </div>                                   
                                     </div>
 
                                 </div>
@@ -275,8 +246,10 @@
                 <div class="sub-block">
                     <div id="text-block">
                         <p>
-                            Each new day resets the player's SP and also turns each card over to its sun side.
-                            You can use certain <b>Out of Combat</b> cards without bigger issues but using any other card might result in you starting a combat the moment you use it.</p>
+                            After a long rest the players reset their Spirit Points and turn each non-exhausted cards over to its sun side.
+                            Just like any other RPG you have actions such as 'Climbing' that require you to do a certain check for that action.
+                            Once again we will use the Action Cards for that purpose.
+                            You can also use certain <b>Out of Combat</b> cards without bigger issues but using any other card might result in you starting a combat the moment you use it.</p>
                         </p>
                     </div>
                     <div id="flex-section">
@@ -288,10 +261,14 @@
                             <h4 class="block-header">Ability Check</h4>
                             <div id="text-block">
                                 <p>
-                                    Whenever a player makes an ability check, he or she draws 3 cards from the
-                                    ActionCards
-                                    deck, each card is either a Sun or a Moon, you add the numbers together but depending on the current <b>Day Time</b> the corresponding card has its value doubled.
+                                    Whenever a player makes an ability check, they draw 3 cards from the
+                                    Action Cards
+                                    deck, each card is either a Sun or a Moon, then you add the numbers together but depending on the current <b>Day Time</b> the corresponding card has its value doubled.
                                     On the top of the card you can see the value it has when calculating for checks.
+                                    Drawing a 'Critical Success' will always be considered a successful action regardless of the other cards and vise versa for 'Critical Failure'. 
+                                    If you would draw both 'Critical Success' and 'Critical Failure' the one that you drew first overides the other.
+                                    <br><br>
+                                    <i>(i.e. Player A wants to climb up on the city wall during the night, the DM tells Player A to do a 'Climbing' check with the difficulty of 7  Player A does not have any bonuses for Climbing so they draw 3 cards. The Cards they drew was Sun [2], Moon [3], Sun [1]. Since this is during the night Player A will double the value of any Moon cards so their total becomes 2+6+1 for a total of 9 and successfully climbs the wall.)</i>
                                 </p>
                             </div>
                             <h4 class="block-header">Difficulty Rating</h4>
@@ -300,6 +277,21 @@
                                     The DM determines the difficulty of a certain challenge and the player need to draw
                                     cards adding their value up to or higher than that difficulty.
                                     A Player also have their own Difficulty Rating that normally starts at 6, this is what enemies need to beat in order to avoid your inflictions. This can be increased by Talents.
+                                </p>
+                            </div>
+                            <h4 class="block-header">Aspiration Points</h4>
+                            <div id="text-block">
+                                <p>
+                                    A player may also spend Aspiration points based on the respective attribute to draw
+                                    additional
+                                    cards.
+                                    For example if a player makes a perception (Mind) check and has a Mind Aspiration of
+                                    3,
+                                    they may choose to spend up to 3 points of Aspiration of that attribute to draw that many additional
+                                    cards
+                                    to increase the chances of succeeding.
+                                    Aspiration points may be spent in succession after seeing the first 3 cards and is replenished
+                                    after a long rest.
                                 </p>
                             </div>
                             <h4 class="block-header">Attributes & Talents</h4>
@@ -311,21 +303,7 @@
                                     When you level up you gain 1 attribute to put anywhere you want and 10 Talent Points to buy any Talent you wish as long as you forfill its conditions.
                                 </p>
                             </div>
-                            <h4 class="block-header">Aspiration Points</h4>
-                            <div id="text-block">
-                                <p>
-                                    A player may also spend Aspiration points based on the respective stat to draw
-                                    additional
-                                    cards.
-                                    For example if a player makes a perception (Mind) check and has a Mind Aspiration of
-                                    3,
-                                    they may choose to spend up to 3 points of that stat to draw that many additional
-                                    cards
-                                    to increase the chances of succeeding.
-                                    Spending these points may be done after seeing the first 3 cards and is replenished
-                                    after a long rest.
-                                </p>
-                            </div>
+
 
                         </div>
                         <div>
