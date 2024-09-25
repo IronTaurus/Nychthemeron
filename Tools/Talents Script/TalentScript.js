@@ -1,5 +1,5 @@
-import { getFeats } from "./Feats.js";
-console.log("FeatList.js loaded.");
+import { getFeats } from "./TalentList.js";
+console.log("TalentScript.js loaded.");
 var parentUrl = window.location.origin + "/Nychthemeron";
 
 var attr = document.querySelectorAll("div.attribute");
