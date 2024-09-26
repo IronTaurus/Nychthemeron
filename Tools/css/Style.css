@@ -3,6 +3,9 @@ body {
   background-repeat: repeat;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+img{
+  height: auto;
+}
 #text-block {
   align-items: center;
   font-size: 20px;
@@ -128,7 +131,7 @@ body {
 @media only screen and (max-width: 800px){
   #flex-section{
     display: block;
-    max-width: 580px;
+    max-width: 780px;
   }
   .sub-section {
     display: block;
@@ -144,7 +147,7 @@ body {
   background-image: url("https://www.stockvault.net/data/2021/05/10/285722/thumb16.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  align-items: center;
+  /* align-items: center; */
   margin: 2em;
   background-color: #74b176;
   border-radius: 40px;
