@@ -655,6 +655,75 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
       Cost: "10",
     },
+    //MSC Invasive Mind I
+    {
+      Title: "Invasive Mind I",
+      Id: "InvasiveMind1",
+      Types: ["Mystic"],
+      Description:
+        "The difficulty of checks caused by your inflictions/attacks are increased by 1.",
+      Requirements: [{ type: "Mystic", value: 1, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Invasive Mind II
+    {
+      Title: "Invasive Mind II",
+      Id: "InvasiveMind2",
+      Types: ["Mystic"],
+      Description:
+        "The difficulty of checks caused by your inflictions/attacks are increased by 1.",
+      Requirements: [{ type: "Mystic", value: 3, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Invasive Mind III
+    {
+      Title: "Invasive Mind III",
+      Id: "InvasiveMind3",
+      Types: ["Mystic"],
+      Description:
+        "The difficulty of checks caused by your inflictions/attacks are increased by 1.",
+      Requirements: [{ type: "Mystic", value: 5, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Invasive Mind IV
+    {
+      Title: "Invasive Mind IV",
+      Id: "InvasiveMind4",
+      Types: ["Mystic"],
+      Description:
+        "The difficulty of checks caused by your inflictions/attacks are increased by 1.",
+      Requirements: [{ type: "Mystic", value: 7, color: "#d44ecb" }],
+      Cost: "5",
+    },
+    //MSC Ward Maker I
+    {
+      Title: "Ward Maker I",
+      Id: "WardMaker1",
+      Types: ["Mystic"],
+      Description:
+        "Do a Knowledge: Arcane check and a 10min ritual spending material worth 10gold." +
+        "You are able to make a ward of the chosen type." +
+        "The range of the ward is 5+ (2 x Mystics) in meters and lasts for 8h.\n\n" +
+        "-Evil Ward: The warded area is invisible to the ill intended.\n" +
+        "-Wanderer Ward: The warded area is invisible to the chosen creature type. (Spirits, Beasts, Humanoid, etc)\n" +
+        "-Spell ward: Magical or Divine effects ends and can't be inflicted in the warded area.",
+      Requirements: [{ type: "Mystic", value: 2, color: "#d44ecb" }],
+      Cost: "10",
+    },
+    //MSC Ward Maker II
+    {
+      Title: "Ward Maker II",
+      Id: "WardMaker2",
+      Types: ["Mystic"],
+      Description:
+        "Wards range is now 8 + (3 x Mystics) in meters and lasts 12h.\n\n" +
+        "In addition to its other effects:\n" +
+        "You can now reset the duration by making another cost free ritual.\n" +
+        "Wards now also causes warded creatures to avoid the warded area.\n" +
+        "Spell Ward now also blocks spells from entering the warded area.\n",
+      Requirements: [{ type: "Mystic", value: 4, color: "#d44ecb" }],
+      Cost: "10",
+    },
     //MSC Trained Spirit I
     {
       Title: "Trained Spirit I",
