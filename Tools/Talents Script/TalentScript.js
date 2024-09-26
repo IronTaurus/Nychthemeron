@@ -82,7 +82,7 @@ function createFeatElement(feats) {
     baseDiv.appendChild(eRequirments);
     var costs = document.createElement("h5");
     costs.setAttribute("class", "costText");
-    costs.textContent = `FP Cost: ${f.Cost}`;
+    costs.textContent = `TP Cost: ${f.Cost}`;
     baseDiv.appendChild(costs);
     var eDrop = document.createElement("div");
     eDrop.style.display = "none";
