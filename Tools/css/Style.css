@@ -278,6 +278,8 @@ img{
 
 .sub-title {
   margin: 0%;
+  margin-bottom: 0.4em;
+
   font-size: 22px;
   color: #68a56a;
 }

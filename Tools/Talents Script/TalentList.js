@@ -1,4 +1,4 @@
-console.log("Feats.js loaded.");
+console.log("TalentList.js loaded.");
 export function getFeats(types, requirement) {
   console.log("chosen attribute is: " + types);
   const Attributes = [
@@ -1065,8 +1065,5 @@ export function getFeats(types, requirement) {
     typ.Types.some((t) => types.some((fType) => t === fType))
   );
 
-  // const f = Attributes.filter((atr) =>
-  //   atr.Types.some((type) => type === options)
-  // );
   return sortByType;
 }
