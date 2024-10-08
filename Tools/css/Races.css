@@ -10,16 +10,16 @@
 }
 
 #positive-trait {
-  border: 1px solid #034218;
+  border: 2px solid rgb(41, 175, 75);
   border-radius: 15px;
-  background-color: rgb(41, 175, 75);
+  background-color: rgb(183, 197, 172);
   font-size: 16px;
   padding: 0.3em;
 }
 #negative-trait {
-  border: 1px solid #420303;
+  border: 2px solid rgb(206, 48, 48);
   border-radius: 15px;
-  background-color: rgb(206, 48, 48);
+  background-color: rgb(207, 172, 172);
   font-size: 16px;
   padding: 0.3em;
 }
@@ -72,7 +72,7 @@
   background-color: #3887e2;
 }
 .Mystic {
-  background-color: #9a3a94;
+  background-color: #a5509f;
 }
 .Presence {
   background-color: #d9e949;
