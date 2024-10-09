@@ -572,6 +572,33 @@ export function getFeats(types, requirement) {
       Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
       Cost: "10",
     },
+        //MND Lethal Expertise I
+        {
+          Title: "Lethal Expertise I",
+          Id: "LethalExpertise1",
+          Types: ["Mind"],
+          Description: "Poison and Bleed has 1 additional charge.",       
+          Requirements: [{ type: "Mind", value: 3, color: "#5db8d9" }],
+          Cost: "10",
+        },
+        //MND Lethal Expertise II
+        {
+          Title: "Lethal Expertise II",
+          Id: "LethalExpertise2",
+          Types: ["Mind"],
+          Description: "Poison and Bleed has 1 additional charge.",       
+          Requirements: [{ type: "Mind", value: 5, color: "#5db8d9" }],
+          Cost: "10",
+        },
+        //MND Lethal Expertise III
+        {
+          Title: "Lethal Expertise III",
+          Id: "LethalExpertise3",
+          Types: ["Mind"],
+          Description: "Poison and Bleed has 1 additional charge.",       
+          Requirements: [{ type: "Mind", value: 7, color: "#5db8d9" }],
+          Cost: "10",
+        },
     //MND Field Medic I
     {
       Title: "Field Medic I",
